@@ -1,0 +1,20 @@
+source https://nuget.org/api/v2
+
+nuget FSharp.Core redirects: force
+nuget FSharp.Compiler.Service
+
+group Build
+  source https://nuget.org/api/v2
+  
+  nuget SourceLink.Fake
+  nuget FAKE
+  nuget FAKE.Persimmon
+  nuget FSharp.Formatting
+
+  github fsharp/FAKE modules/Octokit/Octokit.fsx
+
+group Test
+  source https://nuget.org/api/v2
+  
+  nuget Persimmon
+  

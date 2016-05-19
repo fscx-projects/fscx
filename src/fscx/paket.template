@@ -1,0 +1,25 @@
+type project
+title
+    fscx
+owners
+    Kouji Matsui, bleis-tift
+authors 
+    Kouji Matsui
+projectUrl
+    http://github.com/kekyo/fscx
+iconUrl
+    https://raw.githubusercontent.com/kekyo/fscx/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/kekyo/fscx/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    F# compiler fsc compile build ast
+summary
+    Expandable F# compiler
+description
+    Easy infrastructure can replace F#'s AST at compile time.
+
+
