@@ -176,6 +176,7 @@ docs/output/
 temp/
 
 # Test results produced by build
+TestResult.xml
 TestResults.xml
 
 # Nuget outputs
