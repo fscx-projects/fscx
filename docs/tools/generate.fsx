@@ -11,17 +11,17 @@
 // (This is the original behaviour of ProjectScaffold prior to multi project support)
 let referenceBinaries = []
 // Web site location for the generated documentation
-let website = "/fscx"
+let website = "."
 
-let githubLink = "http://github.com/kekyo/fscx"
+let githubLink = "http://github.com/fscx-projects/fscx"
 
 // Specify more information about your project
 let info =
-  [ "project-name", "fscx"
+  [ "project-name", "fscx-projects"
     "project-author", "bleis-tift, Kouji Matsui"
     "project-summary", "Expandable F# compiler"
     "project-github", githubLink
-    "project-nuget", "http://nuget.org/packages/fscx" ]
+    "project-nuget", "http://nuget.org/packages/fscx-projects" ]
 
 // --------------------------------------------------------------------------------------
 // For typical project, no changes are needed below
