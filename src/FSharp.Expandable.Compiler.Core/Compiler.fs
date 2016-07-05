@@ -14,8 +14,6 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 module Compiler =
 
   let public asyncCompile argv = async {
-    System.Diagnostics.Debug.Assert(false)
-
     let checker = FSharpChecker.Create()
     let simpleService = SimpleSourceCodeServices()
 
