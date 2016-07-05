@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{63297B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fscx", "src\fscx\fscx.fsproj", "{A62FF280-7693-42E0-9E0C-11B6F7CA9BCB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
 		build.fsx = build.fsx
@@ -47,20 +45,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{28ECEE63-9BB4-
 		docs\tools\templates\ja\template.cshtml = docs\tools\templates\ja\template.cshtml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Expandable.Compiler.Tasks", "src\FSharp.Expandable.Compiler.Tasks\FSharp.Expandable.Compiler.Tasks.csproj", "{3FCFCD0E-B40D-4A48-BF4C-85D552E46471}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Expandable.Compiler.Core", "src\FSharp.Expandable.Compiler.Core\FSharp.Expandable.Compiler.Core.fsproj", "{D161E6D7-1F2E-48BD-9485-AE3F30D57D39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Expandable.Compiler", "src\FSharp.Expandable.Compiler\FSharp.Expandable.Compiler.csproj", "{45C7BDDB-25B6-4CE9-B128-03B8AB27EDFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A62FF280-7693-42E0-9E0C-11B6F7CA9BCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A62FF280-7693-42E0-9E0C-11B6F7CA9BCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A62FF280-7693-42E0-9E0C-11B6F7CA9BCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A62FF280-7693-42E0-9E0C-11B6F7CA9BCB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{608E65FC-B678-4715-BC56-50B62EE3C15B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{608E65FC-B678-4715-BC56-50B62EE3C15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{608E65FC-B678-4715-BC56-50B62EE3C15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{608E65FC-B678-4715-BC56-50B62EE3C15B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FCFCD0E-B40D-4A48-BF4C-85D552E46471}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FCFCD0E-B40D-4A48-BF4C-85D552E46471}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FCFCD0E-B40D-4A48-BF4C-85D552E46471}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FCFCD0E-B40D-4A48-BF4C-85D552E46471}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D161E6D7-1F2E-48BD-9485-AE3F30D57D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D161E6D7-1F2E-48BD-9485-AE3F30D57D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D161E6D7-1F2E-48BD-9485-AE3F30D57D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D161E6D7-1F2E-48BD-9485-AE3F30D57D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C7BDDB-25B6-4CE9-B128-03B8AB27EDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C7BDDB-25B6-4CE9-B128-03B8AB27EDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C7BDDB-25B6-4CE9-B128-03B8AB27EDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C7BDDB-25B6-4CE9-B128-03B8AB27EDFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

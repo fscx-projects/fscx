@@ -1,0 +1,95 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="Fscx" AssemblyFile="FSharp.Expandable.Compiler.Tasks.dll"/>
+
+  <!--
+  <PropertyGroup>
+    <CoreCompileDependsOn></CoreCompileDependsOn>
+  </PropertyGroup>
+  -->
+
+  <Target
+      Name="CoreCompile"
+      Inputs="$(MSBuildAllProjects);
+                @(CompileBefore);
+                @(Compile);                               
+                @(CompileAfter);
+                @(_CoreCompileResourceInputs);
+                @(ManifestNonResxWithNoCultureOnDisk);
+                $(ApplicationIcon);
+                $(AssemblyOriginatorKeyFile);
+                @(ReferencePath);
+                @(CompiledLicenseFile);
+                @(EmbeddedDocumentation); 
+                $(Win32Resource);
+                $(Win32Manifest);
+                @(CustomAdditionalCompileInputs);
+                $(VersionFile);
+                $(KeyOriginatorFile)"
+      Outputs="@(DocFileItem);
+                 @(IntermediateAssembly);
+                 @(_DebugSymbolsIntermediatePath);                 
+                 $(NonExistentFile);
+                 @(CustomAdditionalCompileOutputs)"
+      DependsOnTargets="$(CoreCompileDependsOn)">
+
+    <!-- See bug 6053
+        <Error
+            Condition="'$(SilverlightVersion)' != '' and !(Exists('$(ProgramFiles)\Microsoft F#\Silverlight\Libraries\Client\$(SilverlightVersion)\FSharp.Core.dll'))"
+            Text="F# runtime for Silverlight version $(SilverlightVersion) is not installed. Please go to http://go.microsoft.com/fwlink/?LinkId=177463 to download and install matching F# runtime"
+        />
+    -->
+
+    <Warning
+        Condition="'$(Win32ResourceFile)' != '' "
+        Text="The property &lt;Win32ResourceFile> has been renamed to &lt;Win32Resource>. Update your project file to ensure that the correct value is passed via the --win32res option to the F# compiler."
+        />
+
+    <!-- Condition is to filter out the _CoreCompileResourceInputs so that it doesn't pass in culture resources to the compiler -->
+    <Fscx Condition=" '%(_CoreCompileResourceInputs.WithCulture)' != 'true' "
+          BaseAddress="$(BaseAddress)"
+          CodePage="$(CodePage)"
+          DebugSymbols="$(DebugSymbols)"
+          DebugType="$(DebugType)"
+          DefineConstants="$(DefineConstants)"
+          DisabledWarnings="$(NoWarn)"
+          DocumentationFile="$(DocumentationFile)"
+          GenerateInterfaceFile="$(GenerateInterfaceFile)"
+          KeyFile="$(KeyOriginatorFile)"
+          LCID="$(LCID)"
+          NoFramework="true"
+          Optimize="$(Optimize)"
+          OtherFlags="$(OtherFlags)"
+          OutputAssembly="@(IntermediateAssembly)"
+          PdbFile="$(PdbFile)"
+          Platform="$(PlatformTarget)"
+          References="@(ReferencePath)"
+          ReferencePath="$(ReferencePath)"
+          Resources="@(ManifestResourceWithNoCulture);@(ManifestNonResxWithNoCultureOnDisk);@(CompiledLicenseFile);@(AdditionalEmbeddedResource)"
+          Sources="@(CompileBefore);@(Compile);@(CompileAfter)"
+          Tailcalls="$(Tailcalls)"
+          TargetType="$(OutputType)"
+          ToolExe="$(FscToolExe)"
+          ToolPath="$(FscToolPath)"
+          TreatWarningsAsErrors="$(TreatWarningsAsErrors)"
+          Utf8Output="$(Utf8Output)"
+          VersionFile="$(VersionFile)"
+          VisualStudioStyleErrors="$(VisualStudioStyleErrors)"
+          WarningLevel="$(WarningLevel)"
+          WarningsAsErrors="$(WarningsAsErrors)"
+          Win32ManifestFile="$(Win32Manifest)"
+          Win32ResourceFile="$(Win32Resource)"
+        />
+
+    <!-- These parameters are supported by F# 3.0 but not yet supported by the F# open source edition:
+              Prefer32Bit="$(Actual32Bit)" 
+              SubsystemVersion="$(SubsystemVersion)"
+              HighEntropyVA="$(HighEntropyVA)" -->
+
+    <ItemGroup>
+      <_CoreCompileResourceInputs Remove="@(_CoreCompileResourceInputs)" />
+    </ItemGroup>
+
+  </Target>
+
+</Project>
