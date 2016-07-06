@@ -57,3 +57,10 @@ type Compiler =
   static member CompileWithArguments tw args =
     let arguments = CompilerArguments.extract args
     Compiler.Compile tw arguments
+
+////////////////////////////////////////////////
+
+open System.Runtime.CompilerServices
+
+[<assembly: InternalsVisibleTo("FSharp.Expandable.Compiler.Core.Tests")>]
+do()

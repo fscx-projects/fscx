@@ -135,7 +135,7 @@ Target "Build" (fun _ ->
 #if MONO
     |> MSBuildReleaseExt "" [ ("DefineConstants","MONO") ] "Rebuild"
 #else
-    |> MSBuildRelease "" "Rebuild"
+    |> MSBuildReleaseExt "" [ "Platform", "Any CPU" ] "Rebuild"
 #endif
     |> ignore
 )
