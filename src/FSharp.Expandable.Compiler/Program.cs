@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace FSharp.Expandable
 {
@@ -7,7 +8,7 @@ namespace FSharp.Expandable
         public static int Main(string[] args)
         {
             Debug.Assert(false);
-            return Compiler.compile(args);
+            return Compiler.CompileWithArguments(Console.Out, args);
         }
     }
 }
