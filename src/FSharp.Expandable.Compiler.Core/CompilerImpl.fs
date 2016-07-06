@@ -14,7 +14,7 @@ module internal CompilerImpl =
   ///////////////////////////////////////////////////////
 
   /// Read entire text file
-  let private asyncReadTextFile sourcePath = async {
+  let asyncReadTextFile sourcePath = async {
     use fs = new FileStream(sourcePath, FileMode.Open, FileAccess.Read, FileShare.Read, 65536, true)
     let sr = new StreamReader(fs, true)
     return! sr.ReadToEndAsync() |> Async.AwaitTask
