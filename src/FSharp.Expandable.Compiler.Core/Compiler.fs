@@ -1,112 +1,166 @@
 namespace FSharp.Expandable
 
+open System
+open System.Diagnostics
+open System.IO
+
+open Microsoft.FSharp.Compiler
+open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
-// TODO: extract from argv
-//let dependencies =
-//  [ @"C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\FSharp.Core.dll"
-//    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll"
-//    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll"
-//    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll"
-//    @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll" ]
+module private CompilerImpl =
+  open Microsoft.FSharp.Compiler
+
+  let extractOptionValues switch (argv: string seq) =
+    argv
+    |> Seq.filter (fun arg -> arg.StartsWith switch)
+    |> Seq.map (fun arg -> arg.Substring (switch.Length))
+
+  let extractOptionValue switch argv =
+    argv
+    |> extractOptionValues switch
+    |> Seq.head
+
+  let extractOptionPath switch argv =
+    argv
+    |> extractOptionValue switch
+    |> Path.GetFullPath
+
+  let createOptions projectPath optionArgs sourcePaths =
+    let optionWithSource = seq {
+      yield! optionArgs
+      yield! sourcePaths
+    }
+
+    let checker = FSharpChecker.Create()
+    checker.GetProjectOptionsFromCommandLineArgs(
+      projectPath,
+      optionWithSource |> Seq.toArray)
+
+  type SourceCodeDescription = {
+    Path: string
+    AsyncReadBody: unit -> Async<string>
+  }
+
+  let createSourceCodes sourcePaths =
+    sourcePaths
+    |> Seq.map (fun path -> { Path = path; AsyncReadBody = (fun _ -> async {
+      // TODO: Asynchronously
+      return File.ReadAllText path
+    })})
+
+  type ParseAndApplyResult =
+  | Succeeded of path: string * ast: ParsedInput
+  | ParseFailed of path: string * errors: FSharpErrorInfo seq
+  | CheckFailed of path: string
+
+  /// Parse source codes and apply filter.
+  let parseSourceCodesAndApplyByAsync options filter sourceCodes =
+    sourceCodes
+    |> Seq.map (fun code -> async {
+      let! body = code.AsyncReadBody()
+      let checker = FSharpChecker.Create()
+      let! parseResult = checker.ParseFileInProject(code.Path, body, options)
+      match parseResult.ParseTree with
+      | Some ast ->
+        let! checkAnswer = checker.CheckFileInProject(parseResult, code.Path, 1, body, options)
+        match checkAnswer with
+        | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
+          let filteredAst = filter ast checkAnswer
+          return Succeeded (code.Path, filteredAst)
+        | FSharpCheckFileAnswer.Aborted ->
+          return CheckFailed code.Path
+      | None ->
+        return ParseFailed (code.Path, parseResult.Errors)
+    })
 
 module Compiler =
 
-  let public asyncCompile argv = async {
-    let checker = FSharpChecker.Create()
-    let simpleService = SimpleSourceCodeServices()
+  let public asyncCompile (argv: string seq) = async {
 
-    let sessionId = System.Guid.NewGuid().ToString("N")
+    let sourcePaths =
+      argv
+      |> Seq.filter (fun arg -> not (arg.StartsWith "-"))
+      |> Seq.map (fun arg -> Path.GetFullPath arg)
+      |> Seq.toArray
+    let optionArgs =
+      argv
+      |> Seq.filter (fun arg -> (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:"))
+      |> Seq.toArray
 
-    let fixFilter (arg: string) =
-      if not (arg.StartsWith "-") then
-        System.IO.Path.GetFullPath arg
-      else
-        arg
-
-    let fixedArgv = argv |> Seq.map fixFilter |> Seq.toArray
-
-    // TODO:Multiple sources
-    let rawSourcePath = argv |> Seq.filter (fun arg -> (not (arg.StartsWith "-")) && (arg.EndsWith ".fs")) |> Seq.head
-    let sourcePath = System.IO.Path.GetFullPath rawSourcePath
-    //let sourcePath = System.IO.Path.GetFullPath(fixedArgv.[0])
-    let text = System.IO.File.ReadAllText(sourcePath, System.Text.Encoding.UTF8)
-
-    let projectFolderPath = System.IO.Path.GetDirectoryName sourcePath
-    let projectPath = System.IO.Path.Combine(projectFolderPath, sessionId + ".proj")
-    let outputPath = System.IO.Path.GetFullPath(fixedArgv |> Seq.filter (fun arg -> arg.StartsWith "-o:") |> Seq.map (fun arg -> arg.Substring 3) |> Seq.head)
-    let assemblyName = System.IO.Path.GetFileNameWithoutExtension outputPath
-    let pdbPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName outputPath, assemblyName + ".pdb")
-
-    let dependencies = fixedArgv |> Seq.filter (fun arg -> arg.StartsWith "-r:") |> Seq.map (fun arg -> arg.Substring 3) |> Seq.toList
-    let optionArgs = fixedArgv |> Seq.filter (fun arg -> arg.StartsWith "-") |> Seq.toArray
-
-    printfn "fcs.exe ---------------------------"
-    fixedArgv |> Seq.iter (fun arg -> printfn "Argument: %A" arg)
+    let projectPath =
+      CompilerImpl.extractOptionPath "--projectPath:" argv
+    let outputPath =
+      CompilerImpl.extractOptionPath "-o:" argv
+    let assemblyName =
+      Path.GetFileNameWithoutExtension outputPath
+    let pdbPath =
+      Path.Combine(Path.GetDirectoryName outputPath, assemblyName + ".pdb")
+    let dependencies =
+      CompilerImpl.extractOptionValues "-r:" argv
+      |> Seq.toList
 
     let options =
-      let optionWithSource = seq {
-        yield! optionArgs
-        yield sourcePath
-      }
+      CompilerImpl.createOptions projectPath optionArgs sourcePaths
 
-      checker.GetProjectOptionsFromCommandLineArgs(
-        projectPath,
-        optionWithSource |> Seq.toArray)
-  //      [| "-o:output.dll"
-  //         "-g"
-  //         "--debug:full"
-  //         "--noframework"
-  //         "--define:DEBUG"
-  //         "--define:TRACE"
-  //         "--optimize-"
-  //         "--tailcalls-"
-  //         "--platform:anycpu32bitpreferred"
-  //         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\FSharp.Core.dll"
-  //         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll"
-  //         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll"
-  //         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll"
-  //         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll"
-  //         "--target:library"
-  //         "--warn:3"
-  //         "--warnaserror:76"
-  //         "--vserrors"
-  //         "--LCID:1041"
-  //         "--utf8output"
-  //         "--fullpaths"
-  //         "--flaterrors"
-  //         "--subsystemversion:6.00"
-  //         "--highentropyva+"
-  //         src |])
+    //////////////////////////////////////
 
-    let! parseResult = checker.ParseFileInProject(sourcePath, text, options)
+    Debug.WriteLine("FSharp.Expandable.Compiler ----------------------")
+    argv |> Seq.iter (fun arg -> Debug.WriteLine(sprintf "Argument: %A" arg))
 
-    match parseResult.ParseTree with
-    | Some ast ->
-      let! checkAnswer = checker.CheckFileInProject(parseResult, sourcePath, 1, text, options)
-      match checkAnswer with
-      | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
-        let converted = Filter.apply (ast, checkAnswer)
-        //let converted = ast
-        let errs, res =
-          simpleService.Compile(
-            [converted],
-            assemblyName,
-            outputPath,
-            dependencies,
-            pdbPath,
-            false,
-            true)
-        for e in errs do
-          if e.Severity = Microsoft.FSharp.Compiler.FSharpErrorSeverity.Error then
-            printfn "%s" (e.ToString())
-        return res
-      | FSharpCheckFileAnswer.Aborted ->
-        return 1
-    | _ ->
-      for e in parseResult.Errors do
-        printfn "%s" (e.ToString())
+    // Create source code descriptions
+    let sourceCodes =
+      CompilerImpl.createSourceCodes sourcePaths
+
+    // Parse source codes and apply
+    let! appliedResults =
+      CompilerImpl.parseSourceCodesAndApplyByAsync options Filter.apply sourceCodes
+      |> Async.Parallel
+
+    let abortedResults =
+      appliedResults
+      |> Seq.filter (function
+        | CompilerImpl.ParseAndApplyResult.Succeeded _ -> false
+        | _ -> true)
+      |> Seq.toArray
+
+    if Seq.isEmpty abortedResults then
+      let appliedList =
+        appliedResults
+        |> Seq.choose (function
+          | CompilerImpl.ParseAndApplyResult.Succeeded(_, appliedAst) -> Some appliedAst
+          | _ -> None)
+        |> Seq.toList
+
+      let simpleService = SimpleSourceCodeServices()
+      let errors, returnValue =
+        simpleService.Compile(
+          appliedList,
+          assemblyName,
+          outputPath,
+          dependencies,
+          pdbPath,
+          false,
+          true)
+
+      for error in errors do
+        match error.Severity with
+        | FSharpErrorSeverity.Warning -> 
+          printfn "%s" (error.ToString())
+        | FSharpErrorSeverity.Error -> 
+          printfn "%s" (error.ToString())
+
+      return returnValue
+
+    else
+      for result in abortedResults do
+        match result with
+        | CompilerImpl.ParseAndApplyResult.ParseFailed(_, errors) ->
+          printfn "%s" (System.String.Join(",", errors |> Seq.map (fun ei -> ei)))
+        | CompilerImpl.ParseAndApplyResult.CheckFailed(_) ->
+          printfn "%s" (result.ToString())
+        | _ -> new NotImplementedException() |> raise
       return 1
   }
 

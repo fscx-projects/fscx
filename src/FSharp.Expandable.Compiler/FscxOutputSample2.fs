@@ -3,7 +3,7 @@
 
 //namespace FscxOutputSample
 
-module FscxOutputSample
+module FscxOutputSample2
 
-  let f (a: int, b: string, c: int) =
-    System.Console.WriteLine("{0}:{1}", a, b)
+  let f2 (a: int, b: string, c: int) =
+    System.Console.WriteLine("Sample2: {0}:{1}", a, b)

@@ -44,7 +44,8 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FscxOutputSample.fs" />
+    <Compile Include="FscxOutputSample2.fs" />
+    <Compile Include="FscxOutputSample1.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>
   <PropertyGroup>

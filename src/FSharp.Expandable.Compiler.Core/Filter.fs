@@ -337,7 +337,7 @@ let convModulesOrNamespaces c xs =
   [ for SynModuleOrNamespace(id, isRec, isMod, decls, xml, attrs, access, r) in xs do
       yield SynModuleOrNamespace(id, isRec, isMod, convDecls c decls, xml, attrs, access, r) ]
 
-let apply (ast: ParsedInput, c: FSharpCheckFileResults) =
+let apply (ast: ParsedInput) (c: FSharpCheckFileResults) =
   match ast with
   | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
       ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convModulesOrNamespaces c synModOrNss, x))
