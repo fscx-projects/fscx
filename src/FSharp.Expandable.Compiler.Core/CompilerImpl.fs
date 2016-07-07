@@ -81,9 +81,19 @@ module internal CompilerImpl =
       return ParseFailed (sourceCode.Path, parseResult.Errors)
   }
 
-  /// Parse source codes and apply filter
-  let parseSourceCodesAndApplyByAsync options filter sourceCodes =
-    sourceCodes |> Seq.map (parseSourceCodeAndApplyByAsync options filter)
+  ///////////////////////////////////////////////////////
+ 
+  /// Compile by FSharp.Compiler.Service
+  let compileByFcs assemblyName outputPath dependencies pdbPath appliedAsts =
+    let simpleService = SimpleSourceCodeServices()
+    simpleService.Compile(
+      appliedAsts |> Seq.toList,
+      assemblyName,
+      outputPath,
+      dependencies |> Seq.toList,
+      pdbPath,
+      false,
+      true)
 
   ///////////////////////////////////////////////////////
 
@@ -103,7 +113,8 @@ module internal CompilerImpl =
 
     // Parse source codes and apply (Async)
     let! appliedResults =
-      parseSourceCodesAndApplyByAsync options Filter.apply sourceCodes
+      sourceCodes
+      |> Seq.map (parseSourceCodeAndApplyByAsync options Filter.apply)
       |> Async.Parallel
 
     // Aggregate aborted results
@@ -116,25 +127,21 @@ module internal CompilerImpl =
 
     // If successful all source codes
     if Seq.isEmpty abortedResults then
-      // Aggregate all AST
-      let appliedList =
+      // Aggregate all ASTs
+      let appliedAsts =
         appliedResults
         |> Seq.choose (function
           | Succeeded(_, appliedAst) -> Some appliedAst
           | _ -> None)
-        |> Seq.toList
 
       // Compile
-      let simpleService = SimpleSourceCodeServices()
       let errors, returnValue =
-        simpleService.Compile(
-          appliedList,
-          arguments.AssemblyName,
-          arguments.OutputPath,
-          arguments.Dependencies |> Seq.toList,
-          arguments.PdbPath,
-          false,
-          true)
+        compileByFcs
+          arguments.AssemblyName
+          arguments.OutputPath
+          arguments.Dependencies
+          arguments.PdbPath
+          appliedAsts
 
       // Try output errors
       for error in errors do
