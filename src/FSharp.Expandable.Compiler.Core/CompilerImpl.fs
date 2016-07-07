@@ -21,7 +21,7 @@ module internal CompilerImpl =
   }
 
   /// Source code description
-  type private SourceCodeDescription = {
+  type SourceCodeDescription = {
     /// Source code location
     Path: string
     /// Source code reader
@@ -29,48 +29,14 @@ module internal CompilerImpl =
   }
 
   /// Create SourceCodeDescriptions
-  let private createSourceCodeDescriptions sourcePaths =
+  let createSourceCodeDescriptions sourcePaths =
     sourcePaths
     |> Seq.map (fun path -> { Path = path; AsyncReadBody = (fun _ -> asyncReadTextFile path) })
-
-  /// Result for parse and apply
-  type private ParseAndApplyResult =
-    /// Success
-    | Succeeded of path: string * ast: ParsedInput
-    /// Parse failed
-    | ParseFailed of path: string * errors: FSharpErrorInfo seq
-    /// Type check failed
-    | CheckFailed of path: string
-
-  /// Parse source codes and apply filter
-  // TODO: Multiple filter support
-  let private parseSourceCodesAndApplyByAsync options filter sourceCodes =
-    sourceCodes
-    |> Seq.map (fun code -> async {
-      // Read source code body
-      let! body = code.AsyncReadBody()
-      // Parse
-      let checker = FSharpChecker.Create()
-      let! parseResult = checker.ParseFileInProject(code.Path, body, options)
-      match parseResult.ParseTree with
-      | Some ast ->
-        // Type check
-        let! checkAnswer = checker.CheckFileInProject(parseResult, code.Path, 1, body, options)
-        match checkAnswer with
-        | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
-          // Apply filter
-          let filteredAst = filter ast checkAnswer
-          return Succeeded (code.Path, filteredAst)
-        | FSharpCheckFileAnswer.Aborted ->
-          return CheckFailed code.Path
-      | None ->
-        return ParseFailed (code.Path, parseResult.Errors)
-    })
-
+    
   ///////////////////////////////////////////////////////
 
   /// Create compilation options
-  let private createOptions projectPath optionArgs sourcePaths =
+  let createOptions projectPath optionArgs sourcePaths =
     let optionWithSource = seq {
       yield! optionArgs
       yield! sourcePaths
@@ -80,6 +46,44 @@ module internal CompilerImpl =
     checker.GetProjectOptionsFromCommandLineArgs(
       projectPath,
       optionWithSource |> Seq.toArray)
+
+  ///////////////////////////////////////////////////////
+
+  /// Result for parse and apply
+  type ParseAndApplyResult =
+    /// Success
+    | Succeeded of path: string * ast: ParsedInput
+    /// Parse failed
+    | ParseFailed of path: string * errors: FSharpErrorInfo[]
+    /// Type check failed
+    | CheckFailed of path: string
+    
+  /// Parse source code and apply filter
+  // TODO: Multiple filter support
+  let parseSourceCodeAndApplyByAsync options filter sourceCode = async {
+    // Read source code body
+    let! body = sourceCode.AsyncReadBody()
+    // Parse
+    let checker = FSharpChecker.Create()
+    let! parseResult = checker.ParseFileInProject(sourceCode.Path, body, options)
+    match parseResult.ParseTree with
+    | Some ast ->
+      // Type check
+      let! checkAnswer = checker.CheckFileInProject(parseResult, sourceCode.Path, 1, body, options)
+      match checkAnswer with
+      | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
+        // Apply filter
+        let filteredAst = filter ast checkAnswer
+        return Succeeded (sourceCode.Path, filteredAst)
+      | FSharpCheckFileAnswer.Aborted ->
+        return CheckFailed sourceCode.Path
+    | None ->
+      return ParseFailed (sourceCode.Path, parseResult.Errors)
+  }
+
+  /// Parse source codes and apply filter
+  let parseSourceCodesAndApplyByAsync options filter sourceCodes =
+    sourceCodes |> Seq.map (parseSourceCodeAndApplyByAsync options filter)
 
   ///////////////////////////////////////////////////////
 
