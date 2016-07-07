@@ -1,0 +1,63 @@
+﻿namespace FSharp.Expandable
+
+open System
+open System.Linq
+open System.IO
+
+open Persimmon
+open Persimmon.Assertions
+open UseTestNameByReflection
+
+open FSharp.Expandable
+
+module CompilerArgumentsTests =
+
+  ////////////////////////////////////////////////////////
+
+  let ``parse argument strings`` = test {
+    let dependencies =
+      [| @"C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\FSharp.Core.dll";
+        @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll";
+        @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll";
+        @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll";
+        @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll" |]
+
+    let options =
+      [| "-o:output.dll";
+        "-g";
+        "--debug:full";
+        "--noframework";
+        "--define:DEBUG";
+        "--define:TRACE";
+        "--optimize-";
+        "--tailcalls-";
+        "--platform:anycpu32bitpreferred";
+        "--target:library";
+        "--warn:3";
+        "--warnaserror:76";
+        "--vserrors";
+        "--LCID:1041";
+        "--utf8output";
+        "--fullpaths";
+        "--flaterrors";
+        "--subsystemversion:6.00";
+        "--highentropyva+"; |]
+
+    let args =
+      (dependencies |> Seq.map (fun d -> "-r:" + d))
+      |> Seq.append options
+      |> Seq.append [| "--projectPath:Sample.fsproj" |]
+      |> Seq.append [| "TestFSharpSampleCode1.fs"; "TestFSharpSampleCode2.fs" |]
+      |> Seq.toArray
+
+    let result = CompilerArguments.extract args
+    do! assertEquals (Path.GetFullPath "Sample.fsproj") result.ProjectPath
+    do! assertEquals (Path.GetFullPath "output.dll") result.OutputPath
+    do! assertEquals (Path.GetFullPath "output.pdb") result.PdbPath
+    do! assertEquals "output" result.AssemblyName
+    do! assertEquals dependencies (result.Dependencies |> Seq.toArray)
+
+    let expectedSourcePaths =
+      [|Path.GetFullPath "TestFSharpSampleCode1.fs"; Path.GetFullPath "TestFSharpSampleCode2.fs"|]
+    do! assertEquals expectedSourcePaths (result.SourcePaths |> Seq.toArray)
+  }
