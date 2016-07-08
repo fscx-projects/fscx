@@ -1,4 +1,15 @@
-﻿module Filter
+﻿//////////////////////////////////////////////////////////////////////////////
+// 
+// fscx - Expandable F# compiler project (testing filter code)
+//   Copyright (c) 2016: Kouji Matsui (@kekyo2), bleis-tift (@bleis-tift) all rights reserved.
+//
+// WARNING:
+//  This filter code include only useful testing, and NOT CC0 license.
+//  May be replace sample filter project.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+module Filter
 
 open System.Reflection
 open Microsoft.FSharp.Compiler
