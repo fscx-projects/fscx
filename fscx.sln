@@ -18,7 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60
 		build.fsx = build.fsx
 		build.sh = build.sh
 		LICENSE.txt = LICENSE.txt
-		paket.template = paket.template
 		README.md = README.md
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
@@ -57,6 +56,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Expandable.Compiler"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Expandable.Compiler.Core.Tests", "tests\FSharp.Expandable.Compiler.Core.Tests\FSharp.Expandable.Compiler.Core.Tests.fsproj", "{608E65FC-B678-4715-BC56-50B62EE3C15B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{D9A35D1F-6213-4AF5-AA9E-2F6CF55C0323}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{470A8FCD-A1B7-49B5-9699-AD18DB995F6B}"
+	ProjectSection(SolutionItems) = preProject
+		docs\files\img\fscx.design = docs\files\img\fscx.design
+		docs\files\img\fscx.ico = docs\files\img\fscx.ico
+		docs\files\img\fscx_100.png = docs\files\img\fscx_100.png
+		docs\files\img\fscx_1024.png = docs\files\img\fscx_1024.png
+		docs\files\img\fscx_128.png = docs\files\img\fscx_128.png
+		docs\files\img\fscx_150.png = docs\files\img\fscx_150.png
+		docs\files\img\fscx_16.png = docs\files\img\fscx_16.png
+		docs\files\img\fscx_2048.png = docs\files\img\fscx_2048.png
+		docs\files\img\fscx_24.png = docs\files\img\fscx_24.png
+		docs\files\img\fscx_256.png = docs\files\img\fscx_256.png
+		docs\files\img\fscx_32.png = docs\files\img\fscx_32.png
+		docs\files\img\fscx_48.png = docs\files\img\fscx_48.png
+		docs\files\img\fscx_512.png = docs\files\img\fscx_512.png
+		docs\files\img\fscx_64.png = docs\files\img\fscx_64.png
+		docs\files\img\fscx_96.png = docs\files\img\fscx_96.png
+		docs\files\img\fscx_small.design = docs\files\img\fscx_small.design
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,5 +110,7 @@ Global
 		{CC0379FC-C743-4389-BF1A-DAC0DA18909E} = {8E6D5255-776D-4B61-85F9-73C37AA1FB9A}
 		{28ECEE63-9BB4-4EB4-AD27-02D76454F398} = {83F16175-43B1-4C90-A1EE-8E351C33435D}
 		{608E65FC-B678-4715-BC56-50B62EE3C15B} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{D9A35D1F-6213-4AF5-AA9E-2F6CF55C0323} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
+		{470A8FCD-A1B7-49B5-9699-AD18DB995F6B} = {D9A35D1F-6213-4AF5-AA9E-2F6CF55C0323}
 	EndGlobalSection
 EndGlobal
