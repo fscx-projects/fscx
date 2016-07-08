@@ -76,7 +76,6 @@
     <Compile Include="CompilerImpl.fs" />
     <Compile Include="Compiler.fs" />
     <None Include="paket.references" />
-    <None Include="paket.template" />
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>

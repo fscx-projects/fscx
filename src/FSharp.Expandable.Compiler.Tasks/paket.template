@@ -1,0 +1,30 @@
+type file
+id fscx
+title
+    fscx
+owners
+    Kouji Matsui, bleis-tift
+authors 
+    Kouji Matsui
+projectUrl
+    http://github.com/fscx-projects/fscx
+iconUrl
+    https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/logo.png
+licenseUrl
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode
+requireLicenseAcceptance
+    false
+copyright
+    Author: Kouji Matsui, bleis-tift
+tags
+    F# fsharp compiler fsc fscx expand compile build ast
+summary
+    Expandable F# compiler.
+description
+    Easy infrastructure can replace F#'s AST at compile time.
+files
+    bin/Release/*.exe ==> build
+    bin/Release/*.config ==> build
+    bin/Release/*.dll ==> build
+    bin/Release/*.pdb ==> build
+    bin/Release/*.xml ==> build

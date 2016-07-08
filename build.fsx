@@ -43,7 +43,7 @@ let description = "Easy infrastructure can replace F#'s AST at compile time."
 let authors = [ "Kouji Matsui"; "bleis-tift" ]
 
 // Tags for your project (for NuGet package)
-let tags = "F# compiler fsc fscx expand compile build ast"
+let tags = "F# fsharp compiler fsc fscx expand compile build ast"
 
 // File system information
 let solutionFile  = "fscx.sln"
@@ -82,7 +82,7 @@ let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName:string) =
 Target "AssemblyInfo" (fun _ ->
     let getAssemblyInfoAttributes projectName =
         [ Attribute.Product summary
-          Attribute.Copyright (System.String.Join(", ", authors))
+          Attribute.Copyright ("Author: " + System.String.Join(", ", authors))
           Attribute.Company gitHome ]
 
     let getProjectDetails projectPath =

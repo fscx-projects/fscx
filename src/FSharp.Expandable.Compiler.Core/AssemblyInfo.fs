@@ -2,7 +2,7 @@
 open System.Reflection
 
 [<assembly: AssemblyProductAttribute("Expandable F# compiler")>]
-[<assembly: AssemblyCopyrightAttribute("Kouji Matsui, bleis-tift")>]
+[<assembly: AssemblyCopyrightAttribute("Author: Kouji Matsui, bleis-tift")>]
 [<assembly: AssemblyCompanyAttribute("https://github.com/fscx-projects")>]
 do ()
 

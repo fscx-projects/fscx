@@ -25,7 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <StartArguments>--projectPath:..\..\..\..\tests\fscx-enabled\fscx-enabled.fsproj -o:FscxOutputSample.dll -g --debug:full --noframework --define:DEBUG --define:TRACE --doc:FscxOutputSample.XML --optimize- --tailcalls- --platform:anycpu -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Numerics.dll" --target:library --warn:3 --warnaserror:76 --vserrors --LCID:1041 --utf8output --fullpaths --flaterrors --highentropyva- FscxOutputSample1.fs FscxOutputSample2.fs</StartArguments>
+    <StartArguments>--projectPath:..\..\..\..\tests\fscx-enabled\fscx-enabled.fsproj -o:FscxOutputSample.dll -g --debug:full --noframework --define:DEBUG --define:TRACE --doc:FscxOutputSample.XML --optimize- --tailcalls- --platform:anycpu -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Numerics.dll" --target:library --warn:3 --warnaserror:76 --vserrors --LCID:1041 --utf8output --fullpaths --flaterrors --highentropyva- ..\..\..\..\tests\fscx-enabled\FscxOutputSample1.fs ..\..\..\..\tests\fscx-enabled\FscxOutputSample2.fs</StartArguments>
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>
     </DocumentationFile>
@@ -58,14 +58,6 @@
       <Project>{d161e6d7-1f2e-48bd-9485-ae3f30d57d39}</Project>
       <Name>FSharp.Expandable.Compiler.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="FscxOutputSample2.fs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="FscxOutputSample1.fs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
