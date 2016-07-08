@@ -65,7 +65,7 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
-  <Import Project="..\..\src\FSharp.Expandable.Compiler.Tasks\bin\Debug\FSharp.Expandable.Compiler.Tasks.targets" />
+  <Import Project="..\..\src\FSharp.Expandable.Compiler.Tasks\bin\Release\FSharp.Expandable.Compiler.Tasks.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

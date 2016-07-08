@@ -40,10 +40,10 @@ let summary = "Expandable F# compiler"
 let description = "Easy infrastructure can replace F#'s AST at compile time."
 
 // List of author names (for NuGet package)
-let authors = [ "Kouji Matsui, bleis-tift" ]
+let authors = [ "Kouji Matsui"; "bleis-tift" ]
 
 // Tags for your project (for NuGet package)
-let tags = "F# compiler fsc compile build ast"
+let tags = "F# compiler fsc fscx expand compile build ast"
 
 // File system information
 let solutionFile  = "fscx.sln"
@@ -81,11 +81,9 @@ let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName:string) =
 // Generate assembly info files with the right version & up-to-date information
 Target "AssemblyInfo" (fun _ ->
     let getAssemblyInfoAttributes projectName =
-        [ Attribute.Title (projectName)
-          Attribute.Product project
-          Attribute.Description summary
-          Attribute.Version release.AssemblyVersion
-          Attribute.FileVersion release.AssemblyVersion ]
+        [ Attribute.Product summary
+          Attribute.Copyright (System.String.Join(", ", authors))
+          Attribute.Company gitHome ]
 
     let getProjectDetails projectPath =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)

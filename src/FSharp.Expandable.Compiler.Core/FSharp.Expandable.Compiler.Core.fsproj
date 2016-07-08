@@ -17,6 +17,8 @@
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,6 +70,7 @@
   -->
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Filter.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
@@ -96,4 +99,5 @@
       </ItemGroup>
     </When>
   </Choose>
+  <Import Project="..\..\packages\CenterCLR.RelaxVersioner\build\CenterCLR.RelaxVersioner.targets" Condition="Exists('..\..\packages\CenterCLR.RelaxVersioner\build\CenterCLR.RelaxVersioner.targets')" Label="Paket" />
 </Project>
