@@ -1,7 +1,7 @@
 type file
 id fscx
 title
-    fscx
+    Expandable F# compiler
 owners
     Kouji Matsui, bleis-tift
 authors 
@@ -19,7 +19,7 @@ copyright
 tags
     F# fsharp compiler fsc fscx expand compile build ast
 summary
-    Expandable F# compiler.
+    Easy infrastructure can replace F#'s AST at compile time.
 description
     Easy infrastructure can replace F#'s AST at compile time.
 files

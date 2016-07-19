@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="FSharp.Expandable.Compiler.Tasks.targets">
+    <Content Include="fscx.targets">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="paket.references" />

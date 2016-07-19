@@ -1,3 +1,6 @@
+#### 0.1.7 - 2016.07.19
+* Support NuGet installation.
+
 #### 0.1.4 - 2016.07.08
 * Fixed lack targets script.
 
