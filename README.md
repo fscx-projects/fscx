@@ -9,7 +9,7 @@ Easy infrastructure can replace F#'s AST at compile time.
 ## Status
 
 * NuGet Package: [![NuGet fscx](https://img.shields.io/nuget/v/fscx.svg?style=flat)](https://www.nuget.org/packages/fscx)
-* Continuous integration: [![AppVeyor fscx](https://img.shields.io/appveyor/ci/kekyo/fscx/master.svg)](https://ci.appveyor.com/project/fscx-projects/fscx)
+* Continuous integration: [![AppVeyor fscx](https://img.shields.io/appveyor/ci/kekyo/fscx/master.svg)](https://ci.appveyor.com/project/kekyo/fscx)
 * Issue stats: [![Issue Stats](http://issuestats.com/github/fscx-projects/fscx/badge/issue)](http://issuestats.com/github/fscx-projects/fscx)
 * Pull request stats: [![PR Stats](http://issuestats.com/github/fscx-projects/fscx/badge/pr)](http://issuestats.com/github/fscx-projects/fscx)
 
