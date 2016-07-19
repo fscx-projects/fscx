@@ -1,4 +1,4 @@
-# fscx
+# Expandable F# compiler (fscx)
 
 ![fscx-projects](https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png)
 
