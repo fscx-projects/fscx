@@ -1,9 +1,13 @@
-﻿// F# の詳細については、http://fsharp.org を参照してください
-// 詳細については、'F# チュートリアル' プロジェクトを参照してください。
+﻿open System
+open System.Runtime.InteropServices
+
+[<DllImport("user32.dll", CharSet = CharSet.Unicode)>]
+extern int MessageBox(IntPtr hWnd, string text, string caption, int options);
 
 [<EntryPoint>]
 let main argv = 
+  MessageBox(IntPtr.Zero, "Wait for attached debugger...", "fscx-enabled-main", 0 ||| 0x30) |> ignore
   FscxOutputSample1.f1 (123, "ABC", 456)
   FscxOutputSample2.f2 (789, "DEF", 111)
   printfn "%A" argv
-  0 // 整数の終了コードを返します
+  0
