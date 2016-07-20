@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fscx-enabled", "fscx-enabled.fsproj", "{5F5706D7-D3E0-4200-A754-770E2BD7906E}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fscx-enabled", "fscx-enabled\fscx-enabled.fsproj", "{5F5706D7-D3E0-4200-A754-770E2BD7906E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fscx-enabled-main", "..\fscx-enabled-main\fscx-enabled-main.fsproj", "{F12CE420-D232-4DD2-80F2-82D6152B4292}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fscx-enabled-main", "fscx-enabled-main\fscx-enabled-main.fsproj", "{F12CE420-D232-4DD2-80F2-82D6152B4292}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

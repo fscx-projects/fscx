@@ -53,13 +53,13 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
-  <Import Project="packages\fscx.0.1.7\build\fscx.targets" Condition="Exists('packages\fscx.0.1.7\build\fscx.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\fscx.0.1.7\build\fscx.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\fscx.0.1.7\build\fscx.targets'))" />
+    <Error Condition="!Exists('..\packages\fscx.0.1.7\build\fscx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fscx.0.1.7\build\fscx.targets'))" />
   </Target>
+  <Import Project="..\packages\fscx.0.1.7\build\fscx.targets" Condition="Exists('..\packages\fscx.0.1.7\build\fscx.targets')" />
   <ItemGroup>
     <Compile Include="FscxOutputSample2.fs" />
     <Compile Include="FscxOutputSample1.fs" />
