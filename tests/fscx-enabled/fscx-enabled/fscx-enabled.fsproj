@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="FscxOutputSample2.fs" />
     <Compile Include="FscxOutputSample1.fs" />
+    <Compile Include="FscxReferencedClass.fs" />
     <None Include="Script.fsx" />
     <Content Include="packages.config" />
   </ItemGroup>
