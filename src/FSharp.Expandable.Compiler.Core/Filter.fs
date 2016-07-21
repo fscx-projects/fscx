@@ -14,9 +14,10 @@ module Filter
 open System.Reflection
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Range
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
-let zeroRange = Range.range.Zero.MakeSynthetic()
+let zeroRange = range.Zero.MakeSynthetic()
 
 module MethodInfo =
   open Microsoft.FSharp.Quotations
@@ -138,6 +139,7 @@ let isIdent = function
 | SynExpr.Ident _
 | SynExpr.LongIdent _ -> true
 | _ -> false
+
 
 let rec convExpr (c: FSharpCheckFileResults) (expr: SynExpr) =
   match expr with
