@@ -9,5 +9,7 @@ let main argv =
   MessageBox(IntPtr.Zero, "Wait for attached debugger...", "fscx-enabled-main", 0 ||| 0x30) |> ignore
   FscxOutputSample1.f1 (123, "ABC", 456)
   FscxOutputSample2.f2 (789, "DEF", 111)
-  printfn "%A" argv
+  let target = new Sample.FscxReferencedClass()
+  target.F1 123 "ABC" 456
+  target.F2 789 "DEF" 111
   0
