@@ -11,14 +11,14 @@ open System
 /// FSharp.Compiler.Service's untyped AST visitor.
 /// </summary>
 [<NoEquality; NoComparison; AutoSerializable(false)>]
-type SynExprVisitor() =
+type AstVisitor() =
 
 {1}
 
   /// <summary>
-  /// Visitor entry function.
+  /// SynExpr Visitor entry function.
   /// </summary>
-  abstract member Visit: Microsoft.FSharp.Compiler.Ast.SynExpr -> 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr
-  default this.Visit expr context =
+  abstract member VisitSynExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr
+  default this.VisitSynExpr expr context =
     match expr with
 {2}

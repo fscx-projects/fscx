@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\FSharp.Expandable.Compiler.Generator.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>..\..\..\FSharp.Expandable.Compiler.Core\SynExprVisitor.fs</StartArguments>
+    <StartArguments>..\..\..\FSharp.Expandable.Compiler.Core\AstVisitor.fs</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,7 +51,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
-    <EmbeddedResource Include="Template.fs" />
+    <EmbeddedResource Include="AstVisitorTemplate.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <PropertyGroup>
