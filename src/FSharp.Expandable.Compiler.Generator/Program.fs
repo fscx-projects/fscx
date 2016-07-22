@@ -74,6 +74,12 @@ let formatFieldType (field: PropertyInfo) =
 let formatFieldName (field: PropertyInfo) =
   Char.ToLowerInvariant(field.Name.[0]).ToString() + field.Name.Substring(1)
 
+let formatDeclaration (field: PropertyInfo) =
+  String.Format(
+    "{0}: {1}",
+    formatFieldName field,
+    formatFieldType field)
+
 let readTemplate () =
   use fs = Assembly.GetExecutingAssembly().GetManifestResourceStream("AstVisitorTemplate.fs")
   let tr = new StreamReader(fs, Encoding.UTF8)
@@ -85,23 +91,27 @@ let main argv =
   let formatArgument (field: PropertyInfo) =
     if typeof<SynExpr>.IsAssignableFrom field.PropertyType then
       String.Format(
-        "this.VisitSynExpr {0} context",
+        "this.VisitSynExpr parents {0} context",
         formatFieldName field)
     else
       formatFieldName field
   let formatPlace0 (unionCase: UnionCaseInfo) =
-    let types = unionCase.GetFields() |> Seq.map formatFieldType |> Seq.toArray
+    let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     let args = unionCase.GetFields() |> Seq.map formatArgument |> Seq.toArray
     String.Format(
+      "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> {1} -> context: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
+      "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  abstract member Visit{0}: {1} -> 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
-      "  default this.Visit{0} {2} context =\r\n" +
+      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
+      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
+      "  default this.Visit{0} parents {2} context =\r\n" +
       "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0} ({3})\r\n",
       unionCase.Name,
-      String.Join(" -> ", types),
+      String.Join(" -> ", decls),
       String.Join(" ", fields),
       String.Join(", ", args))
   let place0 =
@@ -112,7 +122,7 @@ let main argv =
   let formatPlace1 (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     String.Format(
-      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.Visit{0} {2} context\r\n",
+      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.Visit{0} currentParents {2} context\r\n",
       unionCase.Name,
       String.Join(", ", fields),
       String.Join(" ", fields))
