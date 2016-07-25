@@ -88,18 +88,41 @@ let readTemplate () =
 [<EntryPoint>]
 let main argv = 
 
-  let formatArgument (field: PropertyInfo) =
-    if typeof<SynExpr>.IsAssignableFrom field.PropertyType then
+  // TODO: nested SynExpr types
+  let objlistType = typedefof<obj list>
+  let formatArgument0 (source: string) (t: Type) =
+    if typeof<SynExpr>.IsAssignableFrom t then
       String.Format(
-        "this.VisitSynExpr parents context {0}",
-        formatFieldName field)
+        "{0} (this.VisitSynExpr parents context)",
+        source)
     else
-      formatFieldName field
+      source
+  let formatArgument (field: PropertyInfo) =
+    let t = field.PropertyType
+    if t.IsGenericType then
+      let gtd = t.GetGenericTypeDefinition()
+      if gtd = objlistType then
+        let ta = t.GetGenericArguments().[0]
+        formatArgument0 (String.Format("{0} |> List.map", formatFieldName field)) ta
+      else
+        formatArgument0 (String.Format("{0} |>", formatFieldName field)) t
+    else
+      formatArgument0 (String.Format("{0} |>", formatFieldName field)) t
+
   let formatPlace0 (unionCase: UnionCaseInfo) =
     let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     let args = unionCase.GetFields() |> Seq.map formatArgument |> Seq.toArray
     String.Format(
+      "  /// <summary>\r\n" +
+      "  /// Pre visit \"{0}\" arguments.\r\n" +
+      "  /// </summary>\r\n" +
+      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
+      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  /// <returns>Pre visited arguments.</returns>\r\n" +
+      "  member this.PreVisit{0} parents context {2} =\r\n" +
+      "    {3}\r\n" +
+      "\r\n" +
       "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
@@ -109,7 +132,8 @@ let main argv =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  default this.Visit{0} parents context {2} =\r\n" +
-      "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0} ({3})\r\n",
+      "    let args = this.PreVisit{0} parents context {2}\r\n" +
+      "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0} args\r\n",
       unionCase.Name,
       String.Join(" -> ", decls),
       String.Join(" ", fields),
