@@ -91,7 +91,7 @@ let main argv =
   let formatArgument (field: PropertyInfo) =
     if typeof<SynExpr>.IsAssignableFrom field.PropertyType then
       String.Format(
-        "this.VisitSynExpr parents {0} context",
+        "this.VisitSynExpr parents context {0}",
         formatFieldName field)
     else
       formatFieldName field
@@ -100,7 +100,7 @@ let main argv =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     let args = unionCase.GetFields() |> Seq.map formatArgument |> Seq.toArray
     String.Format(
-      "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> {1} -> context: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
+      "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
@@ -108,7 +108,7 @@ let main argv =
       "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  default this.Visit{0} parents {2} context =\r\n" +
+      "  default this.Visit{0} parents context {2} =\r\n" +
       "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0} ({3})\r\n",
       unionCase.Name,
       String.Join(" -> ", decls),
@@ -122,7 +122,7 @@ let main argv =
   let formatPlace1 (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     String.Format(
-      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.Visit{0} currentParents {2} context\r\n",
+      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.Visit{0} currentParents context {2}\r\n",
       unionCase.Name,
       String.Join(", ", fields),
       String.Join(" ", fields))

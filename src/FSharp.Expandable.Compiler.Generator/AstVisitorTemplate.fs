@@ -15,16 +15,16 @@ type AstVisitor() =
 
 {1}
 
-  abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> context: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr
+  abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
   /// <summary>
   /// SynExpr Visitor entry function.
   /// </summary>
   /// <param name="parents">Parent expression list.</param>
-  /// <param name="expr">Target expression.</param>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Target expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  default this.VisitSynExpr parents expr context =
+  default this.VisitSynExpr parents context expr =
     let currentParents = expr :: parents
     match expr with
 {2}
