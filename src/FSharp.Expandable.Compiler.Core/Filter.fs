@@ -141,13 +141,16 @@ let isIdent = function
 | _ -> false
 
 type ConvVisitor() =
-  inherit AstVisitor()
+  inherit AstVisitor<FSharpCheckFileResults>()
 
   override __.VisitQuote parents context operator isRaw quoteSynExpr isFromQueryExpression range =
+    // DEBUG
     printfn "%A" operator
     base.VisitQuote parents context operator isRaw quoteSynExpr isFromQueryExpression range 
 
-  override __.VisitApp parents (context: FSharpCheckFileResults) exprAtomicFlag isInfix funcExpr argExpr range =
+  override this.VisitApp parents context exprAtomicFlag isInfix funcExpr argExpr range =
+      let visitedArgs = this.PreVisitApp parents context exprAtomicFlag isInfix funcExpr argExpr range
+
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange

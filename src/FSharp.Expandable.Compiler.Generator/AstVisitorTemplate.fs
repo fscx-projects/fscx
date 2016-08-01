@@ -7,6 +7,15 @@ namespace Microsoft.FSharp.Compiler.Ast
 
 open System
 
+////////////////////////////////////////////////////////////
+
+/// <summary>
+/// FSharp.Compiler.Service's untyped AST expression auguments.
+/// </summary>
+[<AutoOpen>]
+module SynExpr =
+
+{1}
 
 ////////////////////////////////////////////////////////////
 
@@ -16,7 +25,7 @@ open System
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type AstVisitor() =
 
-{1}
+{2}
 
   abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -30,7 +39,7 @@ type AstVisitor() =
   default this.VisitSynExpr parents context expr =
     let currentParents = expr :: parents
     match expr with
-{2}
+{3}
 
 ////////////////////////////////////////////////////////////
 
@@ -41,7 +50,7 @@ type AstVisitor() =
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type AstVisitor<'TContext>() =
 
-{1}
+{2}
 
   abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -55,4 +64,4 @@ type AstVisitor<'TContext>() =
   default this.VisitSynExpr parents context expr =
     let currentParents = expr :: parents
     match expr with
-{2}
+{3}

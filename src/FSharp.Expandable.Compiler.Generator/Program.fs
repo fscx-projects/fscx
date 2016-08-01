@@ -107,22 +107,19 @@ let main argv =
 
   let rec formatOperator (opers: string list) =
     if List.isEmpty opers then
-      "this.VisitSynExpr parents context"
+      "(this.VisitSynExpr parents context)"
     else
       String.Format(
-        "{0} ({1})",
+        "({0} {1})",
         List.head opers,
         formatOperator (List.skip 1 opers))
 
   let rec formatArgument0 name (t: Type) (opers: string list) =
     if t = typeof<SynExpr> then
-      if List.isEmpty opers then
-        name
-      else
-        String.Format(
-          "{0} |> {1}",
-          name,
-          formatOperator opers)
+      String.Format(
+        "({0} |> {1})",
+        name,
+        formatOperator opers)
     else if t.IsGenericType = false then
       name
     else
@@ -130,6 +127,7 @@ let main argv =
       if genericArguments.Length <> 1 then
         name
       else
+        // Auto mapping supported only Option<> or List<>.
         let outerType = t.GetGenericTypeDefinition()
         let innerType = genericArguments.[0]
         if outerType = typedefof<Option<obj>> then
@@ -142,20 +140,60 @@ let main argv =
   let formatArgument (field: PropertyInfo) =
     formatArgument0 (formatFieldName field) field.PropertyType []
 
-  let formatPlace0 (unionCase: UnionCaseInfo) =
+  //////////////////////////////////
+  // {1}
+
+  let formatPlace1 (unionCase: UnionCaseInfo) =
+    let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
+    String.Format(
+      "  /// <summary>\r\n" +
+      "  /// Construct \"SynExpr.{0}\".\r\n" +
+      "  /// </summary>\r\n" +
+      "  /// <returns>Constructed expression.</returns>\r\n" +
+      "  let init{0} {1} =\r\n" +
+      "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({2})\r\n",
+      unionCase.Name,
+      String.Join(" ", fields),
+      String.Join(", ", fields))
+  let place1 =
+    String.Join(
+      "\r\n",
+      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace1)
+
+  //////////////////////////////////
+  // {2}
+
+  let formatPlace2 (unionCase: UnionCaseInfo) =
     let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     let args = unionCase.GetFields() |> Seq.map formatArgument |> Seq.toArray
     String.Format(
       "  /// <summary>\r\n" +
-      "  /// Pre visit \"{0}\" arguments.\r\n" +
+      "  /// Before visit \"{0}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
       "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Pre visited arguments.</returns>\r\n" +
-      "  member this.PreVisit{0} parents context {2} =\r\n" +
-      "    {3}\r\n" +
+      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
+      "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
+      "  abstract member BeforeVisit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
       "\r\n" +
+      "  /// <summary>\r\n" +
+      "  /// Before visit \"{0}\" arguments.\r\n" +
+      "  /// </summary>\r\n" +
+      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
+      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
+      "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
+      "  default this.BeforeVisit{0} parents context {2} =\r\n" +
+      "    this.Visit{0} parents context {3}\r\n" +
+      "\r\n" +
+      "  /// <summary>\r\n" +
+      "  /// Visit \"{0}\" expression.\r\n" +
+      "  /// </summary>\r\n" +
+      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
+      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
+      "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
       "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
@@ -164,32 +202,37 @@ let main argv =
       "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  default this.Visit{0} parents context {2} =\r\n" +
-      "    let args = this.PreVisit{0} parents context {2}\r\n" +
-      "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0} args\r\n",
+      "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
+      "  default __.Visit{0} parents context {2} =\r\n" +
+      "    SynExpr.init{0} {2}\r\n",
       unionCase.Name,
       String.Join(" -> ", decls),
       String.Join(" ", fields),
-      String.Join(", ", args))
-  let place0 =
+      String.Join(" ", args))
+  let place2 =
     String.Join(
       "\r\n",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace0)
+      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace2)
 
-  let formatPlace1 (unionCase: UnionCaseInfo) =
+  //////////////////////////////////
+  // {3}
+
+  let formatPlace3 (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     String.Format(
-      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.Visit{0} currentParents context {2}\r\n",
+      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.BeforeVisit{0} currentParents context {2}\r\n",
       unionCase.Name,
       String.Join(", ", fields),
       String.Join(" ", fields))
-  let place1 =
+  let place3 =
     String.Join(
       "",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace1)
+      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace3)
+
+  //////////////////////////////////
 
   let template = readTemplate()
-  let formatted = String.Format(template, DateTime.UtcNow, place0, place1)
+  let formatted = String.Format(template, DateTime.UtcNow, place1, place2, place3)
 
   File.WriteAllText(argv.[0], formatted)
   0
