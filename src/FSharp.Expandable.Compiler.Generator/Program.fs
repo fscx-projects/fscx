@@ -88,26 +88,59 @@ let readTemplate () =
 [<EntryPoint>]
 let main argv = 
 
-  // TODO: nested SynExpr types
-  let objlistType = typedefof<obj list>
-  let formatArgument0 (source: string) (t: Type) =
-    if typeof<SynExpr>.IsAssignableFrom t then
+  // Type pattern examples:
+  // value                  --> value
+  // Option<value>          --> value
+  // List<values>           --> values
+  // Option<List<values>>   --> values
+
+  // synExpr                --> synExpr |> this.VisitSynExpr parents context
+  // Option<synExpr>        --> synExpr |> Option.map (this.VisitSynExpr parents context)
+  // List<synExprs>         --> synExprs |> List.map (this.VisitSynExpr parents context)
+  // Option<List<synExprs>> --> synExprs |> Option.map (List.map (this.VisitSynExpr parents context))
+
+  // Another way:
+  // synExpr                --> this.VisitSynExpr parents context synExpr
+  // Option<synExpr>        --> Option.map (this.VisitSynExpr parents context) synExprs
+  // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
+  // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
+
+  let rec formatOperator (opers: string list) =
+    if List.isEmpty opers then
+      "this.VisitSynExpr parents context"
+    else
       String.Format(
-        "{0} (this.VisitSynExpr parents context)",
-        source)
-    else
-      source
-  let formatArgument (field: PropertyInfo) =
-    let t = field.PropertyType
-    if t.IsGenericType then
-      let gtd = t.GetGenericTypeDefinition()
-      if gtd = objlistType then
-        let ta = t.GetGenericArguments().[0]
-        formatArgument0 (String.Format("{0} |> List.map", formatFieldName field)) ta
+        "{0} ({1})",
+        List.head opers,
+        formatOperator (List.skip 1 opers))
+
+  let rec formatArgument0 name (t: Type) (opers: string list) =
+    if t = typeof<SynExpr> then
+      if List.isEmpty opers then
+        name
       else
-        formatArgument0 (String.Format("{0} |>", formatFieldName field)) t
+        String.Format(
+          "{0} |> {1}",
+          name,
+          formatOperator opers)
+    else if t.IsGenericType = false then
+      name
     else
-      formatArgument0 (String.Format("{0} |>", formatFieldName field)) t
+      let genericArguments = t.GetGenericArguments()
+      if genericArguments.Length <> 1 then
+        name
+      else
+        let outerType = t.GetGenericTypeDefinition()
+        let innerType = genericArguments.[0]
+        if outerType = typedefof<Option<obj>> then
+          formatArgument0 name innerType ("Option.map" :: opers)
+        else if outerType = typedefof<List<obj>> then
+          formatArgument0 name innerType ("List.map" :: opers)
+        else
+          name
+
+  let formatArgument (field: PropertyInfo) =
+    formatArgument0 (formatFieldName field) field.PropertyType []
 
   let formatPlace0 (unionCase: UnionCaseInfo) =
     let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray

@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Mon, 25 Jul 2016 09:01:30 GMT
+// Generated: Mon, 01 Aug 2016 04:31:17 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -20,7 +20,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitParen parents context expr leftParenRange rightParenRange range =
-    expr |> (this.VisitSynExpr parents context), leftParenRange |>, rightParenRange |>, range |>
+    expr, leftParenRange, rightParenRange, range
 
   abstract member VisitParen: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> leftParenRange: Microsoft.FSharp.Compiler.Range.range -> rightParenRange: Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Range.range> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -41,7 +41,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitQuote parents context operator isRaw quotedSynExpr isFromQueryExpression range =
-    operator |> (this.VisitSynExpr parents context), isRaw |>, quotedSynExpr |> (this.VisitSynExpr parents context), isFromQueryExpression |>, range |>
+    operator, isRaw, quotedSynExpr, isFromQueryExpression, range
 
   abstract member VisitQuote: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> operator: Microsoft.FSharp.Compiler.Ast.SynExpr -> isRaw: System.Boolean -> quotedSynExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> isFromQueryExpression: System.Boolean -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -62,7 +62,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitConst parents context constant range =
-    constant |>, range |>
+    constant, range
 
   abstract member VisitConst: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> constant: Microsoft.FSharp.Compiler.Ast.SynConst -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -83,7 +83,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTyped parents context expr typeSig range =
-    expr |> (this.VisitSynExpr parents context), typeSig |>, range |>
+    expr, typeSig, range
 
   abstract member VisitTyped: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> typeSig: Microsoft.FSharp.Compiler.Ast.SynType -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -104,7 +104,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTuple parents context exprs commaRanges range =
-    exprs |> List.map (this.VisitSynExpr parents context), commaRanges |> List.map, range |>
+    exprs |> List.map (this.VisitSynExpr parents context), commaRanges, range
 
   abstract member VisitTuple: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> exprs: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynExpr> -> commaRanges: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Range.range> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -125,7 +125,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitArrayOrList parents context isList exprs range =
-    isList |>, exprs |> List.map (this.VisitSynExpr parents context), range |>
+    isList, exprs |> List.map (this.VisitSynExpr parents context), range
 
   abstract member VisitArrayOrList: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isList: System.Boolean -> exprs: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynExpr> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -146,7 +146,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitRecord parents context baseInfo copyInfo recordFields range =
-    baseInfo |>, copyInfo |>, recordFields |> List.map, range |>
+    baseInfo, copyInfo, recordFields, range
 
   abstract member VisitRecord: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> baseInfo: Microsoft.FSharp.Core.Option<(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Core.Option<(Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Range.pos>)> * Microsoft.FSharp.Compiler.Range.range)> -> copyInfo: Microsoft.FSharp.Core.Option<(Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Range.pos>))> -> recordFields: Microsoft.FSharp.Collections.List<((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * System.Boolean) * Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Ast.SynExpr> * Microsoft.FSharp.Core.Option<(Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Range.pos>)>)> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -167,7 +167,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitNew parents context isProtected typeName expr range =
-    isProtected |>, typeName |>, expr |> (this.VisitSynExpr parents context), range |>
+    isProtected, typeName, expr, range
 
   abstract member VisitNew: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isProtected: System.Boolean -> typeName: Microsoft.FSharp.Compiler.Ast.SynType -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -188,7 +188,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitObjExpr parents context objType argOpt bindings extraImpls newPos range =
-    objType |>, argOpt |>, bindings |> List.map, extraImpls |> List.map, newPos |>, range |>
+    objType, argOpt, bindings, extraImpls, newPos, range
 
   abstract member VisitObjExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> objType: Microsoft.FSharp.Compiler.Ast.SynType -> argOpt: Microsoft.FSharp.Core.Option<(Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Ast.Ident>)> -> bindings: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynBinding> -> extraImpls: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl> -> newPos: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -209,7 +209,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitWhile parents context spWhile whileBody doBody range =
-    spWhile |>, whileBody |> (this.VisitSynExpr parents context), doBody |> (this.VisitSynExpr parents context), range |>
+    spWhile, whileBody, doBody, range
 
   abstract member VisitWhile: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spWhile: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop -> whileBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> doBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -230,7 +230,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitFor parents context spFor id idBody item4 toBody doBody range =
-    spFor |>, id |>, idBody |> (this.VisitSynExpr parents context), item4 |>, toBody |> (this.VisitSynExpr parents context), doBody |> (this.VisitSynExpr parents context), range |>
+    spFor, id, idBody, item4, toBody, doBody, range
 
   abstract member VisitFor: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spFor: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop -> id: Microsoft.FSharp.Compiler.Ast.Ident -> idBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> item4: System.Boolean -> toBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> doBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -251,7 +251,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitForEach parents context spFor seqExprOnly isFromSource pattern enumExpr bodyExpr range =
-    spFor |>, seqExprOnly |>, isFromSource |>, pattern |>, enumExpr |> (this.VisitSynExpr parents context), bodyExpr |> (this.VisitSynExpr parents context), range |>
+    spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range
 
   abstract member VisitForEach: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spFor: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop -> seqExprOnly: Microsoft.FSharp.Compiler.Ast.SeqExprOnly -> isFromSource: System.Boolean -> pattern: Microsoft.FSharp.Compiler.Ast.SynPat -> enumExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -272,7 +272,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitArrayOrListOfSeqExpr parents context isList elements range =
-    isList |>, elements |> (this.VisitSynExpr parents context), range |>
+    isList, elements, range
 
   abstract member VisitArrayOrListOfSeqExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isList: System.Boolean -> elements: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -293,7 +293,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitCompExpr parents context isArrayOrList isNotNakedRefCell expr range =
-    isArrayOrList |>, isNotNakedRefCell |>, expr |> (this.VisitSynExpr parents context), range |>
+    isArrayOrList, isNotNakedRefCell, expr, range
 
   abstract member VisitCompExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isArrayOrList: System.Boolean -> isNotNakedRefCell: Microsoft.FSharp.Core.Ref<System.Boolean> -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -314,7 +314,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLambda parents context fromMethod inLambdaSeq args body range =
-    fromMethod |>, inLambdaSeq |>, args |>, body |> (this.VisitSynExpr parents context), range |>
+    fromMethod, inLambdaSeq, args, body, range
 
   abstract member VisitLambda: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> fromMethod: System.Boolean -> inLambdaSeq: System.Boolean -> args: Microsoft.FSharp.Compiler.Ast.SynSimplePats -> body: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -335,7 +335,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitMatchLambda parents context item1 item2 clauses spBind range =
-    item1 |>, item2 |>, clauses |> List.map, spBind |>, range |>
+    item1, item2, clauses, spBind, range
 
   abstract member VisitMatchLambda: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: System.Boolean -> item2: Microsoft.FSharp.Compiler.Range.range -> clauses: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynMatchClause> -> spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -356,7 +356,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitMatch parents context spBind matchExpr clauses isCexprExceptionMatch range =
-    spBind |>, matchExpr |> (this.VisitSynExpr parents context), clauses |> List.map, isCexprExceptionMatch |>, range |>
+    spBind, matchExpr, clauses, isCexprExceptionMatch, range
 
   abstract member VisitMatch: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding -> matchExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> clauses: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynMatchClause> -> isCexprExceptionMatch: System.Boolean -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -377,7 +377,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDo parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitDo: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -398,7 +398,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitAssert parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitAssert: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -419,7 +419,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitApp parents context exprAtomicFlag isInfix funcExpr argExpr range =
-    exprAtomicFlag |>, isInfix |>, funcExpr |> (this.VisitSynExpr parents context), argExpr |> (this.VisitSynExpr parents context), range |>
+    exprAtomicFlag, isInfix, funcExpr, argExpr, range
 
   abstract member VisitApp: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> exprAtomicFlag: Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag -> isInfix: System.Boolean -> funcExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> argExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -440,7 +440,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTypeApp parents context expr leftAngleRange typeNames commaRanges rightAngleRange typeArgs range =
-    expr |> (this.VisitSynExpr parents context), leftAngleRange |>, typeNames |> List.map, commaRanges |> List.map, rightAngleRange |>, typeArgs |>, range |>
+    expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range
 
   abstract member VisitTypeApp: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> leftAngleRange: Microsoft.FSharp.Compiler.Range.range -> typeNames: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynType> -> commaRanges: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Range.range> -> rightAngleRange: Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Range.range> -> typeArgs: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -461,7 +461,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLetOrUse parents context isRecursive isUse bindings exprBody range =
-    isRecursive |>, isUse |>, bindings |> List.map, exprBody |> (this.VisitSynExpr parents context), range |>
+    isRecursive, isUse, bindings, exprBody, range
 
   abstract member VisitLetOrUse: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isRecursive: System.Boolean -> isUse: System.Boolean -> bindings: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynBinding> -> exprBody: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -482,7 +482,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTryWith parents context tryExpr item2 item3 item4 range spTry spWith =
-    tryExpr |> (this.VisitSynExpr parents context), item2 |>, item3 |> List.map, item4 |>, range |>, spTry |>, spWith |>
+    tryExpr, item2, item3, item4, range, spTry, spWith
 
   abstract member VisitTryWith: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> tryExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> item2: Microsoft.FSharp.Compiler.Range.range -> item3: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynMatchClause> -> item4: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry -> spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -503,7 +503,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTryFinally parents context tryExpr finallyExpr range spTry spFinally =
-    tryExpr |> (this.VisitSynExpr parents context), finallyExpr |> (this.VisitSynExpr parents context), range |>, spTry |>, spFinally |>
+    tryExpr, finallyExpr, range, spTry, spFinally
 
   abstract member VisitTryFinally: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> tryExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> finallyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry -> spFinally: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -524,7 +524,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLazy parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitLazy: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -545,7 +545,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitSequential parents context spSeq isTrueSeq expr1 expr2 range =
-    spSeq |>, isTrueSeq |>, expr1 |> (this.VisitSynExpr parents context), expr2 |> (this.VisitSynExpr parents context), range |>
+    spSeq, isTrueSeq, expr1, expr2, range
 
   abstract member VisitSequential: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spSeq: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForSeq -> isTrueSeq: System.Boolean -> expr1: Microsoft.FSharp.Compiler.Ast.SynExpr -> expr2: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -566,7 +566,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitIfThenElse parents context exprGuard exprThen optionalExprElse spIfToThen isFromErrorRecovery ifToThen range =
-    exprGuard |> (this.VisitSynExpr parents context), exprThen |> (this.VisitSynExpr parents context), optionalExprElse |>, spIfToThen |>, isFromErrorRecovery |>, ifToThen |>, range |>
+    exprGuard, exprThen, optionalExprElse |> Option.map (this.VisitSynExpr parents context), spIfToThen, isFromErrorRecovery, ifToThen, range
 
   abstract member VisitIfThenElse: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> exprGuard: Microsoft.FSharp.Compiler.Ast.SynExpr -> exprThen: Microsoft.FSharp.Compiler.Ast.SynExpr -> optionalExprElse: Microsoft.FSharp.Core.Option<Microsoft.FSharp.Compiler.Ast.SynExpr> -> spIfToThen: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding -> isFromErrorRecovery: System.Boolean -> ifToThen: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -587,7 +587,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitIdent parents context item =
-    item |>
+    item
 
   abstract member VisitIdent: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item: Microsoft.FSharp.Compiler.Ast.Ident -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -608,7 +608,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLongIdent parents context isOptional longIdent altNameRefCell range =
-    isOptional |>, longIdent |>, altNameRefCell |>, range |>
+    isOptional, longIdent, altNameRefCell, range
 
   abstract member VisitLongIdent: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> isOptional: System.Boolean -> longIdent: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> altNameRefCell: Microsoft.FSharp.Core.Option<Microsoft.FSharp.Core.Ref<Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo>> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -629,7 +629,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLongIdentSet parents context dotId expr range =
-    dotId |>, expr |> (this.VisitSynExpr parents context), range |>
+    dotId, expr, range
 
   abstract member VisitLongIdentSet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -650,7 +650,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDotGet parents context expr rangeOfDot dotId range =
-    expr |> (this.VisitSynExpr parents context), rangeOfDot |>, dotId |>, range |>
+    expr, rangeOfDot, dotId, range
 
   abstract member VisitDotGet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> rangeOfDot: Microsoft.FSharp.Compiler.Range.range -> dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -671,7 +671,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDotSet parents context expr dotId exprValue range =
-    expr |> (this.VisitSynExpr parents context), dotId |>, exprValue |> (this.VisitSynExpr parents context), range |>
+    expr, dotId, exprValue, range
 
   abstract member VisitDotSet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> exprValue: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -692,7 +692,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDotIndexedGet parents context expr indexExprs item3 range =
-    expr |> (this.VisitSynExpr parents context), indexExprs |> List.map, item3 |>, range |>
+    expr, indexExprs, item3, range
 
   abstract member VisitDotIndexedGet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> indexExprs: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynIndexerArg> -> item3: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -713,7 +713,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDotIndexedSet parents context objectExpr indexExprs valueExpr rangeOfLeftOfSet rangeOfDot range =
-    objectExpr |> (this.VisitSynExpr parents context), indexExprs |> List.map, valueExpr |> (this.VisitSynExpr parents context), rangeOfLeftOfSet |>, rangeOfDot |>, range |>
+    objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range
 
   abstract member VisitDotIndexedSet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> objectExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> indexExprs: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynIndexerArg> -> valueExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> rangeOfLeftOfSet: Microsoft.FSharp.Compiler.Range.range -> rangeOfDot: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -734,7 +734,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitNamedIndexedPropertySet parents context item1 item2 item3 range =
-    item1 |>, item2 |> (this.VisitSynExpr parents context), item3 |> (this.VisitSynExpr parents context), range |>
+    item1, item2, item3, range
 
   abstract member VisitNamedIndexedPropertySet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> item2: Microsoft.FSharp.Compiler.Ast.SynExpr -> item3: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -755,7 +755,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDotNamedIndexedPropertySet parents context item1 item2 item3 item4 range =
-    item1 |> (this.VisitSynExpr parents context), item2 |>, item3 |> (this.VisitSynExpr parents context), item4 |> (this.VisitSynExpr parents context), range |>
+    item1, item2, item3, item4, range
 
   abstract member VisitDotNamedIndexedPropertySet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.SynExpr -> item2: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots -> item3: Microsoft.FSharp.Compiler.Ast.SynExpr -> item4: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -776,7 +776,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTypeTest parents context expr typeName range =
-    expr |> (this.VisitSynExpr parents context), typeName |>, range |>
+    expr, typeName, range
 
   abstract member VisitTypeTest: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> typeName: Microsoft.FSharp.Compiler.Ast.SynType -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -797,7 +797,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitUpcast parents context expr typeSig range =
-    expr |> (this.VisitSynExpr parents context), typeSig |>, range |>
+    expr, typeSig, range
 
   abstract member VisitUpcast: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> typeSig: Microsoft.FSharp.Compiler.Ast.SynType -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -818,7 +818,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDowncast parents context expr typeName range =
-    expr |> (this.VisitSynExpr parents context), typeName |>, range |>
+    expr, typeName, range
 
   abstract member VisitDowncast: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> typeName: Microsoft.FSharp.Compiler.Ast.SynType -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -839,7 +839,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitInferredUpcast parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitInferredUpcast: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -860,7 +860,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitInferredDowncast parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitInferredDowncast: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -881,7 +881,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitNull parents context range =
-    range |>
+    range
 
   abstract member VisitNull: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -902,7 +902,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitAddressOf parents context item1 item2 item3 range =
-    item1 |>, item2 |> (this.VisitSynExpr parents context), item3 |>, range |>
+    item1, item2, item3, range
 
   abstract member VisitAddressOf: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: System.Boolean -> item2: Microsoft.FSharp.Compiler.Ast.SynExpr -> item3: Microsoft.FSharp.Compiler.Range.range -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -923,7 +923,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitTraitCall parents context item1 item2 item3 range =
-    item1 |> List.map, item2 |>, item3 |> (this.VisitSynExpr parents context), range |>
+    item1, item2, item3, range
 
   abstract member VisitTraitCall: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynTypar> -> item2: Microsoft.FSharp.Compiler.Ast.SynMemberSig -> item3: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -944,7 +944,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitJoinIn parents context item1 inPos item3 range =
-    item1 |> (this.VisitSynExpr parents context), inPos |>, item3 |> (this.VisitSynExpr parents context), range |>
+    item1, inPos, item3, range
 
   abstract member VisitJoinIn: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.SynExpr -> inPos: Microsoft.FSharp.Compiler.Range.range -> item3: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -965,7 +965,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitImplicitZero parents context range =
-    range |>
+    range
 
   abstract member VisitImplicitZero: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -986,7 +986,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitYieldOrReturn parents context item1 expr range =
-    item1 |>, expr |> (this.VisitSynExpr parents context), range |>
+    item1, expr, range
 
   abstract member VisitYieldOrReturn: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: (System.Boolean * System.Boolean) -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1007,7 +1007,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitYieldOrReturnFrom parents context item1 expr range =
-    item1 |>, expr |> (this.VisitSynExpr parents context), range |>
+    item1, expr, range
 
   abstract member VisitYieldOrReturnFrom: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: (System.Boolean * System.Boolean) -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1028,7 +1028,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLetOrUseBang parents context spBind isUse isFromSource pattern rhsExpr bodyExpr range =
-    spBind |>, isUse |>, isFromSource |>, pattern |>, rhsExpr |> (this.VisitSynExpr parents context), bodyExpr |> (this.VisitSynExpr parents context), range |>
+    spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range
 
   abstract member VisitLetOrUseBang: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding -> isUse: System.Boolean -> isFromSource: System.Boolean -> pattern: Microsoft.FSharp.Compiler.Ast.SynPat -> rhsExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1049,7 +1049,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDoBang parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitDoBang: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1070,7 +1070,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLibraryOnlyILAssembly parents context item1 item2 item3 item4 range =
-    item1 |>, item2 |> List.map, item3 |> List.map (this.VisitSynExpr parents context), item4 |> List.map, range |>
+    item1, item2, item3 |> List.map (this.VisitSynExpr parents context), item4, range
 
   abstract member VisitLibraryOnlyILAssembly: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[] -> item2: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynType> -> item3: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynExpr> -> item4: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynType> -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1091,7 +1091,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLibraryOnlyStaticOptimization parents context item1 item2 item3 range =
-    item1 |> List.map, item2 |> (this.VisitSynExpr parents context), item3 |> (this.VisitSynExpr parents context), range |>
+    item1, item2, item3, range
 
   abstract member VisitLibraryOnlyStaticOptimization: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint> -> item2: Microsoft.FSharp.Compiler.Ast.SynExpr -> item3: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1112,7 +1112,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLibraryOnlyUnionCaseFieldGet parents context item1 longId item3 range =
-    item1 |> (this.VisitSynExpr parents context), longId |> List.map, item3 |>, range |>
+    item1, longId, item3, range
 
   abstract member VisitLibraryOnlyUnionCaseFieldGet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.SynExpr -> longId: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.Ident> -> item3: System.Int32 -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1133,7 +1133,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitLibraryOnlyUnionCaseFieldSet parents context item1 longId item3 item4 range =
-    item1 |> (this.VisitSynExpr parents context), longId |> List.map, item3 |>, item4 |> (this.VisitSynExpr parents context), range |>
+    item1, longId, item3, item4, range
 
   abstract member VisitLibraryOnlyUnionCaseFieldSet: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.SynExpr -> longId: Microsoft.FSharp.Collections.List<Microsoft.FSharp.Compiler.Ast.Ident> -> item3: System.Int32 -> item4: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1154,7 +1154,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitArbitraryAfterError parents context debugStr range =
-    debugStr |>, range |>
+    debugStr, range
 
   abstract member VisitArbitraryAfterError: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> debugStr: System.String -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1175,7 +1175,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitFromParseError parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitFromParseError: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1196,7 +1196,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitDiscardAfterMissingQualificationAfterDot parents context expr range =
-    expr |> (this.VisitSynExpr parents context), range |>
+    expr, range
 
   abstract member VisitDiscardAfterMissingQualificationAfterDot: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
@@ -1217,7 +1217,7 @@ type AstVisitor() =
   /// <param name="context">Context object.</param>
   /// <returns>Pre visited arguments.</returns>
   member this.PreVisitFixed parents context item1 item2 =
-    item1 |> (this.VisitSynExpr parents context), item2 |>
+    item1, item2
 
   abstract member VisitFixed: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> item1: Microsoft.FSharp.Compiler.Ast.SynExpr -> item2: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.SynExpr
 
