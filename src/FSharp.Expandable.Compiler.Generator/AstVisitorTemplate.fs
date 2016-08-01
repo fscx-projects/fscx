@@ -27,16 +27,14 @@ type AstVisitor() =
 
 {2}
 
-  abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr
-
   /// <summary>
   /// SynExpr Visitor entry function.
   /// </summary>
+  /// <param name="expr">Target expression.</param>
   /// <param name="parents">Parent expression list.</param>
   /// <param name="context">Context object.</param>
-  /// <param name="expr">Target expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  default this.VisitSynExpr parents context expr =
+  member this.VisitSynExpr expr parents context =
     let currentParents = expr :: parents
     match expr with
 {3}
@@ -52,16 +50,15 @@ type AstVisitor<'TContext>() =
 
 {2}
 
-  abstract member VisitSynExpr: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> expr: Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr
-
   /// <summary>
   /// SynExpr Visitor entry function.
   /// </summary>
+  /// <param name="expr">Target expression.</param>
   /// <param name="parents">Parent expression list.</param>
   /// <param name="context">Context object.</param>
-  /// <param name="expr">Target expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  default this.VisitSynExpr parents context expr =
+  member this.VisitSynExpr expr parents context =
     let currentParents = expr :: parents
     match expr with
 {3}
+

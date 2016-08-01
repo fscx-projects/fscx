@@ -37,37 +37,37 @@ module MethodInfo =
     let ids =
       List.concat [ elems; [name] ]
       |> List.map (fun x -> Ident(x, zeroRange))
-    SynExpr.LongIdent(false, LongIdentWithDots(ids, List.replicate elems.Length zeroRange), None, zeroRange)
+    SynExpr.initLongIdent false (LongIdentWithDots(ids, List.replicate elems.Length zeroRange)) None zeroRange
 
-let genStringLit lit = SynExpr.Const(SynConst.String(lit, zeroRange), zeroRange)
+let genStringLit lit = SynExpr.initConst (SynConst.String(lit, zeroRange)) zeroRange
 
-let genIdent name = SynExpr.Ident(Ident(name, zeroRange))
+let genIdent name = SynExpr.initIdent (Ident(name, zeroRange))
 
-let genParen x = SynExpr.Paren(x, zeroRange, None, zeroRange)
+let genParen x = SynExpr.initParen x zeroRange None zeroRange
 
 let genAppFun (name, arg) =
-  SynExpr.App(ExprAtomicFlag.Atomic, false, genIdent name, arg, zeroRange)
+  SynExpr.initApp ExprAtomicFlag.Atomic false (genIdent name) arg zeroRange
 
 let genOpChain (op, operands) =
   operands
   |> List.reduce (fun acc operand ->
        let func =
-         SynExpr.App(ExprAtomicFlag.NonAtomic,true,genIdent op,acc,zeroRange)
-       SynExpr.App(ExprAtomicFlag.NonAtomic,false,func,operand,zeroRange)
+         SynExpr.initApp ExprAtomicFlag.NonAtomic true (genIdent op) acc zeroRange
+       SynExpr.initApp ExprAtomicFlag.NonAtomic false func operand zeroRange
   )
 
 let genCallStaticMethod (mi: MethodInfo, args: SynExpr list) =
   let argExpr =
     match args with
-    | [] -> SynExpr.Const(SynConst.Unit, zeroRange)
+    | [] -> SynExpr.initConst SynConst.Unit zeroRange
     | [x] -> x
-    | xs -> SynExpr.Tuple(xs, List.replicate (xs.Length - 1) zeroRange, zeroRange)
-  SynExpr.App(
-    ExprAtomicFlag.Atomic,
-    false,
-    MethodInfo.toIdent mi,
-    genParen(argExpr),
-    zeroRange)
+    | xs -> SynExpr.initTuple xs (List.replicate (xs.Length - 1) zeroRange) zeroRange
+  SynExpr.initApp
+    ExprAtomicFlag.Atomic
+    false
+    (MethodInfo.toIdent mi)
+    (genParen argExpr)
+    zeroRange
 
 let genLetExpr (name, value, expr) =
   let binding =
@@ -85,17 +85,17 @@ let genLetExpr (name, value, expr) =
       zeroRange,
       NoSequencePointAtInvisibleBinding
     )
-  SynExpr.LetOrUse(false, false, [binding], expr, zeroRange)
+  SynExpr.initLetOrUse false false [binding] expr zeroRange
 
 let genTryExpr (tryExpr, clauses, range) =
-  SynExpr.TryWith(
-    tryExpr,
-    zeroRange,
-    clauses,
-    zeroRange,
-    zeroRange,
-    SequencePointAtTry(range),  // Make break point data (pdb)
-    NoSequencePointAtWith)
+  SynExpr.initTryWith
+    tryExpr
+    zeroRange
+    clauses
+    zeroRange
+    zeroRange
+    (SequencePointAtTry range)  // Make break point data (pdb)
+    NoSequencePointAtWith
 
 let genClause (identName, expr) =
   SynMatchClause.Clause(
@@ -109,15 +109,15 @@ let genClause (identName, expr) =
                 SuppressSequencePointAtTarget)
 
 let genReraise () =
-  SynExpr.App(
-    ExprAtomicFlag.Atomic,
-    false,
-    genIdent "reraise",
-    SynExpr.Paren(SynExpr.Const(SynConst.Unit, zeroRange), zeroRange, None, zeroRange),
-    zeroRange)
+  SynExpr.initApp
+    ExprAtomicFlag.Atomic
+    false
+    (genIdent "reraise")
+    (SynExpr.initParen (SynExpr.initConst SynConst.Unit zeroRange) zeroRange None zeroRange),
+    zeroRange
 
 let (+>) a b =
-  SynExpr.Sequential(SuppressSequencePointOnStmtOfSequential, true, a, b, zeroRange)
+  SynExpr.initSequential SuppressSequencePointOnStmtOfSequential true a b zeroRange
 
 let writeLineM = MethodInfo.extract <@ System.Console.WriteLine() @>
 
@@ -143,21 +143,24 @@ let isIdent = function
 type ConvVisitor() =
   inherit AstVisitor<FSharpCheckFileResults>()
 
-  override __.VisitQuote parents context operator isRaw quoteSynExpr isFromQueryExpression range =
+  override __.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range parents context =
     // DEBUG
     printfn "%A" operator
-    base.VisitQuote parents context operator isRaw quoteSynExpr isFromQueryExpression range 
+    base.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range parents context
 
-  override this.VisitApp parents context exprAtomicFlag isInfix funcExpr argExpr range =
-      let visitedArgs = this.PreVisitApp parents context exprAtomicFlag isInfix funcExpr argExpr range
-
+  override this.VisitApp exprAtomicFlag isInfix funcExpr argExpr range parents context =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
         | SynExpr.LongIdent (_, longIdent, _, range) ->
             let elems = longIdent.Lid |> List.map (fun i -> i.idText)
             elems, range
-      let opt = context.GetSymbolUseAtLocation(funcIdentRange.Start.Line, funcIdentRange.End.Column, "", funcNameElems) |> Async.RunSynchronously
+      let opt = context.GetSymbolUseAtLocation(
+        funcIdentRange.Start.Line,
+        funcIdentRange.End.Column,
+        "",
+        funcNameElems)
+        |> Async.RunSynchronously
       // TODO : asmが対象外だったら変換せずにorigを返す
       let asm =
         match opt with

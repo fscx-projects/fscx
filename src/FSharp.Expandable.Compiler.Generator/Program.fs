@@ -88,6 +88,8 @@ let readTemplate () =
 [<EntryPoint>]
 let main argv = 
 
+  // TODO: Async<SynExpr> - replace all expr with Async/Async workflow/let! NO EXCEPTS, very hard...
+
   // Type pattern examples:
   // value                  --> value
   // Option<value>          --> value
@@ -105,21 +107,23 @@ let main argv =
   // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
   // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
 
-  let rec formatOperator (opers: string list) =
+  let rec formatSynExprOperators isAsync (opers: string list) =
     if List.isEmpty opers then
-      "(this.VisitSynExpr parents context)"
+      String.Format(
+        "(fun expr -> this.{0}VisitSynExpr expr parents context)",
+        (if isAsync then "Async" else ""))
     else
       String.Format(
         "({0} {1})",
         List.head opers,
-        formatOperator (List.skip 1 opers))
+        formatSynExprOperators isAsync (List.skip 1 opers))
 
-  let rec formatArgument0 name (t: Type) (opers: string list) =
+  let rec formatArgument0 isAsync name (t: Type) (opers: string list) =
     if t = typeof<SynExpr> then
       String.Format(
         "({0} |> {1})",
         name,
-        formatOperator opers)
+        formatSynExprOperators isAsync opers)
     else if t.IsGenericType = false then
       name
     else
@@ -131,14 +135,14 @@ let main argv =
         let outerType = t.GetGenericTypeDefinition()
         let innerType = genericArguments.[0]
         if outerType = typedefof<Option<obj>> then
-          formatArgument0 name innerType ("Option.map" :: opers)
+          formatArgument0 isAsync name innerType ("Option.map" :: opers)
         else if outerType = typedefof<List<obj>> then
-          formatArgument0 name innerType ("List.map" :: opers)
+          formatArgument0 isAsync name innerType ("List.map" :: opers)
         else
           name
 
-  let formatArgument (field: PropertyInfo) =
-    formatArgument0 (formatFieldName field) field.PropertyType []
+  let formatArgument isAsync (field: PropertyInfo) =
+    formatArgument0 isAsync (formatFieldName field) field.PropertyType []
 
   //////////////////////////////////
   // {1}
@@ -163,10 +167,10 @@ let main argv =
   //////////////////////////////////
   // {2}
 
-  let formatPlace2 (unionCase: UnionCaseInfo) =
+  let formatPlace2 isAsync (unionCase: UnionCaseInfo) =
     let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
-    let args = unionCase.GetFields() |> Seq.map formatArgument |> Seq.toArray
+    let args = unionCase.GetFields() |> Seq.map (formatArgument isAsync) |> Seq.toArray
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Before visit \"{0}\" arguments.\r\n" +
@@ -175,7 +179,7 @@ let main argv =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  abstract member BeforeVisit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
+      "  abstract member {4}BeforeVisit{0}: {1} -> parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {8}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Before visit \"{0}\" arguments.\r\n" +
@@ -184,8 +188,8 @@ let main argv =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  default this.BeforeVisit{0} parents context {2} =\r\n" +
-      "    this.Visit{0} parents context {3}\r\n" +
+      "  default this.{4}BeforeVisit{0} {2} parents context =\r\n" +
+      "    this.{4}Visit{0} {3} parents context\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
@@ -194,7 +198,7 @@ let main argv =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  abstract member Visit{0}: parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {1} -> Microsoft.FSharp.Compiler.Ast.SynExpr\r\n" +
+      "  abstract member {4}Visit{0}: {1} -> parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {8}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
@@ -203,36 +207,43 @@ let main argv =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  default __.Visit{0} parents context {2} =\r\n" +
-      "    SynExpr.init{0} {2}\r\n",
+      "  default __.{4}Visit{0} {2} parents context {5}\r\n" +
+      "    {7}SynExpr.init{0} {2}\r\n" +
+      "{6}",
       unionCase.Name,
       String.Join(" -> ", decls),
       String.Join(" ", fields),
-      String.Join(" ", args))
-  let place2 =
+      String.Join(" ", args),
+      (if isAsync then "Async" else ""),
+      (if isAsync then "= async {" else "="),
+      (if isAsync then "  }" else ""),
+      (if isAsync then "return " else ""),
+      (if isAsync then "Async<Microsoft.FSharp.Compiler.Ast.SynExpr>" else "Microsoft.FSharp.Compiler.Ast.SynExpr"))
+  let place2 isAsync =
     String.Join(
       "\r\n",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace2)
+      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map (formatPlace2 isAsync))
 
   //////////////////////////////////
   // {3}
 
-  let formatPlace3 (unionCase: UnionCaseInfo) =
+  let formatPlace3 isAsync (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     String.Format(
-      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.BeforeVisit{0} currentParents context {2}\r\n",
+      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.{3}BeforeVisit{0} {2} currentParents context\r\n",
       unionCase.Name,
       String.Join(", ", fields),
-      String.Join(" ", fields))
-  let place3 =
+      String.Join(" ", fields),
+      (if isAsync then "Async" else ""))
+  let place3 isAsync =
     String.Join(
       "",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace3)
+      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map (formatPlace3 isAsync))
 
   //////////////////////////////////
 
   let template = readTemplate()
-  let formatted = String.Format(template, DateTime.UtcNow, place1, place2, place3)
+  let formatted = String.Format(template, DateTime.UtcNow, place1, place2 false, place3 false)
 
   File.WriteAllText(argv.[0], formatted)
   0
