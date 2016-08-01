@@ -58,9 +58,18 @@ let rec formatTypeName (t: Type) : string =
       match t.DeclaringType with
       | null -> String.Format("{0}.{1}", t.Namespace, safeName)
       | declaringType -> String.Format("{0}.{1}", formatTypeName declaringType, safeName)
-    match t.IsGenericType with
-    | false -> safeTypeName
-    | true ->
+    match t.IsGenericType, safeTypeName with
+    // HACK: smaller codes
+    | false, "System.Boolean" -> "bool"
+    | false, "System.Int32" -> "int"
+    | false, "System.Int64" -> "int64"
+    | false, "System.String" -> "string"
+    | false, "Microsoft.FSharp.Compiler.Range" -> "Range"
+    | false, "Microsoft.FSharp.Compiler.Ast.SynExpr" -> "SynExpr"
+    // Others
+    | false, _ -> safeTypeName
+    // Generic types
+    | true, _ ->
       let genericArgumentSignature =
         String.Join(", ", t.GetGenericArguments() |> Seq.map formatTypeName)
       String.Format(
@@ -110,7 +119,7 @@ let main argv =
   let rec formatSynExprOperators isAsync (opers: string list) =
     if List.isEmpty opers then
       String.Format(
-        "(fun expr -> this.{0}VisitSynExpr expr parents context)",
+        "(fun expr -> this.{0}VisitSynExpr expr context)",
         (if isAsync then "Async" else ""))
     else
       String.Format(
@@ -141,7 +150,7 @@ let main argv =
         else
           name
 
-  let formatArgument isAsync (field: PropertyInfo) =
+  let formatArgument isAsync (field: PropertyInfo) = 
     formatArgument0 isAsync (formatFieldName field) field.PropertyType []
 
   //////////////////////////////////
@@ -155,7 +164,7 @@ let main argv =
       "  /// </summary>\r\n" +
       "  /// <returns>Constructed expression.</returns>\r\n" +
       "  let init{0} {1} =\r\n" +
-      "    Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({2})\r\n",
+      "    SynExpr.{0}({2})\r\n",
       unionCase.Name,
       String.Join(" ", fields),
       String.Join(", ", fields))
@@ -175,39 +184,35 @@ let main argv =
       "  /// <summary>\r\n" +
       "  /// Before visit \"{0}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  abstract member {4}BeforeVisit{0}: {1} -> parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {8}\r\n" +
+      "  abstract member {4}BeforeVisit{0}: {1} -> context: 'TContext -> {8}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Before visit \"{0}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  default this.{4}BeforeVisit{0} {2} parents context =\r\n" +
-      "    this.{4}Visit{0} {3} parents context\r\n" +
+      "  default this.{4}BeforeVisit{0} {2} context =\r\n" +
+      "    this.{4}Visit{0} {3} context\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  abstract member {4}Visit{0}: {1} -> parents: Microsoft.FSharp.Compiler.Ast.SynExpr list -> context: 'TContext -> {8}\r\n" +
+      "  abstract member {4}Visit{0}: {1} -> context: 'TContext -> {8}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{0}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"parents\">Parent expression list.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  default __.{4}Visit{0} {2} parents context {5}\r\n" +
+      "  default __.{4}Visit{0} {2} context {5}\r\n" +
       "    {7}SynExpr.init{0} {2}\r\n" +
       "{6}",
       unionCase.Name,
@@ -218,7 +223,7 @@ let main argv =
       (if isAsync then "= async {" else "="),
       (if isAsync then "  }" else ""),
       (if isAsync then "return " else ""),
-      (if isAsync then "Async<Microsoft.FSharp.Compiler.Ast.SynExpr>" else "Microsoft.FSharp.Compiler.Ast.SynExpr"))
+      (if isAsync then "Async<SynExpr>" else "SynExpr"))
   let place2 isAsync =
     String.Join(
       "\r\n",
@@ -230,7 +235,7 @@ let main argv =
   let formatPlace3 isAsync (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
     String.Format(
-      "    | Microsoft.FSharp.Compiler.Ast.SynExpr.{0}({1}) ->\r\n      this.{3}BeforeVisit{0} {2} currentParents context\r\n",
+      "      | SynExpr.{0}({1}) ->\r\n        this.{3}BeforeVisit{0} {2} context\r\n",
       unionCase.Name,
       String.Join(", ", fields),
       String.Join(" ", fields),

@@ -113,7 +113,7 @@ let genReraise () =
     ExprAtomicFlag.Atomic
     false
     (genIdent "reraise")
-    (SynExpr.initParen (SynExpr.initConst SynConst.Unit zeroRange) zeroRange None zeroRange),
+    (SynExpr.initParen (SynExpr.initConst SynConst.Unit zeroRange) zeroRange None zeroRange)
     zeroRange
 
 let (+>) a b =
@@ -140,27 +140,29 @@ let isIdent = function
 | SynExpr.LongIdent _ -> true
 | _ -> false
 
-type ConvVisitor() =
+type InsertLoggingVisitor() =
   inherit AstVisitor<FSharpCheckFileResults>()
 
-  override __.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range parents context =
+  override __.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range context =
     // DEBUG
     printfn "%A" operator
-    base.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range parents context
+    base.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range context
 
-  override this.VisitApp exprAtomicFlag isInfix funcExpr argExpr range parents context =
+  override __.VisitApp exprAtomicFlag isInfix funcExpr argExpr range context =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
         | SynExpr.LongIdent (_, longIdent, _, range) ->
             let elems = longIdent.Lid |> List.map (fun i -> i.idText)
             elems, range
-      let opt = context.GetSymbolUseAtLocation(
-        funcIdentRange.Start.Line,
-        funcIdentRange.End.Column,
-        "",
-        funcNameElems)
+      let opt =
+        context.GetSymbolUseAtLocation(
+          funcIdentRange.Start.Line,
+          funcIdentRange.End.Column,
+          "",
+          funcNameElems)
         |> Async.RunSynchronously
+
       // TODO : asmが対象外だったら変換せずにorigを返す
       let asm =
         match opt with
@@ -202,12 +204,12 @@ type ConvVisitor() =
               logStartCallMethod funcName "args"
               +> (genLetExpr (
                     "res",
-                    SynExpr.App(exprAtomicFlag, isInfix, convExpr c funcExpr, argExpr, zeroRange),
+                    (SynExpr.initApp exprAtomicFlag isInfix funcExpr argExpr zeroRange),
                     logFinishCallMethod funcName "res"
                     +> genIdent "res")))
           genTryExpr (
             tryExpr,
-            [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
+            [ genClause ("e", logExn funcName "e" +> (genReraise ())) ],
             range)
 
       // f (x, y, ...) の考慮 => Paren(Tuple(exprs))
@@ -220,16 +222,21 @@ type ConvVisitor() =
                 "args",
                 genOpChain ("op_Addition", args |> List.map (fun arg -> genAppFun ("string", arg)) |> addSep (genStringLit ", ")),
                 logStartCallMethod funcName "args"
-                +> (genLetExpr (
+                +> genLetExpr (
                       "res",
-                      SynExpr.App(exprAtomicFlag, isInfix, convExpr c funcExpr, SynExpr.Paren(SynExpr.Tuple(args, commaRange, trange), x, y, z), zeroRange),
+                      SynExpr.initApp
+                        exprAtomicFlag
+                        isInfix
+                        funcExpr
+                        (SynExpr.initParen (SynExpr.initTuple args commaRange trange) x y z)
+                        zeroRange,
                       logFinishCallMethod funcName "res"
-                      +> genIdent "res")))
+                      +> (genIdent "res")))
             let x =
               (exprs, seed)
               ||> List.foldBack (fun (n, expr) acc ->
                     let name = "arg" + string n
-                    genLetExpr (name, convExpr c expr, acc))
+                    genLetExpr (name, expr, acc))
             x
           genTryExpr (
             tryExpr,
@@ -241,17 +248,15 @@ type ConvVisitor() =
       | SynExpr.Paren(expr, _, _, _)
       | expr ->
           let tryExpr =
-            let seed =
-              genLetExpr(
+            genLetExpr(
                 "args",
                 expr,
                 logStartCallMethod funcName "args"
                 +> (genLetExpr (
                       "res",
-                      SynExpr.App(exprAtomicFlag, isInfix, convExpr c funcExpr, SynExpr.Paren(expr, zeroRange, None, zeroRange), zeroRange),
+                      SynExpr.initApp exprAtomicFlag isInfix funcExpr (SynExpr.initParen expr zeroRange None zeroRange) zeroRange,
                       logFinishCallMethod funcName "res"
-                      +> genIdent "res")))
-            convExpr c seed
+                      +> genIdent "res"))
           genTryExpr (
             tryExpr,
             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
@@ -448,7 +453,9 @@ let rec convExpr (c: FSharpCheckFileResults) (expr: SynExpr) =
   | SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) ->
       SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, convExpr c rhsExpr, convExpr c bodyExpr, range)
   | SynExpr.DoBang(expr, range) -> SynExpr.DoBang(convExpr c expr, range)
-and convClause c (SynMatchClause.Clause (pat, exprOpt, expr, range, spTarget)) =
+*)
+
+let rec convClause c (SynMatchClause.Clause (pat, exprOpt, expr, range, spTarget)) =
   SynMatchClause.Clause(pat, exprOpt |> Option.map (convExpr c), convExpr c expr, range, spTarget)
 and convBinding c (Binding(access, kind, inlin, mutabl, attrs, xmlDoc, data, pat, retInfo, body, m, sp)) =
   Binding(access, kind, inlin, mutabl, attrs, xmlDoc, data, pat, retInfo, convExpr c body, m, sp)
@@ -456,7 +463,6 @@ and convIndexerArg c (indexerArg: SynIndexerArg) =
   match indexerArg with
   | SynIndexerArg.One expr -> SynIndexerArg.One (convExpr c expr)
   | SynIndexerArg.Two (expr1, expr2) -> SynIndexerArg.Two (convExpr c expr1, convExpr c expr2)
-*)
 
 let convDecls c xs =
   [ for decl in xs do

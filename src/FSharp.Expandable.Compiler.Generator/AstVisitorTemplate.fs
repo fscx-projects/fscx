@@ -6,6 +6,8 @@
 namespace Microsoft.FSharp.Compiler.Ast
 
 open System
+open Microsoft.FSharp.Compiler
+open Microsoft.FSharp.Compiler.Ast
 
 ////////////////////////////////////////////////////////////
 
@@ -22,43 +24,29 @@ module SynExpr =
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST visitor.
 /// </summary>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstVisitor() =
-
-{2}
-
-  /// <summary>
-  /// SynExpr Visitor entry function.
-  /// </summary>
-  /// <param name="expr">Target expression.</param>
-  /// <param name="parents">Parent expression list.</param>
-  /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitSynExpr expr parents context =
-    let currentParents = expr :: parents
-    match expr with
-{3}
-
-////////////////////////////////////////////////////////////
-
-/// <summary>
-/// FSharp.Compiler.Service's untyped AST visitor.
-/// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type AstVisitor<'TContext>() =
 
+  let parents = new System.Collections.Generic.Stack<SynExpr>()
+
+  /// <summary>
+  /// Parent ASTs
+  /// </summary>
+  member __.Parents = parents |> List.ofSeq
+
 {2}
 
   /// <summary>
   /// SynExpr Visitor entry function.
   /// </summary>
   /// <param name="expr">Target expression.</param>
-  /// <param name="parents">Parent expression list.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitSynExpr expr parents context =
-    let currentParents = expr :: parents
-    match expr with
+  member this.VisitSynExpr expr (context: 'TContext) =
+    parents.Push(expr)
+    try
+      match expr with
 {3}
-
+    finally
+      parents.Pop() |> ignore
