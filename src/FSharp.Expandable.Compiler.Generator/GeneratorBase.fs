@@ -23,22 +23,22 @@ namespace FSharp.Expandable.Compiler.Generator
 
 open System
 open System.IO
-open System.Reflection
+open System.Text
 
-module Program =
+[<AbstractClass>]
+type internal GeneratorBase () =
 
-  [<EntryPoint>]
-  let main argv = 
-    let time = DateTime.UtcNow
-    let basePath = Path.GetFullPath argv.[0]
+  abstract GenerateBodies: unit -> string seq
 
-    let assembly = Assembly.GetExecutingAssembly()
-    let generators =
-      assembly.GetTypes()
-      |> Seq.filter (fun t -> t.IsSealed && typeof<GeneratorBase>.IsAssignableFrom t)
-      |> Seq.map (fun t -> Activator.CreateInstance t :?> GeneratorBase)
-      |> Seq.toArray
+  member this.Generate (basePath: string) (time: DateTime) =
+    let name = this.GetType().Name.Replace("Generator", "")
+    let template = Utilities.readTemplate (name + "Template.fs")
 
-    generators |> Seq.iter (fun generator -> generator.Generate basePath time)
+    let path = Path.Combine(basePath, name + ".fs")
+    use fs = new FileStream(path, FileMode.Create, FileAccess.ReadWrite, FileShare.None)
+    let tw = new StreamWriter(fs, Encoding.UTF8)
 
-    0
+    tw.WriteLine(template, time)
+    this.GenerateBodies() |> Seq.iter tw.Write
+    tw.Flush()
+    fs.Flush()

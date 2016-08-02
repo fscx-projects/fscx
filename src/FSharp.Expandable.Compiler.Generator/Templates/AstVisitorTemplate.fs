@@ -12,16 +12,6 @@ open Microsoft.FSharp.Compiler.Ast
 ////////////////////////////////////////////////////////////
 
 /// <summary>
-/// FSharp.Compiler.Service's untyped AST expression auguments.
-/// </summary>
-[<AutoOpen>]
-module SynExpr =
-
-{1}
-
-////////////////////////////////////////////////////////////
-
-/// <summary>
 /// FSharp.Compiler.Service's untyped AST visitor.
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>

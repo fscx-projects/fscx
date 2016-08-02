@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\FSharp.Expandable.Compiler.Generator.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>..\..\..\FSharp.Expandable.Compiler.Core\AstVisitor.fs</StartArguments>
+    <StartArguments>..\..\..\FSharp.Expandable.Compiler.Core</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,10 +48,15 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Templates/AstConsTemplate.fs" />
+    <EmbeddedResource Include="Templates/AstVisitorTemplate.fs" />
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Utilities.fs" />
+    <Compile Include="GeneratorBase.fs" />
+    <Compile Include="AstConsGenerator.fs" />
+    <Compile Include="AstVisitorGenerator.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
-    <EmbeddedResource Include="AstVisitorTemplate.fs" />
     <None Include="paket.references" />
   </ItemGroup>
   <PropertyGroup>
