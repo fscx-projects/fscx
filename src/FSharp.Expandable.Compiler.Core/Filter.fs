@@ -143,12 +143,12 @@ let isIdent = function
 type InsertLoggingVisitor() =
   inherit AstVisitor<FSharpCheckFileResults>()
 
-  override __.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range context =
+  override __.VisitSynExprQuote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context) =
     // DEBUG
     printfn "%A" operator
-    base.VisitQuote operator isRaw quoteSynExpr isFromQueryExpression range context
+    base.VisitSynExprQuote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context)
 
-  override __.VisitApp exprAtomicFlag isInfix funcExpr argExpr range context =
+  override __.VisitSynExprApp(exprAtomicFlag, isInfix, funcExpr, argExpr, range, context) =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange

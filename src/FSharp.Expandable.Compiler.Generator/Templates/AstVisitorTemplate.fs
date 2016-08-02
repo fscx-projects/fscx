@@ -18,25 +18,10 @@ open Microsoft.FSharp.Compiler.Ast
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type AstVisitor<'TContext>() =
 
-  let parents = new System.Collections.Generic.Stack<SynExpr>()
+  // TODO: du element
+  let parents = new System.Collections.Generic.Stack<obj>()
 
   /// <summary>
-  /// Parent ASTs
+  /// Parent nodes
   /// </summary>
   member __.Parents = parents |> List.ofSeq
-
-{2}
-
-  /// <summary>
-  /// SynExpr Visitor entry function.
-  /// </summary>
-  /// <param name="expr">Target expression.</param>
-  /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitSynExpr expr (context: 'TContext) =
-    parents.Push(expr)
-    try
-      match expr with
-{3}
-    finally
-      parents.Pop() |> ignore
