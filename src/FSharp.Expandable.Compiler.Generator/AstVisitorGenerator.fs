@@ -26,7 +26,6 @@ open System.Collections.Generic
 open System.Linq
 open System.Reflection
 
-open Microsoft.FSharp.Core
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
@@ -99,10 +98,10 @@ type internal AstVisitorGenerator() =
         // Auto mapping supported only Option<> or List<>.
         let outerType = fieldType.GetGenericTypeDefinition()
         let innerType = genericArguments.[0]
-        if outerType = typedefof<Option<obj>> then
-          formatArgument0 name innerType ("Option.map" :: opers) exprs
-        else if outerType = typedefof<List<obj>> then
-          formatArgument0 name innerType ("List.map" :: opers) exprs
+        if outerType = typedefof<Microsoft.FSharp.Core.Option<obj>> then
+          formatArgument0 name innerType ("Microsoft.FSharp.Core.Option.map" :: opers) exprs
+        else if outerType = typedefof<Microsoft.FSharp.Collections.List<obj>> then
+          formatArgument0 name innerType ("Microsoft.FSharp.Collections.List.map" :: opers) exprs
         else
           name
 

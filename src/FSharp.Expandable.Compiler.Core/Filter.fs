@@ -149,15 +149,15 @@ type InsertLoggingVisitor() =
   //////////////////////////////////
   // Quote
 
-  override __.VisitSynExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context) =
+  override __.VisitExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context) =
     // DEBUG
     printfn "%A" operator
-    base.VisitSynExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context)
+    base.VisitExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context)
 
   //////////////////////////////////
   // App
 
-  override __.VisitSynExpr_App(exprAtomicFlag, isInfix, funcExpr, argExpr, range, context) =
+  override __.VisitExpr_App(exprAtomicFlag, isInfix, funcExpr, argExpr, range, context) =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
@@ -276,35 +276,10 @@ type InsertLoggingVisitor() =
             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
             range)
 
-  //////////////////////////////////
-  // MatchClause
-
-  override this.VisitSynMatchClause_Clause(item1, item2, item3, range, spTarget, context) =
-    base.VisitSynMatchClause_Clause(item1, item2, item3, range, spTarget, context)
-
-
-let rec convClause c (SynMatchClause.Clause (pat, exprOpt, expr, range, spTarget)) =
-  SynMatchClause.Clause(pat, exprOpt |> Option.map (convExpr c), convExpr c expr, range, spTarget)
-and convBinding c (Binding(access, kind, inlin, mutabl, attrs, xmlDoc, data, pat, retInfo, body, m, sp)) =
-  Binding(access, kind, inlin, mutabl, attrs, xmlDoc, data, pat, retInfo, convExpr c body, m, sp)
-and convIndexerArg c (indexerArg: SynIndexerArg) =
-  match indexerArg with
-  | SynIndexerArg.One expr -> SynIndexerArg.One (convExpr c expr)
-  | SynIndexerArg.Two (expr1, expr2) -> SynIndexerArg.Two (convExpr c expr1, convExpr c expr2)
-
-let convDecls c xs =
-  [ for decl in xs do
-      match decl with
-      | SynModuleDecl.Let(isRec, bindings, range) ->
-          yield SynModuleDecl.Let(isRec, bindings |> List.map (convBinding c), range)
-      | _ -> yield decl ]
-
-let convModulesOrNamespaces c xs =
-  [ for SynModuleOrNamespace(id, isRec, isMod, decls, xml, attrs, access, r) in xs do
-      yield SynModuleOrNamespace(id, isRec, isMod, convDecls c decls, xml, attrs, access, r) ]
-
 let apply (ast: ParsedInput) (c: FSharpCheckFileResults) =
   match ast with
   | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
-      ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convModulesOrNamespaces c synModOrNss, x))
+      let visitor = new InsertLoggingVisitor()
+      let convertedModOrNss = visitor.VisitModuleOrNamespace c synModOrNss
+      ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convertedModOrNss, x))
   | other -> other

@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 03 Aug 2016 06:04:30 GMT
+// Generated: Wed, 03 Aug 2016 06:41:39 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -218,7 +218,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitBinding_Binding".</remarks>
   default this.BeforeVisitBinding_Binding(access: Microsoft.FSharp.Compiler.Ast.SynAccess option, bindingKind: Microsoft.FSharp.Compiler.Ast.SynBindingKind, mustInline: bool, isMutable: bool, attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, item7: Microsoft.FSharp.Compiler.Ast.SynValData, headPat: Microsoft.FSharp.Compiler.Ast.SynPat, item9: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option, expr: Microsoft.FSharp.Compiler.Ast.SynExpr, lhsRange: Microsoft.FSharp.Compiler.Range.range, spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding, context: 'TContext) =
-    this.VisitBinding_Binding(access |> (Option.map (this.VisitAccess context)), bindingKind |> (this.VisitBindingKind context), mustInline, isMutable, attributes, xmlDoc, item7 |> (this.VisitValData context), headPat |> (this.VisitPat context), item9 |> (Option.map (this.VisitBindingReturnInfo context)), expr |> (this.VisitExpr context), lhsRange, spBind, context)
+    this.VisitBinding_Binding(access |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), bindingKind |> (this.VisitBindingKind context), mustInline, isMutable, attributes, xmlDoc, item7 |> (this.VisitValData context), headPat |> (this.VisitPat context), item9 |> (Microsoft.FSharp.Core.Option.map (this.VisitBindingReturnInfo context)), expr |> (this.VisitExpr context), lhsRange, spBind, context)
 
   /// <summary>
   /// Visit "SynBinding.Binding" expression.
@@ -449,7 +449,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitComponentInfo_ComponentInfo".</remarks>
   default this.BeforeVisitComponentInfo_ComponentInfo(attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, typeParams: Microsoft.FSharp.Compiler.Ast.SynTyparDecl list, constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list, item4: Microsoft.FSharp.Compiler.Ast.Ident list, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, preferPostfix: bool, accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitComponentInfo_ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitComponentInfo_ComponentInfo(attributes, typeParams |> (Microsoft.FSharp.Collections.List.map (this.VisitTyparDecl context)), constraints |> (Microsoft.FSharp.Collections.List.map (this.VisitTypeConstraint context)), item4, xmlDoc, preferPostfix, accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynComponentInfo.ComponentInfo" expression.
@@ -1275,7 +1275,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConstructorArgs_Pats".</remarks>
   default this.BeforeVisitConstructorArgs_Pats(item: Microsoft.FSharp.Compiler.Ast.SynPat list, context: 'TContext) =
-    this.VisitConstructorArgs_Pats(item, context)
+    this.VisitConstructorArgs_Pats(item |> (Microsoft.FSharp.Collections.List.map (this.VisitPat context)), context)
 
   /// <summary>
   /// Visit "SynConstructorArgs.Pats" expression.
@@ -1417,7 +1417,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefn_SynExceptionDefn".</remarks>
   default this.BeforeVisitExceptionDefn_SynExceptionDefn(exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr, members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExceptionDefn_SynExceptionDefn(exnRepr |> (this.VisitExceptionDefnRepr context), members, range, context)
+    this.VisitExceptionDefn_SynExceptionDefn(exnRepr |> (this.VisitExceptionDefnRepr context), members |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberDefn context)), range, context)
 
   /// <summary>
   /// Visit "SynExceptionDefn.SynExceptionDefn" expression.
@@ -1470,7 +1470,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefnRepr_SynExceptionDefnRepr".</remarks>
   default this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr(item1: Microsoft.FSharp.Compiler.Ast.SynAttribute list, case: Microsoft.FSharp.Compiler.Ast.SynUnionCase, longId: Microsoft.FSharp.Compiler.Ast.Ident list option, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, accesibility: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExceptionDefnRepr_SynExceptionDefnRepr(item1, case |> (this.VisitUnionCase context), longId, xmlDoc, accesibility |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitExceptionDefnRepr_SynExceptionDefnRepr(item1, case |> (this.VisitUnionCase context), longId, xmlDoc, accesibility |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynExceptionDefnRepr.SynExceptionDefnRepr" expression.
@@ -1523,7 +1523,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionSig_SynExceptionSig".</remarks>
   default this.BeforeVisitExceptionSig_SynExceptionSig(exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr, memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExceptionSig_SynExceptionSig(exnRepr |> (this.VisitExceptionDefnRepr context), memberSigs, range, context)
+    this.VisitExceptionSig_SynExceptionSig(exnRepr |> (this.VisitExceptionDefnRepr context), memberSigs |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberSig context)), range, context)
 
   /// <summary>
   /// Visit "SynExceptionSig.SynExceptionSig" expression.
@@ -1712,7 +1712,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Tuple".</remarks>
   default this.BeforeVisitExpr_Tuple(exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list, commaRanges: Microsoft.FSharp.Compiler.Range.range list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_Tuple(exprs, commaRanges, range, context)
+    this.VisitExpr_Tuple(exprs |> (Microsoft.FSharp.Collections.List.map (this.VisitExpr context)), commaRanges, range, context)
 
   /// <summary>
   /// Visit "SynExpr.Tuple" expression.
@@ -1746,7 +1746,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArrayOrList".</remarks>
   default this.BeforeVisitExpr_ArrayOrList(isList: bool, exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_ArrayOrList(isList, exprs, range, context)
+    this.VisitExpr_ArrayOrList(isList, exprs |> (Microsoft.FSharp.Collections.List.map (this.VisitExpr context)), range, context)
 
   /// <summary>
   /// Visit "SynExpr.ArrayOrList" expression.
@@ -1848,7 +1848,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ObjExpr".</remarks>
   default this.BeforeVisitExpr_ObjExpr(objType: Microsoft.FSharp.Compiler.Ast.SynType, argOpt: (Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Ast.Ident option) option, bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list, extraImpls: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list, newPos: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_ObjExpr(objType |> (this.VisitType context), argOpt, bindings, extraImpls, newPos, range, context)
+    this.VisitExpr_ObjExpr(objType |> (this.VisitType context), argOpt, bindings |> (Microsoft.FSharp.Collections.List.map (this.VisitBinding context)), extraImpls |> (Microsoft.FSharp.Collections.List.map (this.VisitInterfaceImpl context)), newPos, range, context)
 
   /// <summary>
   /// Visit "SynExpr.ObjExpr" expression.
@@ -2086,7 +2086,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_MatchLambda".</remarks>
   default this.BeforeVisitExpr_MatchLambda(item1: bool, item2: Microsoft.FSharp.Compiler.Range.range, clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list, spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_MatchLambda(item1, item2, clauses, spBind, range, context)
+    this.VisitExpr_MatchLambda(item1, item2, clauses |> (Microsoft.FSharp.Collections.List.map (this.VisitMatchClause context)), spBind, range, context)
 
   /// <summary>
   /// Visit "SynExpr.MatchLambda" expression.
@@ -2120,7 +2120,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Match".</remarks>
   default this.BeforeVisitExpr_Match(spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding, matchExpr: Microsoft.FSharp.Compiler.Ast.SynExpr, clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list, isCexprExceptionMatch: bool, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_Match(spBind, matchExpr |> (this.VisitExpr context), clauses, isCexprExceptionMatch, range, context)
+    this.VisitExpr_Match(spBind, matchExpr |> (this.VisitExpr context), clauses |> (Microsoft.FSharp.Collections.List.map (this.VisitMatchClause context)), isCexprExceptionMatch, range, context)
 
   /// <summary>
   /// Visit "SynExpr.Match" expression.
@@ -2256,7 +2256,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TypeApp".</remarks>
   default this.BeforeVisitExpr_TypeApp(expr: Microsoft.FSharp.Compiler.Ast.SynExpr, leftAngleRange: Microsoft.FSharp.Compiler.Range.range, typeNames: Microsoft.FSharp.Compiler.Ast.SynType list, commaRanges: Microsoft.FSharp.Compiler.Range.range list, rightAngleRange: Microsoft.FSharp.Compiler.Range.range option, typeArgs: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_TypeApp(expr |> (this.VisitExpr context), leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range, context)
+    this.VisitExpr_TypeApp(expr |> (this.VisitExpr context), leftAngleRange, typeNames |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), commaRanges, rightAngleRange, typeArgs, range, context)
 
   /// <summary>
   /// Visit "SynExpr.TypeApp" expression.
@@ -2290,7 +2290,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LetOrUse".</remarks>
   default this.BeforeVisitExpr_LetOrUse(isRecursive: bool, isUse: bool, bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list, exprBody: Microsoft.FSharp.Compiler.Ast.SynExpr, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_LetOrUse(isRecursive, isUse, bindings, exprBody |> (this.VisitExpr context), range, context)
+    this.VisitExpr_LetOrUse(isRecursive, isUse, bindings |> (Microsoft.FSharp.Collections.List.map (this.VisitBinding context)), exprBody |> (this.VisitExpr context), range, context)
 
   /// <summary>
   /// Visit "SynExpr.LetOrUse" expression.
@@ -2324,7 +2324,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TryWith".</remarks>
   default this.BeforeVisitExpr_TryWith(tryExpr: Microsoft.FSharp.Compiler.Ast.SynExpr, item2: Microsoft.FSharp.Compiler.Range.range, item3: Microsoft.FSharp.Compiler.Ast.SynMatchClause list, item4: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry, spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith, context: 'TContext) =
-    this.VisitExpr_TryWith(tryExpr |> (this.VisitExpr context), item2, item3, item4, range, spTry, spWith, context)
+    this.VisitExpr_TryWith(tryExpr |> (this.VisitExpr context), item2, item3 |> (Microsoft.FSharp.Collections.List.map (this.VisitMatchClause context)), item4, range, spTry, spWith, context)
 
   /// <summary>
   /// Visit "SynExpr.TryWith" expression.
@@ -2460,7 +2460,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_IfThenElse".</remarks>
   default this.BeforeVisitExpr_IfThenElse(exprGuard: Microsoft.FSharp.Compiler.Ast.SynExpr, exprThen: Microsoft.FSharp.Compiler.Ast.SynExpr, optionalExprElse: Microsoft.FSharp.Compiler.Ast.SynExpr option, spIfToThen: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding, isFromErrorRecovery: bool, ifToThen: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_IfThenElse(exprGuard |> (this.VisitExpr context), exprThen |> (this.VisitExpr context), optionalExprElse |> (Option.map (this.VisitExpr context)), spIfToThen, isFromErrorRecovery, ifToThen, range, context)
+    this.VisitExpr_IfThenElse(exprGuard |> (this.VisitExpr context), exprThen |> (this.VisitExpr context), optionalExprElse |> (Microsoft.FSharp.Core.Option.map (this.VisitExpr context)), spIfToThen, isFromErrorRecovery, ifToThen, range, context)
 
   /// <summary>
   /// Visit "SynExpr.IfThenElse" expression.
@@ -2664,7 +2664,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedGet".</remarks>
   default this.BeforeVisitExpr_DotIndexedGet(expr: Microsoft.FSharp.Compiler.Ast.SynExpr, indexExprs: Microsoft.FSharp.Compiler.Ast.SynIndexerArg list, item3: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_DotIndexedGet(expr |> (this.VisitExpr context), indexExprs, item3, range, context)
+    this.VisitExpr_DotIndexedGet(expr |> (this.VisitExpr context), indexExprs |> (Microsoft.FSharp.Collections.List.map (this.VisitIndexerArg context)), item3, range, context)
 
   /// <summary>
   /// Visit "SynExpr.DotIndexedGet" expression.
@@ -2698,7 +2698,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedSet".</remarks>
   default this.BeforeVisitExpr_DotIndexedSet(objectExpr: Microsoft.FSharp.Compiler.Ast.SynExpr, indexExprs: Microsoft.FSharp.Compiler.Ast.SynIndexerArg list, valueExpr: Microsoft.FSharp.Compiler.Ast.SynExpr, rangeOfLeftOfSet: Microsoft.FSharp.Compiler.Range.range, rangeOfDot: Microsoft.FSharp.Compiler.Range.range, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_DotIndexedSet(objectExpr |> (this.VisitExpr context), indexExprs, valueExpr |> (this.VisitExpr context), rangeOfLeftOfSet, rangeOfDot, range, context)
+    this.VisitExpr_DotIndexedSet(objectExpr |> (this.VisitExpr context), indexExprs |> (Microsoft.FSharp.Collections.List.map (this.VisitIndexerArg context)), valueExpr |> (this.VisitExpr context), rangeOfLeftOfSet, rangeOfDot, range, context)
 
   /// <summary>
   /// Visit "SynExpr.DotIndexedSet" expression.
@@ -3038,7 +3038,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TraitCall".</remarks>
   default this.BeforeVisitExpr_TraitCall(item1: Microsoft.FSharp.Compiler.Ast.SynTypar list, item2: Microsoft.FSharp.Compiler.Ast.SynMemberSig, item3: Microsoft.FSharp.Compiler.Ast.SynExpr, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_TraitCall(item1, item2 |> (this.VisitMemberSig context), item3 |> (this.VisitExpr context), range, context)
+    this.VisitExpr_TraitCall(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitTypar context)), item2 |> (this.VisitMemberSig context), item3 |> (this.VisitExpr context), range, context)
 
   /// <summary>
   /// Visit "SynExpr.TraitCall" expression.
@@ -3276,7 +3276,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyILAssembly".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyILAssembly(item1: Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[], item2: Microsoft.FSharp.Compiler.Ast.SynType list, item3: Microsoft.FSharp.Compiler.Ast.SynExpr list, item4: Microsoft.FSharp.Compiler.Ast.SynType list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_LibraryOnlyILAssembly(item1, item2, item3, item4, range, context)
+    this.VisitExpr_LibraryOnlyILAssembly(item1, item2 |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), item3 |> (Microsoft.FSharp.Collections.List.map (this.VisitExpr context)), item4 |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), range, context)
 
   /// <summary>
   /// Visit "SynExpr.LibraryOnlyILAssembly" expression.
@@ -3310,7 +3310,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyStaticOptimization".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyStaticOptimization(item1: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list, item2: Microsoft.FSharp.Compiler.Ast.SynExpr, item3: Microsoft.FSharp.Compiler.Ast.SynExpr, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitExpr_LibraryOnlyStaticOptimization(item1, item2 |> (this.VisitExpr context), item3 |> (this.VisitExpr context), range, context)
+    this.VisitExpr_LibraryOnlyStaticOptimization(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitStaticOptimizationConstraint context)), item2 |> (this.VisitExpr context), item3 |> (this.VisitExpr context), range, context)
 
   /// <summary>
   /// Visit "SynExpr.LibraryOnlyStaticOptimization" expression.
@@ -3681,7 +3681,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitField_Field".</remarks>
   default this.BeforeVisitField_Field(attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, isStatic: bool, id: Microsoft.FSharp.Compiler.Ast.Ident option, typeName: Microsoft.FSharp.Compiler.Ast.SynType, item5: bool, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitField_Field(attributes, isStatic, id, typeName |> (this.VisitType context), item5, xmlDoc, accessiblity |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitField_Field(attributes, isStatic, id, typeName |> (this.VisitType context), item5, xmlDoc, accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynField.Field" expression.
@@ -3823,7 +3823,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInterfaceImpl_InterfaceImpl".</remarks>
   default this.BeforeVisitInterfaceImpl_InterfaceImpl(item1: Microsoft.FSharp.Compiler.Ast.SynType, bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitInterfaceImpl_InterfaceImpl(item1 |> (this.VisitType context), bindings, range, context)
+    this.VisitInterfaceImpl_InterfaceImpl(item1 |> (this.VisitType context), bindings |> (Microsoft.FSharp.Collections.List.map (this.VisitBinding context)), range, context)
 
   /// <summary>
   /// Visit "SynInterfaceImpl.InterfaceImpl" expression.
@@ -3876,7 +3876,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMatchClause_Clause".</remarks>
   default this.BeforeVisitMatchClause_Clause(item1: Microsoft.FSharp.Compiler.Ast.SynPat, item2: Microsoft.FSharp.Compiler.Ast.SynExpr option, item3: Microsoft.FSharp.Compiler.Ast.SynExpr, range: Microsoft.FSharp.Compiler.Range.range, spTarget: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget, context: 'TContext) =
-    this.VisitMatchClause_Clause(item1 |> (this.VisitPat context), item2 |> (Option.map (this.VisitExpr context)), item3 |> (this.VisitExpr context), range, spTarget, context)
+    this.VisitMatchClause_Clause(item1 |> (this.VisitPat context), item2 |> (Microsoft.FSharp.Core.Option.map (this.VisitExpr context)), item3 |> (this.VisitExpr context), range, spTarget, context)
 
   /// <summary>
   /// Visit "SynMatchClause.Clause" expression.
@@ -3997,7 +3997,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Seq".</remarks>
   default this.BeforeVisitMeasure_Seq(item1: Microsoft.FSharp.Compiler.Ast.SynMeasure list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMeasure_Seq(item1, range, context)
+    this.VisitMeasure_Seq(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitMeasure context)), range, context)
 
   /// <summary>
   /// Visit "SynMeasure.Seq" expression.
@@ -4302,7 +4302,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitCtor".</remarks>
   default this.BeforeVisitMemberDefn_ImplicitCtor(accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, ctorArgs: Microsoft.FSharp.Compiler.Ast.SynSimplePat list, selfIdentifier: Microsoft.FSharp.Compiler.Ast.Ident option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMemberDefn_ImplicitCtor(accessiblity |> (Option.map (this.VisitAccess context)), attributes, ctorArgs, selfIdentifier, range, context)
+    this.VisitMemberDefn_ImplicitCtor(accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), attributes, ctorArgs |> (Microsoft.FSharp.Collections.List.map (this.VisitSimplePat context)), selfIdentifier, range, context)
 
   /// <summary>
   /// Visit "SynMemberDefn.ImplicitCtor" expression.
@@ -4370,7 +4370,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_LetBindings".</remarks>
   default this.BeforeVisitMemberDefn_LetBindings(bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list, isStatic: bool, isRecursive: bool, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMemberDefn_LetBindings(bindings, isStatic, isRecursive, range, context)
+    this.VisitMemberDefn_LetBindings(bindings |> (Microsoft.FSharp.Collections.List.map (this.VisitBinding context)), isStatic, isRecursive, range, context)
 
   /// <summary>
   /// Visit "SynMemberDefn.LetBindings" expression.
@@ -4438,7 +4438,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Interface".</remarks>
   default this.BeforeVisitMemberDefn_Interface(typeName: Microsoft.FSharp.Compiler.Ast.SynType, interfaceMembers: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMemberDefn_Interface(typeName |> (this.VisitType context), interfaceMembers, range, context)
+    this.VisitMemberDefn_Interface(typeName |> (this.VisitType context), interfaceMembers |> (Microsoft.FSharp.Collections.List.map (Microsoft.FSharp.Core.Option.map (this.VisitMemberDefn context))), range, context)
 
   /// <summary>
   /// Visit "SynMemberDefn.Interface" expression.
@@ -4540,7 +4540,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_NestedType".</remarks>
   default this.BeforeVisitMemberDefn_NestedType(typeDefn: Microsoft.FSharp.Compiler.Ast.SynTypeDefn, accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMemberDefn_NestedType(typeDefn |> (this.VisitTypeDefn context), accessiblity |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitMemberDefn_NestedType(typeDefn |> (this.VisitTypeDefn context), accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynMemberDefn.NestedType" expression.
@@ -4574,7 +4574,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_AutoProperty".</remarks>
   default this.BeforeVisitMemberDefn_AutoProperty(attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, isStatic: bool, id: Microsoft.FSharp.Compiler.Ast.Ident, tyOpt: Microsoft.FSharp.Compiler.Ast.SynType option, propKind: Microsoft.FSharp.Compiler.Ast.MemberKind, memberFlags: (Microsoft.FSharp.Compiler.Ast.MemberKind -> Microsoft.FSharp.Compiler.Ast.MemberFlags), xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option, expr: Microsoft.FSharp.Compiler.Ast.SynExpr, getSetPos: Microsoft.FSharp.Compiler.Range.range option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitMemberDefn_AutoProperty(attributes, isStatic, id, tyOpt |> (Option.map (this.VisitType context)), propKind, memberFlags, xmlDoc, accessibility |> (Option.map (this.VisitAccess context)), expr |> (this.VisitExpr context), getSetPos, range, context)
+    this.VisitMemberDefn_AutoProperty(attributes, isStatic, id, tyOpt |> (Microsoft.FSharp.Core.Option.map (this.VisitType context)), propKind, memberFlags, xmlDoc, accessibility |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), expr |> (this.VisitExpr context), getSetPos, range, context)
 
   /// <summary>
   /// Visit "SynMemberDefn.AutoProperty" expression.
@@ -4878,7 +4878,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_NestedModule".</remarks>
   default this.BeforeVisitModuleDecl_NestedModule(item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo, isRec: bool, item3: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list, item4: bool, item5: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleDecl_NestedModule(item1 |> (this.VisitComponentInfo context), isRec, item3, item4, item5, context)
+    this.VisitModuleDecl_NestedModule(item1 |> (this.VisitComponentInfo context), isRec, item3 |> (Microsoft.FSharp.Collections.List.map (this.VisitModuleDecl context)), item4, item5, context)
 
   /// <summary>
   /// Visit "SynModuleDecl.NestedModule" expression.
@@ -4912,7 +4912,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Let".</remarks>
   default this.BeforeVisitModuleDecl_Let(item1: bool, item2: Microsoft.FSharp.Compiler.Ast.SynBinding list, item3: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleDecl_Let(item1, item2, item3, context)
+    this.VisitModuleDecl_Let(item1, item2 |> (Microsoft.FSharp.Collections.List.map (this.VisitBinding context)), item3, context)
 
   /// <summary>
   /// Visit "SynModuleDecl.Let" expression.
@@ -4980,7 +4980,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Types".</remarks>
   default this.BeforeVisitModuleDecl_Types(item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefn list, item2: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleDecl_Types(item1, item2, context)
+    this.VisitModuleDecl_Types(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitTypeDefn context)), item2, context)
 
   /// <summary>
   /// Visit "SynModuleDecl.Types" expression.
@@ -5221,7 +5221,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespace_SynModuleOrNamespace".</remarks>
   default this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace(id: Microsoft.FSharp.Compiler.Ast.Ident list, isRec: bool, isModule: bool, decls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, access: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleOrNamespace_SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitModuleOrNamespace_SynModuleOrNamespace(id, isRec, isModule, decls |> (Microsoft.FSharp.Collections.List.map (this.VisitModuleDecl context)), xmlDoc, attributes, access |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynModuleOrNamespace.SynModuleOrNamespace" expression.
@@ -5274,7 +5274,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig".</remarks>
   default this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(id: Microsoft.FSharp.Compiler.Ast.Ident list, isRec: bool, isModule: bool, item4: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, item7: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7 |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(id, isRec, isModule, item4 |> (Microsoft.FSharp.Collections.List.map (this.VisitModuleSigDecl context)), xmlDoc, attributes, item7 |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig" expression.
@@ -5361,7 +5361,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_NestedModule".</remarks>
   default this.BeforeVisitModuleSigDecl_NestedModule(item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo, isRec: bool, moduleSigDecls: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleSigDecl_NestedModule(item1 |> (this.VisitComponentInfo context), isRec, moduleSigDecls, range, context)
+    this.VisitModuleSigDecl_NestedModule(item1 |> (this.VisitComponentInfo context), isRec, moduleSigDecls |> (Microsoft.FSharp.Collections.List.map (this.VisitModuleSigDecl context)), range, context)
 
   /// <summary>
   /// Visit "SynModuleSigDecl.NestedModule" expression.
@@ -5429,7 +5429,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Types".</remarks>
   default this.BeforeVisitModuleSigDecl_Types(typeDefSigs: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitModuleSigDecl_Types(typeDefSigs, range, context)
+    this.VisitModuleSigDecl_Types(typeDefSigs |> (Microsoft.FSharp.Collections.List.map (this.VisitTypeDefnSig context)), range, context)
 
   /// <summary>
   /// Visit "SynModuleSigDecl.Types" expression.
@@ -5700,7 +5700,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Named".</remarks>
   default this.BeforeVisitPat_Named(item1: Microsoft.FSharp.Compiler.Ast.SynPat, id: Microsoft.FSharp.Compiler.Ast.Ident, isThisVar: bool, accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_Named(item1 |> (this.VisitPat context), id, isThisVar, accessiblity |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitPat_Named(item1 |> (this.VisitPat context), id, isThisVar, accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.Named" expression.
@@ -5836,7 +5836,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Ands".</remarks>
   default this.BeforeVisitPat_Ands(item1: Microsoft.FSharp.Compiler.Ast.SynPat list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_Ands(item1, range, context)
+    this.VisitPat_Ands(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitPat context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.Ands" expression.
@@ -5870,7 +5870,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_LongIdent".</remarks>
   default this.BeforeVisitPat_LongIdent(dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots, item2: Microsoft.FSharp.Compiler.Ast.Ident option, item3: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option, item4: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs, item5: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_LongIdent(dotId, item2, item3 |> (Option.map (this.VisitValTyparDecls context)), item4 |> (this.VisitConstructorArgs context), item5 |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitPat_LongIdent(dotId, item2, item3 |> (Microsoft.FSharp.Core.Option.map (this.VisitValTyparDecls context)), item4 |> (this.VisitConstructorArgs context), item5 |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.LongIdent" expression.
@@ -5904,7 +5904,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Tuple".</remarks>
   default this.BeforeVisitPat_Tuple(item1: Microsoft.FSharp.Compiler.Ast.SynPat list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_Tuple(item1, range, context)
+    this.VisitPat_Tuple(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitPat context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.Tuple" expression.
@@ -5972,7 +5972,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_ArrayOrList".</remarks>
   default this.BeforeVisitPat_ArrayOrList(item1: bool, item2: Microsoft.FSharp.Compiler.Ast.SynPat list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_ArrayOrList(item1, item2, range, context)
+    this.VisitPat_ArrayOrList(item1, item2 |> (Microsoft.FSharp.Collections.List.map (this.VisitPat context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.ArrayOrList" expression.
@@ -6210,7 +6210,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_InstanceMember".</remarks>
   default this.BeforeVisitPat_InstanceMember(item1: Microsoft.FSharp.Compiler.Ast.Ident, item2: Microsoft.FSharp.Compiler.Ast.Ident, item3: Microsoft.FSharp.Compiler.Ast.Ident option, accesiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitPat_InstanceMember(item1, item2, item3, accesiblity |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitPat_InstanceMember(item1, item2, item3, accesiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynPat.InstanceMember" expression.
@@ -6725,7 +6725,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePats_SimplePats".</remarks>
   default this.BeforeVisitSimplePats_SimplePats(item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitSimplePats_SimplePats(item1, range, context)
+    this.VisitSimplePats_SimplePats(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitSimplePat context)), range, context)
 
   /// <summary>
   /// Visit "SynSimplePats.SimplePats" expression.
@@ -7043,7 +7043,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_App".</remarks>
   default this.BeforeVisitType_App(typeName: Microsoft.FSharp.Compiler.Ast.SynType, leftAngleRange: Microsoft.FSharp.Compiler.Range.range option, typeArgs: Microsoft.FSharp.Compiler.Ast.SynType list, commaRanges: Microsoft.FSharp.Compiler.Range.range list, rightAngleRange: Microsoft.FSharp.Compiler.Range.range option, isPostfix: bool, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitType_App(typeName |> (this.VisitType context), leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range, context)
+    this.VisitType_App(typeName |> (this.VisitType context), leftAngleRange, typeArgs |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), commaRanges, rightAngleRange, isPostfix, range, context)
 
   /// <summary>
   /// Visit "SynType.App" expression.
@@ -7077,7 +7077,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_LongIdentApp".</remarks>
   default this.BeforeVisitType_LongIdentApp(typeName: Microsoft.FSharp.Compiler.Ast.SynType, dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots, leftAngleRange: Microsoft.FSharp.Compiler.Range.range option, genericNames: Microsoft.FSharp.Compiler.Ast.SynType list, commaRanges: Microsoft.FSharp.Compiler.Range.range list, rightAngleRange: Microsoft.FSharp.Compiler.Range.range option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitType_LongIdentApp(typeName |> (this.VisitType context), dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range, context)
+    this.VisitType_LongIdentApp(typeName |> (this.VisitType context), dotId, leftAngleRange, genericNames |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), commaRanges, rightAngleRange, range, context)
 
   /// <summary>
   /// Visit "SynType.LongIdentApp" expression.
@@ -7281,7 +7281,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_WithGlobalConstraints".</remarks>
   default this.BeforeVisitType_WithGlobalConstraints(typeName: Microsoft.FSharp.Compiler.Ast.SynType, constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitType_WithGlobalConstraints(typeName |> (this.VisitType context), constraints, range, context)
+    this.VisitType_WithGlobalConstraints(typeName |> (this.VisitType context), constraints |> (Microsoft.FSharp.Collections.List.map (this.VisitTypeConstraint context)), range, context)
 
   /// <summary>
   /// Visit "SynType.WithGlobalConstraints" expression.
@@ -7838,7 +7838,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsMember".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparSupportsMember(genericNames: Microsoft.FSharp.Compiler.Ast.SynTypar list, memberSig: Microsoft.FSharp.Compiler.Ast.SynMemberSig, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeConstraint_WhereTyparSupportsMember(genericNames, memberSig |> (this.VisitMemberSig context), range, context)
+    this.VisitTypeConstraint_WhereTyparSupportsMember(genericNames |> (Microsoft.FSharp.Collections.List.map (this.VisitTypar context)), memberSig |> (this.VisitMemberSig context), range, context)
 
   /// <summary>
   /// Visit "SynTypeConstraint.WhereTyparSupportsMember" expression.
@@ -7872,7 +7872,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEnum".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsEnum(genericName: Microsoft.FSharp.Compiler.Ast.SynTypar, enumTypes: Microsoft.FSharp.Compiler.Ast.SynType list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeConstraint_WhereTyparIsEnum(genericName |> (this.VisitTypar context), enumTypes, range, context)
+    this.VisitTypeConstraint_WhereTyparIsEnum(genericName |> (this.VisitTypar context), enumTypes |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeConstraint.WhereTyparIsEnum" expression.
@@ -7906,7 +7906,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsDelegate".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsDelegate(genericName: Microsoft.FSharp.Compiler.Ast.SynTypar, delegateTypes: Microsoft.FSharp.Compiler.Ast.SynType list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeConstraint_WhereTyparIsDelegate(genericName |> (this.VisitTypar context), delegateTypes, range, context)
+    this.VisitTypeConstraint_WhereTyparIsDelegate(genericName |> (this.VisitTypar context), delegateTypes |> (Microsoft.FSharp.Collections.List.map (this.VisitType context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeConstraint.WhereTyparIsDelegate" expression.
@@ -7979,7 +7979,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefn_TypeDefn".</remarks>
   default this.BeforeVisitTypeDefn_TypeDefn(item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo, item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr, members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefn_TypeDefn(item1 |> (this.VisitComponentInfo context), item2 |> (this.VisitTypeDefnRepr context), members, range, context)
+    this.VisitTypeDefn_TypeDefn(item1 |> (this.VisitComponentInfo context), item2 |> (this.VisitTypeDefnRepr context), members |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberDefn context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefn.TypeDefn" expression.
@@ -8445,7 +8445,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_ObjectModel".</remarks>
   default this.BeforeVisitTypeDefnRepr_ObjectModel(item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind, members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnRepr_ObjectModel(item1 |> (this.VisitTypeDefnKind context), members, range, context)
+    this.VisitTypeDefnRepr_ObjectModel(item1 |> (this.VisitTypeDefnKind context), members |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberDefn context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnRepr.ObjectModel" expression.
@@ -8570,7 +8570,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSig_TypeDefnSig".</remarks>
   default this.BeforeVisitTypeDefnSig_TypeDefnSig(item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo, item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr, memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSig_TypeDefnSig(item1 |> (this.VisitComponentInfo context), item2 |> (this.VisitTypeDefnSigRepr context), memberSigs, range, context)
+    this.VisitTypeDefnSig_TypeDefnSig(item1 |> (this.VisitComponentInfo context), item2 |> (this.VisitTypeDefnSigRepr context), memberSigs |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberSig context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSig.TypeDefnSig" expression.
@@ -8623,7 +8623,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_ObjectModel".</remarks>
   default this.BeforeVisitTypeDefnSigRepr_ObjectModel(item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind, memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSigRepr_ObjectModel(item1 |> (this.VisitTypeDefnKind context), memberSigs, range, context)
+    this.VisitTypeDefnSigRepr_ObjectModel(item1 |> (this.VisitTypeDefnKind context), memberSigs |> (Microsoft.FSharp.Collections.List.map (this.VisitMemberSig context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSigRepr.ObjectModel" expression.
@@ -8748,7 +8748,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Union".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Union(accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, cases: Microsoft.FSharp.Compiler.Ast.SynUnionCase list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSimpleRepr_Union(accessiblity |> (Option.map (this.VisitAccess context)), cases, range, context)
+    this.VisitTypeDefnSimpleRepr_Union(accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), cases |> (Microsoft.FSharp.Collections.List.map (this.VisitUnionCase context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSimpleRepr.Union" expression.
@@ -8782,7 +8782,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Enum".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Enum(cases: Microsoft.FSharp.Compiler.Ast.SynEnumCase list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSimpleRepr_Enum(cases, range, context)
+    this.VisitTypeDefnSimpleRepr_Enum(cases |> (Microsoft.FSharp.Collections.List.map (this.VisitEnumCase context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSimpleRepr.Enum" expression.
@@ -8816,7 +8816,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Record".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Record(accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, fields: Microsoft.FSharp.Compiler.Ast.SynField list, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSimpleRepr_Record(accessiblity |> (Option.map (this.VisitAccess context)), fields, range, context)
+    this.VisitTypeDefnSimpleRepr_Record(accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), fields |> (Microsoft.FSharp.Collections.List.map (this.VisitField context)), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSimpleRepr.Record" expression.
@@ -8850,7 +8850,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_General".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_General(item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind, item2: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Ast.Ident option) list, item3: (Microsoft.FSharp.Compiler.Ast.SynValSig * Microsoft.FSharp.Compiler.Ast.MemberFlags) list, item4: Microsoft.FSharp.Compiler.Ast.SynField list, item5: bool, item6: bool, item7: Microsoft.FSharp.Compiler.Ast.SynSimplePat list option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitTypeDefnSimpleRepr_General(item1 |> (this.VisitTypeDefnKind context), item2, item3, item4, item5, item6, item7, range, context)
+    this.VisitTypeDefnSimpleRepr_General(item1 |> (this.VisitTypeDefnKind context), item2, item3, item4 |> (Microsoft.FSharp.Collections.List.map (this.VisitField context)), item5, item6, item7 |> (Microsoft.FSharp.Collections.List.map (Microsoft.FSharp.Core.Option.map (this.VisitSimplePat context))), range, context)
 
   /// <summary>
   /// Visit "SynTypeDefnSimpleRepr.General" expression.
@@ -9053,7 +9053,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCase_UnionCase".</remarks>
   default this.BeforeVisitUnionCase_UnionCase(attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, id: Microsoft.FSharp.Compiler.Ast.Ident, caseType: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitUnionCase_UnionCase(attributes, id, caseType |> (this.VisitUnionCaseType context), xmlDoc, accessibility |> (Option.map (this.VisitAccess context)), range, context)
+    this.VisitUnionCase_UnionCase(attributes, id, caseType |> (this.VisitUnionCaseType context), xmlDoc, accessibility |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), range, context)
 
   /// <summary>
   /// Visit "SynUnionCase.UnionCase" expression.
@@ -9106,7 +9106,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFields".</remarks>
   default this.BeforeVisitUnionCaseType_UnionCaseFields(cases: Microsoft.FSharp.Compiler.Ast.SynField list, context: 'TContext) =
-    this.VisitUnionCaseType_UnionCaseFields(cases, context)
+    this.VisitUnionCaseType_UnionCaseFields(cases |> (Microsoft.FSharp.Collections.List.map (this.VisitField context)), context)
 
   /// <summary>
   /// Visit "SynUnionCaseType.UnionCaseFields" expression.
@@ -9248,7 +9248,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValInfo_SynValInfo".</remarks>
   default this.BeforeVisitValInfo_SynValInfo(item1: Microsoft.FSharp.Compiler.Ast.SynArgInfo list list, item2: Microsoft.FSharp.Compiler.Ast.SynArgInfo, context: 'TContext) =
-    this.VisitValInfo_SynValInfo(item1, item2 |> (this.VisitArgInfo context), context)
+    this.VisitValInfo_SynValInfo(item1 |> (Microsoft.FSharp.Collections.List.map (Microsoft.FSharp.Collections.List.map (this.VisitArgInfo context))), item2 |> (this.VisitArgInfo context), context)
 
   /// <summary>
   /// Visit "SynValInfo.SynValInfo" expression.
@@ -9301,7 +9301,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValSig_ValSpfn".</remarks>
   default this.BeforeVisitValSig_ValSpfn(attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list, id: Microsoft.FSharp.Compiler.Ast.Ident, typeParams: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls, typeName: Microsoft.FSharp.Compiler.Ast.SynType, valInfo: Microsoft.FSharp.Compiler.Ast.SynValInfo, item6: bool, isMutable: bool, xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc, accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option, expr: Microsoft.FSharp.Compiler.Ast.SynExpr option, range: Microsoft.FSharp.Compiler.Range.range, context: 'TContext) =
-    this.VisitValSig_ValSpfn(attributes, id, typeParams |> (this.VisitValTyparDecls context), typeName |> (this.VisitType context), valInfo |> (this.VisitValInfo context), item6, isMutable, xmlDoc, accessiblity |> (Option.map (this.VisitAccess context)), expr |> (Option.map (this.VisitExpr context)), range, context)
+    this.VisitValSig_ValSpfn(attributes, id, typeParams |> (this.VisitValTyparDecls context), typeName |> (this.VisitType context), valInfo |> (this.VisitValInfo context), item6, isMutable, xmlDoc, accessiblity |> (Microsoft.FSharp.Core.Option.map (this.VisitAccess context)), expr |> (Microsoft.FSharp.Core.Option.map (this.VisitExpr context)), range, context)
 
   /// <summary>
   /// Visit "SynValSig.ValSpfn" expression.
@@ -9354,7 +9354,7 @@ type AstVisitor<'TContext>() =
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValTyparDecls_SynValTyparDecls".</remarks>
   default this.BeforeVisitValTyparDecls_SynValTyparDecls(item1: Microsoft.FSharp.Compiler.Ast.SynTyparDecl list, item2: bool, constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list, context: 'TContext) =
-    this.VisitValTyparDecls_SynValTyparDecls(item1, item2, constraints, context)
+    this.VisitValTyparDecls_SynValTyparDecls(item1 |> (Microsoft.FSharp.Collections.List.map (this.VisitTyparDecl context)), item2, constraints |> (Microsoft.FSharp.Collections.List.map (this.VisitTypeConstraint context)), context)
 
   /// <summary>
   /// Visit "SynValTyparDecls.SynValTyparDecls" expression.
