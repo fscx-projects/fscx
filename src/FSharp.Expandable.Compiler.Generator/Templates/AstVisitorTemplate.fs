@@ -5,10 +5,6 @@
 
 namespace Microsoft.FSharp.Compiler.Ast
 
-open System
-open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast
-
 ////////////////////////////////////////////////////////////
 
 /// <summary>
@@ -19,7 +15,7 @@ open Microsoft.FSharp.Compiler.Ast
 type AstVisitor<'TContext>() =
 
   // TODO: du element
-  let parents = new System.Collections.Generic.Stack<AstElement>()
+  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>()
 
   /// <summary>
   /// Parent nodes
