@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 03 Aug 2016 06:41:39 GMT
+// Generated: Wed, 03 Aug 2016 09:54:19 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -14,6 +14,7 @@ open Microsoft.FSharp.Compiler.Ast
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST nodes.
 /// </summary>
+[<RequireQualifiedAccess>]
 type AstElement =
   | Access of SynAccess
   | ArgInfo of SynArgInfo

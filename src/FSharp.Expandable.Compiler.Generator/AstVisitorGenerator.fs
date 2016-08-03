@@ -29,6 +29,11 @@ open System.Reflection
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
+type internal Bracket = {
+  Left: string
+  Right: string
+}
+
 [<Sealed>]
 type internal AstVisitorGenerator() =
   inherit GeneratorBase()
@@ -69,45 +74,64 @@ type internal AstVisitorGenerator() =
         Utilities.formatTypeName unionType,
         unionCase.Name)
 
-  /// Construct expression string of recursive visitor invoker.
-  let rec formatVisitOperators (unionName: string) (opers: string list) =
-    if List.isEmpty opers then
-      String.Format(
-        "this.Visit{0} context",
-        unionName)
-    else
-      String.Format(
-        "{0} ({1})",
-        List.head opers,
-        formatVisitOperators unionName (List.skip 1 opers))
+  let boolType = typeof<bool>
+  let intType = typeof<int>
+  let stringType = typeof<string>
+  let astType = typeof<SynExpr>.DeclaringType
 
-  /// Construct expression string of visitor body with applied args.
-  let rec formatArgument0 name (fieldType: Type) (opers: string list) (exprs: IReadOnlyDictionary<Type, Type>) =
-    if exprs.ContainsKey fieldType then
+  let rec formatWithOperators (name: string) (t: Type) (exprs: IReadOnlyDictionary<Type, string>) =
+    // "Array.map (fun v -> v) arg0"
+    if t.IsArray then
+      let elementType = t.GetElementType()
       String.Format(
-        "{0} |> ({1})",
+        "{0} |> Array.map (fun v -> {1})",
         name,
-        formatVisitOperators (formatUnionTypeShortName fieldType) opers)
-    else if fieldType.IsGenericType = false then
-      name
-    else
-      let genericArguments = fieldType.GetGenericArguments()
-      if genericArguments.Length <> 1 then
-        name
+        formatWithOperators "v" elementType exprs)
+    // "(let v0, v1 = arg0 in v0, v1)"
+    else if FSharpType.IsTuple t then
+      let elementTypes = FSharpType.GetTupleElements t
+      String.Format(
+        "(let {0} = {1} in {2})",
+        String.Join(
+          ", ",
+          elementTypes |> Seq.mapi (fun index _ -> "v" + index.ToString())),
+        name,
+        String.Join(
+          ", ",
+          elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators ("v" + index.ToString()) elementType exprs)))
+    // "{ V0 = arg0.V0; V1 = arg0.V1 }"
+    else if FSharpType.IsRecord t then
+      let fields = FSharpType.GetRecordFields t
+      String.Format(
+        "{{ {0} }}",
+        String.Join(
+          "; ",
+          fields |> Seq.map (fun field -> String.Format("{0} = {1}", field.Name, formatWithOperators (name + "." + field.Name) field.PropertyType exprs))))
+    // "this.VisitHoge context arg0"
+    else if exprs.ContainsKey t then
+      String.Format(
+        "this.Visit{0} context {1}",
+        formatUnionTypeShortName t,
+        name)
+    else if t.IsGenericType then
+      let gas = t.GetGenericArguments()
+      // "arg0 |> Option.map (fun v -> v)"
+      if gas.Length = 1 then
+        String.Format(
+          "{0} |> {1}.map (fun v -> {2})",
+          name,
+          Utilities.formatSafeTypeName t,
+          formatWithOperators "v" gas.[0] exprs)
+      // "arg0"
       else
-        // Auto mapping supported only Option<> or List<>.
-        let outerType = fieldType.GetGenericTypeDefinition()
-        let innerType = genericArguments.[0]
-        if outerType = typedefof<Microsoft.FSharp.Core.Option<obj>> then
-          formatArgument0 name innerType ("Microsoft.FSharp.Core.Option.map" :: opers) exprs
-        else if outerType = typedefof<Microsoft.FSharp.Collections.List<obj>> then
-          formatArgument0 name innerType ("Microsoft.FSharp.Collections.List.map" :: opers) exprs
-        else
-          name
+        name
+    // "arg0"
+    else
+      name
 
   /// Construct expression string of visitor body with applied args for DU case.
   let formatArgument exprs (field: PropertyInfo) = 
-    formatArgument0 (Utilities.formatFieldName field) field.PropertyType [] exprs
+    formatWithOperators (Utilities.formatFieldName field) field.PropertyType exprs
 
   /// Construct function strings for DU case.
   let generateByUnion exprs (unionType: Type) (unionCase: UnionCaseInfo) =
@@ -135,8 +159,10 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
-      "  default this.BeforeVisit{0}_{3}({6}) =\r\n" +
-      "    this.Visit{0}_{3}({7})\r\n" +
+      "  default this.BeforeVisit{0}_{3}\r\n" +
+      "     ({6}) =\r\n" +
+      "    this.Visit{0}_{3}(\r\n" +
+      "      {7})\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{2}.{3}\" expression.\r\n" +
@@ -152,7 +178,8 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
-      "  default __.Visit{0}_{3}({6}) =\r\n" +
+      "  default __.Visit{0}_{3}\r\n" +
+      "     ({6}) =\r\n" +
       "    {4}{8}\r\n" +
       "\r\n",
       formatUnionTypeShortName unionType,
@@ -161,8 +188,8 @@ type internal AstVisitorGenerator() =
       unionCase.Name,
       formatUnionCaseName unionType unionCase,
       String.Join(" * ", decls),
-      String.Join(", ", decls),
-      String.Join(", ", args),
+      String.Join(",\r\n      ", decls),
+      String.Join(",\r\n      ", args),
       (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))))
 
   /// Construct expression string for match.
@@ -196,7 +223,7 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"{2}\">{0} expression.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  member this.Visit{1} (context: 'TContext) ({2}: {3}) =\r\n" +
-      "    parents.Push(AstElement.{1} {2})\r\n" +
+      "    parents.Push(Microsoft.FSharp.Compiler.Ast.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
       unionType.Name,
@@ -218,5 +245,5 @@ type internal AstVisitorGenerator() =
       assembly.GetTypes()
       |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && (t.Name.StartsWith "Syn"))
       |> Seq.sortBy (fun t -> t.Name)
-    let exprs = Enumerable.ToDictionary(types, fun t -> t) :> IReadOnlyDictionary<_, _>
+    let exprs = types.ToDictionary((fun t -> t), (fun t -> formatUnionTypeShortName t)) :> IReadOnlyDictionary<_, _>
     exprs.Keys |> Seq.collect (generateByType exprs)

@@ -32,6 +32,28 @@ open Microsoft.FSharp.Compiler.Ast
 
 module internal Utilities =
 
+ let rec formatSafeTypeName (t: Type) : string =
+    // Basic name
+    let safeName =
+      let cna = t.GetCustomAttribute<CompiledNameAttribute>()
+      let name =
+        if cna = Unchecked.defaultof<_> then t.Name
+        else cna.CompiledName
+      let name =
+        match t.IsGenericType with
+        // Remove generic parameter
+        | true -> name.Substring(0, name.IndexOf('`'))
+        | false -> name
+      // If F#'s short naming: FSharpOption --> Option
+      match t.Namespace, name.StartsWith "FSharp" with
+      | "Microsoft.FSharp.Core", true
+      | "Microsoft.FSharp.Collections", true -> name.Substring(6)
+      | _ -> name
+    // Safe type name
+    match t.DeclaringType with
+    | null -> String.Format("{0}.{1}", t.Namespace, safeName)
+    | declaringType -> String.Format("{0}.{1}", formatSafeTypeName declaringType, safeName)
+
  let rec private formatTypeName0 (t: Type) : string =
   // Array
   if t.IsArray then

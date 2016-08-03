@@ -14,4 +14,5 @@ open Microsoft.FSharp.Compiler.Ast
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST nodes.
 /// </summary>
+[<RequireQualifiedAccess>]
 type AstElement =
