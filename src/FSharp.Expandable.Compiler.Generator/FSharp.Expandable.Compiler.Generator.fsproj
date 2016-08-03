@@ -49,11 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates/AstConsTemplate.fs" />
+    <EmbeddedResource Include="Templates/AstElementTemplate.fs" />
     <EmbeddedResource Include="Templates/AstVisitorTemplate.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="GeneratorBase.fs" />
     <Compile Include="AstConsGenerator.fs" />
+    <Compile Include="AstElementGenerator.fs" />
     <Compile Include="AstVisitorGenerator.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />

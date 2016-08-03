@@ -53,10 +53,13 @@ type internal AstVisitorGenerator() =
   // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
   // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
 
+  let formatUnionTypeName (unionType: Type) =
+    unionType.Name.Substring 3
+
   let rec formatVisitOperators (unionName: string) (opers: string list) =
     if List.isEmpty opers then
       String.Format(
-        "fun v -> this.Visit{0}(v, context)",
+        "this.Visit{0} context",
         unionName)
     else
       String.Format(
@@ -69,7 +72,7 @@ type internal AstVisitorGenerator() =
       String.Format(
         "{0} |> ({1})",
         name,
-        formatVisitOperators fieldType.Name opers)
+        formatVisitOperators (formatUnionTypeName fieldType) opers)
     else if fieldType.IsGenericType = false then
       name
     else
@@ -102,39 +105,41 @@ type internal AstVisitorGenerator() =
     let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     String.Format(
       "  /// <summary>\r\n" +
-      "  /// Before visit \"{0}.{1}\" arguments.\r\n" +
+      "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"Visit{1}\".</remarks>\r\n" +
-      "  abstract member BeforeVisit{0}{1}: {2} -> {0}\r\n" +
+      "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
+      "  abstract member BeforeVisit{0}_{3}: {4} -> {1}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
-      "  /// Before visit \"{0}.{1}\" arguments.\r\n" +
+      "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"Visit{1}\".</remarks>\r\n" +
-      "  default this.BeforeVisit{0}{1}({3}) =\r\n" +
-      "    this.Visit{0}{1}({4})\r\n" +
+      "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
+      "  default this.BeforeVisit{0}_{3}({5}) =\r\n" +
+      "    this.Visit{0}_{3}({6})\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
-      "  /// Visit \"{0}.{1}\" expression.\r\n" +
+      "  /// Visit \"{2}.{3}\" expression.\r\n" +
       "  /// </summary>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"{0}.{1}\".</remarks>\r\n" +
-      "  abstract member Visit{0}{1}: {2} -> {0}\r\n" +
+      "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
+      "  abstract member Visit{0}_{3}: {4} -> {1}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
-      "  /// Visit \"{0}.{1}\" expression.\r\n" +
+      "  /// Visit \"{2}.{3}\" expression.\r\n" +
       "  /// </summary>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"{0}.{1}\".</remarks>\r\n" +
-      "  default __.Visit{0}{1}({3}) =\r\n" +
-      "    {0}.{1} {5}\r\n" +
+      "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
+      "  default __.Visit{0}_{3}({5}) =\r\n" +
+      "    {2}.{3} {7}\r\n" +
       "\r\n",
+      formatUnionTypeName unionType,
+      Utilities.formatTypeName unionType,
       unionType.Name,
       unionCase.Name,
       String.Join(" * ", decls),
@@ -149,9 +154,11 @@ type internal AstVisitorGenerator() =
       yield "context"
     |]
     String.Format(
-      "      | {0}.{1}{2} ->\r\n        this.BeforeVisit{0}{1}({3})\r\n",
+      "      | {0}{3}{4} ->\r\n        this.BeforeVisit{1}_{2}({5})\r\n",
       Utilities.formatTypeName unionType,
+      formatUnionTypeName unionType,
       unionCase.Name,
+      (if unionCase.Name = unionType.Name then "" else "." + unionCase.Name),
       (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))),
       String.Join(", ", args))
 
@@ -167,17 +174,19 @@ type internal AstVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Visit and dispatch \"{0}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"{1}\">{0} expression.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  /// <param name=\"{2}\">{0} expression.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  member this.Visit{0}({1}: {2}, context: 'TContext) =\r\n" +
-      "    parents.Push({1})\r\n" +
+      "  member this.Visit{1} (context: 'TContext) ({2}: {3}) =\r\n" +
+      "    parents.Push(AstElement.{1} {2})\r\n" +
       "    try\r\n" +
-      "      match {1} with\r\n",
+      "      match {2} with\r\n",
       unionType.Name,
+      formatUnionTypeName unionType,
       Utilities.formatCamelcase unionType.Name,
       Utilities.formatTypeName unionType)
-    yield! FSharpType.GetUnionCases unionType |> Seq.map (generateMatcher unionType)
+    let unionCases = FSharpType.GetUnionCases unionType
+    yield! unionCases |> Seq.map (generateMatcher unionType)
     yield
       "    finally\r\n" +
       "      parents.Pop() |> ignore\r\n" +
@@ -193,172 +202,3 @@ type internal AstVisitorGenerator() =
       |> Seq.sortBy (fun t -> t.Name)
     let exprs = Enumerable.ToDictionary(types, fun t -> t) :> IReadOnlyDictionary<_, _>
     exprs.Keys |> Seq.collect (generateByType exprs)
-
-
-#if aaa
-type internal AstConsGenerator() =
-
-  // TODO: Async<SynExpr> - replace all expr with Async/Async workflow/let! NO EXCEPTS, very hard...
-
-  // Type pattern examples:
-  // value                  --> value
-  // Option<value>          --> value
-  // List<values>           --> values
-  // Option<List<values>>   --> values
-
-  // synExpr                --> synExpr |> this.VisitSynExpr parents context
-  // Option<synExpr>        --> synExpr |> Option.map (this.VisitSynExpr parents context)
-  // List<synExprs>         --> synExprs |> List.map (this.VisitSynExpr parents context)
-  // Option<List<synExprs>> --> synExprs |> Option.map (List.map (this.VisitSynExpr parents context))
-
-  // Another way:
-  // synExpr                --> this.VisitSynExpr parents context synExpr
-  // Option<synExpr>        --> Option.map (this.VisitSynExpr parents context) synExprs
-  // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
-  // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
-
-  let rec formatSynExprOperators isAsync (opers: string list) =
-    if List.isEmpty opers then
-      String.Format(
-        "(fun expr -> this.{0}VisitSynExpr expr context)",
-        (if isAsync then "Async" else ""))
-    else
-      String.Format(
-        "({0} {1})",
-        List.head opers,
-        formatSynExprOperators isAsync (List.skip 1 opers))
-
-  let rec formatArgument0 isAsync name (t: Type) (opers: string list) =
-    if t = typeof<SynExpr> then
-      String.Format(
-        "({0} |> {1})",
-        name,
-        formatSynExprOperators isAsync opers)
-    else if t.IsGenericType = false then
-      name
-    else
-      let genericArguments = t.GetGenericArguments()
-      if genericArguments.Length <> 1 then
-        name
-      else
-        // Auto mapping supported only Option<> or List<>.
-        let outerType = t.GetGenericTypeDefinition()
-        let innerType = genericArguments.[0]
-        if outerType = typedefof<Option<obj>> then
-          formatArgument0 isAsync name innerType ("Option.map" :: opers)
-        else if outerType = typedefof<List<obj>> then
-          formatArgument0 isAsync name innerType ("List.map" :: opers)
-        else
-          name
-
-  let formatArgument isAsync (field: PropertyInfo) = 
-    formatArgument0 isAsync (formatFieldName field) field.PropertyType []
-
-  let astType = typeof<SynExpr>.DeclaringType
-  let assembly = astType.Assembly
-  let types = assembly.GetTypes()
-  let unionTypes =
-    types |> Array.filter (fun t -> t.IsNestedPublic && (FSharpType.IsUnion t))
-  let astUnionTypes =
-    unionTypes |> Array.filter (fun t -> t.DeclaringType = astType)
-
-  //////////////////////////////////
-  // {1}
-
-  let formatPlace1 (unionCase: UnionCaseInfo) =
-    let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
-    String.Format(
-      "  /// <summary>\r\n" +
-      "  /// Construct \"SynExpr.{0}\".\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <returns>Constructed expression.</returns>\r\n" +
-      "  let init{0} {1} =\r\n" +
-      "    SynExpr.{0}({2})\r\n",
-      unionCase.Name,
-      String.Join(" ", fields),
-      String.Join(", ", fields))
-  let place1 =
-    String.Join(
-      "\r\n",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map formatPlace1)
-
-  //////////////////////////////////
-  // {2}
-
-  let formatPlace2 isAsync (unionCase: UnionCaseInfo) =
-    let decls = unionCase.GetFields() |> Seq.map formatDeclaration |> Seq.toArray
-    let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
-    let args = unionCase.GetFields() |> Seq.map (formatArgument isAsync) |> Seq.toArray
-    String.Format(
-      "  /// <summary>\r\n" +
-      "  /// Before visit \"{0}\" arguments.\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  abstract member {4}BeforeVisit{0}: {1} -> context: 'TContext -> {8}\r\n" +
-      "\r\n" +
-      "  /// <summary>\r\n" +
-      "  /// Before visit \"{0}\" arguments.\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"Visit{0}\".</remarks>\r\n" +
-      "  default this.{4}BeforeVisit{0} {2} context =\r\n" +
-      "    this.{4}Visit{0} {3} context\r\n" +
-      "\r\n" +
-      "  /// <summary>\r\n" +
-      "  /// Visit \"{0}\" expression.\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  abstract member {4}Visit{0}: {2} -> context: 'TContext -> {8}\r\n" +
-      "\r\n" +
-      "  /// <summary>\r\n" +
-      "  /// Visit \"{0}\" expression.\r\n" +
-      "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"SynExpr.init{0}\".</remarks>\r\n" +
-      "  default __.{4}Visit{0} {2} context {5}\r\n" +
-      "    {7}SynExpr.init{0} {2}\r\n" +
-      "{6}",
-      unionCase.Name,
-      String.Join(" -> ", decls),
-      String.Join(" ", fields),
-      String.Join(" ", args),
-      (if isAsync then "Async" else ""),
-      (if isAsync then "= async {" else "="),
-      (if isAsync then "  }" else ""),
-      (if isAsync then "return " else ""),
-      (if isAsync then "Async<SynExpr>" else "SynExpr"))
-  let place2 isAsync =
-    String.Join(
-      "\r\n",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map (formatPlace2 isAsync))
-
-  //////////////////////////////////
-  // {3}
-
-  let formatPlace3 isAsync (unionCase: UnionCaseInfo) =
-    let fields = unionCase.GetFields() |> Seq.map formatFieldName |> Seq.toArray
-    String.Format(
-      "      | SynExpr.{0}({1}) ->\r\n        this.{3}BeforeVisit{0} {2} context\r\n",
-      unionCase.Name,
-      String.Join(", ", fields),
-      String.Join(" ", fields),
-      (if isAsync then "Async" else ""))
-  let place3 isAsync =
-    String.Join(
-      "",
-      FSharpType.GetUnionCases typeof<SynExpr> |> Seq.map (formatPlace3 isAsync))
-
-  //////////////////////////////////
-
-  let template = readTemplate()
-  let formatted = String.Format(template, DateTime.UtcNow, place1, place2 false, place3 false)
-
-  File.WriteAllText(argv.[0], formatted)
-  0
-#endif

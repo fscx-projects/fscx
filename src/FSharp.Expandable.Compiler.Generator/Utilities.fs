@@ -33,17 +33,20 @@ open Microsoft.FSharp.Compiler.Ast
 module internal Utilities =
 
  let rec private formatTypeName0 (t: Type) : string =
+  // Array
   if t.IsArray then
     let elementTypeName = formatTypeName0 (t.GetElementType())
     String.Format(
       "{0}[]",
       elementTypeName)
+  // F# tuple
   else if FSharpType.IsTuple t then
     let tupleSignature =
       String.Join(" * ", FSharpType.GetTupleElements t |> Seq.map formatTypeName0)
     String.Format(
       "({0})",
       tupleSignature)
+  // F# function
   else if FSharpType.IsFunction t then
     let argType, returnType =
       FSharpType.GetFunctionElements t
@@ -52,6 +55,7 @@ module internal Utilities =
       formatTypeName0 argType,
       formatTypeName0 returnType)
   else
+    // Basic name
     let safeName =
       let cna = t.GetCustomAttribute<CompiledNameAttribute>()
       let name =
@@ -59,12 +63,15 @@ module internal Utilities =
         else cna.CompiledName
       let name =
         match t.IsGenericType with
+        // Remove generic parameter
         | true -> name.Substring(0, name.IndexOf('`'))
         | false -> name
+      // If F#'s short naming: FSharpOption --> Option
       match t.Namespace, name.StartsWith "FSharp" with
       | "Microsoft.FSharp.Core", true
       | "Microsoft.FSharp.Collections", true -> name.Substring(6)
       | _ -> name
+    // Safe type name
     let safeTypeName =
       match t.DeclaringType with
       | null -> String.Format("{0}.{1}", t.Namespace, safeName)
@@ -79,14 +86,17 @@ module internal Utilities =
     | false, _ -> safeTypeName
     // Generic types
     | true, _ ->
+      // Option
       if safeTypeName = "Microsoft.FSharp.Core.Option" then
         String.Format(
           "{0} option",
           formatTypeName0 (t.GetGenericArguments().[0]))
+      // List
       else if safeTypeName = "Microsoft.FSharp.Collections.List" then
         String.Format(
           "{0} list",
           formatTypeName0 (t.GetGenericArguments().[0]))
+      // Other
       else
         let genericArgumentSignature =
           String.Join(", ", t.GetGenericArguments() |> Seq.map formatTypeName0)
@@ -96,12 +106,7 @@ module internal Utilities =
           genericArgumentSignature)
 
  let formatTypeName (t: Type) =
-   let name = formatTypeName0 t
-   // Ast types
-   if name.StartsWith("Microsoft.FSharp.Compiler.Ast.") && not t.IsGenericType then
-     name.Substring("Microsoft.FSharp.Compiler.Ast.".Length)
-   else
-     name
+   formatTypeName0 t
 
  let formatFieldType (field: PropertyInfo) =
   formatTypeName field.PropertyType

@@ -12,16 +12,6 @@ open Microsoft.FSharp.Compiler.Ast
 ////////////////////////////////////////////////////////////
 
 /// <summary>
-/// FSharp.Compiler.Service's untyped AST visitor.
+/// FSharp.Compiler.Service's untyped AST nodes.
 /// </summary>
-/// <typeparam name="TContext">Context type</typeparam>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstVisitor<'TContext>() =
-
-  // TODO: du element
-  let parents = new System.Collections.Generic.Stack<AstElement>()
-
-  /// <summary>
-  /// Parent nodes
-  /// </summary>
-  member __.Parents = parents |> List.ofSeq
+type AstElement =
