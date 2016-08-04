@@ -136,12 +136,12 @@ type internal AstVisitorGenerator() =
   /// Construct function strings for DU case.
   let generateByUnion exprs (unionType: Type) (unionCase: UnionCaseInfo) =
     let decls = [|
-      yield! unionCase.GetFields() |> Seq.map Utilities.formatDeclaration
       yield "context: 'TContext"
+      yield! unionCase.GetFields() |> Seq.map Utilities.formatDeclaration
     |]
     let args = [|
-      yield! unionCase.GetFields() |> Seq.map (formatArgument exprs)
       yield "context"
+      yield! unionCase.GetFields() |> Seq.map (formatArgument exprs)
     |]
     let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     String.Format(
@@ -151,7 +151,8 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
-      "  abstract member BeforeVisit{0}_{3}: {5} -> {1}\r\n" +
+      "  abstract member BeforeVisit{0}_{3}:\r\n" +
+      "    {5} -> {1}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
@@ -170,7 +171,8 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
-      "  abstract member Visit{0}_{3}: {5} -> {1}\r\n" +
+      "  abstract member Visit{0}_{3}:\r\n" +
+      "    {5} -> {1}\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{2}.{3}\" expression.\r\n" +
@@ -187,7 +189,7 @@ type internal AstVisitorGenerator() =
       unionType.Name,
       unionCase.Name,
       formatUnionCaseName unionType unionCase,
-      String.Join(" * ", decls),
+      String.Join(" *\r\n    ", decls),
       String.Join(",\r\n      ", decls),
       String.Join(",\r\n      ", args),
       (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))))
@@ -196,8 +198,8 @@ type internal AstVisitorGenerator() =
   let generateMatcher (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     let args = [|
-      yield! fields
       yield "context"
+      yield! fields
     |]
     String.Format(
       "      | {0}{1} ->\r\n        this.BeforeVisit{2}_{3}({4})\r\n",
@@ -222,7 +224,9 @@ type internal AstVisitorGenerator() =
       "  /// <param name=\"context\">Context object.</param>\r\n" +
       "  /// <param name=\"{2}\">{0} expression.</param>\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  member this.Visit{1} (context: 'TContext) ({2}: {3}) =\r\n" +
+      "  member this.Visit{1}\r\n" +
+      "      (context: 'TContext)\r\n" +
+      "      ({2}: {3}) =\r\n" +
       "    parents.Push(Microsoft.FSharp.Compiler.Ast.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",

@@ -149,15 +149,15 @@ type InsertLoggingVisitor() =
   //////////////////////////////////
   // Quote
 
-  override __.VisitExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context) =
+  override __.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
     // DEBUG
     printfn "%A" operator
-    base.VisitExpr_Quote(operator, isRaw, quoteSynExpr, isFromQueryExpression, range, context)
+    base.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range)
 
   //////////////////////////////////
   // App
 
-  override __.VisitExpr_App(exprAtomicFlag, isInfix, funcExpr, argExpr, range, context) =
+  override __.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
@@ -276,10 +276,10 @@ type InsertLoggingVisitor() =
             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
             range)
 
-let apply (ast: ParsedInput) (c: FSharpCheckFileResults) =
+let apply (ast: ParsedInput) (context: FSharpCheckFileResults) =
   match ast with
   | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
       let visitor = new InsertLoggingVisitor()
-      let convertedModOrNss = visitor.VisitModuleOrNamespace c synModOrNss
+      let convertedModOrNss = synModOrNss |> List.map (visitor.VisitModuleOrNamespace context)
       ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convertedModOrNss, x))
   | other -> other

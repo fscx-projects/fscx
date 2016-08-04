@@ -1,3 +1,6 @@
+#### 0.1.8 - 2016.08.04
+* Implement visitor class.
+
 #### 0.1.7 - 2016.07.19
 * Support NuGet installation.
 
