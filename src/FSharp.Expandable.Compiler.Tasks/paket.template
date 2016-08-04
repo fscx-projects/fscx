@@ -24,6 +24,8 @@ description
     Easy infrastructure can replace F#'s AST at compile time.
 files
     bin/Release/*.exe ==> build
+    bin/Release/*.pdb ==> build
+    bin/Release/*.xml ==> build
     bin/Release/*.config ==> build
     bin/Release/*.dll ==> build
     bin/Release/*.targets ==> build
