@@ -36,9 +36,7 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-            Debug.Assert(false, "Entering fscx.exe, waiting for attached debugger...");
-
-            return Compiler.CompileWithArguments(Console.Out, args);
+           return Compiler.CompileWithArguments(Console.Out, args);
         }
     }
 }

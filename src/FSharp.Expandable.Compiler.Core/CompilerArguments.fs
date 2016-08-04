@@ -34,6 +34,7 @@ type CompilerArguments = {
   Dependencies : string seq
   SourcePaths : string seq
   OptionArguments : string seq
+  FscxDebug : bool
 }
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
@@ -47,12 +48,12 @@ module internal CompilerArguments =
   let private extractOptionValue switch args =
     args
     |> extractOptionValues switch
-    |> Seq.head
+    |> Seq.tryHead
 
   let private extractOptionPath switch args =
     args
     |> extractOptionValue switch
-    |> Path.GetFullPath
+    |> Option.map Path.GetFullPath
 
   /// <summary>
   /// Extract compiler arguments.
@@ -74,13 +75,17 @@ module internal CompilerArguments =
     let optionArguments =
       sanitized
       |> Seq.map (fun arg -> arg.Trim())
-      |> Seq.filter (fun arg -> (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:"))
+      |> Seq.filter (fun arg -> (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:") && not (arg.StartsWith "--fscxDebug:"))
       |> Seq.toArray
 
     let projectPath =
-      extractOptionPath "--projectPath:" sanitized
+      match extractOptionPath "--projectPath:" sanitized with
+      | Some path -> path
+      | None -> failwith "Require \"projectPath\" argument."
     let outputPath =
-      extractOptionPath "-o:" sanitized
+      match extractOptionPath "-o:" sanitized with
+      | Some path -> path
+      | None -> failwith "Require output path."
     let assemblyName =
       Path.GetFileNameWithoutExtension outputPath
     let pdbPath =
@@ -88,6 +93,10 @@ module internal CompilerArguments =
     let dependencies =
       extractOptionValues "-r:" sanitized
       |> Seq.toArray
+    let _, fscxDebug =
+      match extractOptionValue "--fscxDebug:" sanitized with
+      | Some path -> bool.TryParse path
+      | None -> false, false
 
     {
       ProjectPath = projectPath
@@ -97,4 +106,5 @@ module internal CompilerArguments =
       Dependencies = dependencies
       SourcePaths = sourcePaths
       OptionArguments = optionArguments
+      FscxDebug = fscxDebug
     }

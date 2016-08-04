@@ -124,7 +124,11 @@ module internal CompilerImpl =
   /// <param name="tw">Message sink</param>
   /// <param name="arguments">Compiler arguments</param>
   /// <returns>Compile result value</returns>
-  let asyncCompile (tw: TextWriter) arguments = async {
+  let asyncCompile (tw: TextWriter) (arguments: CompilerArguments) = async {
+
+    // Debugger hook point
+    if arguments.FscxDebug then
+      Trace.Assert(false, "Fscx: Waiting for attach debugger...")
   
     // Create compilation options
     let options = createOptions arguments.ProjectPath arguments.OptionArguments arguments.SourcePaths 

@@ -1,3 +1,12 @@
+#### 0.1.11 - 2016.08.04
+* WIP release.
+
+#### 0.1.10 - 2016.08.04
+* Add debug feature.
+
+#### 0.1.9 - 2016.08.04
+* Fixed visitor class.
+
 #### 0.1.8 - 2016.08.04
 * Implement visitor class.
 
