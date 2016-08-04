@@ -29,11 +29,6 @@ open System.Reflection
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
-type internal Bracket = {
-  Left: string
-  Right: string
-}
-
 [<Sealed>]
 type internal AstVisitorGenerator() =
   inherit GeneratorBase()
@@ -74,19 +69,22 @@ type internal AstVisitorGenerator() =
         Utilities.formatTypeName unionType,
         unionCase.Name)
 
-  let boolType = typeof<bool>
-  let intType = typeof<int>
-  let stringType = typeof<string>
-  let astType = typeof<SynExpr>.DeclaringType
-
-  let rec formatWithOperators (name: string) (t: Type) (exprs: IReadOnlyDictionary<Type, string>) =
+  /// <summary>
+  /// Core visitor expression generator.
+  /// </summary>
+  /// <param name="name">Reference target value symbol.</param>
+  /// <param name="t">Target type.</param>
+  /// <param name="visitTargets">Dicts of require visit target.</param>
+  // TODO: Omit no-projected projection code "(fun v -> v)", "(let v0, v1 = arg0 in v0, v1)"
+  //       Maybe all leaf is not contained visit target....
+  let rec formatWithOperators (name: string) (t: Type) (visitTargets: IReadOnlyDictionary<Type, string>) =
     // "Array.map (fun v -> v) arg0"
     if t.IsArray then
       let elementType = t.GetElementType()
       String.Format(
         "{0} |> Array.map (fun v -> {1})",
         name,
-        formatWithOperators "v" elementType exprs)
+        formatWithOperators "v" elementType visitTargets)
     // "(let v0, v1 = arg0 in v0, v1)"
     else if FSharpType.IsTuple t then
       let elementTypes = FSharpType.GetTupleElements t
@@ -98,7 +96,7 @@ type internal AstVisitorGenerator() =
         name,
         String.Join(
           ", ",
-          elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators ("v" + index.ToString()) elementType exprs)))
+          elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators ("v" + index.ToString()) elementType visitTargets)))
     // "{ V0 = arg0.V0; V1 = arg0.V1 }"
     else if FSharpType.IsRecord t then
       let fields = FSharpType.GetRecordFields t
@@ -106,9 +104,9 @@ type internal AstVisitorGenerator() =
         "{{ {0} }}",
         String.Join(
           "; ",
-          fields |> Seq.map (fun field -> String.Format("{0} = {1}", field.Name, formatWithOperators (name + "." + field.Name) field.PropertyType exprs))))
+          fields |> Seq.map (fun field -> String.Format("{0} = {1}", field.Name, formatWithOperators (name + "." + field.Name) field.PropertyType visitTargets))))
     // "this.VisitHoge context arg0"
-    else if exprs.ContainsKey t then
+    else if visitTargets.ContainsKey t then
       String.Format(
         "this.Visit{0} context {1}",
         formatUnionTypeShortName t,
@@ -117,11 +115,12 @@ type internal AstVisitorGenerator() =
       let gas = t.GetGenericArguments()
       // "arg0 |> Option.map (fun v -> v)"
       if gas.Length = 1 then
+        // HACK: Assuming declarates map function in t's.
         String.Format(
           "{0} |> {1}.map (fun v -> {2})",
           name,
           Utilities.formatSafeTypeName t,
-          formatWithOperators "v" gas.[0] exprs)
+          formatWithOperators "v" gas.[0] visitTargets)
       // "arg0"
       else
         name
@@ -130,18 +129,18 @@ type internal AstVisitorGenerator() =
       name
 
   /// Construct expression string of visitor body with applied args for DU case.
-  let formatArgument exprs (field: PropertyInfo) = 
-    formatWithOperators (Utilities.formatFieldName field) field.PropertyType exprs
+  let formatArgument visitTargets (field: PropertyInfo) = 
+    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitTargets
 
   /// Construct function strings for DU case.
-  let generateByUnion exprs (unionType: Type) (unionCase: UnionCaseInfo) =
+  let generateByUnion visitTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let decls = [|
       yield "context: 'TContext"
       yield! unionCase.GetFields() |> Seq.map Utilities.formatDeclaration
     |]
     let args = [|
       yield "context"
-      yield! unionCase.GetFields() |> Seq.map (formatArgument exprs)
+      yield! unionCase.GetFields() |> Seq.map (formatArgument visitTargets)
     |]
     let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     String.Format(
