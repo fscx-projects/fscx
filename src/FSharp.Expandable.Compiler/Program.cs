@@ -20,7 +20,6 @@
 //////////////////////////////////////////////////////////////////////////////
 
 using System;
-using System.Diagnostics;
 
 namespace FSharp.Expandable
 {
@@ -36,7 +35,7 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-           return Compiler.CompileWithArguments(Console.Out, args);
+           return Compiler.Compile((type, message) => Console.WriteLine(message), args);
         }
     }
 }

@@ -24,11 +24,17 @@ namespace FSharp.Expandable
 open System
 open System.Diagnostics
 open System.IO
-
+open System.Runtime.InteropServices
+      
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
+
+type WriteInfo =
+| ParseFailed of FSharpErrorInfo
+| CheckFailed of string
+| UnknownFailed of exn
 
 module internal CompilerImpl =
 
@@ -117,72 +123,73 @@ module internal CompilerImpl =
       true)
 
   ///////////////////////////////////////////////////////
-
+  
   /// <summary>
   /// Execute compiler.
   /// </summary>
-  /// <param name="tw">Message sink</param>
+  /// <param name="writer">Message sink</param>
   /// <param name="arguments">Compiler arguments</param>
   /// <returns>Compile result value</returns>
-  let asyncCompile (tw: TextWriter) (arguments: CompilerArguments) = async {
-
-    // Debugger hook point
-    if arguments.FscxDebug then
-      Trace.Assert(false, "Fscx: Waiting for attach debugger...")
+  let asyncCompile (writer: WriteInfo -> unit) (arguments: CompilerArguments) = async {
+    try
+      // Debugger hook point
+      if arguments.FscxDebug then
+        Trace.Assert(false, "Fscx: Waiting for attach debugger...")
   
-    // Create compilation options
-    let options = createOptions arguments.ProjectPath arguments.OptionArguments arguments.SourcePaths 
+      // Create compilation options
+      let options = createOptions arguments.ProjectPath arguments.OptionArguments arguments.SourcePaths 
 
-    // Create source code descriptions
-    let sourceCodes = createSourceCodeDescriptions arguments.SourcePaths
+      // Create source code descriptions
+      let sourceCodes = createSourceCodeDescriptions arguments.SourcePaths
 
-    // Parse source codes and apply (Async)
-    let! appliedResults =
-      sourceCodes
-      |> Seq.map (parseSourceCodeAndApplyByAsync options Filter.apply)
-      |> Async.Parallel
+      // Parse source codes and apply (Async)
+      let! appliedResults =
+        sourceCodes
+        |> Seq.map (parseSourceCodeAndApplyByAsync options Filter.apply)
+        |> Async.Parallel
 
-    // Aggregate aborted results
-    let abortedResults =
-      appliedResults
-      |> Seq.filter (function
-        | Succeeded _ -> false
-        | _ -> true)
-      |> Seq.toArray
-
-    // If successful all source codes
-    if Seq.isEmpty abortedResults then
-      // Aggregate all ASTs
-      let appliedAsts =
+      // Aggregate aborted results
+      let abortedResults =
         appliedResults
-        |> Seq.choose (function
-          | Succeeded(_, appliedAst) -> Some appliedAst
-          | _ -> None)
+        |> Seq.filter (function
+          | Succeeded _ -> false
+          | _ -> true)
+        |> Seq.toArray
 
-      // Compile
-      let errors, returnValue =
-        compileByFcs
-          arguments.AssemblyName
-          arguments.OutputPath
-          arguments.Dependencies
-          arguments.PdbPath
-          appliedAsts
+      // If successful all source codes
+      if Seq.isEmpty abortedResults then
+        // Aggregate all ASTs
+        let appliedAsts =
+          appliedResults
+          |> Seq.choose (function
+            | Succeeded(_, appliedAst) -> Some appliedAst
+            | _ -> None)
 
-      // Try output errors
-      for error in errors do
-        tw.WriteLine("{0}", error)
+        // Compile
+        let errors, returnValue =
+          compileByFcs
+            arguments.AssemblyName
+            arguments.OutputPath
+            arguments.Dependencies
+            arguments.PdbPath
+            appliedAsts
 
-      return returnValue
+        // Try output errors
+        errors |> Seq.iter (fun error -> writer (WriteInfo.ParseFailed error))
+        return returnValue
 
-    // Contained failed
-    else
-      for result in abortedResults do
-        match result with
-        | ParseAndApplyResult.ParseFailed(_, errors) ->
-          tw.WriteLine("{0}", (System.String.Join(",", errors)))
-        | ParseAndApplyResult.CheckFailed(_) ->
-          tw.WriteLine("{0}", (result.ToString()))
-        | _ -> new NotImplementedException() |> raise
-
-      return 1
+      // Contained failed
+      else
+        for result in abortedResults do
+          match result with
+          | ParseAndApplyResult.ParseFailed(_, errors) ->
+            errors |> Seq.iter (fun error -> writer (WriteInfo.ParseFailed error))
+          | ParseAndApplyResult.CheckFailed(path) ->
+            writer (WriteInfo.CheckFailed path)
+          | _ -> new NotImplementedException() |> raise
+        return 1
+    with
+    | _ as ex ->
+      writer (WriteInfo.UnknownFailed ex)
+      return Marshal.GetHRForException ex
   }

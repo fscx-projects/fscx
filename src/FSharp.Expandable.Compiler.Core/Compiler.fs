@@ -21,8 +21,11 @@
 
 namespace FSharp.Expandable
 
-open System.Runtime.InteropServices
-      
+open System
+open System.Diagnostics
+
+open Microsoft.FSharp.Compiler
+
 /// <summary>
 /// Execute F# compiler.
 /// </summary>
@@ -36,6 +39,30 @@ type Compiler =
   /// <returns>Compilation arguments</returns>
   static member ExtractCompilerArguments args =
     CompilerArguments.extract args
+
+  static member private BridgedWriter
+     (writer : Action<EventLogEntryType, string>) : (WriteInfo -> unit) =
+    function
+    | WriteInfo.ParseFailed(error) ->
+      let severity =
+        match error.Severity with
+        | FSharpErrorSeverity.Warning -> EventLogEntryType.Warning
+        | FSharpErrorSeverity.Error -> EventLogEntryType.Error
+      writer.Invoke(severity, error.Message)
+    | WriteInfo.CheckFailed(path) ->
+      writer.Invoke(EventLogEntryType.Error, String.Format("error: Failed type check: {0}", path))
+    | WriteInfo.UnknownFailed(exn) ->
+      writer.Invoke(EventLogEntryType.Error, String.Format("error: {0}", exn))
+ 
+  /// <summary>
+  /// Execute F# compiler with standard arguments.
+  /// </summary>
+  /// <param name="writer">Message sink</param>
+  /// <param name="arguments">Compilation arguments</param>
+  /// <returns>Result value</returns>
+  static member AsyncCompileWithArguments writer arguments =
+    let intWriter = Compiler.BridgedWriter writer
+    CompilerImpl.asyncCompile intWriter arguments
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -43,41 +70,28 @@ type Compiler =
   /// <param name="tw">Message sink</param>
   /// <param name="arguments">Compilation arguments</param>
   /// <returns>Result value</returns>
-  static member AsyncCompile tw arguments =
-    CompilerImpl.asyncCompile tw arguments
+  static member CompileWithArguments writer arguments =
+    Compiler.AsyncCompileWithArguments writer arguments |> Async.RunSynchronously
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
   /// </summary>
-  /// <param name="tw">Message sink</param>
-  /// <param name="arguments">Compilation arguments</param>
-  /// <returns>Result value</returns>
-  static member Compile tw arguments =
-    let result = CompilerImpl.asyncCompile tw arguments |> Async.Catch |> Async.RunSynchronously
-    match result with
-    | Choice1Of2 returnValue -> returnValue
-    | Choice2Of2 ex ->
-      Marshal.GetHRForException ex
- 
-  /// <summary>
-  /// Execute F# compiler with standard arguments.
-  /// </summary>
-  /// <param name="tw">Message sink</param>
+  /// <param name="writer">Message sink</param>
   /// <param name="args">Compiration argument strings</param>
   /// <returns>Result value</returns>
-  static member AsyncCompileWithArguments tw args =
+  static member AsyncCompile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.AsyncCompile tw arguments
+    Compiler.AsyncCompileWithArguments writer arguments
 
   /// <summary>
   /// Execute F# compiler with standard arguments.
   /// </summary>
-  /// <param name="tw">Message sink</param>
+  /// <param name="writer">Message sink</param>
   /// <param name="args">Compiration argument strings</param>
   /// <returns>Result value</returns>
-  static member CompileWithArguments tw args =
+  static member Compile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.Compile tw arguments
+    Compiler.CompileWithArguments writer arguments
 
 ////////////////////////////////////////////////
 
