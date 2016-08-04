@@ -143,40 +143,21 @@ let isIdent = function
 
 ////////////////////////////////////////////////
 
-type A() =
-  abstract member Hoge: a:int -> b:string -> unit
-  default __.Hoge a b = printf "%A - %A" a b
-
-type B() =
-  inherit A()
-  override __.Hoge a b = base.Hoge a b
-(*
-type A() =
-  abstract member Hoge: a:int * b:string -> unit
-  default __.Hoge(a, b) = printf "%A - %A" a b
-
-type B() =
-  inherit A()
-  override __.Hoge(a, b) = base.Hoge(a, b)
-  *)
-
 type InsertLoggingVisitor() =
   inherit AstVisitor<FSharpCheckFileResults>()
 
   //////////////////////////////////
   // Quote
 
-  override this.VisitExpr_Quote context operator isRaw quoteSynExpr isFromQueryExpression range =
+  override this.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
     // DEBUG
     printfn "%A" operator
-    let a = base.VisitExpr_Quote
-    
-    base.VisitExpr_Quote context operator isRaw quoteSynExpr isFromQueryExpression range
+    base.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range)
 
   //////////////////////////////////
   // App
 
-  override __.VisitExpr_App context exprAtomicFlag isInfix funcExpr argExpr range =
+  override __.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
       let funcNameElems, funcIdentRange =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
