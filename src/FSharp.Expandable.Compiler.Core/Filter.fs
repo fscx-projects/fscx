@@ -149,7 +149,7 @@ type InsertLoggingVisitor() =
   //////////////////////////////////
   // Quote
 
-  override this.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
+  override __.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
     // DEBUG
     printfn "%A" operator
     base.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range)
@@ -158,12 +158,17 @@ type InsertLoggingVisitor() =
   // App
 
   override __.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
-      let funcNameElems, funcIdentRange =
+    match funcExpr with
+    | SynExpr.Ident _
+    | SynExpr.LongIdent _ -> 
+      let results =
         match funcExpr with
         | SynExpr.Ident ident -> [ident.idText], ident.idRange
         | SynExpr.LongIdent (_, longIdent, _, range) ->
             let elems = longIdent.Lid |> List.map (fun i -> i.idText)
             elems, range
+        | _ -> failwith "Unknown"
+      let funcNameElems, funcIdentRange = results
       let opt =
         context.GetSymbolUseAtLocation(
           funcIdentRange.Start.Line,
@@ -275,6 +280,8 @@ type InsertLoggingVisitor() =
             tryExpr,
             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
             range)
+    | _ ->
+      base.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range)
 
 let apply (ast: ParsedInput) (context: FSharpCheckFileResults) =
   match ast with
