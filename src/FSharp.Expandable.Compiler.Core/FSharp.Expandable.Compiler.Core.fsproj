@@ -74,7 +74,6 @@
     <None Include="AstCons.fs" />
     <Compile Include="AstElement.fs" />
     <Compile Include="AstVisitor.fs" />
-    <Compile Include="Filter.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
     <Compile Include="Compiler.fs" />

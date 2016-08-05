@@ -100,7 +100,7 @@ module internal CompilerImpl =
       match checkAnswer with
       | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
         // Apply filter
-        let filteredAst = filter ast checkAnswer
+        let filteredAst = filter checkAnswer ast
         return Succeeded (sourceCode.Path, filteredAst)
       | FSharpCheckFileAnswer.Aborted ->
         return CheckFailed sourceCode.Path
@@ -123,14 +123,36 @@ module internal CompilerImpl =
       true)
 
   ///////////////////////////////////////////////////////
-  
+ 
+  /// Apply filter with visitors
+  let astFilter
+     (visitors: AstVisitor<FSharpCheckFileResults> seq)
+     (context: FSharpCheckFileResults)
+     (ast: ParsedInput) =
+    match ast with
+    | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
+      let convertedModOrNss =
+        synModOrNss
+        |> List.map (
+          fun synModOrNs ->
+          visitors |> Seq.fold (fun mon visitor -> visitor.VisitModuleOrNamespace context mon)
+            synModOrNs)
+      ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convertedModOrNss, x))
+    | other -> other
+ 
+  ///////////////////////////////////////////////////////
+ 
   /// <summary>
   /// Execute compiler.
   /// </summary>
   /// <param name="writer">Message sink</param>
   /// <param name="arguments">Compiler arguments</param>
+  /// <param name="visitors">AST visitors</param>
   /// <returns>Compile result value</returns>
-  let asyncCompile (writer: WriteInfo -> unit) (arguments: CompilerArguments) = async {
+  let asyncCompile
+     (writer: WriteInfo -> unit)
+     (arguments: CompilerArguments)
+     (visitors: AstVisitor<FSharpCheckFileResults> seq) = async {
     try
       // Debugger hook point
       if arguments.FscxDebug then
@@ -145,7 +167,7 @@ module internal CompilerImpl =
       // Parse source codes and apply (Async)
       let! appliedResults =
         sourceCodes
-        |> Seq.map (parseSourceCodeAndApplyByAsync options Filter.apply)
+        |> Seq.map (parseSourceCodeAndApplyByAsync options (astFilter visitors))
         |> Async.Parallel
 
       // Aggregate aborted results
