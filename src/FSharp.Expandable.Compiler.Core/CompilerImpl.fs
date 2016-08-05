@@ -31,7 +31,7 @@ open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
-type WriteInfo =
+type internal WriteInfo =
 | ParseFailed of FSharpErrorInfo
 | CheckFailed of string
 | UnknownFailed of exn

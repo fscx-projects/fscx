@@ -35,7 +35,16 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-           return Compiler.Compile((type, message) => Console.WriteLine(message), args);
+           return Compiler.Compile(logEntry =>
+               Console.WriteLine(
+                   "{0}({1}, {2}): {3}: {4}: {5}",
+                   logEntry.FileName,
+                   logEntry.Line,
+                   logEntry.Column,
+                   logEntry.Type.ToString().ToLowerInvariant(),
+                   logEntry.Code,
+                   logEntry.Message),
+               args);
         }
     }
 }

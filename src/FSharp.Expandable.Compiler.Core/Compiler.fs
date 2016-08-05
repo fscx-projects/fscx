@@ -23,8 +23,18 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
+open System.Runtime.InteropServices
 
 open Microsoft.FSharp.Compiler
+
+type CompilerLogEntry = {
+  Type: EventLogEntryType
+  FileName: string
+  Line: int
+  Column: int
+  Code: int
+  Message: string
+}
 
 /// <summary>
 /// Execute F# compiler.
@@ -41,18 +51,18 @@ type Compiler =
     CompilerArguments.extract args
 
   static member private BridgedWriter
-     (writer : Action<EventLogEntryType, string>) : (WriteInfo -> unit) =
+     (writer : Action<CompilerLogEntry>) : (WriteInfo -> unit) =
     function
     | WriteInfo.ParseFailed(error) ->
       let severity =
         match error.Severity with
         | FSharpErrorSeverity.Warning -> EventLogEntryType.Warning
         | FSharpErrorSeverity.Error -> EventLogEntryType.Error
-      writer.Invoke(severity, error.Message)
+      writer.Invoke({ Type = severity; FileName = error.FileName; Line = error.StartLineAlternate; Column = error.StartColumn; Code = error.ErrorNumber; Message = error.Message })
     | WriteInfo.CheckFailed(path) ->
-      writer.Invoke(EventLogEntryType.Error, String.Format("error: Failed type check: {0}", path))
+      writer.Invoke({ Type = EventLogEntryType.Error; FileName = path; Line = 1; Column = 1; Code = 1; Message = "Type checking failed." })
     | WriteInfo.UnknownFailed(exn) ->
-      writer.Invoke(EventLogEntryType.Error, String.Format("error: {0}", exn))
+      writer.Invoke({ Type = EventLogEntryType.Error; FileName = "unknown"; Line = 1; Column = 1; Code = Marshal.GetHRForException(exn); Message = exn.ToString()})
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
