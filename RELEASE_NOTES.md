@@ -1,3 +1,7 @@
+#### 0.1.16 - 2016.08.05
+* Fixed logging codes.
+* Omit assembly-attribute (FSharp.targets genetated PlatformVersionAttribute) related for cause unknown compile error in FCS.
+
 #### 0.1.15 - 2016.08.05
 * WIP release.
 

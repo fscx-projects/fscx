@@ -37,12 +37,12 @@ namespace FSharp.Expandable
         {
            return Compiler.Compile(logEntry =>
                Console.WriteLine(
-                   "{0}({1}, {2}): {3}: {4}: {5}",
+                   "{0}({1},{2}): {3}{4}: {5}",
                    logEntry.FileName,
                    logEntry.Line,
                    logEntry.Column,
                    logEntry.Type.ToString().ToLowerInvariant(),
-                   logEntry.Code,
+                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : logEntry.Code,
                    logEntry.Message),
                args);
         }

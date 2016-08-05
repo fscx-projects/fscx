@@ -27,13 +27,17 @@ open System.Runtime.InteropServices
 
 open Microsoft.FSharp.Compiler
 
+/// <summary>
+/// Compiler logger information.
+/// </summary>
 type CompilerLogEntry = {
   Type: EventLogEntryType
   FileName: string
   Line: int
   Column: int
-  Code: int
+  Code: string
   Message: string
+  Description: string
 }
 
 /// <summary>
@@ -58,11 +62,32 @@ type Compiler =
         match error.Severity with
         | FSharpErrorSeverity.Warning -> EventLogEntryType.Warning
         | FSharpErrorSeverity.Error -> EventLogEntryType.Error
-      writer.Invoke({ Type = severity; FileName = error.FileName; Line = error.StartLineAlternate; Column = error.StartColumn; Code = error.ErrorNumber; Message = error.Message })
+      writer.Invoke(
+        { Type = severity;
+          FileName = error.FileName;
+          Line = error.StartLineAlternate;
+          Column = error.StartColumn;
+          Code = String.Format("FS{0:D4}", error.ErrorNumber);
+          Message = error.Message;
+          Description = "" })
     | WriteInfo.CheckFailed(path) ->
-      writer.Invoke({ Type = EventLogEntryType.Error; FileName = path; Line = 1; Column = 1; Code = 1; Message = "Type checking failed." })
+      writer.Invoke(
+        { Type = EventLogEntryType.Error;
+          FileName = path;
+          Line = 1;
+          Column = 1;
+          Code = "";
+          Message = "Type checking failed.";
+          Description = "" })
     | WriteInfo.UnknownFailed(exn) ->
-      writer.Invoke({ Type = EventLogEntryType.Error; FileName = "unknown"; Line = 1; Column = 1; Code = Marshal.GetHRForException(exn); Message = exn.ToString()})
+      writer.Invoke(
+        { Type = EventLogEntryType.Error;
+          FileName = "unknown";
+          Line = 1;
+          Column = 1;
+          Code = exn.GetType().FullName;
+          Message = exn.Message;
+          Description = exn.StackTrace })
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
