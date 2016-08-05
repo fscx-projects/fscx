@@ -84,6 +84,10 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
+            // TODO: move loader code to Core library
+
+
+
             ///////////////////////////////////////////////////////////////////////
             // Assembly resolver (Helper for dynamic loaded assembly, fscx/FCS)
 

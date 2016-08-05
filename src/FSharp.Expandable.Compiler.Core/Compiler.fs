@@ -88,6 +88,8 @@ type Compiler =
           Code = exn.GetType().FullName;
           Message = exn.Message;
           Description = exn.StackTrace })
+
+  // TODO: Filter loader
  
   /// <summary>
   /// Execute F# compiler with standard arguments.

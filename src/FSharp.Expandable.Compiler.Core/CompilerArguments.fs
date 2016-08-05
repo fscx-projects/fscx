@@ -34,6 +34,7 @@ type CompilerArguments = {
   Dependencies : string seq
   SourcePaths : string seq
   OptionArguments : string seq
+  FilterPaths: string seq
   FscxDebug : bool
 }
 
@@ -75,7 +76,11 @@ module internal CompilerArguments =
     let optionArguments =
       sanitized
       |> Seq.map (fun arg -> arg.Trim())
-      |> Seq.filter (fun arg -> (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:") && not (arg.StartsWith "--fscxDebug:"))
+      |> Seq.filter (fun arg ->
+        (arg.StartsWith "-") &&
+         not (arg.StartsWith "--projectPath:") &&
+         not (arg.StartsWith "--filterPath:") &&
+         not (arg.StartsWith "--fscxDebug:"))
       |> Seq.toArray
 
     let projectPath =
@@ -93,6 +98,10 @@ module internal CompilerArguments =
     let dependencies =
       extractOptionValues "-r:" sanitized
       |> Seq.toArray
+    let filterPaths =
+      extractOptionValues "--filterPath:" sanitized
+      |> Seq.map Path.GetFullPath
+      |> Seq.toArray
     let _, fscxDebug =
       match extractOptionValue "--fscxDebug:" sanitized with
       | Some path -> bool.TryParse path
@@ -106,5 +115,6 @@ module internal CompilerArguments =
       Dependencies = dependencies
       SourcePaths = sourcePaths
       OptionArguments = optionArguments
+      FilterPaths = filterPaths
       FscxDebug = fscxDebug
     }
