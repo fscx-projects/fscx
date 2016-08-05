@@ -111,8 +111,11 @@ namespace FSharp.Expandable
             //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
             //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
 
-            var exeLocation = GetAssemblyLocation(Assembly.GetExecutingAssembly());
-            var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+            //var exeLocation = GetAssemblyLocation(Assembly.GetExecutingAssembly());
+            var exeLocation =
+                @"D:\PROJECT\fscx\tests\fscx-enabled\packages\fscx.0.1.17\build\fscx.exe";
+            var packagesPath =
+                Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
             var assemblies =
                 Directory.EnumerateDirectories(packagesPath, "*.dll", SearchOption.AllDirectories).
                 Where(path => !IsKnownAssembly(path)).
@@ -120,6 +123,11 @@ namespace FSharp.Expandable
                 Where(IsFilterAssembly).
                 Select(assembly => Assembly.LoadFrom(GetAssemblyLocation(assembly))).
                 ToArray();
+
+            foreach (var asm in assemblies)
+            {
+                Console.WriteLine(asm.Location);
+            }
 
             ///////////////////////////////////////////////////////////////////////
             // Compile
