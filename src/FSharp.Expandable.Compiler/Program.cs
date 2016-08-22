@@ -23,6 +23,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace FSharp.Expandable
 {
@@ -39,23 +40,22 @@ namespace FSharp.Expandable
         public static int Main(string[] args)
         {
             ///////////////////////////////////////////////////////////////////////
-            // Crawl filters
+            // Crawl visitor assemblies
 
             // TODO: improve detection (idea: parse nuspec?)
-            //  Current:
+            // Current:
             //   packages --+-- fscx-0.1.*     --+-- build --+-- fscx.exe
             //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
             //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
 
-            //var exeLocation = GetAssemblyLocation(Assembly.GetExecutingAssembly());
-            var exeLocation =
-                @"D:\PROJECT\fscx\tests\fscx-enabled\sample-filter\bin\Debug";
+            var exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+            //var exeLocation =
+            //    @"D:\PROJECT\fscx\tests\fscx-enabled\sample-filter\bin\Debug";
             var packagesPath =
                 Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
-            var dllPaths =
-                Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories);
             var visitorPaths =
-                dllPaths.FilterVisitors();
+                Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories).
+                FilterVisitors();
 
             foreach (var path in visitorPaths)
             {
