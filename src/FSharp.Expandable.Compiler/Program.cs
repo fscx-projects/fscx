@@ -52,9 +52,10 @@ namespace FSharp.Expandable
                 @"D:\PROJECT\fscx\tests\fscx-enabled\packages\fscx.0.1.17\build\fscx.exe";
             var packagesPath =
                 Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+            var dllPaths =
+                Directory.GetFiles(packagesPath, "*.dll", SearchOption.AllDirectories);
             var visitorPaths =
-                Directory.EnumerateDirectories(packagesPath, "*.dll", SearchOption.AllDirectories).
-                FilterVisitors();
+                dllPaths.FilterVisitors();
 
             foreach (var path in visitorPaths)
             {

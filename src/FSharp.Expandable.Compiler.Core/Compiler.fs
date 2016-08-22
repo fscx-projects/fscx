@@ -23,6 +23,7 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
+open System.IO
 open System.Reflection
 open System.Runtime.CompilerServices
 
@@ -77,6 +78,24 @@ type Compiler =
     let uri = new Uri(assembly.CodeBase)
     uri.LocalPath
 
+  /// Exclude known standard assemblies (speed up)
+  static member private isKnownAssembly (path: string) =
+    let fileName = Path.GetFileNameWithoutExtension path
+    if fileName = "mscorlib" then
+      true
+    else if fileName = "System" then
+      true
+    else if fileName = "System.Core" then
+      true
+    else if fileName = "FSharp.Core" then
+      true
+    else if fileName.StartsWith "FSharp.Compiler.Service" then
+      true
+    else if fileName.StartsWith "FSharp.Expandable.Compiler" then
+      true
+    else
+      false
+
   /// <summary>
   /// Filter visitor class expression.
   /// </summary>
@@ -85,13 +104,28 @@ type Compiler =
   [<Extension>]
   static member FilterVisitors (paths: string seq) =
     use r = new SafeResolver()
-    paths
-    |> Seq.map Assembly.ReflectionOnlyLoadFrom
-    |> Seq.filter Compiler.isTargetAssembly
-    |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
-    |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists Compiler.isVisitorType)
-    |> Seq.map Compiler.rawLocation
-    |> Seq.toArray
+    let roas =
+      paths
+      |> Seq.filter (fun path -> not (Compiler.isKnownAssembly path))
+      |> Seq.map Assembly.ReflectionOnlyLoadFrom
+      |> Seq.toArray
+    let targetroas =
+      roas
+      |> Seq.filter Compiler.isTargetAssembly
+      |> Seq.toArray
+    let ass =
+      targetroas
+      |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
+      |> Seq.toArray
+    let ts =
+      ass
+      |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists Compiler.isVisitorType)
+      |> Seq.toArray
+    let locs =
+      ts
+      |> Seq.map Compiler.rawLocation
+      |> Seq.toArray
+    locs
 
   /////////////////////////////////////////////////////////////////////////////////////
 
