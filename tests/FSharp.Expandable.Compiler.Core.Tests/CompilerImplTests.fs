@@ -155,7 +155,7 @@ module CompilerImplTests =
 
       // setup ast verifier
       let inputAstHolder = new ResizeArray<_>()
-      let filter (inputAst: ParsedInput) (results: FSharpCheckFileResults) : ParsedInput =
+      let filter (results: FSharpCheckFileResults) (inputAst: ParsedInput) : ParsedInput =
         inputAstHolder.Add(inputAst)
         filter inputAst results
 

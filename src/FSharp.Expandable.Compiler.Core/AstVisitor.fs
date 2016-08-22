@@ -5,6 +5,8 @@
 
 namespace Microsoft.FSharp.Compiler.Ast
 
+#nowarn "1182"
+
 ////////////////////////////////////////////////////////////
 
 /// <summary>

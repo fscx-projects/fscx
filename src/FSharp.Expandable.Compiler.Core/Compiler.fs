@@ -23,9 +23,12 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
-open System.Runtime.InteropServices
+open System.Reflection
+open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
+open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.SourceCodeServices
 
 /// <summary>
 /// Compiler logger information.
@@ -43,16 +46,54 @@ type CompilerLogEntry = {
 /// <summary>
 /// Execute F# compiler.
 /// </summary>
-[<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+[<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false); Extension>]
 type Compiler =
+
+  /////////////////////////////////////////////////////////////////////////////////////
 
   /// <summary>
   /// Extract compiler arguments from string sequence.
   /// </summary>
   /// <param name="args">Compiration argument strings</param>
   /// <returns>Compilation arguments</returns>
+  [<Extension>]
   static member ExtractCompilerArguments args =
     CompilerArguments.extract args
+
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  /// Include only referenced fscx.
+  static member private isTargetAssembly (assembly: Assembly) =
+    assembly.GetReferencedAssemblies()
+    |> Seq.exists (fun a -> a.FullName.StartsWith "FSharp.Expandable.Compiler.Core")
+
+  /// Include only visitor type.
+  static member private isVisitorType (t: Type) =
+    let visitorType = typeof<AstVisitor<FSharpCheckFileResults>>
+    t.IsPublic && t.IsSealed && visitorType.IsAssignableFrom t
+
+  /// Get local path from assembly.
+  static member private rawLocation (assembly: Assembly) =
+    let uri = new Uri(assembly.CodeBase)
+    uri.LocalPath
+
+  /// <summary>
+  /// Filter visitor class expression.
+  /// </summary>
+  /// <param name="paths">Assembly paths</param>
+  /// <returns>Assembly path of contains visitors</returns>
+  [<Extension>]
+  static member FilterVisitors (paths: string seq) =
+    use r = new SafeResolver()
+    paths
+    |> Seq.map Assembly.ReflectionOnlyLoadFrom
+    |> Seq.filter Compiler.isTargetAssembly
+    |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
+    |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists Compiler.isVisitorType)
+    |> Seq.map Compiler.rawLocation
+    |> Seq.toArray
+
+  /////////////////////////////////////////////////////////////////////////////////////
 
   static member private BridgedWriter
      (writer : Action<CompilerLogEntry>) : (WriteInfo -> unit) =
@@ -89,7 +130,22 @@ type Compiler =
           Message = exn.Message;
           Description = exn.StackTrace })
 
-  // TODO: Filter loader
+  /// Compile with filter assemblies.
+  static member private asyncCompile writer (arguments: CompilerArguments) = async {
+    use _ = new SafeResolver()
+    let visitors =
+      arguments.VisitorPaths
+      |> Seq.map Assembly.ReflectionOnlyLoadFrom
+      |> Seq.filter Compiler.isTargetAssembly
+      |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
+      |> Seq.collect (fun a -> a.GetTypes())
+      |> Seq.filter Compiler.isVisitorType
+      |> Seq.map (fun t -> Activator.CreateInstance t :?> AstVisitor<FSharpCheckFileResults>)
+    let internalWriter = Compiler.BridgedWriter writer
+    return! CompilerImpl.asyncCompile internalWriter arguments visitors
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -98,8 +154,7 @@ type Compiler =
   /// <param name="arguments">Compilation arguments</param>
   /// <returns>Result value</returns>
   static member AsyncCompileWithArguments writer arguments =
-    let intWriter = Compiler.BridgedWriter writer
-    CompilerImpl.asyncCompile intWriter arguments
+    Compiler.asyncCompile writer arguments
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -108,7 +163,7 @@ type Compiler =
   /// <param name="arguments">Compilation arguments</param>
   /// <returns>Result value</returns>
   static member CompileWithArguments writer arguments =
-    Compiler.AsyncCompileWithArguments writer arguments |> Async.RunSynchronously
+    Compiler.asyncCompile writer arguments |> Async.RunSynchronously
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -118,7 +173,7 @@ type Compiler =
   /// <returns>Result value</returns>
   static member AsyncCompile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.AsyncCompileWithArguments writer arguments
+    Compiler.asyncCompile writer arguments
 
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -128,7 +183,7 @@ type Compiler =
   /// <returns>Result value</returns>
   static member Compile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.CompileWithArguments writer arguments
+    Compiler.asyncCompile writer arguments |> Async.RunSynchronously
 
 ////////////////////////////////////////////////
 

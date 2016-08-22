@@ -26,17 +26,25 @@ open System.IO
 /// <summary>
 /// Compiler arguments.
 /// </summary>
-type CompilerArguments = {
-  ProjectPath : string
-  OutputPath : string
-  AssemblyName : string
-  PdbPath : string
-  Dependencies : string seq
-  SourcePaths : string seq
-  OptionArguments : string seq
-  FilterPaths: string seq
-  FscxDebug : bool
-}
+type CompilerArguments
+  (projectPath,
+   outputPath,
+   assemblyName,
+   pdbPath,
+   dependencies,
+   sourcePaths,
+   optionArguments,
+   visitorPaths,
+   fscxDebug) =
+  member val ProjectPath : string = projectPath with get, set
+  member val OutputPath : string = outputPath with get, set
+  member val AssemblyName : string = assemblyName with get, set
+  member val PdbPath : string = pdbPath with get, set
+  member val Dependencies : string seq = dependencies with get, set
+  member val SourcePaths : string seq = sourcePaths with get, set
+  member val OptionArguments : string seq = optionArguments with get, set
+  member val VisitorPaths : string seq = visitorPaths with get, set
+  member val FscxDebug : bool = fscxDebug with get, set
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module internal CompilerArguments =
@@ -79,7 +87,7 @@ module internal CompilerArguments =
       |> Seq.filter (fun arg ->
         (arg.StartsWith "-") &&
          not (arg.StartsWith "--projectPath:") &&
-         not (arg.StartsWith "--filterPath:") &&
+         not (arg.StartsWith "--visitorPath:") &&
          not (arg.StartsWith "--fscxDebug:"))
       |> Seq.toArray
 
@@ -98,8 +106,8 @@ module internal CompilerArguments =
     let dependencies =
       extractOptionValues "-r:" sanitized
       |> Seq.toArray
-    let filterPaths =
-      extractOptionValues "--filterPath:" sanitized
+    let visitorPaths =
+      extractOptionValues "--visitorPath:" sanitized
       |> Seq.map Path.GetFullPath
       |> Seq.toArray
     let _, fscxDebug =
@@ -107,14 +115,13 @@ module internal CompilerArguments =
       | Some path -> bool.TryParse path
       | None -> false, false
 
-    {
-      ProjectPath = projectPath
-      OutputPath = outputPath
-      AssemblyName = assemblyName
-      PdbPath = pdbPath
-      Dependencies = dependencies
-      SourcePaths = sourcePaths
-      OptionArguments = optionArguments
-      FilterPaths = filterPaths
-      FscxDebug = fscxDebug
-    }
+    new CompilerArguments
+      (projectPath,
+       outputPath,
+       assemblyName,
+       pdbPath,
+       dependencies,
+       sourcePaths,
+       optionArguments,
+       visitorPaths,
+       fscxDebug)

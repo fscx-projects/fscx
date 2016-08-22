@@ -76,6 +76,7 @@
     <Compile Include="AstVisitor.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
+    <Compile Include="SafeResolver.fs" />
     <Compile Include="Compiler.fs" />
     <None Include="paket.references" />
     <Content Include="App.config" />
