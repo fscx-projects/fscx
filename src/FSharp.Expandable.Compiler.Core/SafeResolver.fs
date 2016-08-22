@@ -34,21 +34,27 @@ type internal SafeResolver =
       let appDomain = AppDomain.CurrentDomain
       appDomain.add_AssemblyResolve(new ResolveEventHandler(this.Resolve))
 
-  /// Resolve partially-loaded assembly.
-  member private __.Resolve _ (e: ResolveEventArgs) =
+  member private __.resolve isTargetAssembly =
     let appDomain = AppDomain.CurrentDomain
-    let isTargetAssembly (assembly: Assembly) =
+    appDomain.GetAssemblies() |> Seq.filter isTargetAssembly
+
+  /// Resolve partially-loaded assembly.
+  member private this.Resolve _ (e: ResolveEventArgs) =
+    let isFullAssembly (assembly: Assembly) =
+      assembly.FullName = e.Name
+    let partialName = e.Name.Substring (0, e.Name.IndexOf ',')
+    let isPartialAssembly (assembly: Assembly) =
       let name = assembly.GetName().Name
-      e.Name.StartsWith name
-    let target =
-      appDomain.GetAssemblies()
-      |> Seq.tryFind isTargetAssembly
-    match target with
+      name = partialName
+    let result =
+      Seq.append (this.resolve isFullAssembly) (this.resolve isPartialAssembly)
+      |> Seq.tryHead
+    match result with
     | Some assembly ->
-      Debug.WriteLine("SafeResolver: {0} --> {1}", e.Name, assembly.FullName)
+      Debug.WriteLine(System.String.Format("SafeResolver: resolved: {0} --> {1}", e.Name, assembly.FullName))
       assembly
     | None ->
-      Debug.WriteLine("SafeResolver: {0} --> (Unknown)", e.Name)
+      Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved : {0}", e.Name))
       null
 
   member this.Dispose() =

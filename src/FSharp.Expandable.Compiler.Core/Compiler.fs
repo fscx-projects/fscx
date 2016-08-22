@@ -23,8 +23,6 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
-open System.IO
-open System.Reflection
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
@@ -63,69 +61,22 @@ type Compiler =
 
   /////////////////////////////////////////////////////////////////////////////////////
 
-  /// Include only referenced fscx.
-  static member private isTargetAssembly (assembly: Assembly) =
-    assembly.GetReferencedAssemblies()
-    |> Seq.exists (fun a -> a.FullName.StartsWith "FSharp.Expandable.Compiler.Core")
-
-  /// Include only visitor type.
-  static member private isVisitorType (t: Type) =
-    let visitorType = typeof<AstVisitor<FSharpCheckFileResults>>
-    t.IsPublic && t.IsSealed && visitorType.IsAssignableFrom t
-
-  /// Get local path from assembly.
-  static member private rawLocation (assembly: Assembly) =
-    let uri = new Uri(assembly.CodeBase)
-    uri.LocalPath
-
-  /// Exclude known standard assemblies (speed up)
-  static member private isKnownAssembly (path: string) =
-    let fileName = Path.GetFileNameWithoutExtension path
-    if fileName = "mscorlib" then
-      true
-    else if fileName = "System" then
-      true
-    else if fileName = "System.Core" then
-      true
-    else if fileName = "FSharp.Core" then
-      true
-    else if fileName.StartsWith "FSharp.Compiler.Service" then
-      true
-    else if fileName.StartsWith "FSharp.Expandable.Compiler" then
-      true
-    else
-      false
-
   /// <summary>
   /// Filter visitor class expression.
   /// </summary>
   /// <param name="paths">Assembly paths</param>
-  /// <returns>Assembly path of contains visitors</returns>
+  /// <returns>Assembly paths of contains visitors</returns>
   [<Extension>]
   static member FilterVisitors (paths: string seq) =
     use r = new SafeResolver()
-    let roas =
-      paths
-      |> Seq.filter (fun path -> not (Compiler.isKnownAssembly path))
-      |> Seq.map Assembly.ReflectionOnlyLoadFrom
-      |> Seq.toArray
-    let targetroas =
-      roas
-      |> Seq.filter Compiler.isTargetAssembly
-      |> Seq.toArray
-    let ass =
-      targetroas
-      |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
-      |> Seq.toArray
-    let ts =
-      ass
-      |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists Compiler.isVisitorType)
-      |> Seq.toArray
-    let locs =
-      ts
-      |> Seq.map Compiler.rawLocation
-      |> Seq.toArray
-    locs
+    paths
+    |> Seq.filter AssemblyLoader.isTargetAssemblyName
+    |> Seq.choose AssemblyLoader.reflectionOnlyLoadFrom
+    |> Seq.filter AssemblyLoader.isTargetAssembly
+    |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
+    |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists AssemblyLoader.isVisitorType)
+    |> Seq.map AssemblyLoader.rawLocation
+    |> Seq.toArray
 
   /////////////////////////////////////////////////////////////////////////////////////
 
@@ -169,12 +120,14 @@ type Compiler =
     use _ = new SafeResolver()
     let visitors =
       arguments.VisitorPaths
-      |> Seq.map Assembly.ReflectionOnlyLoadFrom
-      |> Seq.filter Compiler.isTargetAssembly
-      |> Seq.map (fun roa -> Assembly.LoadFrom (Compiler.rawLocation roa))
+      |> Seq.filter AssemblyLoader.isTargetAssemblyName
+      |> Seq.choose AssemblyLoader.reflectionOnlyLoadFrom
+      |> Seq.filter AssemblyLoader.isTargetAssembly
+      |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
       |> Seq.collect (fun a -> a.GetTypes())
-      |> Seq.filter Compiler.isVisitorType
+      |> Seq.filter AssemblyLoader.isVisitorType
       |> Seq.map (fun t -> Activator.CreateInstance t :?> AstVisitor<FSharpCheckFileResults>)
+      |> Seq.toArray
     let internalWriter = Compiler.BridgedWriter writer
     return! CompilerImpl.asyncCompile internalWriter arguments visitors
   }

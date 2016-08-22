@@ -49,17 +49,17 @@ namespace FSharp.Expandable
 
             //var exeLocation = GetAssemblyLocation(Assembly.GetExecutingAssembly());
             var exeLocation =
-                @"D:\PROJECT\fscx\tests\fscx-enabled\packages\fscx.0.1.17\build\fscx.exe";
+                @"D:\PROJECT\fscx\tests\fscx-enabled\sample-filter\bin\Debug";
             var packagesPath =
                 Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
             var dllPaths =
-                Directory.GetFiles(packagesPath, "*.dll", SearchOption.AllDirectories);
+                Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories);
             var visitorPaths =
                 dllPaths.FilterVisitors();
 
             foreach (var path in visitorPaths)
             {
-                Console.WriteLine(path);
+                Debug.WriteLine(path);
             }
 
             ///////////////////////////////////////////////////////////////////////
@@ -68,10 +68,9 @@ namespace FSharp.Expandable
             var arguments = args.ExtractCompilerArguments();
             arguments.VisitorPaths = visitorPaths;
 
-
             return Compiler.CompileWithArguments(logEntry =>
                Console.WriteLine(
-                   "{0}({1},{2}): {3}{4}: {5}",
+                   "{0}({1},{2}): {3} {4}: {5}",
                    logEntry.FileName,
                    logEntry.Line,
                    logEntry.Column,
