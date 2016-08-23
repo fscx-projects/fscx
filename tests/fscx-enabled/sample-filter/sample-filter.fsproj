@@ -53,6 +53,8 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Filter.fs" />
     <Content Include="packages.config" />
+    <None Include="sample-filter.nuspec" />
+    <None Include="nupack.bat" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Compiler.Service">
