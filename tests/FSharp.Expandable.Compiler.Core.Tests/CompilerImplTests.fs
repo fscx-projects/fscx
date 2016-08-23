@@ -35,6 +35,7 @@ open UseTestNameByReflection
 open FSharp.Expandable
 
 module CompilerImplTests =
+  open System.Reflection
 
   ////////////////////////////////////////////////////////
 
@@ -155,7 +156,7 @@ module CompilerImplTests =
 
       // setup ast verifier
       let inputAstHolder = new ResizeArray<_>()
-      let filter (inputAst: ParsedInput) (results: FSharpCheckFileResults) : ParsedInput =
+      let filter (results: FSharpCheckFileResults) (inputAst: ParsedInput) : ParsedInput =
         inputAstHolder.Add(inputAst)
         filter inputAst results
 
@@ -166,6 +167,15 @@ module CompilerImplTests =
     finally
       do File.Delete sourcePath
   }
+
+  let astToString ast =
+    let t = ast.GetType()
+    let mi = t.GetMethod("__DebugDisplay", BindingFlags.NonPublic ||| BindingFlags.Instance)
+    match mi with
+    | null -> ast.ToString()
+    | _ ->
+      if mi.GetParameters().Length >= 1 then ast.ToString()
+      else mi.Invoke(ast, [||]) :?> string
 
   let ``parse and apply single source code`` = test {
   
@@ -190,7 +200,9 @@ module CompilerImplTests =
 
     match result, asts with
     | CompilerImpl.ParseAndApplyResult.Succeeded(_, ast), [|inputAst|] ->
-      do! assertEquals (inputAst.ToString()) (ast.ToString())
+      let inputAstString = astToString inputAst
+      let astString = astToString ast
+      do! assertEquals inputAstString astString
     | _ ->
       do! fail "actual or inputAst is not valid"
   }

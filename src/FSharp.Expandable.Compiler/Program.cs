@@ -21,6 +21,9 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace FSharp.Expandable
 {
@@ -36,9 +39,51 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-            Debug.Assert(false, "Entering fscx.exe, waiting for attached debugger...");
+            ///////////////////////////////////////////////////////////////////////
+            // Extract arguments.
 
-            return Compiler.CompileWithArguments(Console.Out, args);
+            var arguments = args.ExtractCompilerArguments();
+
+            // If not giving visitor paths:
+            if (arguments.VisitorPaths.Any() == false)
+            {
+                ///////////////////////////////////////////////////////////////////////
+                // Crawl visitor assemblies
+
+                // TODO: improve detection (idea: parse nuspec?)
+                // Current:
+                //   packages --+-- fscx-0.1.*     --+-- build --+-- fscx.exe
+                //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
+                //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
+
+                var exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+                var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+                var visitorPaths =
+                    Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories).
+                    FilterVisitors();
+#if DEBUG
+                foreach (var path in visitorPaths)
+                {
+                    Debug.WriteLine(path);
+                }
+#endif
+                // Place visitor paths.
+                arguments.VisitorPaths = visitorPaths;
+            }
+
+            ///////////////////////////////////////////////////////////////////////
+            // Compile
+
+            return Compiler.CompileWithArguments(logEntry =>
+               Console.WriteLine(
+                   "{0}({1},{2}): {3} {4}: {5}",
+                   logEntry.FileName,
+                   logEntry.Line,
+                   logEntry.Column,
+                   logEntry.Type.ToString().ToLowerInvariant(),
+                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : logEntry.Code,
+                   logEntry.Message),
+               arguments);
         }
     }
 }

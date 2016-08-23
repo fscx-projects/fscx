@@ -54,6 +54,11 @@
         Text="The property &lt;Win32ResourceFile> has been renamed to &lt;Win32Resource>. Update your project file to ensure that the correct value is passed via the --win32res option to the F# compiler."
         />
 
+    <PropertyGroup>
+      <FscxDebug Condition="'$(FscxDebug)' == ''">false</FscxDebug>
+      <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    </PropertyGroup>
+
     <Fscx ProjectPath="$(MSBuildProjectFullPath)"
           Condition=" '%(_CoreCompileResourceInputs.WithCulture)' != 'true' "
           BaseAddress="$(BaseAddress)"
@@ -88,7 +93,7 @@
           WarningsAsErrors="$(WarningsAsErrors)"
           Win32ManifestFile="$(Win32Manifest)"
           Win32ResourceFile="$(Win32Resource)"
-        />
+          FscxDebug="$(FscxDebug)" />
 
     <ItemGroup>
       <_CoreCompileResourceInputs Remove="@(_CoreCompileResourceInputs)" />

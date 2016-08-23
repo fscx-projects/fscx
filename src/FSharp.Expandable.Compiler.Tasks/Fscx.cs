@@ -56,6 +56,15 @@ namespace FSharp.Expandable.Compiler.Tasks
         }
 
         /// <summary>
+        /// Fscx debug flag.
+        /// </summary>
+        public bool FscxDebug
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Get tool name.
         /// </summary>
         /// <returns>Tool name.</returns>
@@ -74,6 +83,7 @@ namespace FSharp.Expandable.Compiler.Tasks
 
             var builder = new CommandLineBuilder();
             builder.AppendSwitchIfNotNull("--projectPath:", this.ProjectPath);
+            builder.AppendSwitchIfNotNull("--fscxDebug:", this.FscxDebug.ToString());
             var arguments = builder.ToString() + " " + commands;
 
             Debug.WriteLine($"Fscx: arguments: {arguments}");

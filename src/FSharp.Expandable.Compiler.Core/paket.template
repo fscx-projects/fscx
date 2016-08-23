@@ -1,7 +1,7 @@
 type file
-id fscx
+id FSharp.Expandable.Compiler.Core
 title
-    Expandable F# compiler
+    Expandable F# compiler (Core library)
 owners
     Kouji Matsui, bleis-tift
 authors 
@@ -22,10 +22,12 @@ summary
     Easy infrastructure can replace F#'s AST at compile time.
 description
     Easy infrastructure can replace F#'s AST at compile time.
+excludedependencies
+    FSharp.Core
+dependencies
+    FSharp.Compiler.Service >= LOCKEDVERSION
 files
-    bin/Release/*.exe ==> build
-    bin/Release/*.pdb ==> build
-    bin/Release/*.xml ==> build
-    bin/Release/*.config ==> build
-    bin/Release/*.dll ==> build
-    bin/Release/*.targets ==> build
+    bin/Release/FSharp.Expandable.Compiler.Core.dll ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.pdb ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.xml ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.dll.config ==> lib/net45

@@ -25,10 +25,12 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <StartArguments>--projectPath:..\..\..\..\tests\fscx-enabled\fscx-enabled.fsproj -o:FscxOutputSample.dll -g --debug:full --noframework --define:DEBUG --define:TRACE --doc:FscxOutputSample.XML --optimize- --tailcalls- --platform:anycpu -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Numerics.dll" --target:library --warn:3 --warnaserror:76 --vserrors --LCID:1041 --utf8output --fullpaths --flaterrors --highentropyva- ..\..\..\..\tests\fscx-enabled\FscxOutputSample1.fs ..\..\..\..\tests\fscx-enabled\FscxOutputSample2.fs</StartArguments>
+    <StartArguments>--projectPath:D:\PROJECT\fscx\tests\fscx-enabled\fscx-enabled\fscx-enabled.fsproj --fscxDebug:True -o:obj\Debug\fscx_enabled.dll -g --debug:full --noframework --define:DEBUG --define:TRACE --doc:bin\Debug\fscx_enabled.XML --optimize- --tailcalls- -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Numerics.dll" --target:library --warn:3 --warnaserror:76 --vserrors --LCID:1041 --utf8output --fullpaths --flaterrors --highentropyva- "C:\Users\k.matsui\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.fs" FscxOutputSample2.fs FscxOutputSample1.fs FscxReferencedClass.fs</StartArguments>
+    <StartWorkingDirectory>D:\PROJECT\fscx\tests\fscx-enabled\fscx-enabled\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\PROJECT\fscx\tests\fscx-enabled\packages\fscx.0.1.12\build\fscx.exe</StartProgram>
     <Prefer32Bit>false</Prefer32Bit>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>bin\Debug\fscx.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +40,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <StartArguments>--projectPath:D:\PROJECT\fscx\tests\fscx-enabled\fscx-enabled\fscx-enabled.fsproj --fscxDebug:True -o:obj\Debug\fscx_enabled.dll -g --debug:full --noframework --define:DEBUG --define:TRACE --doc:bin\Debug\fscx_enabled.XML --optimize- --tailcalls- -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\mscorlib.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Core.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.dll" -r:"C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\Profile\Client\System.Numerics.dll" --target:library --warn:3 --warnaserror:76 --vserrors --LCID:1041 --utf8output --fullpaths --flaterrors --highentropyva- "C:\Users\k.matsui\AppData\Local\Temp\.NETFramework,Version=v4.0,Profile=Client.AssemblyAttributes.fs" FscxOutputSample2.fs FscxOutputSample1.fs FscxReferencedClass.fs</StartArguments>
+    <StartWorkingDirectory>D:\PROJECT\fscx\tests\fscx-enabled\fscx-enabled\</StartWorkingDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\PROJECT\fscx\tests\fscx-enabled\packages\fscx.0.1.12\build\fscx.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>bin\Release\fscx.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>

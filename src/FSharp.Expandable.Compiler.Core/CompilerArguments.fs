@@ -26,15 +26,25 @@ open System.IO
 /// <summary>
 /// Compiler arguments.
 /// </summary>
-type CompilerArguments = {
-  ProjectPath : string
-  OutputPath : string
-  AssemblyName : string
-  PdbPath : string
-  Dependencies : string seq
-  SourcePaths : string seq
-  OptionArguments : string seq
-}
+type CompilerArguments
+  (projectPath,
+   outputPath,
+   assemblyName,
+   pdbPath,
+   dependencies,
+   sourcePaths,
+   optionArguments,
+   visitorPaths,
+   fscxDebug) =
+  member val ProjectPath : string = projectPath with get, set
+  member val OutputPath : string = outputPath with get, set
+  member val AssemblyName : string = assemblyName with get, set
+  member val PdbPath : string = pdbPath with get, set
+  member val Dependencies : string seq = dependencies with get, set
+  member val SourcePaths : string seq = sourcePaths with get, set
+  member val OptionArguments : string seq = optionArguments with get, set
+  member val VisitorPaths : string seq = visitorPaths with get, set
+  member val FscxDebug : bool = fscxDebug with get, set
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module internal CompilerArguments =
@@ -47,12 +57,12 @@ module internal CompilerArguments =
   let private extractOptionValue switch args =
     args
     |> extractOptionValues switch
-    |> Seq.head
+    |> Seq.tryHead
 
   let private extractOptionPath switch args =
     args
     |> extractOptionValue switch
-    |> Path.GetFullPath
+    |> Option.map Path.GetFullPath
 
   /// <summary>
   /// Extract compiler arguments.
@@ -74,13 +84,21 @@ module internal CompilerArguments =
     let optionArguments =
       sanitized
       |> Seq.map (fun arg -> arg.Trim())
-      |> Seq.filter (fun arg -> (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:"))
+      |> Seq.filter (fun arg ->
+        (arg.StartsWith "-") &&
+         not (arg.StartsWith "--projectPath:") &&
+         not (arg.StartsWith "--visitorPath:") &&
+         not (arg.StartsWith "--fscxDebug:"))
       |> Seq.toArray
 
     let projectPath =
-      extractOptionPath "--projectPath:" sanitized
+      match extractOptionPath "--projectPath:" sanitized with
+      | Some path -> path
+      | None -> failwith "Require \"projectPath\" argument."
     let outputPath =
-      extractOptionPath "-o:" sanitized
+      match extractOptionPath "-o:" sanitized with
+      | Some path -> path
+      | None -> failwith "Require output path."
     let assemblyName =
       Path.GetFileNameWithoutExtension outputPath
     let pdbPath =
@@ -88,13 +106,22 @@ module internal CompilerArguments =
     let dependencies =
       extractOptionValues "-r:" sanitized
       |> Seq.toArray
+    let visitorPaths =
+      extractOptionValues "--visitorPath:" sanitized
+      |> Seq.map Path.GetFullPath
+      |> Seq.toArray
+    let _, fscxDebug =
+      match extractOptionValue "--fscxDebug:" sanitized with
+      | Some path -> bool.TryParse path
+      | None -> false, false
 
-    {
-      ProjectPath = projectPath
-      OutputPath = outputPath
-      AssemblyName = assemblyName
-      PdbPath = pdbPath
-      Dependencies = dependencies
-      SourcePaths = sourcePaths
-      OptionArguments = optionArguments
-    }
+    new CompilerArguments
+      (projectPath,
+       outputPath,
+       assemblyName,
+       pdbPath,
+       dependencies,
+       sourcePaths,
+       optionArguments,
+       visitorPaths,
+       fscxDebug)
