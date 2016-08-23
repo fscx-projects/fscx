@@ -23,6 +23,7 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
+open System.IO
 open System.Reflection
 
 [<Sealed; AutoSerializable(false); NoEquality; NoComparison>]
@@ -38,6 +39,16 @@ type internal SafeResolver =
     let appDomain = AppDomain.CurrentDomain
     appDomain.GetAssemblies() |> Seq.filter isTargetAssembly
 
+  member private __.loadBySide (baseAssembly: Assembly) partialName =
+    let basePath = Path.GetDirectoryName((new Uri(baseAssembly.CodeBase)).LocalPath)
+    let path = Path.Combine(basePath, partialName + ".dll")
+    try
+      Some (Assembly.LoadFrom path)
+    with
+    | exn ->
+      Debug.WriteLine(System.String.Format("SafeResolver: cannot load : {0} [{1}]", partialName, exn))
+      None
+
   /// Resolve partially-loaded assembly.
   member private this.Resolve _ (e: ResolveEventArgs) =
     let isFullAssembly (assembly: Assembly) =
@@ -49,13 +60,24 @@ type internal SafeResolver =
     let result =
       Seq.append (this.resolve isFullAssembly) (this.resolve isPartialAssembly)
       |> Seq.tryHead
-    match result with
-    | Some assembly ->
+    match result, e.RequestingAssembly with
+    | Some assembly, _ ->
       Debug.WriteLine(System.String.Format("SafeResolver: resolved: {0} --> {1}", e.Name, assembly.FullName))
       assembly
-    | None ->
-      Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved : {0}", e.Name))
-      null
+    | None, null ->
+      match this.loadBySide (Assembly.GetEntryAssembly()) partialName with
+      | Some assembly ->
+        Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", e.Name, assembly.Location))
+        assembly
+      | None ->
+        null
+    | None, baseAssembly ->
+      match this.loadBySide baseAssembly partialName with
+      | Some assembly ->
+        Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", e.Name, assembly.Location))
+        assembly
+      | None ->
+        null
 
   member this.Dispose() =
     let appDomain = AppDomain.CurrentDomain

@@ -40,33 +40,39 @@ namespace FSharp.Expandable
         public static int Main(string[] args)
         {
             ///////////////////////////////////////////////////////////////////////
-            // Crawl visitor assemblies
+            // Extract arguments.
 
-            // TODO: improve detection (idea: parse nuspec?)
-            // Current:
-            //   packages --+-- fscx-0.1.*     --+-- build --+-- fscx.exe
-            //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
-            //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
+            var arguments = args.ExtractCompilerArguments();
 
-            var exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
-            //var exeLocation =
-            //    @"D:\PROJECT\fscx\tests\fscx-enabled\sample-filter\bin\Debug";
-            var packagesPath =
-                Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
-            var visitorPaths =
-                Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories).
-                FilterVisitors();
-
-            foreach (var path in visitorPaths)
+            // If not giving visitor paths:
+            if (arguments.VisitorPaths.Any() == false)
             {
-                Debug.WriteLine(path);
+                ///////////////////////////////////////////////////////////////////////
+                // Crawl visitor assemblies
+
+                // TODO: improve detection (idea: parse nuspec?)
+                // Current:
+                //   packages --+-- fscx-0.1.*     --+-- build --+-- fscx.exe
+                //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
+                //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
+
+                var exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+                var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+                var visitorPaths =
+                    Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories).
+                    FilterVisitors();
+#if DEBUG
+                foreach (var path in visitorPaths)
+                {
+                    Debug.WriteLine(path);
+                }
+#endif
+                // Place visitor paths.
+                arguments.VisitorPaths = visitorPaths;
             }
 
             ///////////////////////////////////////////////////////////////////////
             // Compile
-
-            var arguments = args.ExtractCompilerArguments();
-            arguments.VisitorPaths = visitorPaths;
 
             return Compiler.CompileWithArguments(logEntry =>
                Console.WriteLine(
