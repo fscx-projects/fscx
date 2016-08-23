@@ -42,11 +42,15 @@ type internal SafeResolver =
   member private __.loadBySide (baseAssembly: Assembly) partialName =
     let basePath = Path.GetDirectoryName((new Uri(baseAssembly.CodeBase)).LocalPath)
     let path = Path.Combine(basePath, partialName + ".dll")
-    try
-      Some (Assembly.LoadFrom path)
-    with
-    | exn ->
-      Debug.WriteLine(System.String.Format("SafeResolver: cannot load : {0} [{1}]", partialName, exn))
+    if File.Exists path then
+      try
+        Some (Assembly.LoadFrom path)
+      with
+      | exn ->
+        Debug.WriteLine(System.String.Format("SafeResolver: cannot load : {0} [{1}] [{2}]", partialName, path, exn.Message))
+        None
+    else
+      Debug.WriteLine(System.String.Format("SafeResolver: assembly not found : {0} [{1}]", partialName, path))
       None
 
   /// Resolve partially-loaded assembly.
