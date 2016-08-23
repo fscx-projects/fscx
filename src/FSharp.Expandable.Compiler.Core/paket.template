@@ -25,7 +25,7 @@ description
 excludedependencies
     FSharp.Core
 dependencies
-    FSharp.Compiler.Service >= 5.0.0
+    FSharp.Compiler.Service >= LOCKEDVERSION
 files
     bin/Release/FSharp.Expandable.Compiler.Core.dll ==> lib/net45
     bin/Release/FSharp.Expandable.Compiler.Core.pdb ==> lib/net45
