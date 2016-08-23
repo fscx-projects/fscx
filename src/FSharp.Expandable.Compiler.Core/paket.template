@@ -22,8 +22,12 @@ summary
     Easy infrastructure can replace F#'s AST at compile time.
 description
     Easy infrastructure can replace F#'s AST at compile time.
+excludedependencies
+    FSharp.Core
+dependencies
+    FSharp.Compiler.Service >= 5.0.0
 files
-    bin/Release/*.dll ==> lib/net45
-    bin/Release/*.pdb ==> lib/net45
-    bin/Release/*.xml ==> lib/net45
-    bin/Release/*.config ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.dll ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.pdb ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.xml ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Core.dll.config ==> lib/net45
