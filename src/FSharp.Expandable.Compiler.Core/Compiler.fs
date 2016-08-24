@@ -30,7 +30,7 @@ open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
 /// <summary>
-/// Compiler logger information.
+/// Compiler logging information.
 /// </summary>
 type CompilerLogEntry = {
   Type: EventLogEntryType
@@ -80,9 +80,19 @@ type Compiler =
 
   /////////////////////////////////////////////////////////////////////////////////////
 
-  static member private BridgedWriter
+  /// WriteInfo ==> CompilerLogEntry bridge function.
+  static member private WrappedBridgedWriter
      (writer : Action<CompilerLogEntry>) : (WriteInfo -> unit) =
     function
+    | WriteInfo.Message(typ, path, message) ->
+      writer.Invoke(
+        { Type = typ;
+          FileName = path;
+          Line = 1;
+          Column = 1;
+          Code = "";
+          Message = message;
+          Description = "" })
     | WriteInfo.ParseFailed(error) ->
       let severity =
         match error.Severity with
@@ -105,10 +115,10 @@ type Compiler =
           Code = "";
           Message = "Type checking failed.";
           Description = "" })
-    | WriteInfo.UnknownFailed(exn) ->
+    | WriteInfo.UnknownFailed(path, exn) ->
       writer.Invoke(
         { Type = EventLogEntryType.Error;
-          FileName = "unknown";
+          FileName = path;
           Line = 1;
           Column = 1;
           Code = exn.GetType().FullName;
@@ -128,7 +138,7 @@ type Compiler =
       |> Seq.filter AssemblyLoader.isVisitorType
       |> Seq.map (fun t -> Activator.CreateInstance t :?> AstVisitor<FSharpCheckFileResults>)
       |> Seq.toArray
-    let internalWriter = Compiler.BridgedWriter writer
+    let internalWriter = Compiler.WrappedBridgedWriter writer
     return! CompilerImpl.asyncCompile internalWriter arguments visitors
   }
 

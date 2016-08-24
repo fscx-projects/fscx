@@ -32,9 +32,10 @@ open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
 type internal WriteInfo =
-| ParseFailed of FSharpErrorInfo
-| CheckFailed of string
-| UnknownFailed of exn
+| Message of typ: EventLogEntryType * path: string * message: string
+| ParseFailed of error: FSharpErrorInfo
+| CheckFailed of path: string
+| UnknownFailed of path: string * exn: exn
 
 module internal CompilerImpl =
 
@@ -141,6 +142,18 @@ module internal CompilerImpl =
     | other -> other
  
   ///////////////////////////////////////////////////////
+
+  let private simpleTypeName (visitor: AstVisitor<FSharpCheckFileResults>) =
+    let t = visitor.GetType()
+    let name = t.FullName
+    let index = name.IndexOf '`'
+    if index >= 0 then
+      name.Substring(0, index)
+    else
+      name
+
+  let private printVisitor (visitor: AstVisitor<FSharpCheckFileResults>) =
+    System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
  
   /// <summary>
   /// Execute compiler.
@@ -163,6 +176,15 @@ module internal CompilerImpl =
 
       // Create source code descriptions
       let sourceCodes = createSourceCodeDescriptions arguments.SourcePaths
+
+      // Print visitors
+      if Seq.isEmpty visitors then
+        writer (WriteInfo.Message(EventLogEntryType.Warning, arguments.ProjectPath, "No applicable visitors."))
+      else
+        visitors
+        |> Seq.map printVisitor
+        |> Seq.distinct
+        |> Seq.iter (fun message -> writer (WriteInfo.Message(EventLogEntryType.Information, arguments.ProjectPath, message)))
 
       // Parse source codes and apply (Async)
       let! appliedResults =
@@ -212,6 +234,6 @@ module internal CompilerImpl =
         return 1
     with
     | _ as ex ->
-      writer (WriteInfo.UnknownFailed ex)
+      writer (WriteInfo.UnknownFailed(arguments.ProjectPath, ex))
       return Marshal.GetHRForException ex
   }

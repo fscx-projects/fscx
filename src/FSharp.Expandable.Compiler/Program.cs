@@ -89,12 +89,12 @@ namespace FSharp.Expandable
 
             return Compiler.CompileWithArguments(logEntry =>
                Console.WriteLine(
-                   "{0}({1},{2}): {3} {4}: {5}",
+                   "{0}({1},{2}): {3}{4}: {5}",
                    logEntry.FileName,
                    logEntry.Line,
                    logEntry.Column,
                    logEntry.Type.ToString().ToLowerInvariant(),
-                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : logEntry.Code,
+                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : (" " + logEntry.Code),
                    logEntry.Message),
                arguments);
         }
