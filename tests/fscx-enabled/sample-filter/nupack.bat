@@ -1,1 +1,1 @@
-..\.nuget\nuget.exe pack sample-filter.fsproj
+..\.nuget\nuget.exe pack sample-filter.nuspec
