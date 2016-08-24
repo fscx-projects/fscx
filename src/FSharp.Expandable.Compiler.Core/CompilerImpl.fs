@@ -155,10 +155,22 @@ module internal CompilerImpl =
   let private printVisitor (visitor: AstVisitor<FSharpCheckFileResults>) =
     System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
 
-  let private isTargetFrameworkDefinedFile path =
-    let folderPath = Path.GetDirectoryName path
-    let tempPath = Path.GetTempPath()
-    (folderPath = tempPath) && (path.EndsWith ".AssemblyAttributes.fs")
+  let private readText path = seq {
+    use tr = File.OpenText path
+    let mutable line:string = null
+    while line <> null do
+      line <- tr.ReadLine()
+      if line <> null then
+        yield line
+  }
+
+  /// Target file contains "TargetFrameworkAttribute" definition.
+  let private isTargetFrameworkDefinedFile (path: string) =
+    if path.EndsWith ".AssemblyAttributes.fs" then
+      readText path
+      |> Seq.exists (fun line -> line.Contains "TargetFrameworkAttribute(")
+    else
+      false
  
   /// <summary>
   /// Execute compiler.
