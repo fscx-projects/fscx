@@ -154,6 +154,11 @@ module internal CompilerImpl =
 
   let private printVisitor (visitor: AstVisitor<FSharpCheckFileResults>) =
     System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
+
+  let private isTargetFrameworkDefinedFile path =
+    let folderPath = Path.GetDirectoryName path
+    let tempPath = Path.GetTempPath()
+    (folderPath = tempPath) && (path.EndsWith ".AssemblyAttributes.fs")
  
   /// <summary>
   /// Execute compiler.
@@ -170,7 +175,15 @@ module internal CompilerImpl =
       // Debugger hook point
       if arguments.FscxDebug then
         Trace.Assert(false, "Fscx: Waiting for attach debugger...")
-  
+
+      // TODO: HACK
+      //  If source code contains definition "TargetFrameworkAttribute", FCS failed compile.
+      //  May be auto-generated framework versions by MSBuild targets (GenerateTargetFrameworkMonikerAttribute).
+      arguments.SourcePaths <-
+        arguments.SourcePaths
+        |> Seq.filter (fun path -> not (isTargetFrameworkDefinedFile path))
+        |> Seq.toArray
+
       // Create compilation options
       let options = createOptions arguments.ProjectPath arguments.OptionArguments arguments.SourcePaths 
 
