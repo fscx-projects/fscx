@@ -15,7 +15,7 @@
     <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
     <tags>fscx</tags>
     <dependencies>
-      <dependency id="fscx" version="0.1.21" />
+      <dependency id="fscx" version="0.1.23" />
     </dependencies>
   </metadata>
   <files>

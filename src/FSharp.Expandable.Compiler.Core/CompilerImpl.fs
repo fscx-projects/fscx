@@ -157,7 +157,7 @@ module internal CompilerImpl =
 
   let private readText path = seq {
     use tr = File.OpenText path
-    let mutable line:string = null
+    let mutable line:string = ""
     while line <> null do
       line <- tr.ReadLine()
       if line <> null then
