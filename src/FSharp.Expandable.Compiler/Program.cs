@@ -50,16 +50,29 @@ namespace FSharp.Expandable
                 ///////////////////////////////////////////////////////////////////////
                 // Crawl visitor assemblies
 
-                // TODO: improve detection (idea: parse nuspec?)
-                // Current:
+                // NuGet package structure:
                 //   packages --+-- fscx-0.1.*     --+-- build --+-- fscx.exe
-                //              +-- HogeFilter-1.0 --+-- lib   --+-- net45 --+-- HogeFilter.dll
-                //              +-- HagaFilter-1.0 --+-- lib   --+-- net45 --+-- HagaFilter.dll
+                //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll
+                //              +-- HagaFilter-1.0 --+-- build --+-- HagaFilter.dll
 
                 var exeLocation = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
                 var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+
+                var searchFolderBases =
+                    Directory.Exists(packagesPath)
+                        ? from packagePath in
+                            Directory.EnumerateDirectories(packagesPath, "*", SearchOption.TopDirectoryOnly)
+                          from buildPath in
+                            Directory.EnumerateDirectories(packagePath, "build", SearchOption.TopDirectoryOnly)
+                          select buildPath
+                        : new[] { "." };
+
                 var visitorPaths =
-                    Directory.EnumerateFiles(packagesPath, "*.dll", SearchOption.AllDirectories).
+                    (from searchFolderBase in
+                        searchFolderBases
+                     from dllPath in
+                        Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories)
+                     select dllPath).
                     FilterVisitors();
 #if DEBUG
                 foreach (var path in visitorPaths)
@@ -76,12 +89,12 @@ namespace FSharp.Expandable
 
             return Compiler.CompileWithArguments(logEntry =>
                Console.WriteLine(
-                   "{0}({1},{2}): {3} {4}: {5}",
+                   "{0}({1},{2}): {3}{4}: {5}",
                    logEntry.FileName,
                    logEntry.Line,
                    logEntry.Column,
                    logEntry.Type.ToString().ToLowerInvariant(),
-                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : logEntry.Code,
+                   string.IsNullOrWhiteSpace(logEntry.Code) ? "" : (" " + logEntry.Code),
                    logEntry.Message),
                arguments);
         }

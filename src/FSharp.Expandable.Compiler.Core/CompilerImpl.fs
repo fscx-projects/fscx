@@ -32,9 +32,10 @@ open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
 type internal WriteInfo =
-| ParseFailed of FSharpErrorInfo
-| CheckFailed of string
-| UnknownFailed of exn
+| Message of typ: EventLogEntryType * path: string * message: string
+| ParseFailed of error: FSharpErrorInfo
+| CheckFailed of path: string
+| UnknownFailed of path: string * exn: exn
 
 module internal CompilerImpl =
 
@@ -141,7 +142,40 @@ module internal CompilerImpl =
     | other -> other
  
   ///////////////////////////////////////////////////////
- 
+
+  let private simpleTypeName (visitor: AstVisitor<FSharpCheckFileResults>) =
+    let t = visitor.GetType()
+    let name = t.FullName
+    let index = name.IndexOf '`'
+    System.String.Format
+      ("{0} [{1}]",
+       (if index >= 0 then name.Substring(0, index) else name),
+       t.Assembly.GetName().Name)
+
+  let private printVisitor (visitor: AstVisitor<FSharpCheckFileResults>) =
+    System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
+
+  /// Read text file and iterate.
+  let private readText path = seq {
+    use tr = File.OpenText path
+    let mutable line:string = ""
+    while line <> null do
+      line <- tr.ReadLine()
+      if line <> null then
+        yield line
+  }
+
+  /// Target file contains "TargetFrameworkAttribute" definition.
+  let private isTargetFrameworkDefinedFile (path: string) =
+    if path.EndsWith ".AssemblyAttributes.fs" then
+      readText path
+      |> Seq.exists (fun line -> line.Contains "TargetFrameworkAttribute(")
+    else
+      false
+
+  [<DllImport("user32.dll", SetLastError=true, CharSet=CharSet.Unicode)>]
+  extern int private MessageBoxW(IntPtr, System.String, System.String, int)
+
   /// <summary>
   /// Execute compiler.
   /// </summary>
@@ -156,13 +190,34 @@ module internal CompilerImpl =
     try
       // Debugger hook point
       if arguments.FscxDebug then
-        Trace.Assert(false, "Fscx: Waiting for attach debugger...")
-  
+        MessageBoxW
+          (IntPtr.Zero,
+           "Fscx: Waiting for attach debugger...",
+           System.String.Format("Fscx: {0}", Process.GetCurrentProcess().Id),
+           0x30) |> ignore
+
+      // TODO: HACK
+      //  If source code contains definition "TargetFrameworkAttribute", FCS failed compile.
+      //  May be auto-generated framework versions by MSBuild targets (GenerateTargetFrameworkMonikerAttribute),
+      //  so exclude source file from SourcePaths.
+      let sourcePaths =
+        arguments.SourcePaths
+        |> Seq.filter (fun path -> not (isTargetFrameworkDefinedFile path))
+        |> Seq.toArray
+
       // Create compilation options
-      let options = createOptions arguments.ProjectPath arguments.OptionArguments arguments.SourcePaths 
+      let options = createOptions arguments.ProjectPath arguments.OptionArguments sourcePaths 
 
       // Create source code descriptions
-      let sourceCodes = createSourceCodeDescriptions arguments.SourcePaths
+      let sourceCodes = createSourceCodeDescriptions sourcePaths
+
+      // Print visitors
+      if Seq.isEmpty visitors then
+        writer (WriteInfo.Message(EventLogEntryType.Warning, arguments.ProjectPath, "No applicable visitors."))
+      else
+        visitors
+        |> Seq.map printVisitor
+        |> Seq.iter (fun message -> writer (WriteInfo.Message(EventLogEntryType.Information, arguments.ProjectPath, message)))
 
       // Parse source codes and apply (Async)
       let! appliedResults =
@@ -212,6 +267,6 @@ module internal CompilerImpl =
         return 1
     with
     | _ as ex ->
-      writer (WriteInfo.UnknownFailed ex)
+      writer (WriteInfo.UnknownFailed(arguments.ProjectPath, ex))
       return Marshal.GetHRForException ex
   }

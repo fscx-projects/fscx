@@ -9,13 +9,14 @@
     <OutputType>Library</OutputType>
     <RootNamespace>fscx_enabled</RootNamespace>
     <AssemblyName>fscx_enabled</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <FscxDebug>true</FscxDebug>
     <Name>fscx-enabled</Name>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -54,12 +55,12 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
-  <Import Project="..\packages\fscx.0.1.21\build\fscx.targets" Condition="Exists('..\packages\fscx.0.1.21\build\fscx.targets')" />
+  <Import Project="..\packages\fscx.0.1.25\build\fscx.targets" Condition="Exists('..\packages\fscx.0.1.25\build\fscx.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\fscx.0.1.21\build\fscx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fscx.0.1.21\build\fscx.targets'))" />
+    <Error Condition="!Exists('..\packages\fscx.0.1.25\build\fscx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\fscx.0.1.25\build\fscx.targets'))" />
   </Target>
   <ItemGroup>
     <Compile Include="FscxOutputSample2.fs" />
