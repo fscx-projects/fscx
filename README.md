@@ -18,6 +18,39 @@ Easy infrastructure can replace F#'s AST at compile time.
 
 ![For filter developer](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide2.png)
 
+## Filter project sample nuspec
+
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>fscx-sample-filter</id>
+    <version>0.1.3-pre</version>
+    <title>fscx-sample-filter</title>
+    <authors>Kouji Matsui</authors>
+    <owners>Kouji Matsui</owners>
+    <summary>Expandable F# compiler's sample custom filter package.</summary>
+    <description>Expandable F# compiler's sample custom filter package.</description>
+    <copyright>Author: Kouji Matsui, bleis-tift</copyright>
+    <projectUrl>http://github.com/fscx-projects/fscx</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
+    <tags>fscx</tags>
+    <dependencies>
+      <!-- More better auto-install fscx by dependency. -->
+      <dependency id="fscx" version="0.1.25" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Place filter binary (and pdb) into "build" package folder (NOT into "lib"). -->
+    <!-- Because prevent auto added assembly reference. -->
+    <file src="bin/Debug/sample_filter.dll" target="build" />
+    <file src="bin/Debug/sample_filter.pdb" target="build" />
+  </files>
+</package>
+```
+
 ## Maintainer(s)
 
 - [Kouji Matsui](https://github.com/kekyo) [twitter](https://twitter.com/kekyo2)
