@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 04 Aug 2016 04:12:16 GMT
+// Generated: Mon, 05 Sep 2016 09:58:41 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -10,11 +10,11 @@ namespace Microsoft.FSharp.Compiler.Ast
 ////////////////////////////////////////////////////////////
 
 /// <summary>
-/// FSharp.Compiler.Service's untyped AST visitor.
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstVisitor<'TContext>() =
+type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
   let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>()
@@ -194,9 +194,9 @@ type AstVisitor<'TContext>() =
       id: Microsoft.FSharp.Compiler.Ast.Ident option) =
     this.VisitArgInfo_SynArgInfo(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       optional,
-      id |> Microsoft.FSharp.Core.Option.map (fun v -> v))
+      id)
 
   /// <summary>
   /// Visit "SynArgInfo.SynArgInfo" expression.
@@ -291,7 +291,7 @@ type AstVisitor<'TContext>() =
       this.VisitBindingKind context bindingKind,
       mustInline,
       isMutable,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       xmlDoc,
       this.VisitValData context item7,
       this.VisitPat context headPat,
@@ -533,7 +533,7 @@ type AstVisitor<'TContext>() =
       context,
       this.VisitType context typeName,
       range,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }))
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }))
 
   /// <summary>
   /// Visit "SynBindingReturnInfo.SynBindingReturnInfo" expression.
@@ -616,10 +616,10 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitComponentInfo_ComponentInfo(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitTyparDecl context v),
       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitTypeConstraint context v),
-      item4 |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      item4,
       xmlDoc,
       preferPostfix,
       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
@@ -1401,7 +1401,7 @@ type AstVisitor<'TContext>() =
       item: (string * string)) =
     this.VisitConst_UserNum(
       context,
-      (let v0, v1 = item in v0, v1))
+      item)
 
   /// <summary>
   /// Visit "SynConst.UserNum" expression.
@@ -1496,7 +1496,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitConst_Bytes(
       context,
-      bytes |> Array.map (fun v -> v),
+      bytes,
       range)
 
   /// <summary>
@@ -1543,7 +1543,7 @@ type AstVisitor<'TContext>() =
       item: System.UInt16[]) =
     this.VisitConst_UInt16s(
       context,
-      item |> Array.map (fun v -> v))
+      item)
 
   /// <summary>
   /// Visit "SynConst.UInt16s" expression.
@@ -1743,7 +1743,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitConstructorArgs_NamePatPairs(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, this.VisitPat context v1)),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, this.VisitPat context v1)),
       range)
 
   /// <summary>
@@ -1821,7 +1821,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitEnumCase_EnumCase(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       id,
       this.VisitConst context item3,
       xmlDoc,
@@ -1983,9 +1983,9 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExceptionDefnRepr_SynExceptionDefnRepr(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       this.VisitUnionCase context case,
-      longId |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> v)),
+      longId,
       xmlDoc,
       accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
       range)
@@ -2146,7 +2146,7 @@ type AstVisitor<'TContext>() =
       context,
       this.VisitExpr context expr,
       leftParenRange,
-      rightParenRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      rightParenRange,
       range)
 
   /// <summary>
@@ -2369,7 +2369,7 @@ type AstVisitor<'TContext>() =
     this.VisitExpr_Tuple(
       context,
       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitExpr context v),
-      commaRanges |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      commaRanges,
       range)
 
   /// <summary>
@@ -2478,9 +2478,9 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExpr_Record(
       context,
-      baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in this.VisitType context v0, this.VisitExpr context v1, v2, v3 |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> v))), v4)),
-      copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in this.VisitExpr context v0, (let v0, v1 = v1 in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> v)))),
-      recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (let v0, v1 = v0 in v0, v1), v1 |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitExpr context v), v2 |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> v))))),
+      baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in this.VisitType context v0, this.VisitExpr context v1, v2, v3, v4)),
+      copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in this.VisitExpr context v0, v1)),
+      recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitExpr context v), v2)),
       range)
 
   /// <summary>
@@ -2601,7 +2601,7 @@ type AstVisitor<'TContext>() =
     this.VisitExpr_ObjExpr(
       context,
       this.VisitType context objType,
-      argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in this.VisitExpr context v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> v))),
+      argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in this.VisitExpr context v0, v1)),
       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitBinding context v),
       extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitInterfaceImpl context v),
       newPos,
@@ -2927,7 +2927,7 @@ type AstVisitor<'TContext>() =
     this.VisitExpr_CompExpr(
       context,
       isArrayOrList,
-      { contents = isNotNakedRefCell.contents },
+      isNotNakedRefCell,
       this.VisitExpr context expr,
       range)
 
@@ -3348,8 +3348,8 @@ type AstVisitor<'TContext>() =
       this.VisitExpr context expr,
       leftAngleRange,
       typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitType context v),
-      commaRanges |> Microsoft.FSharp.Collections.List.map (fun v -> v),
-      rightAngleRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      commaRanges,
+      rightAngleRange,
       typeArgs,
       range)
 
@@ -4851,7 +4851,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExpr_YieldOrReturn(
       context,
-      (let v0, v1 = item1 in v0, v1),
+      item1,
       this.VisitExpr context expr,
       range)
 
@@ -4905,7 +4905,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExpr_YieldOrReturnFrom(
       context,
-      (let v0, v1 = item1 in v0, v1),
+      item1,
       this.VisitExpr context expr,
       range)
 
@@ -5086,7 +5086,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExpr_LibraryOnlyILAssembly(
       context,
-      item1 |> Array.map (fun v -> v),
+      item1,
       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitType context v),
       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitExpr context v),
       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitType context v),
@@ -5208,7 +5208,7 @@ type AstVisitor<'TContext>() =
     this.VisitExpr_LibraryOnlyUnionCaseFieldGet(
       context,
       this.VisitExpr context item1,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       item3,
       range)
 
@@ -5269,7 +5269,7 @@ type AstVisitor<'TContext>() =
     this.VisitExpr_LibraryOnlyUnionCaseFieldSet(
       context,
       this.VisitExpr context item1,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       item3,
       this.VisitExpr context item4,
       range)
@@ -5669,9 +5669,9 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitField_Field(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       isStatic,
-      id |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      id,
       this.VisitType context typeName,
       item5,
       xmlDoc,
@@ -6033,7 +6033,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitMeasure_Named(
       context,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       range)
 
   /// <summary>
@@ -6460,7 +6460,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitMemberDefn_Open(
       context,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       range)
 
   /// <summary>
@@ -6565,9 +6565,9 @@ type AstVisitor<'TContext>() =
     this.VisitMemberDefn_ImplicitCtor(
       context,
       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitSimplePat context v),
-      selfIdentifier |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      selfIdentifier,
       range)
 
   /// <summary>
@@ -6628,7 +6628,7 @@ type AstVisitor<'TContext>() =
       context,
       this.VisitType context inheritType,
       this.VisitExpr context inheritArgs,
-      inheritAlias |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      inheritAlias,
       range)
 
   /// <summary>
@@ -6743,7 +6743,7 @@ type AstVisitor<'TContext>() =
     this.VisitMemberDefn_AbstractSlot(
       context,
       this.VisitValSig context valSig,
-      { IsInstance = memberFlags.IsInstance; IsDispatchSlot = memberFlags.IsDispatchSlot; IsOverrideOrExplicitImpl = memberFlags.IsOverrideOrExplicitImpl; IsFinal = memberFlags.IsFinal; MemberKind = memberFlags.MemberKind },
+      memberFlags,
       range)
 
   /// <summary>
@@ -6851,7 +6851,7 @@ type AstVisitor<'TContext>() =
     this.VisitMemberDefn_Inherit(
       context,
       this.VisitType context typeName,
-      id |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      id,
       range)
 
   /// <summary>
@@ -7023,7 +7023,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitMemberDefn_AutoProperty(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       isStatic,
       id,
       tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitType context v),
@@ -7032,7 +7032,7 @@ type AstVisitor<'TContext>() =
       xmlDoc,
       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
       this.VisitExpr context expr,
-      getSetPos |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      getSetPos,
       range)
 
   /// <summary>
@@ -7143,7 +7143,7 @@ type AstVisitor<'TContext>() =
     this.VisitMemberSig_Member(
       context,
       this.VisitValSig context item1,
-      { IsInstance = memberFlags.IsInstance; IsDispatchSlot = memberFlags.IsDispatchSlot; IsOverrideOrExplicitImpl = memberFlags.IsOverrideOrExplicitImpl; IsFinal = memberFlags.IsFinal; MemberKind = memberFlags.MemberKind },
+      memberFlags,
       range)
 
   /// <summary>
@@ -7422,7 +7422,7 @@ type AstVisitor<'TContext>() =
     this.VisitModuleDecl_ModuleAbbrev(
       context,
       item1,
-      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      item2,
       item3)
 
   /// <summary>
@@ -7792,7 +7792,7 @@ type AstVisitor<'TContext>() =
       item2: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleDecl_Attributes(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       item2)
 
   /// <summary>
@@ -7985,12 +7985,12 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleOrNamespace_SynModuleOrNamespace(
       context,
-      id |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      id,
       isRec,
       isModule,
       decls |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitModuleDecl context v),
       xmlDoc,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       access |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
       range)
 
@@ -8085,12 +8085,12 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(
       context,
-      id |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      id,
       isRec,
       isModule,
       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitModuleSigDecl context v),
       xmlDoc,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
       range)
 
@@ -8176,7 +8176,7 @@ type AstVisitor<'TContext>() =
     this.VisitModuleSigDecl_ModuleAbbrev(
       context,
       id,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       range)
 
   /// <summary>
@@ -8433,7 +8433,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleSigDecl_Open(
       context,
-      longId |> Microsoft.FSharp.Collections.List.map (fun v -> v),
+      longId,
       range)
 
   /// <summary>
@@ -8824,7 +8824,7 @@ type AstVisitor<'TContext>() =
     this.VisitPat_Attrib(
       context,
       this.VisitPat context item1,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       range)
 
   /// <summary>
@@ -8987,7 +8987,7 @@ type AstVisitor<'TContext>() =
     this.VisitPat_LongIdent(
       context,
       dotId,
-      item2 |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      item2,
       item3 |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitValTyparDecls context v),
       this.VisitConstructorArgs context item4,
       item5 |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
@@ -9199,7 +9199,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitPat_Record(
       context,
-      fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (let v0, v1 = v0 in v0 |> Microsoft.FSharp.Collections.List.map (fun v -> v), v1), this.VisitPat context v1)),
+      fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, this.VisitPat context v1)),
       range)
 
   /// <summary>
@@ -9501,7 +9501,7 @@ type AstVisitor<'TContext>() =
       context,
       item1,
       item2,
-      item3 |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      item3,
       accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> this.VisitAccess context v),
       range)
 
@@ -9830,7 +9830,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitReturnInfo_SynReturnInfo(
       context,
-      (let v0, v1 = item1 in this.VisitType context v0, this.VisitArgInfo context v1),
+      (let item1 = item1 in this.VisitType context v0, this.VisitArgInfo context v1),
       range)
 
   /// <summary>
@@ -10026,7 +10026,7 @@ type AstVisitor<'TContext>() =
     this.VisitSimplePat_Attrib(
       context,
       this.VisitSimplePat context item1,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       range)
 
   /// <summary>
@@ -10540,7 +10540,7 @@ type AstVisitor<'TContext>() =
       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) =
     this.VisitTyparDecl_TyparDecl(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       this.VisitTypar context item2)
 
   /// <summary>
@@ -10665,10 +10665,10 @@ type AstVisitor<'TContext>() =
     this.VisitType_App(
       context,
       this.VisitType context typeName,
-      leftAngleRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      leftAngleRange,
       typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitType context v),
-      commaRanges |> Microsoft.FSharp.Collections.List.map (fun v -> v),
-      rightAngleRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      commaRanges,
+      rightAngleRange,
       isPostfix,
       range)
 
@@ -10740,10 +10740,10 @@ type AstVisitor<'TContext>() =
       context,
       this.VisitType context typeName,
       dotId,
-      leftAngleRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      leftAngleRange,
       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitType context v),
-      commaRanges |> Microsoft.FSharp.Collections.List.map (fun v -> v),
-      rightAngleRange |> Microsoft.FSharp.Core.Option.map (fun v -> v),
+      commaRanges,
+      rightAngleRange,
       range)
 
   /// <summary>
@@ -10802,7 +10802,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitType_Tuple(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, this.VisitType context v1)),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, this.VisitType context v1)),
       range)
 
   /// <summary>
@@ -13223,8 +13223,8 @@ type AstVisitor<'TContext>() =
     this.VisitTypeDefnSimpleRepr_General(
       context,
       this.VisitTypeDefnKind context item1,
-      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in this.VisitType context v0, v1, v2 |> Microsoft.FSharp.Core.Option.map (fun v -> v))),
-      item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in this.VisitValSig context v0, { IsInstance = v1.IsInstance; IsDispatchSlot = v1.IsDispatchSlot; IsOverrideOrExplicitImpl = v1.IsOverrideOrExplicitImpl; IsFinal = v1.IsFinal; MemberKind = v1.MemberKind })),
+      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in this.VisitType context v0, v1, v2)),
+      item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in this.VisitValSig context v0, v1)),
       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> this.VisitField context v),
       item5,
       item6,
@@ -13523,7 +13523,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitUnionCase_UnionCase(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       id,
       this.VisitUnionCaseType context caseType,
       xmlDoc,
@@ -13647,7 +13647,7 @@ type AstVisitor<'TContext>() =
       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) =
     this.VisitUnionCaseType_UnionCaseFullType(
       context,
-      (let v0, v1 = item in this.VisitType context v0, this.VisitValInfo context v1))
+      (let item = item in this.VisitType context v0, this.VisitValInfo context v1))
 
   /// <summary>
   /// Visit "SynUnionCaseType.UnionCaseFullType" expression.
@@ -13718,9 +13718,9 @@ type AstVisitor<'TContext>() =
       item3: Microsoft.FSharp.Compiler.Ast.Ident option) =
     this.VisitValData_SynValData(
       context,
-      item1 |> Microsoft.FSharp.Core.Option.map (fun v -> { IsInstance = v.IsInstance; IsDispatchSlot = v.IsDispatchSlot; IsOverrideOrExplicitImpl = v.IsOverrideOrExplicitImpl; IsFinal = v.IsFinal; MemberKind = v.MemberKind }),
+      item1,
       this.VisitValInfo context item2,
-      item3 |> Microsoft.FSharp.Core.Option.map (fun v -> v))
+      item3)
 
   /// <summary>
   /// Visit "SynValData.SynValData" expression.
@@ -13879,7 +13879,7 @@ type AstVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitValSig_ValSpfn(
       context,
-      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target |> Microsoft.FSharp.Core.Option.map (fun v -> v); AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
+      attributes |> Microsoft.FSharp.Collections.List.map (fun v -> { TypeName = v.TypeName; ArgExpr = this.VisitExpr context v.ArgExpr; Target = v.Target; AppliesToGetterAndSetter = v.AppliesToGetterAndSetter; Range = v.Range }),
       id,
       this.VisitValTyparDecls context typeParams,
       this.VisitType context typeName,

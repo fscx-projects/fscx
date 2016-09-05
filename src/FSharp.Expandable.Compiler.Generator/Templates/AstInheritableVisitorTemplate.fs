@@ -10,11 +10,11 @@ namespace Microsoft.FSharp.Compiler.Ast
 ////////////////////////////////////////////////////////////
 
 /// <summary>
-/// FSharp.Compiler.Service's untyped AST visitor.
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstVisitor<'TContext>() =
+type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
   let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>()

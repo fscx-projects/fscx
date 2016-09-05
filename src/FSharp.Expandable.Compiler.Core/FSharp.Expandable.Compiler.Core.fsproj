@@ -73,15 +73,16 @@
     <Compile Include="AssemblyInfo.fs" />
     <None Include="AstCons.fs" />
     <Compile Include="AstElement.fs" />
-    <Compile Include="AstVisitor.fs" />
+    <Compile Include="AstDelegatableVisitor.fs" />
+    <Compile Include="AstInheritableVisitor.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
     <Compile Include="SafeResolver.fs" />
     <Compile Include="AssemblyLoader.fs" />
     <Compile Include="Compiler.fs" />
     <None Include="paket.references" />
-    <Content Include="App.config" />
     <None Include="paket.template" />
+    <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

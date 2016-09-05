@@ -24,113 +24,15 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
-open System.Reflection
 
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
 [<Sealed>]
-type internal AstVisitorGenerator() =
+type internal AstInheritableVisitorGenerator() =
   inherit GeneratorBase()
 
   // TODO: Async<SynExpr> - replace all expr with Async/Async workflow/let! NO EXCEPTS, very hard...
-
-  // Type pattern examples:
-  // value                  --> value
-  // Option<value>          --> value
-  // List<values>           --> values
-  // Option<List<values>>   --> values
-
-  // synExpr                --> synExpr |> this.VisitSynExpr parents context
-  // Option<synExpr>        --> synExpr |> Option.map (this.VisitSynExpr parents context)
-  // List<synExprs>         --> synExprs |> List.map (this.VisitSynExpr parents context)
-  // Option<List<synExprs>> --> synExprs |> Option.map (List.map (this.VisitSynExpr parents context))
-
-  // Another way:
-  // synExpr                --> this.VisitSynExpr parents context synExpr
-  // Option<synExpr>        --> Option.map (this.VisitSynExpr parents context) synExprs
-  // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
-  // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
-
-  // SynAccess --> Access
-  let formatUnionTypeShortName (unionType: Type) =
-    unionType.Name.Substring 3
-
-  // HACK: If casename = typename: compiler meaning 1st name is casename, cause 2nd name is invalid...
-  // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
-  //   ...SynAccess.Public --> ...SynAccess.Public
-  //   ...SynArgInfo.SynArgInfo --> ...SynArgInfo
-  let formatUnionCaseName (unionType: Type) (unionCase: UnionCaseInfo) =
-    if unionCase.Name = unionType.Name then
-      Utilities.formatTypeName unionType
-    else
-      String.Format(
-        "{0}.{1}",
-        Utilities.formatTypeName unionType,
-        unionCase.Name)
-
-  /// <summary>
-  /// Core visitor expression generator.
-  /// </summary>
-  /// <param name="name">Reference target value symbol.</param>
-  /// <param name="t">Target type.</param>
-  /// <param name="visitTargets">Dicts of require visit target.</param>
-  // TODO: Omit no-projected projection code "(fun v -> v)", "(let v0, v1 = arg0 in v0, v1)"
-  //       Maybe all leaf is not contained visit target....
-  let rec formatWithOperators (name: string) (t: Type) (visitTargets: IReadOnlyDictionary<Type, string>) =
-    // "Array.map (fun v -> v) arg0"
-    if t.IsArray then
-      let elementType = t.GetElementType()
-      String.Format(
-        "{0} |> Array.map (fun v -> {1})",
-        name,
-        formatWithOperators "v" elementType visitTargets)
-    // "(let v0, v1 = arg0 in v0, v1)"
-    else if FSharpType.IsTuple t then
-      let elementTypes = FSharpType.GetTupleElements t
-      String.Format(
-        "(let {0} = {1} in {2})",
-        String.Join(
-          ", ",
-          elementTypes |> Seq.mapi (fun index _ -> "v" + index.ToString())),
-        name,
-        String.Join(
-          ", ",
-          elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators ("v" + index.ToString()) elementType visitTargets)))
-    // "{ V0 = arg0.V0; V1 = arg0.V1 }"
-    else if FSharpType.IsRecord t then
-      let fields = FSharpType.GetRecordFields t
-      String.Format(
-        "{{ {0} }}",
-        String.Join(
-          "; ",
-          fields |> Seq.map (fun field -> String.Format("{0} = {1}", field.Name, formatWithOperators (name + "." + field.Name) field.PropertyType visitTargets))))
-    // "this.VisitHoge context arg0"
-    else if visitTargets.ContainsKey t then
-      String.Format(
-        "this.Visit{0} context {1}",
-        formatUnionTypeShortName t,
-        name)
-    else if t.IsGenericType then
-      let gas = t.GetGenericArguments()
-      // "arg0 |> Option.map (fun v -> v)"
-      if gas.Length = 1 then
-        // HACK: Assuming declarates map function in t's.
-        String.Format(
-          "{0} |> {1}.map (fun v -> {2})",
-          name,
-          Utilities.formatSafeTypeName t,
-          formatWithOperators "v" gas.[0] visitTargets)
-      // "arg0"
-      else
-        name
-    // "arg0"
-    else
-      name
-
-  /// Construct expression string of visitor body with applied args for DU case.
-  let formatArgument visitTargets (field: PropertyInfo) = 
-    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitTargets
 
   /// Construct function strings for DU case.
   let generateByUnion visitTargets (unionType: Type) (unionCase: UnionCaseInfo) =
@@ -140,7 +42,7 @@ type internal AstVisitorGenerator() =
     |]
     let args = [|
       yield "context"
-      yield! unionCase.GetFields() |> Seq.map (formatArgument visitTargets)
+      yield! unionCase.GetFields() |> Seq.map (VisitorUtilities.formatArgument visitTargets "this")
     |]
     let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     String.Format(
@@ -183,11 +85,11 @@ type internal AstVisitorGenerator() =
       "     ({6}) =\r\n" +
       "    {4}{8}\r\n" +
       "\r\n",
-      formatUnionTypeShortName unionType,
+      VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatTypeName unionType,
       unionType.Name,
       unionCase.Name,
-      formatUnionCaseName unionType unionCase,
+      VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(" *\r\n    ", decls),
       String.Join(",\r\n      ", decls),
       String.Join(",\r\n      ", args),
@@ -202,9 +104,9 @@ type internal AstVisitorGenerator() =
     |]
     String.Format(
       "      | {0}{1} ->\r\n        this.BeforeVisit{2}_{3}({4})\r\n",
-      formatUnionCaseName unionType unionCase,
+      VisitorUtilities.formatUnionCaseName unionType unionCase,
       (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))),
-      formatUnionTypeShortName unionType,
+      VisitorUtilities.formatUnionTypeShortName unionType,
       unionCase.Name,
       String.Join(", ", args))
 
@@ -230,7 +132,7 @@ type internal AstVisitorGenerator() =
       "    try\r\n" +
       "      match {2} with\r\n",
       unionType.Name,
-      formatUnionTypeShortName unionType,
+      VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatCamelcase unionType.Name,
       Utilities.formatTypeName unionType)
     let unionCases = FSharpType.GetUnionCases unionType
@@ -248,5 +150,5 @@ type internal AstVisitorGenerator() =
       assembly.GetTypes()
       |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && (t.Name.StartsWith "Syn"))
       |> Seq.sortBy (fun t -> t.Name)
-    let exprs = types.ToDictionary((fun t -> t), (fun t -> formatUnionTypeShortName t)) :> IReadOnlyDictionary<_, _>
+    let exprs = types.ToDictionary((fun t -> t), (fun t -> VisitorUtilities.formatUnionTypeShortName t)) :> IReadOnlyDictionary<_, _>
     exprs.Keys |> Seq.collect (generateByType exprs)
