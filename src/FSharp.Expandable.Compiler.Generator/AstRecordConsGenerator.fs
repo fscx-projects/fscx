@@ -28,14 +28,18 @@ open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
 [<Sealed>]
-type internal AstConsGenerator() =
+type internal AstRecordConsGenerator() =
   inherit GeneratorBase()
   
   let generateByType (t: Type) =
+#if aaa
     let tn =
       match t.IsDefined(typeof<RequireQualifiedAccessAttribute>, true) with
       | true -> (Utilities.formatSafeTypeName t) + "."
       | false -> ""
+#else
+    let tn = (Utilities.formatSafeTypeName t) + "."
+#endif
     let fields = FSharpType.GetRecordFields t
     let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
     let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
@@ -51,7 +55,7 @@ type internal AstConsGenerator() =
       Utilities.formatTypeName t,
       t.Name,
       String.Join("\r\n     ", args),
-      String.Join("; ", inits))
+      String.Join(";\r\n      ", inits))
 
   override __.GenerateBodies () =
     let astType = typeof<SynExpr>.DeclaringType

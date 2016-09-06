@@ -12,5 +12,6 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 open Microsoft.FSharp.Compiler.AbstractIL
 open Microsoft.FSharp.Compiler.AbstractIL.IL
 
-/// Construct record types commonly with independed RequireQualifiedAccessAttribute.
-module internal AstRecordCons =
+/// Construct record types without conflict free.
+[<AutoOpen>]
+module AstRecordCons =

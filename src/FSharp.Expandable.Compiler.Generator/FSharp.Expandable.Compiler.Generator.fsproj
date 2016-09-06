@@ -48,14 +48,14 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Templates/AstConsTemplate.fs" />
+    <EmbeddedResource Include="Templates\AstRecordConsTemplate.fs" />
     <EmbeddedResource Include="Templates/AstElementTemplate.fs" />
     <EmbeddedResource Include="Templates\AstDelegatableVisitorTemplate.fs" />
     <EmbeddedResource Include="Templates\AstInheritableVisitorTemplate.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="GeneratorBase.fs" />
-    <Compile Include="AstConsGenerator.fs" />
+    <Compile Include="AstRecordConsGenerator.fs" />
     <Compile Include="AstElementGenerator.fs" />
     <Compile Include="VisitorUtilities.fs" />
     <Compile Include="AstDelegatableVisitorGenerator.fs" />
