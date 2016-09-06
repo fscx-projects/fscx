@@ -31,39 +31,33 @@ open Microsoft.FSharp.Compiler.Ast
 type internal AstConsGenerator() =
   inherit GeneratorBase()
   
-  let generateByUnion (t: Type) (unionCase: UnionCaseInfo) =
-    let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
+  let generateByType (t: Type) =
+    let tn =
+      match t.IsDefined(typeof<RequireQualifiedAccessAttribute>, true) with
+      | true -> (Utilities.formatSafeTypeName t) + "."
+      | false -> ""
+    let fields = FSharpType.GetRecordFields t
+    let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
+    let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
     String.Format(
       "  /// <summary>\r\n" +
-      "  /// Construct \"{0}.{1}\".\r\n" +
+      "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <returns>Constructed expression.</returns>\r\n" +
-      "  let init{1} {2} =\r\n" +
-      "    {0}.{1}{3}\r\n",
+      "  /// <returns>Constructed record.</returns>\r\n" +
+      "  let init{1}\r\n" +
+      "     {2} =\r\n" +
+      "    {{ {3} }}\r\n" +
+      "\r\n",
+      Utilities.formatTypeName t,
       t.Name,
-      unionCase.Name,
-      (if Array.isEmpty fields then "()" else String.Join(" ", fields)),
-      (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))))
-
-  let generateByType (t: Type) = [|
-    yield String.Format(
-      "//////////////////////////////////////////////\r\n" +
-      "\r\n" +
-      "/// <summary>\r\n" +
-      "/// {0} cons definitions.\r\n" +
-      "/// </summary>\r\n" +
-      "[<AutoOpen>]\r\n" +
-      "module {0} =\r\n",
-      t.Name)
-    yield! FSharpType.GetUnionCases t |> Seq.sortBy (fun t -> t.Name) |> Seq.map (generateByUnion t)
-    yield "\r\n"
-  |]
+      String.Join("\r\n     ", args),
+      String.Join("; ", inits))
 
   override __.GenerateBodies () =
     let astType = typeof<SynExpr>.DeclaringType
     let assembly = astType.Assembly
     let types =
       assembly.GetTypes()
-      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType))
+      |> Seq.filter (fun t -> (FSharpType.IsRecord t) && (not t.IsGenericType) && (t.Namespace.StartsWith "Microsoft.FSharp.Compiler") && ((FSharpType.GetRecordFields t).Length >= 1))
       |> Seq.sortBy (fun t -> t.Name)
-    types |> Seq.collect generateByType
+    types |> Seq.map generateByType

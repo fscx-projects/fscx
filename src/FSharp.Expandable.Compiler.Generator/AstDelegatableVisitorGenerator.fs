@@ -58,7 +58,9 @@ type internal AstDelegatableVisitorGenerator() =
       "  member val BeforeVisit{0}_{3} =\r\n" +
       "    fun\r\n" +
       "      ({5}) ->\r\n" +
-      "      visitor.Visit{0}_{3}({6})\r\n" +
+      "      visitor.Visit{0}_{3}(\r\n" +
+      "       {6})\r\n" +
+      "    with get, set\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
       "  /// Visit \"{2}.{3}\" expression.\r\n" +
@@ -71,6 +73,7 @@ type internal AstDelegatableVisitorGenerator() =
       "    fun\r\n" +
       "      ({5}) ->\r\n" +
       "      {4}{7}\r\n" +
+      "    with get, set\r\n" +
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatTypeName unionType,
@@ -78,7 +81,7 @@ type internal AstDelegatableVisitorGenerator() =
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(",\r\n       ", decls),
-      String.Join(", ", args),
+      String.Join(",\r\n       ", args),
       (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))))
 
   /// Construct expression string for match.

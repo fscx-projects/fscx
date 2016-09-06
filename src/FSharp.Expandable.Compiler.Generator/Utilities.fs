@@ -97,29 +97,48 @@ module internal Utilities =
     let safeTypeName =
       match t.DeclaringType with
       | null -> String.Format("{0}.{1}", t.Namespace, safeName)
-      | declaringType -> String.Format("{0}.{1}", formatTypeName0 declaringType, safeName)
+      | declaringType ->
+        // TODO: Infinite recursivity for generic type.
+        match declaringType.IsGenericType with
+        | true -> String.Format("{0}.{1}.{2}", t.Namespace, t.Name, safeName)
+        | false -> String.Format("{0}.{1}", formatTypeName0 declaringType, safeName)
     match t.IsGenericType, safeTypeName with
     // HACK: smaller codes
+    | false, "System.Void" -> "unit"
     | false, "System.Boolean" -> "bool"
+    | false, "System.Byte" -> "byte"
+    | false, "System.Int16" -> "int16"
     | false, "System.Int32" -> "int"
     | false, "System.Int64" -> "int64"
+    | false, "System.Char" -> "char"
     | false, "System.String" -> "string"
     // Others
     | false, _ -> safeTypeName
     // Generic types
     | true, _ ->
+      match safeTypeName with
       // Option
-      if safeTypeName = "Microsoft.FSharp.Core.Option" then
+      | "Microsoft.FSharp.Core.Option" ->
         String.Format(
           "{0} option",
           formatTypeName0 (t.GetGenericArguments().[0]))
+      // Ref
+      | "Microsoft.FSharp.Core.Ref" ->
+        String.Format(
+          "{0} ref",
+          formatTypeName0 (t.GetGenericArguments().[0]))
+      // Seq (IE<'T>)
+      | "System.Collections.Generic.IEnumerable" ->
+        String.Format(
+          "{0} seq",
+          formatTypeName0 (t.GetGenericArguments().[0]))
       // List
-      else if safeTypeName = "Microsoft.FSharp.Collections.List" then
+      | "Microsoft.FSharp.Collections.List" ->
         String.Format(
           "{0} list",
           formatTypeName0 (t.GetGenericArguments().[0]))
       // Other
-      else
+      | _ ->
         let genericArgumentSignature =
           String.Join(", ", t.GetGenericArguments() |> Seq.map formatTypeName0)
         String.Format(
@@ -137,7 +156,92 @@ module internal Utilities =
   Char.ToLowerInvariant(name.[0]).ToString() + name.Substring(1)
 
  let formatFieldName (field: PropertyInfo) =
-   formatCamelcase field.Name
+   let name = formatCamelcase field.Name
+   match name with
+   | "method"
+   | "type"
+   | "class"
+   | "interface"
+   | "delegate"
+   | "module"
+   | "public"
+   | "private"
+   | "internal"
+   | "static"
+   | "let"
+   | "val"
+   | "fun"
+   | "function"
+   | "mutable"
+   | "member"
+   | "override"
+   | "abstract"
+   | "default"
+   | "when"
+   | "get"
+   | "set"
+   | "of"
+   | "and"
+   | "or"
+   | "not"
+   | "as"
+   | "base"
+   | "begin"
+   | "end"
+   | "bool"
+   | "byte"
+   | "sbyte"
+   | "int"
+   | "int16"
+   | "int64"
+   | "string"
+   | "char"
+   | "unit"
+   | "void"
+   | "true"
+   | "false"
+   | "null"
+   | "seq"
+   | "list"
+   | "ref"
+   | "option"
+   | "async"
+   | "use"
+   | "if"
+   | "then"
+   | "else"
+   | "elif"
+   | "for"
+   | "do"
+   | "done"
+   | "to"
+   | "in"
+   | "on"
+   | "match"
+   | "with"
+   | "while"
+   | "yield"
+   | "lazy"
+   | "return"
+   | "upcast"
+   | "downcast"
+   | "exception"
+   | "exn"
+   | "try"
+   | "finally"
+   | "raise"
+   | "failwith"
+   | "namespace"
+   | "open"
+   | "rec"
+   | "new"
+   | "select"
+   | "from"
+   | "global"
+   | "inherit"
+   | "inline"
+   | "extern" -> "_" + name
+   | _ -> name
 
  let formatDeclaration (field: PropertyInfo) =
   String.Format(

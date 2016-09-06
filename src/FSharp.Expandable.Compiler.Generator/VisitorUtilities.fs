@@ -147,6 +147,7 @@ module internal VisitorUtilities =
           name,
           ", ",
           elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators0 ("v" + index.ToString()) elementType visitorName visitTargets)))
+#if aaa
     // "{ V0 = arg0.V0; V1 = arg0.V1 }"
     else if FSharpType.IsRecord t then
       let fields = FSharpType.GetRecordFields t
@@ -157,6 +158,19 @@ module internal VisitorUtilities =
           name,
           "; ",
           fields |> Seq.map (fun field -> ExprComposer.ForceFormat("{0} = {1}", field.Name, formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName visitTargets))))
+#else
+    // "SynExpr arg0.V0 arg0.V1"
+    else if FSharpType.IsRecord t then
+      let fields = FSharpType.GetRecordFields t
+      ExprComposer.Format(
+        name,
+        "AstRecordCons.init{0} {1}",
+        t.Name,
+        ExprComposer.Join(
+          name,
+          " ",
+          fields |> Seq.map (fun field -> let fn = name + "." + field.Name in ExprComposer.ForceFormat("({0})", formatWithOperators0 fn field.PropertyType visitorName visitTargets))))
+#endif
     // "this.VisitHoge context arg0"
     else if visitTargets.ContainsKey t then
       // Invoke visitor function, so result force Projected.
@@ -171,6 +185,7 @@ module internal VisitorUtilities =
       // "arg0 |> Option.map (fun v -> ?)"
       if gas.Length = 1 then
         // HACK: Assuming declarates map function in t's.
+        // TODO: Invalid code generation for reference cell (FSharp.Ref<'T>)
         ExprComposer.Format(
           name,
           "{0} |> {1}.map (fun v -> {2})",
