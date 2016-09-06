@@ -112,6 +112,17 @@ module internal VisitorUtilities =
       else
         NonProjected formatted
 
+  // Reflection patterns.
+  let private (|Array|_|) (t: Type) = match t.IsArray with true -> Some (t.GetElementType()) | false -> None
+  let private (|Tuple|_|) (t: Type) = match FSharpType.IsTuple t with true -> Some (FSharpType.GetTupleElements t) | false -> None
+  let private (|RefCell|_|) (t: Type) =
+    if (t.IsGenericType) && (typedefof<Ref<obj>>.IsAssignableFrom(t.GetGenericTypeDefinition())) then
+      Some (t.GetGenericArguments().[0])
+    else
+      None
+  let private (|Record|_|) (t: Type) = match FSharpType.IsRecord t with true -> Some (FSharpType.GetRecordFields t) | false -> None
+  let private (|Generic|_|) (t: Type) = match t.IsGenericType with true -> Some (t.GetGenericArguments()) | false -> None
+
   /// <summary>
   /// Core visitor expression composer.
   /// </summary>
@@ -124,32 +135,40 @@ module internal VisitorUtilities =
       (t: Type)
       (visitorName: string)
       (visitTargets: IReadOnlyDictionary<Type, string>) =
+
+    let (|VisitTarget|_|) (t:Type) =
+      match visitTargets.TryGetValue t with
+      | true, targetSymbolName -> Some targetSymbolName
+      | false, _ -> None
+
+    match t with
     // "Array.map (fun v -> ?) arg0"
-    if t.IsArray then
-      let elementType = t.GetElementType()
+    | Array elementType ->
       ExprComposer.Format(
         name,
         "{0} |> Array.map (fun v -> {1})",
         name,
         formatWithOperators0 "v" elementType visitorName visitTargets)
     // "(let v0, v1 = arg0 in v0, v1)"
-    else if FSharpType.IsTuple t then
-      let elementTypes = FSharpType.GetTupleElements t
+    | Tuple elementTypes ->
+      let args = elementTypes |> Array.mapi (fun index elementType -> ("v" + index.ToString()), elementType)
+      let decomposeExpr = String.Join(", ", args |> Seq.map fst)
+      let exprs =
+        ExprComposer.Join(
+          name,
+          ", ",
+          args |> Seq.map (fun (argName, argType) -> formatWithOperators0 argName argType visitorName visitTargets))
       ExprComposer.Format(
         name,
         "(let {0} = {1} in {2})",
-        ExprComposer.Join(
-          name,
-          ", ",
-          elementTypes |> Seq.mapi (fun index _ -> "v" + index.ToString())),
+        decomposeExpr,
         name,
-        ExprComposer.Join(
-          name,
-          ", ",
-          elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators0 ("v" + index.ToString()) elementType visitorName visitTargets)))
+        exprs)
+    // Reference cell (FSharpRef<'T>)
+    | RefCell innerType ->
+      Projected "TODO:"
     // "AstRecordCons.initSynAttribute arg0.V0 arg0.V1"
-    else if FSharpType.IsRecord t then
-      let fields = FSharpType.GetRecordFields t
+    | Record fields ->
       ExprComposer.Format(
         name,
         "AstRecordCons.init{0} {1}",
@@ -159,7 +178,7 @@ module internal VisitorUtilities =
           " ",
           fields |> Seq.map (fun field -> formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName visitTargets)))
     // "this.VisitHoge context arg0"
-    else if visitTargets.ContainsKey t then
+    | VisitTarget targetSymbolName ->
       // Invoke visitor function, so result force Projected.
       Projected(
         String.Format(
@@ -167,23 +186,19 @@ module internal VisitorUtilities =
           visitorName,
           formatUnionTypeShortName t,
           name))
-    else if t.IsGenericType then
-      let gas = t.GetGenericArguments()
+    // Other generic types with one argument.
+    | Generic [|argType|] ->
       // "arg0 |> Option.map (fun v -> ?)"
-      if gas.Length = 1 then
-        // HACK: Assuming declarates map function in t's.
-        // TODO: Invalid code generation for reference cell (FSharp.Ref<'T>)
-        ExprComposer.Format(
-          name,
-          "{0} |> {1}.map (fun v -> {2})",
-          name,
-          Utilities.formatSafeTypeName t,
-          formatWithOperators0 "v" gas.[0] visitorName visitTargets)
-      // "arg0"
-      else
-        NonProjected name
-    // "arg0"
-    else
+      // HACK: Assuming declarates map function in t's.
+      // TODO: Invalid code generation for reference cell (FSharp.Ref<'T>)
+      ExprComposer.Format(
+        name,
+        "{0} |> {1}.map (fun v -> {2})",
+        name,
+        Utilities.formatSafeTypeName t,
+        formatWithOperators0 "v" argType visitorName visitTargets)
+    // Other types ("arg0")
+    | _ ->
       NonProjected name
 
   let private formatWithOperators name t visitorName visitTargets =

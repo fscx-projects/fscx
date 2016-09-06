@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 07:18:30 GMT
+// Generated: Tue, 06 Sep 2016 08:23:50 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -1743,7 +1743,7 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitConstructorArgs_NamePatPairs(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (this.VisitPat context v1))),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitPat context v1))),
       range)
 
   /// <summary>
@@ -2478,9 +2478,9 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitExpr_Record(
       context,
-      baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (this.VisitType context v0), (this.VisitExpr context v1), v2, v3, v4)),
-      copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (this.VisitExpr context v0), v1)),
-      recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), v2)),
+      baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (this.VisitType context v0), (this.VisitExpr context v1), v2, v3, v4)),
+      copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (this.VisitExpr context v0), v1)),
+      recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), v2)),
       range)
 
   /// <summary>
@@ -2601,7 +2601,7 @@ type AstInheritableVisitor<'TContext>() =
     this.VisitExpr_ObjExpr(
       context,
       (this.VisitType context objType),
-      argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (this.VisitExpr context v0), v1)),
+      argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (this.VisitExpr context v0), v1)),
       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)),
       extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitInterfaceImpl context v)),
       newPos,
@@ -2927,7 +2927,7 @@ type AstInheritableVisitor<'TContext>() =
     this.VisitExpr_CompExpr(
       context,
       isArrayOrList,
-      isNotNakedRefCell,
+      TODO:,
       (this.VisitExpr context expr),
       range)
 
@@ -3848,7 +3848,7 @@ type AstInheritableVisitor<'TContext>() =
       context,
       isOptional,
       longIdent,
-      altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> AstRecordCons.initFSharpRef`1 (this.VisitSimplePatAlternativeIdInfo context v.contents)),
+      altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
       range)
 
   /// <summary>
@@ -9199,7 +9199,7 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitPat_Record(
       context,
-      fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (this.VisitPat context v1))),
+      fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitPat context v1))),
       range)
 
   /// <summary>
@@ -9830,7 +9830,7 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitReturnInfo_SynReturnInfo(
       context,
-      (let item1 = item1 in (this.VisitType context v0), (this.VisitArgInfo context v1)),
+      (let v0, v1 = item1 in (this.VisitType context v0), (this.VisitArgInfo context v1)),
       range)
 
   /// <summary>
@@ -9909,7 +9909,7 @@ type AstInheritableVisitor<'TContext>() =
     this.VisitSimplePat_Id(
       context,
       ident,
-      altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> AstRecordCons.initFSharpRef`1 (this.VisitSimplePatAlternativeIdInfo context v.contents)),
+      altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
       isCompilerGenerated,
       isThisVar,
       isOptArg,
@@ -10802,7 +10802,7 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitType_Tuple(
       context,
-      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (this.VisitType context v1))),
+      item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitType context v1))),
       range)
 
   /// <summary>
@@ -13223,8 +13223,8 @@ type AstInheritableVisitor<'TContext>() =
     this.VisitTypeDefnSimpleRepr_General(
       context,
       (this.VisitTypeDefnKind context item1),
-      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (this.VisitType context v0), v1, v2)),
-      item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (this.VisitValSig context v0), v1)),
+      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (this.VisitType context v0), v1, v2)),
+      item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (this.VisitValSig context v0), v1)),
       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitField context v)),
       item5,
       item6,
@@ -13647,7 +13647,7 @@ type AstInheritableVisitor<'TContext>() =
       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) =
     this.VisitUnionCaseType_UnionCaseFullType(
       context,
-      (let item = item in (this.VisitType context v0), (this.VisitValInfo context v1)))
+      (let v0, v1 = item in (this.VisitType context v0), (this.VisitValInfo context v1)))
 
   /// <summary>
   /// Visit "SynUnionCaseType.UnionCaseFullType" expression.

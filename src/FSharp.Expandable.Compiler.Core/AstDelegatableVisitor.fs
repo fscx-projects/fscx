@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 07:18:30 GMT
+// Generated: Tue, 06 Sep 2016 08:23:50 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -1361,7 +1361,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitConstructorArgs_NamePatPairs(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitPat context v1))),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitPat context v1))),
        range)
     with get, set
 
@@ -1917,9 +1917,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Record(
        visitor,
        context,
-       baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitType context v0), (visitor.VisitExpr context v1), v2, v3, v4)),
-       copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitExpr context v0), v1)),
-       recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)), v2)),
+       baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (visitor.VisitType context v0), (visitor.VisitExpr context v1), v2, v3, v4)),
+       copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitor.VisitExpr context v0), v1)),
+       recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)), v2)),
        range)
     with get, set
 
@@ -2004,7 +2004,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        (visitor.VisitType context objType),
-       argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitExpr context v0), v1)),
+       argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitor.VisitExpr context v0), v1)),
        bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
        extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitInterfaceImpl context v)),
        newPos,
@@ -2233,7 +2233,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        isArrayOrList,
-       isNotNakedRefCell,
+       TODO:,
        (visitor.VisitExpr context expr),
        range)
     with get, set
@@ -2885,7 +2885,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        isOptional,
        longIdent,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> AstRecordCons.initFSharpRef`1 (visitor.VisitSimplePatAlternativeIdInfo context v.contents)),
+       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
        range)
     with get, set
 
@@ -6866,7 +6866,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Record(
        visitor,
        context,
-       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitPat context v1))),
+       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitPat context v1))),
        range)
     with get, set
 
@@ -7350,7 +7350,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitReturnInfo_SynReturnInfo(
        visitor,
        context,
-       (let item1 = item1 in (visitor.VisitType context v0), (visitor.VisitArgInfo context v1)),
+       (let v0, v1 = item1 in (visitor.VisitType context v0), (visitor.VisitArgInfo context v1)),
        range)
     with get, set
 
@@ -7412,7 +7412,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        ident,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> AstRecordCons.initFSharpRef`1 (visitor.VisitSimplePatAlternativeIdInfo context v.contents)),
+       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
        isCompilerGenerated,
        isThisVar,
        isOptArg,
@@ -8095,7 +8095,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_Tuple(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitType context v1))),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitType context v1))),
        range)
     with get, set
 
@@ -9933,8 +9933,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        (visitor.VisitTypeDefnKind context item1),
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (visitor.VisitType context v0), v1, v2)),
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (visitor.VisitValSig context v0), v1)),
+       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (visitor.VisitType context v0), v1, v2)),
+       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (visitor.VisitValSig context v0), v1)),
        item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)),
        item5,
        item6,
@@ -10257,7 +10257,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitUnionCaseType_UnionCaseFullType(
        visitor,
        context,
-       (let item = item in (visitor.VisitType context v0), (visitor.VisitValInfo context v1)))
+       (let v0, v1 = item in (visitor.VisitType context v0), (visitor.VisitValInfo context v1)))
     with get, set
 
   /// <summary>
