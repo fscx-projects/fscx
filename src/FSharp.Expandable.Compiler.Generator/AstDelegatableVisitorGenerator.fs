@@ -36,17 +36,21 @@ type internal AstDelegatableVisitorGenerator() =
 
   /// Construct function strings for DU case.
   let generateByUnion visitTargets (unionType: Type) (unionCase: UnionCaseInfo) =
+    let fields = unionCase.GetFields()
     let decls = [|
       yield "visitor: AstDelegatableVisitor<'TContext>"
       yield "context: 'TContext"
-      yield! unionCase.GetFields() |> Seq.map Utilities.formatDeclaration
+      yield! fields |> Seq.map Utilities.formatDeclaration
     |]
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "visitor" "_rwh_")
     let args = [|
       yield "visitor"
       yield "context"
-      yield! unionCase.GetFields() |> Seq.map (VisitorUtilities.formatArgument visitTargets "visitor")
+      yield! visited |> Seq.map fst   // Composed argument string
     |]
-    let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
+    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
+    let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
+
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
@@ -58,6 +62,7 @@ type internal AstDelegatableVisitorGenerator() =
       "  member val BeforeVisit{0}_{3} =\r\n" +
       "    fun\r\n" +
       "      ({5}) ->\r\n" +
+      "{8}" +
       "      visitor.Visit{0}_{3}(\r\n" +
       "       {6})\r\n" +
       "    with get, set\r\n" +
@@ -82,19 +87,20 @@ type internal AstDelegatableVisitorGenerator() =
       VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(",\r\n       ", decls),
       String.Join(",\r\n       ", args),
-      (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))))
+      (if Array.isEmpty fieldNames then "" else String.Format("({0})", String.Join(", ", fieldNames))),
+      if isUsingRef then "      use _rwh_ = new RefWrapperHolder()\r\n" else "")
 
   /// Construct expression string for match.
   let generateMatcher (unionType: Type) (unionCase: UnionCaseInfo) =
-    let fields = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
+    let fieldNames = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
     let args = [|
       yield "context"
-      yield! fields
+      yield! fieldNames
     |]
     String.Format(
       "      | {0}{1} ->\r\n        this.BeforeVisit{2}_{3}(this, {4})\r\n",
       VisitorUtilities.formatUnionCaseName unionType unionCase,
-      (if Array.isEmpty fields then "" else String.Format("({0})", String.Join(", ", fields))),
+      (if Array.isEmpty fieldNames then "" else String.Format("({0})", String.Join(", ", fieldNames))),
       VisitorUtilities.formatUnionTypeShortName unionType,
       unionCase.Name,
       String.Join(", ", args))

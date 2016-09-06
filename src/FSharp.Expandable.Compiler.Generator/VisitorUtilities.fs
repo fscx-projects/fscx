@@ -72,45 +72,50 @@ module internal VisitorUtilities =
 
   /// Partial composed expression result.
   type private ExprResult =
-    | Projected of string     // Expr projected             (ex: fun v -> visitor.Visit v)
-    | NonProjected of string  // Expr totally non projected (ex: fun v -> v)
+    | Projected of compose:string * isUsingRef:bool    // Expr projected             (ex: fun v -> visitor.Visit v)
+    | NonProjected of rawName:string                   // Expr totally non projected (ex: fun v -> v)
     with
       override this.ToString() =
         match this with
-        | Projected composed -> composed
+        | Projected (composed, _) -> composed
         | NonProjected rawName -> rawName
 
   /// String composer for ExprResult.
   [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-  type private ExprComposer() =
+  type private ExprComposer =
+
     /// Contains one or more projected exprs?
-    static member private isExistProjected (exprs: 'T seq) =
-      exprs |> Seq.exists (fun expr ->
-        match expr :> obj with
-        | :? ExprResult as er -> match er with Projected _ -> true | NonProjected _ -> false
-        | _ -> false)
+    static member private existProjected (exprs: 'T seq) =
+      let filtered =
+        exprs
+        |> Seq.choose (fun expr ->
+          match expr :> obj with
+          | :? ExprResult as er -> match er with Projected (_, isUsingRef) -> Some isUsingRef | NonProjected _ -> None
+          | _ -> None)
+        |> Seq.toArray
+      if filtered.Length = 0 then
+        None
+      else
+        Some (filtered |> Seq.exists (fun isUsingRef -> isUsingRef))
+
     /// Similar String.Join for ExprResult.
     static member Join(name: string, separator: string, exprs: 'T seq) =
       let c = exprs |> Seq.toArray
-      if ExprComposer.isExistProjected c then
+      match ExprComposer.existProjected c with
+      | Some isUsingRef ->
         let join = String.Join(separator, c)
-        Projected join
-      else
+        Projected(join, isUsingRef)
+      | None ->
         NonProjected name
+
     /// Similar String.Format for ExprResult.
     static member Format(name: string, format: string, [<ParamArray>] exprs: obj[]) =
-      if ExprComposer.isExistProjected exprs then
+      match ExprComposer.existProjected exprs with
+      | Some isUsingRef ->
         let formatted = String.Format(format, exprs)
-        Projected formatted
-      else
+        Projected(formatted, isUsingRef)
+      | None ->
         NonProjected name
-    /// Similar String.Format for ExprResult.
-    static member ForceFormat(format: string, [<ParamArray>] exprs: obj[]) =
-      let formatted = String.Format(format, exprs)
-      if ExprComposer.isExistProjected exprs then
-        Projected formatted
-      else
-        NonProjected formatted
 
   // Reflection patterns.
   let private (|Array|_|) (t: Type) = match t.IsArray with true -> Some (t.GetElementType()) | false -> None
@@ -134,6 +139,7 @@ module internal VisitorUtilities =
       (name: string)
       (t: Type)
       (visitorName: string)
+      (refWrapperHolderName: string)
       (visitTargets: IReadOnlyDictionary<Type, string>) =
 
     let (|VisitTarget|_|) (t:Type) =
@@ -148,16 +154,16 @@ module internal VisitorUtilities =
         name,
         "{0} |> Array.map (fun v -> {1})",
         name,
-        formatWithOperators0 "v" elementType visitorName visitTargets)
+        formatWithOperators0 "v" elementType visitorName refWrapperHolderName visitTargets)
     // "(let v0, v1 = arg0 in v0, v1)"
     | Tuple elementTypes ->
       let args = elementTypes |> Array.mapi (fun index elementType -> ("v" + index.ToString()), elementType)
-      let decomposeExpr = String.Join(", ", args |> Seq.map fst)
+      let decomposeExpr = String.Join(", ", args |> Seq.map fst)  // Maybe discard if children has NonProjected.
       let exprs =
         ExprComposer.Join(
           name,
           ", ",
-          args |> Seq.map (fun (argName, argType) -> formatWithOperators0 argName argType visitorName visitTargets))
+          args |> Seq.map (fun (argName, argType) -> formatWithOperators0 argName argType visitorName refWrapperHolderName visitTargets))
       ExprComposer.Format(
         name,
         "(let {0} = {1} in {2})",
@@ -166,7 +172,17 @@ module internal VisitorUtilities =
         exprs)
     // Reference cell (FSharpRef<'T>)
     | RefCell innerType ->
-      Projected "TODO:"
+      // "_rwh_.Wrap expr (visitor.VisitExpr context expr.Value)"
+      let result =
+        ExprComposer.Format(
+          name,
+          "{0}.Wrap {1} {2}",
+          refWrapperHolderName,
+          name,
+          formatWithOperators0 (name + ".Value") innerType visitorName refWrapperHolderName visitTargets)
+      match result with
+      | Projected(composed, _) -> Projected(composed, true)     // Mark as isUsingRef
+      | NonProjected _ -> result
     // "AstRecordCons.initSynAttribute arg0.V0 arg0.V1"
     | Record fields ->
       ExprComposer.Format(
@@ -176,7 +192,7 @@ module internal VisitorUtilities =
         ExprComposer.Join(
           name,
           " ",
-          fields |> Seq.map (fun field -> formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName visitTargets)))
+          fields |> Seq.map (fun field -> formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName refWrapperHolderName visitTargets)))
     // "this.VisitHoge context arg0"
     | VisitTarget targetSymbolName ->
       // Invoke visitor function, so result force Projected.
@@ -185,26 +201,28 @@ module internal VisitorUtilities =
           "({0}.Visit{1} context {2})",
           visitorName,
           formatUnionTypeShortName t,
-          name))
+          name),
+          false)
     // Other generic types with one argument.
     | Generic [|argType|] ->
       // "arg0 |> Option.map (fun v -> ?)"
       // HACK: Assuming declarates map function in t's.
-      // TODO: Invalid code generation for reference cell (FSharp.Ref<'T>)
       ExprComposer.Format(
         name,
         "{0} |> {1}.map (fun v -> {2})",
         name,
         Utilities.formatSafeTypeName t,
-        formatWithOperators0 "v" argType visitorName visitTargets)
+        formatWithOperators0 "v" argType visitorName refWrapperHolderName visitTargets)
     // Other types ("arg0")
     | _ ->
       NonProjected name
 
-  let private formatWithOperators name t visitorName visitTargets =
-    let exprResult = formatWithOperators0 name t visitorName visitTargets
-    exprResult.ToString()
+  let private formatWithOperators name t visitorName refWrapperHolderName visitTargets =
+    match formatWithOperators0 name t visitorName refWrapperHolderName visitTargets with
+    | Projected(composed, isUsingRef) -> composed, isUsingRef
+    | NonProjected rawName -> rawName, false
 
   /// Construct expression string of visitor body with applied args for DU case.
-  let formatArgument visitTargets (visitorName: string) (field: PropertyInfo) = 
-    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName visitTargets
+  /// Results are composed argument string and require using reference cell.
+  let formatArgument visitTargets (visitorName: string) (refWrapperHolderName: string) (field: PropertyInfo) = 
+    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets

@@ -71,6 +71,7 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="AstCommon.fs" />
     <Compile Include="AstRecordCons.fs" />
     <Compile Include="AstElement.fs" />
     <Compile Include="AstDelegatableVisitor.fs" />

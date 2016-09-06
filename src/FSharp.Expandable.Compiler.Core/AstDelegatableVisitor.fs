@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 08:23:50 GMT
+// Generated: Tue, 06 Sep 2016 10:35:07 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -2233,7 +2233,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        isArrayOrList,
-       TODO:,
+       isNotNakedRefCell,
        (visitor.VisitExpr context expr),
        range)
     with get, set
@@ -2880,12 +2880,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        longIdent: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        altNameRefCell: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option,
        range: Microsoft.FSharp.Compiler.Range.range) ->
+      use _rwh_ = new RefWrapperHolder()
       visitor.VisitExpr_LongIdent(
        visitor,
        context,
        isOptional,
        longIdent,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
+       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitor.VisitSimplePatAlternativeIdInfo context v.Value)),
        range)
     with get, set
 
@@ -7408,11 +7409,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isThisVar: bool,
        isOptArg: bool,
        range: Microsoft.FSharp.Compiler.Range.range) ->
+      use _rwh_ = new RefWrapperHolder()
       visitor.VisitSimplePat_Id(
        visitor,
        context,
        ident,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> TODO:),
+       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitor.VisitSimplePatAlternativeIdInfo context v.Value)),
        isCompilerGenerated,
        isThisVar,
        isOptArg,
