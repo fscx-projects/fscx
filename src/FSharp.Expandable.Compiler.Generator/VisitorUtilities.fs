@@ -147,19 +147,7 @@ module internal VisitorUtilities =
           name,
           ", ",
           elementTypes |> Seq.mapi (fun index elementType -> formatWithOperators0 ("v" + index.ToString()) elementType visitorName visitTargets)))
-#if aaa
-    // "{ V0 = arg0.V0; V1 = arg0.V1 }"
-    else if FSharpType.IsRecord t then
-      let fields = FSharpType.GetRecordFields t
-      ExprComposer.Format(
-        name,
-        "{{ {0} }}",
-        ExprComposer.Join(
-          name,
-          "; ",
-          fields |> Seq.map (fun field -> ExprComposer.ForceFormat("{0} = {1}", field.Name, formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName visitTargets))))
-#else
-    // "SynExpr arg0.V0 arg0.V1"
+    // "AstRecordCons.initSynAttribute arg0.V0 arg0.V1"
     else if FSharpType.IsRecord t then
       let fields = FSharpType.GetRecordFields t
       ExprComposer.Format(
@@ -169,14 +157,13 @@ module internal VisitorUtilities =
         ExprComposer.Join(
           name,
           " ",
-          fields |> Seq.map (fun field -> let fn = name + "." + field.Name in ExprComposer.ForceFormat("({0})", formatWithOperators0 fn field.PropertyType visitorName visitTargets))))
-#endif
+          fields |> Seq.map (fun field -> formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName visitTargets)))
     // "this.VisitHoge context arg0"
     else if visitTargets.ContainsKey t then
       // Invoke visitor function, so result force Projected.
       Projected(
         String.Format(
-          "{0}.Visit{1} context {2}",
+          "({0}.Visit{1} context {2})",
           visitorName,
           formatUnionTypeShortName t,
           name))

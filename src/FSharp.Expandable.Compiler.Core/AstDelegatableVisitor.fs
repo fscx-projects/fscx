@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 06:09:29 GMT
+// Generated: Tue, 06 Sep 2016 07:18:30 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -172,7 +172,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitArgInfo_SynArgInfo(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        optional,
        id)
     with get, set
@@ -241,16 +241,16 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitBinding_Binding(
        visitor,
        context,
-       access |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       visitor.VisitBindingKind context bindingKind,
+       access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       (visitor.VisitBindingKind context bindingKind),
        mustInline,
        isMutable,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        xmlDoc,
-       visitor.VisitValData context item7,
-       visitor.VisitPat context headPat,
-       item9 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitBindingReturnInfo context v),
-       visitor.VisitExpr context expr,
+       (visitor.VisitValData context item7),
+       (visitor.VisitPat context headPat),
+       item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitBindingReturnInfo context v)),
+       (visitor.VisitExpr context expr),
        lhsRange,
        spBind)
     with get, set
@@ -434,9 +434,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitBindingReturnInfo_SynBindingReturnInfo(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        range,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)))
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range))
     with get, set
 
   /// <summary>
@@ -499,13 +499,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitComponentInfo_ComponentInfo(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTyparDecl context v),
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypeConstraint context v),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTyparDecl context v)),
+       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)),
        item4,
        xmlDoc,
        preferPostfix,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -1231,8 +1231,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitConst_Measure(
        visitor,
        context,
-       visitor.VisitConst context constant,
-       visitor.VisitMeasure context item2)
+       (visitor.VisitConst context constant),
+       (visitor.VisitMeasure context item2))
     with get, set
 
   /// <summary>
@@ -1327,7 +1327,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitConstructorArgs_Pats(
        visitor,
        context,
-       item |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitPat context v))
+       item |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)))
     with get, set
 
   /// <summary>
@@ -1361,7 +1361,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitConstructorArgs_NamePatPairs(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, visitor.VisitPat context v1)),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitPat context v1))),
        range)
     with get, set
 
@@ -1423,9 +1423,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitEnumCase_EnumCase(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        id,
-       visitor.VisitConst context item3,
+       (visitor.VisitConst context item3),
        xmlDoc,
        range)
     with get, set
@@ -1487,8 +1487,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExceptionDefn_SynExceptionDefn(
        visitor,
        context,
-       visitor.VisitExceptionDefnRepr context exnRepr,
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberDefn context v),
+       (visitor.VisitExceptionDefnRepr context exnRepr),
+       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
        range)
     with get, set
 
@@ -1550,11 +1550,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExceptionDefnRepr_SynExceptionDefnRepr(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       visitor.VisitUnionCase context case,
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       (visitor.VisitUnionCase context case),
        longId,
        xmlDoc,
-       accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -1616,8 +1616,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExceptionSig_SynExceptionSig(
        visitor,
        context,
-       visitor.VisitExceptionDefnRepr context exnRepr,
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberSig context v),
+       (visitor.VisitExceptionDefnRepr context exnRepr),
+       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
        range)
     with get, set
 
@@ -1677,7 +1677,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Paren(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        leftParenRange,
        rightParenRange,
        range)
@@ -1720,9 +1720,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Quote(
        visitor,
        context,
-       visitor.VisitExpr context operator,
+       (visitor.VisitExpr context operator),
        isRaw,
-       visitor.VisitExpr context quotedSynExpr,
+       (visitor.VisitExpr context quotedSynExpr),
        isFromQueryExpression,
        range)
     with get, set
@@ -1762,7 +1762,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Const(
        visitor,
        context,
-       visitor.VisitConst context constant,
+       (visitor.VisitConst context constant),
        range)
     with get, set
 
@@ -1799,8 +1799,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Typed(
        visitor,
        context,
-       visitor.VisitExpr context expr,
-       visitor.VisitType context typeSig,
+       (visitor.VisitExpr context expr),
+       (visitor.VisitType context typeSig),
        range)
     with get, set
 
@@ -1838,7 +1838,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Tuple(
        visitor,
        context,
-       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitExpr context v),
+       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
        commaRanges,
        range)
     with get, set
@@ -1878,7 +1878,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        isList,
-       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitExpr context v),
+       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
        range)
     with get, set
 
@@ -1917,9 +1917,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Record(
        visitor,
        context,
-       baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in visitor.VisitType context v0, visitor.VisitExpr context v1, v2, v3, v4)),
-       copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in visitor.VisitExpr context v0, v1)),
-       recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitExpr context v), v2)),
+       baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitType context v0), (visitor.VisitExpr context v1), v2, v3, v4)),
+       copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitExpr context v0), v1)),
+       recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)), v2)),
        range)
     with get, set
 
@@ -1960,8 +1960,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        isProtected,
-       visitor.VisitType context typeName,
-       visitor.VisitExpr context expr,
+       (visitor.VisitType context typeName),
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2003,10 +2003,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_ObjExpr(
        visitor,
        context,
-       visitor.VisitType context objType,
-       argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in visitor.VisitExpr context v0, v1)),
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitBinding context v),
-       extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitInterfaceImpl context v),
+       (visitor.VisitType context objType),
+       argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v = v in (visitor.VisitExpr context v0), v1)),
+       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
+       extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitInterfaceImpl context v)),
        newPos,
        range)
     with get, set
@@ -2050,8 +2050,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        spWhile,
-       visitor.VisitExpr context whileBody,
-       visitor.VisitExpr context doBody,
+       (visitor.VisitExpr context whileBody),
+       (visitor.VisitExpr context doBody),
        range)
     with get, set
 
@@ -2096,10 +2096,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        spFor,
        id,
-       visitor.VisitExpr context idBody,
+       (visitor.VisitExpr context idBody),
        item4,
-       visitor.VisitExpr context toBody,
-       visitor.VisitExpr context doBody,
+       (visitor.VisitExpr context toBody),
+       (visitor.VisitExpr context doBody),
        range)
     with get, set
 
@@ -2148,9 +2148,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spFor,
        seqExprOnly,
        isFromSource,
-       visitor.VisitPat context pattern,
-       visitor.VisitExpr context enumExpr,
-       visitor.VisitExpr context bodyExpr,
+       (visitor.VisitPat context pattern),
+       (visitor.VisitExpr context enumExpr),
+       (visitor.VisitExpr context bodyExpr),
        range)
     with get, set
 
@@ -2193,7 +2193,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        isList,
-       visitor.VisitExpr context elements,
+       (visitor.VisitExpr context elements),
        range)
     with get, set
 
@@ -2234,7 +2234,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        isArrayOrList,
        isNotNakedRefCell,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2277,8 +2277,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        fromMethod,
        inLambdaSeq,
-       visitor.VisitSimplePats context args,
-       visitor.VisitExpr context body,
+       (visitor.VisitSimplePats context args),
+       (visitor.VisitExpr context body),
        range)
     with get, set
 
@@ -2322,7 +2322,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        item1,
        item2,
-       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMatchClause context v),
+       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
        spBind,
        range)
     with get, set
@@ -2366,8 +2366,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        spBind,
-       visitor.VisitExpr context matchExpr,
-       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMatchClause context v),
+       (visitor.VisitExpr context matchExpr),
+       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
        isCexprExceptionMatch,
        range)
     with get, set
@@ -2407,7 +2407,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Do(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2443,7 +2443,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Assert(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2484,8 +2484,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        exprAtomicFlag,
        isInfix,
-       visitor.VisitExpr context funcExpr,
-       visitor.VisitExpr context argExpr,
+       (visitor.VisitExpr context funcExpr),
+       (visitor.VisitExpr context argExpr),
        range)
     with get, set
 
@@ -2529,9 +2529,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_TypeApp(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        leftAngleRange,
-       typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        commaRanges,
        rightAngleRange,
        typeArgs,
@@ -2580,8 +2580,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        isRecursive,
        isUse,
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitBinding context v),
-       visitor.VisitExpr context exprBody,
+       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
+       (visitor.VisitExpr context exprBody),
        range)
     with get, set
 
@@ -2625,9 +2625,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_TryWith(
        visitor,
        context,
-       visitor.VisitExpr context tryExpr,
+       (visitor.VisitExpr context tryExpr),
        item2,
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMatchClause context v),
+       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
        item4,
        range,
        spTry,
@@ -2674,8 +2674,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_TryFinally(
        visitor,
        context,
-       visitor.VisitExpr context tryExpr,
-       visitor.VisitExpr context finallyExpr,
+       (visitor.VisitExpr context tryExpr),
+       (visitor.VisitExpr context finallyExpr),
        range,
        spTry,
        spFinally)
@@ -2716,7 +2716,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Lazy(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2757,8 +2757,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        spSeq,
        isTrueSeq,
-       visitor.VisitExpr context expr1,
-       visitor.VisitExpr context expr2,
+       (visitor.VisitExpr context expr1),
+       (visitor.VisitExpr context expr2),
        range)
     with get, set
 
@@ -2802,9 +2802,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_IfThenElse(
        visitor,
        context,
-       visitor.VisitExpr context exprGuard,
-       visitor.VisitExpr context exprThen,
-       optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitExpr context v),
+       (visitor.VisitExpr context exprGuard),
+       (visitor.VisitExpr context exprThen),
+       optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
        spIfToThen,
        isFromErrorRecovery,
        ifToThen,
@@ -2925,7 +2925,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        dotId,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -2964,7 +2964,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DotGet(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        rangeOfDot,
        dotId,
        range)
@@ -3006,9 +3006,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DotSet(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        dotId,
-       visitor.VisitExpr context exprValue,
+       (visitor.VisitExpr context exprValue),
        range)
     with get, set
 
@@ -3048,8 +3048,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DotIndexedGet(
        visitor,
        context,
-       visitor.VisitExpr context expr,
-       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitIndexerArg context v),
+       (visitor.VisitExpr context expr),
+       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitIndexerArg context v)),
        item3,
        range)
     with get, set
@@ -3092,9 +3092,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DotIndexedSet(
        visitor,
        context,
-       visitor.VisitExpr context objectExpr,
-       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitIndexerArg context v),
-       visitor.VisitExpr context valueExpr,
+       (visitor.VisitExpr context objectExpr),
+       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitIndexerArg context v)),
+       (visitor.VisitExpr context valueExpr),
        rangeOfLeftOfSet,
        rangeOfDot,
        range)
@@ -3139,8 +3139,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitExpr context item2,
-       visitor.VisitExpr context item3,
+       (visitor.VisitExpr context item2),
+       (visitor.VisitExpr context item3),
        range)
     with get, set
 
@@ -3181,10 +3181,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DotNamedIndexedPropertySet(
        visitor,
        context,
-       visitor.VisitExpr context item1,
+       (visitor.VisitExpr context item1),
        item2,
-       visitor.VisitExpr context item3,
-       visitor.VisitExpr context item4,
+       (visitor.VisitExpr context item3),
+       (visitor.VisitExpr context item4),
        range)
     with get, set
 
@@ -3224,8 +3224,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_TypeTest(
        visitor,
        context,
-       visitor.VisitExpr context expr,
-       visitor.VisitType context typeName,
+       (visitor.VisitExpr context expr),
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -3263,8 +3263,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Upcast(
        visitor,
        context,
-       visitor.VisitExpr context expr,
-       visitor.VisitType context typeSig,
+       (visitor.VisitExpr context expr),
+       (visitor.VisitType context typeSig),
        range)
     with get, set
 
@@ -3302,8 +3302,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Downcast(
        visitor,
        context,
-       visitor.VisitExpr context expr,
-       visitor.VisitType context typeName,
+       (visitor.VisitExpr context expr),
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -3340,7 +3340,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_InferredUpcast(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -3376,7 +3376,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_InferredDowncast(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -3448,7 +3448,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitExpr context item2,
+       (visitor.VisitExpr context item2),
        item3,
        range)
     with get, set
@@ -3489,9 +3489,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_TraitCall(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypar context v),
-       visitor.VisitMemberSig context item2,
-       visitor.VisitExpr context item3,
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypar context v)),
+       (visitor.VisitMemberSig context item2),
+       (visitor.VisitExpr context item3),
        range)
     with get, set
 
@@ -3531,9 +3531,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_JoinIn(
        visitor,
        context,
-       visitor.VisitExpr context item1,
+       (visitor.VisitExpr context item1),
        inPos,
-       visitor.VisitExpr context item3,
+       (visitor.VisitExpr context item3),
        range)
     with get, set
 
@@ -3606,7 +3606,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -3645,7 +3645,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -3690,9 +3690,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spBind,
        isUse,
        isFromSource,
-       visitor.VisitPat context pattern,
-       visitor.VisitExpr context rhsExpr,
-       visitor.VisitExpr context bodyExpr,
+       (visitor.VisitPat context pattern),
+       (visitor.VisitExpr context rhsExpr),
+       (visitor.VisitExpr context bodyExpr),
        range)
     with get, set
 
@@ -3733,7 +3733,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DoBang(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -3773,9 +3773,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitExpr context v),
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
+       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
+       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        range)
     with get, set
 
@@ -3816,9 +3816,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_LibraryOnlyStaticOptimization(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitStaticOptimizationConstraint context v),
-       visitor.VisitExpr context item2,
-       visitor.VisitExpr context item3,
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitStaticOptimizationConstraint context v)),
+       (visitor.VisitExpr context item2),
+       (visitor.VisitExpr context item3),
        range)
     with get, set
 
@@ -3858,7 +3858,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_LibraryOnlyUnionCaseFieldGet(
        visitor,
        context,
-       visitor.VisitExpr context item1,
+       (visitor.VisitExpr context item1),
        longId,
        item3,
        range)
@@ -3901,10 +3901,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_LibraryOnlyUnionCaseFieldSet(
        visitor,
        context,
-       visitor.VisitExpr context item1,
+       (visitor.VisitExpr context item1),
        longId,
        item3,
-       visitor.VisitExpr context item4,
+       (visitor.VisitExpr context item4),
        range)
     with get, set
 
@@ -3979,7 +3979,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_FromParseError(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -4015,7 +4015,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_DiscardAfterMissingQualificationAfterDot(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -4051,7 +4051,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitExpr_Fixed(
        visitor,
        context,
-       visitor.VisitExpr context item1,
+       (visitor.VisitExpr context item1),
        item2)
     with get, set
 
@@ -4228,13 +4228,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitField_Field(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        isStatic,
        id,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        item5,
        xmlDoc,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -4297,8 +4297,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitIndexerArg_Two(
        visitor,
        context,
-       visitor.VisitExpr context item1,
-       visitor.VisitExpr context item2)
+       (visitor.VisitExpr context item1),
+       (visitor.VisitExpr context item2))
     with get, set
 
   /// <summary>
@@ -4332,7 +4332,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitIndexerArg_One(
        visitor,
        context,
-       visitor.VisitExpr context item)
+       (visitor.VisitExpr context item))
     with get, set
 
   /// <summary>
@@ -4390,8 +4390,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitInterfaceImpl_InterfaceImpl(
        visitor,
        context,
-       visitor.VisitType context item1,
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitBinding context v),
+       (visitor.VisitType context item1),
+       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
        range)
     with get, set
 
@@ -4452,9 +4452,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMatchClause_Clause(
        visitor,
        context,
-       visitor.VisitPat context item1,
-       item2 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitExpr context v),
-       visitor.VisitExpr context item3,
+       (visitor.VisitPat context item1),
+       item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
+       (visitor.VisitExpr context item3),
        range,
        spTarget)
     with get, set
@@ -4552,8 +4552,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMeasure_Product(
        visitor,
        context,
-       visitor.VisitMeasure context item1,
-       visitor.VisitMeasure context item2,
+       (visitor.VisitMeasure context item1),
+       (visitor.VisitMeasure context item2),
        range)
     with get, set
 
@@ -4590,7 +4590,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMeasure_Seq(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMeasure context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMeasure context v)),
        range)
     with get, set
 
@@ -4627,8 +4627,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMeasure_Divide(
        visitor,
        context,
-       visitor.VisitMeasure context item1,
-       visitor.VisitMeasure context item2,
+       (visitor.VisitMeasure context item1),
+       (visitor.VisitMeasure context item2),
        range)
     with get, set
 
@@ -4666,8 +4666,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMeasure_Power(
        visitor,
        context,
-       visitor.VisitMeasure context item1,
-       visitor.VisitRationalConst context item2,
+       (visitor.VisitMeasure context item1),
+       (visitor.VisitRationalConst context item2),
        range)
     with get, set
 
@@ -4767,7 +4767,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMeasure_Var(
        visitor,
        context,
-       visitor.VisitTypar context item1,
+       (visitor.VisitTypar context item1),
        range)
     with get, set
 
@@ -4874,7 +4874,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_Member(
        visitor,
        context,
-       visitor.VisitBinding context memberDefn,
+       (visitor.VisitBinding context memberDefn),
        range)
     with get, set
 
@@ -4913,9 +4913,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_ImplicitCtor(
        visitor,
        context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitSimplePat context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v)),
        selfIdentifier,
        range)
     with get, set
@@ -4957,8 +4957,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_ImplicitInherit(
        visitor,
        context,
-       visitor.VisitType context inheritType,
-       visitor.VisitExpr context inheritArgs,
+       (visitor.VisitType context inheritType),
+       (visitor.VisitExpr context inheritArgs),
        inheritAlias,
        range)
     with get, set
@@ -4999,7 +4999,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_LetBindings(
        visitor,
        context,
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitBinding context v),
+       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
        isStatic,
        isRecursive,
        range)
@@ -5040,7 +5040,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_AbstractSlot(
        visitor,
        context,
-       visitor.VisitValSig context valSig,
+       (visitor.VisitValSig context valSig),
        memberFlags,
        range)
     with get, set
@@ -5079,8 +5079,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_Interface(
        visitor,
        context,
-       visitor.VisitType context typeName,
-       interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberDefn context v)),
+       (visitor.VisitType context typeName),
+       interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v))),
        range)
     with get, set
 
@@ -5118,7 +5118,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_Inherit(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        id,
        range)
     with get, set
@@ -5156,7 +5156,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_ValField(
        visitor,
        context,
-       visitor.VisitField context field,
+       (visitor.VisitField context field),
        range)
     with get, set
 
@@ -5193,8 +5193,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_NestedType(
        visitor,
        context,
-       visitor.VisitTypeDefn context typeDefn,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       (visitor.VisitTypeDefn context typeDefn),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -5240,15 +5240,15 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberDefn_AutoProperty(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        isStatic,
        id,
-       tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitType context v),
+       tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitType context v)),
        propKind,
        memberFlags,
        xmlDoc,
-       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       visitor.VisitExpr context expr,
+       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       (visitor.VisitExpr context expr),
        getSetPos,
        range)
     with get, set
@@ -5336,7 +5336,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberSig_Member(
        visitor,
        context,
-       visitor.VisitValSig context item1,
+       (visitor.VisitValSig context item1),
        memberFlags,
        range)
     with get, set
@@ -5374,7 +5374,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberSig_Interface(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -5410,7 +5410,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberSig_Inherit(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -5446,7 +5446,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberSig_ValField(
        visitor,
        context,
-       visitor.VisitField context field,
+       (visitor.VisitField context field),
        range)
     with get, set
 
@@ -5482,7 +5482,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitMemberSig_NestedType(
        visitor,
        context,
-       visitor.VisitTypeDefnSig context typeDefnSig,
+       (visitor.VisitTypeDefnSig context typeDefnSig),
        range)
     with get, set
 
@@ -5589,9 +5589,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleDecl_NestedModule(
        visitor,
        context,
-       visitor.VisitComponentInfo context item1,
+       (visitor.VisitComponentInfo context item1),
        isRec,
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitModuleDecl context v),
+       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleDecl context v)),
        item4,
        item5)
     with get, set
@@ -5633,7 +5633,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitBinding context v),
+       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
        item3)
     with get, set
 
@@ -5672,7 +5672,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitExpr context item2,
+       (visitor.VisitExpr context item2),
        item3)
     with get, set
 
@@ -5709,7 +5709,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleDecl_Types(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypeDefn context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeDefn context v)),
        item2)
     with get, set
 
@@ -5745,7 +5745,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleDecl_Exception(
        visitor,
        context,
-       visitor.VisitExceptionDefn context item1,
+       (visitor.VisitExceptionDefn context item1),
        item2)
     with get, set
 
@@ -5817,7 +5817,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleDecl_Attributes(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        item2)
     with get, set
 
@@ -5888,7 +5888,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleDecl_NamespaceFragment(
        visitor,
        context,
-       visitor.VisitModuleOrNamespace context item)
+       (visitor.VisitModuleOrNamespace context item))
     with get, set
 
   /// <summary>
@@ -5970,10 +5970,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id,
        isRec,
        isModule,
-       decls |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitModuleDecl context v),
+       decls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleDecl context v)),
        xmlDoc,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       access |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -6045,10 +6045,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id,
        isRec,
        isModule,
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitModuleSigDecl context v),
+       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleSigDecl context v)),
        xmlDoc,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -6152,9 +6152,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleSigDecl_NestedModule(
        visitor,
        context,
-       visitor.VisitComponentInfo context item1,
+       (visitor.VisitComponentInfo context item1),
        isRec,
-       moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitModuleSigDecl context v),
+       moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleSigDecl context v)),
        range)
     with get, set
 
@@ -6192,7 +6192,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleSigDecl_Val(
        visitor,
        context,
-       visitor.VisitValSig context valSig,
+       (visitor.VisitValSig context valSig),
        range)
     with get, set
 
@@ -6228,7 +6228,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleSigDecl_Types(
        visitor,
        context,
-       typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypeDefnSig context v),
+       typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeDefnSig context v)),
        range)
     with get, set
 
@@ -6264,7 +6264,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleSigDecl_Exception(
        visitor,
        context,
-       visitor.VisitExceptionSig context exnSig,
+       (visitor.VisitExceptionSig context exnSig),
        range)
     with get, set
 
@@ -6371,7 +6371,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitModuleSigDecl_NamespaceFragment(
        visitor,
        context,
-       visitor.VisitModuleOrNamespaceSig context item)
+       (visitor.VisitModuleOrNamespaceSig context item))
     with get, set
 
   /// <summary>
@@ -6440,7 +6440,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Const(
        visitor,
        context,
-       visitor.VisitConst context constant,
+       (visitor.VisitConst context constant),
        range)
     with get, set
 
@@ -6512,10 +6512,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Named(
        visitor,
        context,
-       visitor.VisitPat context item1,
+       (visitor.VisitPat context item1),
        id,
        isThisVar,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -6555,8 +6555,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Typed(
        visitor,
        context,
-       visitor.VisitPat context item1,
-       visitor.VisitType context typeName,
+       (visitor.VisitPat context item1),
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -6594,8 +6594,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Attrib(
        visitor,
        context,
-       visitor.VisitPat context item1,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       (visitor.VisitPat context item1),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        range)
     with get, set
 
@@ -6633,8 +6633,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Or(
        visitor,
        context,
-       visitor.VisitPat context item1,
-       visitor.VisitPat context item2,
+       (visitor.VisitPat context item1),
+       (visitor.VisitPat context item2),
        range)
     with get, set
 
@@ -6671,7 +6671,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Ands(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitPat context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
        range)
     with get, set
 
@@ -6713,9 +6713,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        context,
        dotId,
        item2,
-       item3 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitValTyparDecls context v),
-       visitor.VisitConstructorArgs context item4,
-       item5 |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitValTyparDecls context v)),
+       (visitor.VisitConstructorArgs context item4),
+       item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -6755,7 +6755,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Tuple(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitPat context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
        range)
     with get, set
 
@@ -6791,7 +6791,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Paren(
        visitor,
        context,
-       visitor.VisitPat context item1,
+       (visitor.VisitPat context item1),
        range)
     with get, set
 
@@ -6829,7 +6829,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitPat context v),
+       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
        range)
     with get, set
 
@@ -6866,7 +6866,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_Record(
        visitor,
        context,
-       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, visitor.VisitPat context v1)),
+       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitPat context v1))),
        range)
     with get, set
 
@@ -6971,7 +6971,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_IsInst(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -7007,7 +7007,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_QuoteExpr(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -7088,7 +7088,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1,
        item2,
        item3,
-       accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -7127,7 +7127,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitPat_FromParseError(
        visitor,
        context,
-       visitor.VisitPat context item1,
+       (visitor.VisitPat context item1),
        range)
     with get, set
 
@@ -7291,7 +7291,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitRationalConst_Negate(
        visitor,
        context,
-       visitor.VisitRationalConst context item)
+       (visitor.VisitRationalConst context item))
     with get, set
 
   /// <summary>
@@ -7350,7 +7350,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitReturnInfo_SynReturnInfo(
        visitor,
        context,
-       (let item1 = item1 in visitor.VisitType context v0, visitor.VisitArgInfo context v1),
+       (let item1 = item1 in (visitor.VisitType context v0), (visitor.VisitArgInfo context v1)),
        range)
     with get, set
 
@@ -7456,8 +7456,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitSimplePat_Typed(
        visitor,
        context,
-       visitor.VisitSimplePat context item1,
-       visitor.VisitType context typeName,
+       (visitor.VisitSimplePat context item1),
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -7495,8 +7495,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitSimplePat_Attrib(
        visitor,
        context,
-       visitor.VisitSimplePat context item1,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       (visitor.VisitSimplePat context item1),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        range)
     with get, set
 
@@ -7647,7 +7647,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitSimplePats_SimplePats(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitSimplePat context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v)),
        range)
     with get, set
 
@@ -7684,8 +7684,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitSimplePats_Typed(
        visitor,
        context,
-       visitor.VisitSimplePats context item1,
-       visitor.VisitType context item2,
+       (visitor.VisitSimplePats context item1),
+       (visitor.VisitType context item2),
        range)
     with get, set
 
@@ -7746,8 +7746,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon(
        visitor,
        context,
-       visitor.VisitTypar context item1,
-       visitor.VisitType context item2,
+       (visitor.VisitTypar context item1),
+       (visitor.VisitType context item2),
        range)
     with get, set
 
@@ -7784,7 +7784,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitStaticOptimizationConstraint_WhenTyparIsStruct(
        visitor,
        context,
-       visitor.VisitTypar context item1,
+       (visitor.VisitTypar context item1),
        range)
     with get, set
 
@@ -7903,8 +7903,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTyparDecl_TyparDecl(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
-       visitor.VisitTypar context item2)
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+       (visitor.VisitTypar context item2))
     with get, set
 
   /// <summary>
@@ -7998,9 +7998,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_App(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        leftAngleRange,
-       typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        commaRanges,
        rightAngleRange,
        isPostfix,
@@ -8049,10 +8049,10 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_LongIdentApp(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        dotId,
        leftAngleRange,
-       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        commaRanges,
        rightAngleRange,
        range)
@@ -8095,7 +8095,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_Tuple(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, visitor.VisitType context v1)),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in v0, (visitor.VisitType context v1))),
        range)
     with get, set
 
@@ -8133,7 +8133,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitType context elementType,
+       (visitor.VisitType context elementType),
        range)
     with get, set
 
@@ -8171,8 +8171,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_Fun(
        visitor,
        context,
-       visitor.VisitType context argType,
-       visitor.VisitType context returnType,
+       (visitor.VisitType context argType),
+       (visitor.VisitType context returnType),
        range)
     with get, set
 
@@ -8209,7 +8209,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_Var(
        visitor,
        context,
-       visitor.VisitTypar context item1,
+       (visitor.VisitTypar context item1),
        range)
     with get, set
 
@@ -8279,8 +8279,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_WithGlobalConstraints(
        visitor,
        context,
-       visitor.VisitType context typeName,
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypeConstraint context v),
+       (visitor.VisitType context typeName),
+       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)),
        range)
     with get, set
 
@@ -8317,7 +8317,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_HashConstraint(
        visitor,
        context,
-       visitor.VisitType context typeName,
+       (visitor.VisitType context typeName),
        range)
     with get, set
 
@@ -8354,8 +8354,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_MeasureDivide(
        visitor,
        context,
-       visitor.VisitType context typeName,
-       visitor.VisitType context item2,
+       (visitor.VisitType context typeName),
+       (visitor.VisitType context item2),
        range)
     with get, set
 
@@ -8393,8 +8393,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_MeasurePower(
        visitor,
        context,
-       visitor.VisitType context typeName,
-       visitor.VisitRationalConst context item2,
+       (visitor.VisitType context typeName),
+       (visitor.VisitRationalConst context item2),
        range)
     with get, set
 
@@ -8431,7 +8431,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_StaticConstant(
        visitor,
        context,
-       visitor.VisitConst context constant,
+       (visitor.VisitConst context constant),
        range)
     with get, set
 
@@ -8467,7 +8467,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_StaticConstantExpr(
        visitor,
        context,
-       visitor.VisitExpr context expr,
+       (visitor.VisitExpr context expr),
        range)
     with get, set
 
@@ -8504,8 +8504,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitType_StaticConstantNamed(
        visitor,
        context,
-       visitor.VisitType context item1,
-       visitor.VisitType context item2,
+       (visitor.VisitType context item1),
+       (visitor.VisitType context item2),
        range)
     with get, set
 
@@ -8591,7 +8591,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsValueType(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8627,7 +8627,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsReferenceType(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8663,7 +8663,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsUnmanaged(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8699,7 +8699,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparSupportsNull(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8735,7 +8735,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsComparable(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8771,7 +8771,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsEquatable(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
+       (visitor.VisitTypar context genericName),
        range)
     with get, set
 
@@ -8808,8 +8808,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparDefaultsToType(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
-       visitor.VisitType context typeSig,
+       (visitor.VisitTypar context genericName),
+       (visitor.VisitType context typeSig),
        range)
     with get, set
 
@@ -8847,8 +8847,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparSubtypeOfType(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
-       visitor.VisitType context typeSig,
+       (visitor.VisitTypar context genericName),
+       (visitor.VisitType context typeSig),
        range)
     with get, set
 
@@ -8886,8 +8886,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparSupportsMember(
        visitor,
        context,
-       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypar context v),
-       visitor.VisitMemberSig context memberSig,
+       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypar context v)),
+       (visitor.VisitMemberSig context memberSig),
        range)
     with get, set
 
@@ -8925,8 +8925,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsEnum(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
-       enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       (visitor.VisitTypar context genericName),
+       enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        range)
     with get, set
 
@@ -8964,8 +8964,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeConstraint_WhereTyparIsDelegate(
        visitor,
        context,
-       visitor.VisitTypar context genericName,
-       delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitType context v),
+       (visitor.VisitTypar context genericName),
+       delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
        range)
     with get, set
 
@@ -9045,9 +9045,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefn_TypeDefn(
        visitor,
        context,
-       visitor.VisitComponentInfo context item1,
-       visitor.VisitTypeDefnRepr context item2,
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberDefn context v),
+       (visitor.VisitComponentInfo context item1),
+       (visitor.VisitTypeDefnRepr context item2),
+       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
        range)
     with get, set
 
@@ -9406,8 +9406,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnKind_TyconDelegate(
        visitor,
        context,
-       visitor.VisitType context item1,
-       visitor.VisitValInfo context item2)
+       (visitor.VisitType context item1),
+       (visitor.VisitValInfo context item2))
     with get, set
 
   /// <summary>
@@ -9484,8 +9484,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnRepr_ObjectModel(
        visitor,
        context,
-       visitor.VisitTypeDefnKind context item1,
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberDefn context v),
+       (visitor.VisitTypeDefnKind context item1),
+       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
        range)
     with get, set
 
@@ -9522,7 +9522,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnRepr_Simple(
        visitor,
        context,
-       visitor.VisitTypeDefnSimpleRepr context item1,
+       (visitor.VisitTypeDefnSimpleRepr context item1),
        range)
     with get, set
 
@@ -9557,7 +9557,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnRepr_Exception(
        visitor,
        context,
-       visitor.VisitExceptionDefnRepr context item)
+       (visitor.VisitExceptionDefnRepr context item))
     with get, set
 
   /// <summary>
@@ -9618,9 +9618,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSig_TypeDefnSig(
        visitor,
        context,
-       visitor.VisitComponentInfo context item1,
-       visitor.VisitTypeDefnSigRepr context item2,
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberSig context v),
+       (visitor.VisitComponentInfo context item1),
+       (visitor.VisitTypeDefnSigRepr context item2),
+       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
        range)
     with get, set
 
@@ -9680,8 +9680,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSigRepr_ObjectModel(
        visitor,
        context,
-       visitor.VisitTypeDefnKind context item1,
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitMemberSig context v),
+       (visitor.VisitTypeDefnKind context item1),
+       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
        range)
     with get, set
 
@@ -9718,7 +9718,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSigRepr_Simple(
        visitor,
        context,
-       visitor.VisitTypeDefnSimpleRepr context item1,
+       (visitor.VisitTypeDefnSimpleRepr context item1),
        range)
     with get, set
 
@@ -9753,7 +9753,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSigRepr_Exception(
        visitor,
        context,
-       visitor.VisitExceptionDefnRepr context item)
+       (visitor.VisitExceptionDefnRepr context item))
     with get, set
 
   /// <summary>
@@ -9813,8 +9813,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSimpleRepr_Union(
        visitor,
        context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitUnionCase context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitUnionCase context v)),
        range)
     with get, set
 
@@ -9851,7 +9851,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSimpleRepr_Enum(
        visitor,
        context,
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitEnumCase context v),
+       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitEnumCase context v)),
        range)
     with get, set
 
@@ -9888,8 +9888,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSimpleRepr_Record(
        visitor,
        context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       fields |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitField context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)),
        range)
     with get, set
 
@@ -9932,13 +9932,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSimpleRepr_General(
        visitor,
        context,
-       visitor.VisitTypeDefnKind context item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in visitor.VisitType context v0, v1, v2)),
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in visitor.VisitValSig context v0, v1)),
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitField context v),
+       (visitor.VisitTypeDefnKind context item1),
+       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (visitor.VisitType context v0), v1, v2)),
+       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v = v in (visitor.VisitValSig context v0), v1)),
+       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)),
        item5,
        item6,
-       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitSimplePat context v)),
+       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v))),
        range)
     with get, set
 
@@ -10018,7 +10018,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitType context item2,
+       (visitor.VisitType context item2),
        range)
     with get, set
 
@@ -10087,7 +10087,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitTypeDefnSimpleRepr_Exception(
        visitor,
        context,
-       visitor.VisitExceptionDefnRepr context item)
+       (visitor.VisitExceptionDefnRepr context item))
     with get, set
 
   /// <summary>
@@ -10160,11 +10160,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitUnionCase_UnionCase(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        id,
-       visitor.VisitUnionCaseType context caseType,
+       (visitor.VisitUnionCaseType context caseType),
        xmlDoc,
-       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
+       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
        range)
     with get, set
 
@@ -10224,7 +10224,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitUnionCaseType_UnionCaseFields(
        visitor,
        context,
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitField context v))
+       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)))
     with get, set
 
   /// <summary>
@@ -10257,7 +10257,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitUnionCaseType_UnionCaseFullType(
        visitor,
        context,
-       (let item = item in visitor.VisitType context v0, visitor.VisitValInfo context v1))
+       (let item = item in (visitor.VisitType context v0), (visitor.VisitValInfo context v1)))
     with get, set
 
   /// <summary>
@@ -10316,7 +10316,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        visitor,
        context,
        item1,
-       visitor.VisitValInfo context item2,
+       (visitor.VisitValInfo context item2),
        item3)
     with get, set
 
@@ -10374,8 +10374,8 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitValInfo_SynValInfo(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitArgInfo context v)),
-       visitor.VisitArgInfo context item2)
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitArgInfo context v))),
+       (visitor.VisitArgInfo context item2))
     with get, set
 
   /// <summary>
@@ -10440,16 +10440,16 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitValSig_ValSpfn(
        visitor,
        context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute (v.TypeName) (visitor.VisitExpr context v.ArgExpr) (v.Target) (v.AppliesToGetterAndSetter) (v.Range)),
+       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
        id,
-       visitor.VisitValTyparDecls context typeParams,
-       visitor.VisitType context typeName,
-       visitor.VisitValInfo context valInfo,
+       (visitor.VisitValTyparDecls context typeParams),
+       (visitor.VisitType context typeName),
+       (visitor.VisitValInfo context valInfo),
        item6,
        isMutable,
        xmlDoc,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitAccess context v),
-       expr |> Microsoft.FSharp.Core.Option.map (fun v -> visitor.VisitExpr context v),
+       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
+       expr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
        range)
     with get, set
 
@@ -10516,9 +10516,9 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
       visitor.VisitValTyparDecls_SynValTyparDecls(
        visitor,
        context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTyparDecl context v),
+       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTyparDecl context v)),
        item2,
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> visitor.VisitTypeConstraint context v))
+       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)))
     with get, set
 
   /// <summary>

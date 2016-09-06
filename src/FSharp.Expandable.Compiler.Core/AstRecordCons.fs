@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 06:09:29 GMT
+// Generated: Tue, 06 Sep 2016 07:18:30 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast
@@ -13,6 +13,7 @@ open Microsoft.FSharp.Compiler.AbstractIL
 open Microsoft.FSharp.Compiler.AbstractIL.IL
 
 /// Construct record types without conflict free.
+[<AutoOpen>]
 module AstRecordCons =
 
   /// <summary>
