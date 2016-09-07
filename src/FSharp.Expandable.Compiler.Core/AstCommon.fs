@@ -21,6 +21,8 @@
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
+//////////////////////////////////////////////////////////////////////////////
+
 /// Non generic view of RefWrapper.
 type private IRefWrapper =
   abstract UpdateIf : unit -> unit
@@ -59,6 +61,8 @@ type RefWrapperHolder() =
   interface System.IDisposable with
     member __.Dispose() =
       for wrapper in wrappers do wrapper.UpdateIf()
+
+//////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Target for fscx filter.

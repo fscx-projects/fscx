@@ -154,3 +154,24 @@ type internal AstInheritableVisitorGenerator() =
       "      parents.Pop() |> ignore\r\n" +
       "\r\n"
   |]
+  
+  /// <summary>
+  /// Generate body lines.
+  /// </summary>
+  /// <returns>Generated lines.</returns>
+  override __.GenerateBodies () =
+    let lines = base.GenerateBodies()
+    seq {
+     yield! lines
+     yield "\r\n" +
+      "  interface IAstVisitor<'TContext> with\r\n" +
+      "    /// <summary>\r\n" +
+      "    /// Visit the parsed input.\r\n" +
+      "    /// </summary>\r\n" +
+      "    /// <param name=\"context\">Visito context.</param>\r\n" +
+      "    /// <param name=\"parsedInput\">Target for ParsedInput instance.</param>\r\n" +
+      "    /// <returns>Visited instance.</returns>\r\n" +
+      "    member this.VisitParsedInput context parsedInput = \r\n" +
+      "      this.VisitParsedInput context parsedInput\r\n" +
+      "\r\n"
+  }

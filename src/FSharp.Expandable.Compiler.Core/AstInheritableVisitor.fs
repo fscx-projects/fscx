@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 07 Sep 2016 01:15:02 GMT
+// Generated: Wed, 07 Sep 2016 06:14:44 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -14137,4 +14137,15 @@ type AstInheritableVisitor<'TContext>() =
         this.BeforeVisitValTyparDecls_SynValTyparDecls(context, item1, item2, constraints)
     finally
       parents.Pop() |> ignore
+
+
+  interface IAstVisitor<'TContext> with
+    /// <summary>
+    /// Visit the parsed input.
+    /// </summary>
+    /// <param name="context">Visito context.</param>
+    /// <param name="parsedInput">Target for ParsedInput instance.</param>
+    /// <returns>Visited instance.</returns>
+    member this.VisitParsedInput context parsedInput = 
+      this.VisitParsedInput context parsedInput
 
