@@ -29,7 +29,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 /// Inherit this class if use AstDelegatableVisitor, and override SetupVisitor method.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstDelegatableVisitor<'TContext> =
+type DeclareAstDelegatableVisitor<'TContext>() =
 
   /// <summary>
   /// Setup visitor.

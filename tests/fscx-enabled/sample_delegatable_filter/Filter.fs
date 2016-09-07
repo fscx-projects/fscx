@@ -145,20 +145,23 @@ let isIdent = function
 ////////////////////////////////////////////////
 
 type InsertLoggingVisitor() =
-  inherit AstInheritableVisitor<FSharpCheckFileResults>()
+  inherit DeclareAstDelegatableVisitor<FSharpCheckFileResults>()
 
   //////////////////////////////////
-  // Quote
+  // Setup
+  //  override __.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
 
-  override __.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) =
+  override __.SetupVisitor visitor =
+
+#if aaa
+   // TODO: Cannot interception...
+   visitor.VisitExpr_Quote <- fun (visitor, context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range) ->
     // DEBUG
     printfn "%A" operator
     base.VisitExpr_Quote(context, operator, isRaw, quoteSynExpr, isFromQueryExpression, range)
+#endif
 
-  //////////////////////////////////
-  // App
-
-  override __.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
+   visitor.VisitExpr_App <- fun (visitor, context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
     match funcExpr with
     | SynExpr.Ident _
     | SynExpr.LongIdent _ -> 
