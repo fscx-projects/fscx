@@ -253,4 +253,3 @@ module internal Utilities =
   use fs = Assembly.GetExecutingAssembly().GetManifestResourceStream(name)
   let tr = new StreamReader(fs, Encoding.UTF8)
   tr.ReadToEnd()
-

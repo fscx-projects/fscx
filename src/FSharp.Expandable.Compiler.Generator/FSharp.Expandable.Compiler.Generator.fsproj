@@ -54,10 +54,11 @@
     <EmbeddedResource Include="Templates\AstInheritableVisitorTemplate.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
+    <Compile Include="VisitorUtilities.fs" />
     <Compile Include="GeneratorBase.fs" />
     <Compile Include="AstRecordConsGenerator.fs" />
     <Compile Include="AstElementGenerator.fs" />
-    <Compile Include="VisitorUtilities.fs" />
+    <Compile Include="AstVisitorGeneratorBase.fs" />
     <Compile Include="AstDelegatableVisitorGenerator.fs" />
     <Compile Include="AstInheritableVisitorGenerator.fs" />
     <Compile Include="Program.fs" />

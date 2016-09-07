@@ -30,6 +30,7 @@ open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
+open Microsoft.FSharp.Compiler.Ast.Visitor
 
 type internal WriteInfo =
 | Message of typ: EventLogEntryType * path: string * message: string
@@ -127,23 +128,14 @@ module internal CompilerImpl =
  
   /// Apply filter with visitors
   let astFilter
-     (visitors: AstVisitor<FSharpCheckFileResults> seq)
+     (visitors: IAstVisitor<FSharpCheckFileResults> seq)
      (context: FSharpCheckFileResults)
      (ast: ParsedInput) =
-    match ast with
-    | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
-      let convertedModOrNss =
-        synModOrNss
-        |> List.map (
-          fun synModOrNs ->
-          visitors |> Seq.fold (fun mon visitor -> visitor.VisitModuleOrNamespace context mon)
-            synModOrNs)
-      ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convertedModOrNss, x))
-    | other -> other
+    visitors |> Seq.fold (fun partialAst visitor -> visitor.VisitParsedInput context partialAst) ast
  
   ///////////////////////////////////////////////////////
 
-  let private simpleTypeName (visitor: AstVisitor<FSharpCheckFileResults>) =
+  let private simpleTypeName (visitor: IAstVisitor<FSharpCheckFileResults>) =
     let t = visitor.GetType()
     let name = t.FullName
     let index = name.IndexOf '`'
@@ -152,7 +144,7 @@ module internal CompilerImpl =
        (if index >= 0 then name.Substring(0, index) else name),
        t.Assembly.GetName().Name)
 
-  let private printVisitor (visitor: AstVisitor<FSharpCheckFileResults>) =
+  let private printVisitor (visitor: IAstVisitor<FSharpCheckFileResults>) =
     System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
 
   /// Read text file and iterate.
@@ -186,7 +178,7 @@ module internal CompilerImpl =
   let asyncCompile
      (writer: WriteInfo -> unit)
      (arguments: CompilerArguments)
-     (visitors: AstVisitor<FSharpCheckFileResults> seq) = async {
+     (visitors: IAstVisitor<FSharpCheckFileResults> seq) = async {
     try
       // Debugger hook point
       if arguments.FscxDebug then

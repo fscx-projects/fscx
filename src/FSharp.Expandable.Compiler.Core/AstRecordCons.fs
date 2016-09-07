@@ -1,9 +1,9 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 06 Sep 2016 10:35:07 GMT
+// Generated: Wed, 07 Sep 2016 01:15:02 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
 open Microsoft.FSharp.Compiler

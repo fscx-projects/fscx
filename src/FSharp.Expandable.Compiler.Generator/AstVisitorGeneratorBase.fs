@@ -24,24 +24,25 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
-open System.Reflection
 
-open Microsoft.FSharp.Core
-open Microsoft.FSharp.Reflection
-open Microsoft.FSharp.Compiler.Ast
-
-[<Sealed>]
-type internal AstElementGenerator() =
+/// Base type of visitor generator.
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type internal AstVisitorGeneratorBase() =
   inherit GeneratorBase()
+
+  /// <summary>
+  /// Generate lines by type declaration.
+  /// </summary>
+  /// <param name="visitorTargets">Targets for require invoke visitor.</param>
+  /// <param name="unionType">Target DU type.</param>
+  /// <returns>Generated lines.</returns>
+  abstract member GenerateByType : visitorTargets:IReadOnlyDictionary<Type, string> -> unionType:Type -> string[]
 
   /// <summary>
   /// Generate body lines.
   /// </summary>
   /// <returns>Generated lines.</returns>
-  override __.GenerateBodies () =
+  override this.GenerateBodies () =
     let types = VisitorUtilities.getTargetAstTypes()
-    types |> Seq.map (fun t ->
-      String.Format(
-        "  | {0} of {1}\r\n",
-        VisitorUtilities.formatUnionTypeShortName t,
-        t.Name))
+    let exprs = types.ToDictionary((fun t -> t), (fun t -> VisitorUtilities.formatUnionTypeShortName t)) :> IReadOnlyDictionary<_, _>
+    exprs.Keys |> Seq.collect (this.GenerateByType exprs)

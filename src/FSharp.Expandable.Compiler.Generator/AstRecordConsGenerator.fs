@@ -57,6 +57,10 @@ type internal AstRecordConsGenerator() =
       String.Join("\r\n     ", args),
       String.Join(";\r\n      ", inits))
 
+  /// <summary>
+  /// Generate body lines.
+  /// </summary>
+  /// <returns>Generated lines.</returns>
   override __.GenerateBodies () =
     let astType = typeof<SynExpr>.DeclaringType
     let assembly = astType.Assembly

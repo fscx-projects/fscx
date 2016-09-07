@@ -50,7 +50,8 @@ module internal VisitorUtilities =
 
   // SynAccess --> Access
   let formatUnionTypeShortName (unionType: Type) =
-    unionType.Name.Substring 3
+    let name = unionType.Name
+    if name.StartsWith "Syn" then name.Substring 3 else name
 
   // HACK: If casename = typename: compiler meaning 1st name is casename, cause 2nd name is invalid...
   // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
@@ -226,3 +227,11 @@ module internal VisitorUtilities =
   /// Results are composed argument string and require using reference cell.
   let formatArgument visitTargets (visitorName: string) (refWrapperHolderName: string) (field: PropertyInfo) = 
     formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
+                 
+  let getTargetAstTypes () =
+    let astType = typeof<SynExpr>.DeclaringType
+    let assembly = astType.Assembly
+    assembly.GetTypes()
+      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && ((t.Name.StartsWith "Syn") || (t.Name = "ParsedInput")))
+      |> Seq.sortBy (fun t -> t.Name)
+      |> Seq.toArray

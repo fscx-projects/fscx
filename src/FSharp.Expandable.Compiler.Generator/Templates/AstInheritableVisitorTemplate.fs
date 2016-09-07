@@ -3,7 +3,7 @@
 // Generated: {0:R}
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 #nowarn "1182"
 
@@ -17,7 +17,7 @@ namespace Microsoft.FSharp.Compiler.Ast
 type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
-  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>()
+  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>()
 
   /// <summary>
   /// Parent nodes

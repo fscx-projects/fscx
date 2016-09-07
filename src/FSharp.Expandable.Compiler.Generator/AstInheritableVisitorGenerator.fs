@@ -28,9 +28,9 @@ open System.Linq
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
-[<Sealed>]
+[<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
 type internal AstInheritableVisitorGenerator() =
-  inherit GeneratorBase()
+  inherit AstVisitorGeneratorBase()
 
   // TODO: Async<SynExpr> - replace all expr with Async/Async workflow/let! NO EXCEPTS, very hard...
 
@@ -116,13 +116,19 @@ type internal AstInheritableVisitorGenerator() =
       unionCase.Name,
       String.Join(", ", args))
 
-  let generateByType exprs (unionType: Type) = [|
+  /// <summary>
+  /// Generate lines by type declaration.
+  /// </summary>
+  /// <param name="visitorTargets">Targets for require invoke visitor.</param>
+  /// <param name="unionType">Target DU type.</param>
+  /// <returns>Generated lines.</returns>
+  override __.GenerateByType visitorTargets (unionType: Type) = [|
     yield String.Format(
       "  //////////////////////////////////////////////\r\n" +
       "  // Expression: {0}\r\n" +
       "\r\n",
       unionType.Name)
-    yield! FSharpType.GetUnionCases unionType |> Seq.map (generateByUnion exprs unionType)
+    yield! FSharpType.GetUnionCases unionType |> Seq.map (generateByUnion visitorTargets unionType)
     yield "\r\n"
     yield String.Format(
       "  /// <summary>\r\n" +
@@ -134,7 +140,7 @@ type internal AstInheritableVisitorGenerator() =
       "  member this.Visit{1}\r\n" +
       "      (context: 'TContext)\r\n" +
       "      ({2}: {3}) =\r\n" +
-      "    parents.Push(Microsoft.FSharp.Compiler.Ast.AstElement.{1} {2})\r\n" +
+      "    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
       unionType.Name,
@@ -148,13 +154,3 @@ type internal AstInheritableVisitorGenerator() =
       "      parents.Pop() |> ignore\r\n" +
       "\r\n"
   |]
-
-  override __.GenerateBodies () =
-    let astType = typeof<SynExpr>.DeclaringType
-    let assembly = astType.Assembly
-    let types =
-      assembly.GetTypes()
-      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && (t.Name.StartsWith "Syn"))
-      |> Seq.sortBy (fun t -> t.Name)
-    let exprs = types.ToDictionary((fun t -> t), (fun t -> VisitorUtilities.formatUnionTypeShortName t)) :> IReadOnlyDictionary<_, _>
-    exprs.Keys |> Seq.collect (generateByType exprs)

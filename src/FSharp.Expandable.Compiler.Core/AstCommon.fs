@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 /// Non generic view of RefWrapper.
 type private IRefWrapper =
@@ -27,12 +27,12 @@ type private IRefWrapper =
 
 /// RefWrapper.
 [<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
-type private RefWrapper<'T>(orig: 'T ref, visited: 'T) =
+type private RefWrapper<'T>(origRef: 'T ref, visited: 'T) =
   member __.Delegator : 'T ref = ref visited
   interface IRefWrapper with
     member this.UpdateIf() =
       if not (obj.ReferenceEquals(visited, this.Delegator.Value)) then
-        orig.Value <- this.Delegator.Value
+        origRef.Value <- this.Delegator.Value
 
 /// <summary>
 /// Registering reference cell and wrapping visitor.
@@ -43,19 +43,36 @@ type private RefWrapper<'T>(orig: 'T ref, visited: 'T) =
 /// </remarks>
 [<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
 type RefWrapperHolder() =
-  let rws = new ResizeArray<IRefWrapper>()
+  let wrappers = new ResizeArray<IRefWrapper>()
 
   /// <summary>
   /// Wrapping reference cell.
   /// </summary>
-  /// <param name="orig">Original reference cell instance.</param>
+  /// <param name="origRef">Original reference cell instance.</param>
   /// <param name="visited">Visited instance.</param>
   /// <returns>Wrapped reference cell instance.</returns>
-  member inline __.Wrap (orig: 'T ref) (visited: 'T) : 'T ref =
-    let wrapper = new RefWrapper<'T>(orig, visited)
-    rws.Add wrapper
+  member __.Wrap (origRef: 'T ref) (visited: 'T) : 'T ref =
+    let wrapper = new RefWrapper<'T>(origRef, visited)
+    wrappers.Add wrapper
     wrapper.Delegator
 
   interface System.IDisposable with
     member __.Dispose() =
-      for rw in rws do rw.UpdateIf()
+      for wrapper in wrappers do wrapper.UpdateIf()
+
+/// <summary>
+/// Target for fscx filter.
+/// </summary>
+/// <typeparam name="'TContext">Visitor context type.</typeparam>
+type IAstVisitor<'TContext> =
+
+  /// <summary>
+  /// Visit the parsed input.
+  /// </summary>
+  /// <param name="context">Visito context.</param>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  /// <returns>Visited instance.</returns>
+  abstract VisitParsedInput :
+    context: 'TContext ->
+    parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
+    Microsoft.FSharp.Compiler.Ast.ParsedInput

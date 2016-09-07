@@ -26,7 +26,7 @@ open System.Diagnostics
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Ast.Visitor
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
 /// <summary>
@@ -136,7 +136,7 @@ type Compiler =
       |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
       |> Seq.collect (fun a -> a.GetTypes())
       |> Seq.filter AssemblyLoader.isVisitorType
-      |> Seq.map (fun t -> Activator.CreateInstance t :?> AstVisitor<FSharpCheckFileResults>)
+      |> Seq.map (fun t -> Activator.CreateInstance t :?> IAstVisitor<FSharpCheckFileResults>)
       |> Seq.toArray
     let internalWriter = Compiler.WrappedBridgedWriter writer
     return! CompilerImpl.asyncCompile internalWriter arguments visitors

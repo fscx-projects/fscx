@@ -3,7 +3,7 @@
 // Generated: {0:R}
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 #nowarn "1182"
 
@@ -14,7 +14,7 @@ namespace Microsoft.FSharp.Compiler.Ast
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>) =
+type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>) =
 
   // TODO: du element
   let parents = parentParents
@@ -23,7 +23,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// Constructor.
   /// </summary>
   new() =
-    AstDelegatableVisitor<'TContext>(new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>())
+    AstDelegatableVisitor<'TContext>(new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>())
 
   /// <summary>
   /// Parent nodes

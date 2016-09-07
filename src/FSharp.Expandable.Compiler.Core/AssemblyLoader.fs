@@ -25,9 +25,8 @@ open System
 open System.IO
 open System.Reflection
 
-open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SourceCodeServices
+open Microsoft.FSharp.Compiler.Ast.Visitor
 
 module internal AssemblyLoader =
 
@@ -38,7 +37,7 @@ module internal AssemblyLoader =
 
   /// Include only visitor type.
   let isVisitorType (t: Type) =
-    let visitorType = typeof<AstVisitor<FSharpCheckFileResults>>
+    let visitorType = typeof<IAstVisitor<FSharpCheckFileResults>>
     visitorType.IsAssignableFrom t && (t.GetConstructor(Type.EmptyTypes) <> null)
 
   /// Get local path from assembly.
