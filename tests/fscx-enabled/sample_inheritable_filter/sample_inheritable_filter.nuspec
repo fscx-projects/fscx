@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>fscx-sample-inheritable-filter</id>
+    <version>0.1.27-pre</version>
+    <title>fscx-sample-inheritable-filter</title>
+    <authors>Kouji Matsui</authors>
+    <owners>Kouji Matsui</owners>
+    <summary>Expandable F# compiler's sample custom filter package.</summary>
+    <description>Expandable F# compiler's sample custom filter package.</description>
+    <copyright>Author: Kouji Matsui, bleis-tift</copyright>
+    <projectUrl>http://github.com/fscx-projects/fscx</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
+    <tags>fscx</tags>
+    <dependencies>
+      <dependency id="fscx" version="0.1.27" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- CAUTION: Filter assembly MUST place into "build" folder. -->
+    <file src="bin/Debug/sample_inheritable_filter.dll" target="build" />
+    <file src="bin/Debug/sample_inheritable_filter.pdb" target="build" />
+  </files>
+</package>

@@ -14,6 +14,7 @@ module Filter
 open System.Reflection
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Ast.Visitor
 open Microsoft.FSharp.Compiler.Range
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
@@ -144,7 +145,7 @@ let isIdent = function
 ////////////////////////////////////////////////
 
 type InsertLoggingVisitor() =
-  inherit AstVisitor<FSharpCheckFileResults>()
+  inherit AstInheritableVisitor<FSharpCheckFileResults>()
 
   //////////////////////////////////
   // Quote
@@ -282,11 +283,3 @@ type InsertLoggingVisitor() =
             range)
     | _ ->
       base.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range)
-
-let apply (ast: ParsedInput) (context: FSharpCheckFileResults) =
-  match ast with
-  | ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, synModOrNss, x)) ->
-      let visitor = new InsertLoggingVisitor()
-      let convertedModOrNss = synModOrNss |> List.map (visitor.VisitModuleOrNamespace context)
-      ParsedInput.ImplFile(ParsedImplFileInput(filename, isScript, qualifiedNameOfFile, scopedPragmas, parsedHashDirectives, convertedModOrNss, x))
-  | other -> other

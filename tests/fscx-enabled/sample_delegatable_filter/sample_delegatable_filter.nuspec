@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>fscx-sample-filter</id>
-    <version>0.1.3-pre</version>
-    <title>fscx-sample-filter</title>
+    <id>fscx-sample-delegatable-filter</id>
+    <version>0.1.27-pre</version>
+    <title>fscx-sample-delegatable-filter</title>
     <authors>Kouji Matsui</authors>
     <owners>Kouji Matsui</owners>
     <summary>Expandable F# compiler's sample custom filter package.</summary>
@@ -15,11 +15,12 @@
     <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
     <tags>fscx</tags>
     <dependencies>
-      <dependency id="fscx" version="0.1.25" />
+      <dependency id="fscx" version="0.1.27" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin/Debug/sample_filter.dll" target="build" />
-    <file src="bin/Debug/sample_filter.pdb" target="build" />
+    <!-- CAUTION: Filter assembly MUST place into "build" folder. -->
+    <file src="bin/Debug/sample_delegatable_filter.dll" target="build" />
+    <file src="bin/Debug/sample_delegatable_filter.pdb" target="build" />
   </files>
 </package>
