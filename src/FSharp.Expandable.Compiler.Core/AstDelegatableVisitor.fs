@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 07 Sep 2016 06:14:44 GMT
+// Generated: Wed, 07 Sep 2016 08:50:16 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -45,17 +45,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_ImplFile".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitParsedInput_ImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) ->
-      visitor.VisitParsedInput_ImplFile(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) -> None
     with get, set
 
   /// <summary>
@@ -63,14 +58,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "ParsedInput.ImplFile".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitParsedInput_ImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) ->
-      Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item)
+       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) -> None
     with get, set
 
   /// <summary>
@@ -78,17 +71,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_SigFile".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitParsedInput_SigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) ->
-      visitor.VisitParsedInput_SigFile(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) -> None
     with get, set
 
   /// <summary>
@@ -96,14 +84,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "ParsedInput.SigFile".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitParsedInput_SigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) ->
-      Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item)
+       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) -> None
     with get, set
 
 
@@ -120,9 +106,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match parsedInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
-        this.BeforeVisitParsedInput_ImplFile(this, context, item)
+        match this.BeforeVisitParsedInput_ImplFile(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitParsedInput_ImplFile(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item)
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item) ->
-        this.BeforeVisitParsedInput_SigFile(this, context, item)
+        match this.BeforeVisitParsedInput_SigFile(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitParsedInput_SigFile(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item)
     finally
       parents.Pop() |> ignore
 
@@ -134,15 +132,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitAccess_Public".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitAccess_Public =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitAccess_Public(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -150,13 +144,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynAccess.Public".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitAccess_Public =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynAccess.Public
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -164,15 +156,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitAccess_Internal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitAccess_Internal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitAccess_Internal(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -180,13 +168,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynAccess.Internal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitAccess_Internal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynAccess.Internal
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -194,15 +180,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitAccess_Private".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitAccess_Private =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitAccess_Private(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -210,13 +192,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynAccess.Private".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitAccess_Private =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynAccess.Private
+       context: 'TContext) -> None
     with get, set
 
 
@@ -233,11 +213,26 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synAccess with
       | Microsoft.FSharp.Compiler.Ast.SynAccess.Public ->
-        this.BeforeVisitAccess_Public(this, context)
+        match this.BeforeVisitAccess_Public(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitAccess_Public(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynAccess.Public
       | Microsoft.FSharp.Compiler.Ast.SynAccess.Internal ->
-        this.BeforeVisitAccess_Internal(this, context)
+        match this.BeforeVisitAccess_Internal(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitAccess_Internal(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynAccess.Internal
       | Microsoft.FSharp.Compiler.Ast.SynAccess.Private ->
-        this.BeforeVisitAccess_Private(this, context)
+        match this.BeforeVisitAccess_Private(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitAccess_Private(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynAccess.Private
     finally
       parents.Pop() |> ignore
 
@@ -249,21 +244,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitArgInfo_SynArgInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitArgInfo_SynArgInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        optional: bool,
-       id: Microsoft.FSharp.Compiler.Ast.Ident option) ->
-      visitor.VisitArgInfo_SynArgInfo(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       optional,
-       id)
+       id: Microsoft.FSharp.Compiler.Ast.Ident option) -> None
     with get, set
 
   /// <summary>
@@ -271,16 +259,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynArgInfo.SynArgInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitArgInfo_SynArgInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        optional: bool,
-       id: Microsoft.FSharp.Compiler.Ast.Ident option) ->
-      Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id)
+       id: Microsoft.FSharp.Compiler.Ast.Ident option) -> None
     with get, set
 
 
@@ -297,7 +283,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synArgInfo with
       | Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id) ->
-        this.BeforeVisitArgInfo_SynArgInfo(this, context, attributes, optional, id)
+        match this.BeforeVisitArgInfo_SynArgInfo(this, context, attributes, optional, id) with
+        | Some result -> result
+        | None ->
+          let attributes, optional, id = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), optional, id
+          match this.VisitArgInfo_SynArgInfo(this, context, attributes, optional, id) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id)
     finally
       parents.Pop() |> ignore
 
@@ -309,8 +301,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitBinding_Binding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitBinding_Binding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -326,22 +317,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item9: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        lhsRange: Microsoft.FSharp.Compiler.Range.range,
-       spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding) ->
-      visitor.VisitBinding_Binding(
-       visitor,
-       context,
-       access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       (visitor.VisitBindingKind context bindingKind),
-       mustInline,
-       isMutable,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       xmlDoc,
-       (visitor.VisitValData context item7),
-       (visitor.VisitPat context headPat),
-       item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitBindingReturnInfo context v)),
-       (visitor.VisitExpr context expr),
-       lhsRange,
-       spBind)
+       spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding) -> None
     with get, set
 
   /// <summary>
@@ -349,8 +325,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynBinding.Binding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitBinding_Binding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -366,8 +341,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item9: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        lhsRange: Microsoft.FSharp.Compiler.Range.range,
-       spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding) ->
-      Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
+       spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding) -> None
     with get, set
 
 
@@ -384,7 +358,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synBinding with
       | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
-        this.BeforeVisitBinding_Binding(this, context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
+        match this.BeforeVisitBinding_Binding(this, context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) with
+        | Some result -> result
+        | None ->
+          let access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind = access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitBindingKind context bindingKind), mustInline, isMutable, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), xmlDoc, (this.VisitValData context item7), (this.VisitPat context headPat), item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitBindingReturnInfo context v)), (this.VisitExpr context expr), lhsRange, spBind
+          match this.VisitBinding_Binding(this, context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
     finally
       parents.Pop() |> ignore
 
@@ -396,15 +376,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitBindingKind_StandaloneExpression".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitBindingKind_StandaloneExpression =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitBindingKind_StandaloneExpression(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -412,13 +388,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynBindingKind.StandaloneExpression".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitBindingKind_StandaloneExpression =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -426,15 +400,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitBindingKind_NormalBinding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitBindingKind_NormalBinding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitBindingKind_NormalBinding(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -442,13 +412,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynBindingKind.NormalBinding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitBindingKind_NormalBinding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -456,15 +424,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitBindingKind_DoBinding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitBindingKind_DoBinding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitBindingKind_DoBinding(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -472,13 +436,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynBindingKind.DoBinding".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitBindingKind_DoBinding =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynBindingKind.DoBinding
+       context: 'TContext) -> None
     with get, set
 
 
@@ -495,11 +457,26 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synBindingKind with
       | Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression ->
-        this.BeforeVisitBindingKind_StandaloneExpression(this, context)
+        match this.BeforeVisitBindingKind_StandaloneExpression(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitBindingKind_StandaloneExpression(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression
       | Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding ->
-        this.BeforeVisitBindingKind_NormalBinding(this, context)
+        match this.BeforeVisitBindingKind_NormalBinding(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitBindingKind_NormalBinding(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding
       | Microsoft.FSharp.Compiler.Ast.SynBindingKind.DoBinding ->
-        this.BeforeVisitBindingKind_DoBinding(this, context)
+        match this.BeforeVisitBindingKind_DoBinding(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitBindingKind_DoBinding(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynBindingKind.DoBinding
     finally
       parents.Pop() |> ignore
 
@@ -511,21 +488,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitBindingReturnInfo_SynBindingReturnInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitBindingReturnInfo_SynBindingReturnInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        range: Microsoft.FSharp.Compiler.Range.range,
-       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list) ->
-      visitor.VisitBindingReturnInfo_SynBindingReturnInfo(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       range,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range))
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list) -> None
     with get, set
 
   /// <summary>
@@ -533,16 +503,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynBindingReturnInfo.SynBindingReturnInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitBindingReturnInfo_SynBindingReturnInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        range: Microsoft.FSharp.Compiler.Range.range,
-       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list) ->
-      Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes)
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list) -> None
     with get, set
 
 
@@ -559,7 +527,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synBindingReturnInfo with
       | Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes) ->
-        this.BeforeVisitBindingReturnInfo_SynBindingReturnInfo(this, context, typeName, range, attributes)
+        match this.BeforeVisitBindingReturnInfo_SynBindingReturnInfo(this, context, typeName, range, attributes) with
+        | Some result -> result
+        | None ->
+          let typeName, range, attributes = (this.VisitType context typeName), range, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range)
+          match this.VisitBindingReturnInfo_SynBindingReturnInfo(this, context, typeName, range, attributes) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes)
     finally
       parents.Pop() |> ignore
 
@@ -571,8 +545,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitComponentInfo_ComponentInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitComponentInfo_ComponentInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -584,18 +557,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        preferPostfix: bool,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitComponentInfo_ComponentInfo(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTyparDecl context v)),
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)),
-       item4,
-       xmlDoc,
-       preferPostfix,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -603,8 +565,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynComponentInfo.ComponentInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitComponentInfo_ComponentInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -616,8 +577,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        preferPostfix: bool,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -634,7 +594,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synComponentInfo with
       | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
-        this.BeforeVisitComponentInfo_ComponentInfo(this, context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
+        match this.BeforeVisitComponentInfo_ComponentInfo(this, context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) with
+        | Some result -> result
+        | None ->
+          let attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTyparDecl context v)), constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeConstraint context v)), item4, xmlDoc, preferPostfix, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitComponentInfo_ComponentInfo(this, context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
     finally
       parents.Pop() |> ignore
 
@@ -646,15 +612,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Unit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Unit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitConst_Unit(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -662,13 +624,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Unit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Unit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Unit
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -676,17 +636,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Bool".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Bool =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: bool) ->
-      visitor.VisitConst_Bool(
-       visitor,
-       context,
-       item)
+       item: bool) -> None
     with get, set
 
   /// <summary>
@@ -694,14 +649,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Bool".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Bool =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: bool) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Bool(item)
+       item: bool) -> None
     with get, set
 
   /// <summary>
@@ -709,17 +662,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_SByte".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_SByte =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.SByte) ->
-      visitor.VisitConst_SByte(
-       visitor,
-       context,
-       item)
+       item: System.SByte) -> None
     with get, set
 
   /// <summary>
@@ -727,14 +675,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.SByte".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_SByte =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.SByte) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.SByte(item)
+       item: System.SByte) -> None
     with get, set
 
   /// <summary>
@@ -742,17 +688,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Byte".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Byte =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: byte) ->
-      visitor.VisitConst_Byte(
-       visitor,
-       context,
-       item)
+       item: byte) -> None
     with get, set
 
   /// <summary>
@@ -760,14 +701,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Byte".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Byte =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: byte) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Byte(item)
+       item: byte) -> None
     with get, set
 
   /// <summary>
@@ -775,17 +714,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Int16".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Int16 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int16) ->
-      visitor.VisitConst_Int16(
-       visitor,
-       context,
-       item)
+       item: int16) -> None
     with get, set
 
   /// <summary>
@@ -793,14 +727,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Int16".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Int16 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int16) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Int16(item)
+       item: int16) -> None
     with get, set
 
   /// <summary>
@@ -808,17 +740,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UInt16".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UInt16 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt16) ->
-      visitor.VisitConst_UInt16(
-       visitor,
-       context,
-       item)
+       item: System.UInt16) -> None
     with get, set
 
   /// <summary>
@@ -826,14 +753,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UInt16".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UInt16 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt16) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UInt16(item)
+       item: System.UInt16) -> None
     with get, set
 
   /// <summary>
@@ -841,17 +766,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Int32".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Int32 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int) ->
-      visitor.VisitConst_Int32(
-       visitor,
-       context,
-       item)
+       item: int) -> None
     with get, set
 
   /// <summary>
@@ -859,14 +779,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Int32".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Int32 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Int32(item)
+       item: int) -> None
     with get, set
 
   /// <summary>
@@ -874,17 +792,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UInt32".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UInt32 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt32) ->
-      visitor.VisitConst_UInt32(
-       visitor,
-       context,
-       item)
+       item: System.UInt32) -> None
     with get, set
 
   /// <summary>
@@ -892,14 +805,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UInt32".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UInt32 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt32) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UInt32(item)
+       item: System.UInt32) -> None
     with get, set
 
   /// <summary>
@@ -907,17 +818,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Int64".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Int64 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int64) ->
-      visitor.VisitConst_Int64(
-       visitor,
-       context,
-       item)
+       item: int64) -> None
     with get, set
 
   /// <summary>
@@ -925,14 +831,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Int64".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Int64 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int64) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Int64(item)
+       item: int64) -> None
     with get, set
 
   /// <summary>
@@ -940,17 +844,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UInt64".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UInt64 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt64) ->
-      visitor.VisitConst_UInt64(
-       visitor,
-       context,
-       item)
+       item: System.UInt64) -> None
     with get, set
 
   /// <summary>
@@ -958,14 +857,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UInt64".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UInt64 =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt64) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UInt64(item)
+       item: System.UInt64) -> None
     with get, set
 
   /// <summary>
@@ -973,17 +870,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_IntPtr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_IntPtr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int64) ->
-      visitor.VisitConst_IntPtr(
-       visitor,
-       context,
-       item)
+       item: int64) -> None
     with get, set
 
   /// <summary>
@@ -991,14 +883,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.IntPtr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_IntPtr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int64) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.IntPtr(item)
+       item: int64) -> None
     with get, set
 
   /// <summary>
@@ -1006,17 +896,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UIntPtr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UIntPtr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt64) ->
-      visitor.VisitConst_UIntPtr(
-       visitor,
-       context,
-       item)
+       item: System.UInt64) -> None
     with get, set
 
   /// <summary>
@@ -1024,14 +909,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UIntPtr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UIntPtr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt64) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UIntPtr(item)
+       item: System.UInt64) -> None
     with get, set
 
   /// <summary>
@@ -1039,17 +922,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Single".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Single =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Single) ->
-      visitor.VisitConst_Single(
-       visitor,
-       context,
-       item)
+       item: System.Single) -> None
     with get, set
 
   /// <summary>
@@ -1057,14 +935,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Single".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Single =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Single) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Single(item)
+       item: System.Single) -> None
     with get, set
 
   /// <summary>
@@ -1072,17 +948,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Double".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Double =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Double) ->
-      visitor.VisitConst_Double(
-       visitor,
-       context,
-       item)
+       item: System.Double) -> None
     with get, set
 
   /// <summary>
@@ -1090,14 +961,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Double".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Double =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Double) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Double(item)
+       item: System.Double) -> None
     with get, set
 
   /// <summary>
@@ -1105,17 +974,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Char".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Char =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: char) ->
-      visitor.VisitConst_Char(
-       visitor,
-       context,
-       item)
+       item: char) -> None
     with get, set
 
   /// <summary>
@@ -1123,14 +987,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Char".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Char =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: char) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Char(item)
+       item: char) -> None
     with get, set
 
   /// <summary>
@@ -1138,17 +1000,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Decimal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Decimal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Decimal) ->
-      visitor.VisitConst_Decimal(
-       visitor,
-       context,
-       item)
+       item: System.Decimal) -> None
     with get, set
 
   /// <summary>
@@ -1156,14 +1013,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Decimal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Decimal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.Decimal) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Decimal(item)
+       item: System.Decimal) -> None
     with get, set
 
   /// <summary>
@@ -1171,17 +1026,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UserNum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UserNum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: (string * string)) ->
-      visitor.VisitConst_UserNum(
-       visitor,
-       context,
-       item)
+       item: (string * string)) -> None
     with get, set
 
   /// <summary>
@@ -1189,14 +1039,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UserNum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UserNum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: (string * string)) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UserNum(item)
+       item: (string * string)) -> None
     with get, set
 
   /// <summary>
@@ -1204,19 +1052,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_String".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_String =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        text: string,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitConst_String(
-       visitor,
-       context,
-       text,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1224,15 +1066,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.String".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_String =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        text: string,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.String(text, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1240,19 +1080,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Bytes".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Bytes =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        bytes: byte[],
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitConst_Bytes(
-       visitor,
-       context,
-       bytes,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1260,15 +1094,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Bytes".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Bytes =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        bytes: byte[],
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Bytes(bytes, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1276,17 +1108,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_UInt16s".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_UInt16s =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt16[]) ->
-      visitor.VisitConst_UInt16s(
-       visitor,
-       context,
-       item)
+       item: System.UInt16[]) -> None
     with get, set
 
   /// <summary>
@@ -1294,14 +1121,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.UInt16s".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_UInt16s =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: System.UInt16[]) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.UInt16s(item)
+       item: System.UInt16[]) -> None
     with get, set
 
   /// <summary>
@@ -1309,19 +1134,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConst_Measure".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConst_Measure =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       item2: Microsoft.FSharp.Compiler.Ast.SynMeasure) ->
-      visitor.VisitConst_Measure(
-       visitor,
-       context,
-       (visitor.VisitConst context constant),
-       (visitor.VisitMeasure context item2))
+       item2: Microsoft.FSharp.Compiler.Ast.SynMeasure) -> None
     with get, set
 
   /// <summary>
@@ -1329,15 +1148,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConst.Measure".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConst_Measure =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       item2: Microsoft.FSharp.Compiler.Ast.SynMeasure) ->
-      Microsoft.FSharp.Compiler.Ast.SynConst.Measure(constant, item2)
+       item2: Microsoft.FSharp.Compiler.Ast.SynMeasure) -> None
     with get, set
 
 
@@ -1354,47 +1171,172 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synConst with
       | Microsoft.FSharp.Compiler.Ast.SynConst.Unit ->
-        this.BeforeVisitConst_Unit(this, context)
+        match this.BeforeVisitConst_Unit(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitConst_Unit(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Unit
       | Microsoft.FSharp.Compiler.Ast.SynConst.Bool(item) ->
-        this.BeforeVisitConst_Bool(this, context, item)
+        match this.BeforeVisitConst_Bool(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Bool(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Bool(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.SByte(item) ->
-        this.BeforeVisitConst_SByte(this, context, item)
+        match this.BeforeVisitConst_SByte(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_SByte(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.SByte(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Byte(item) ->
-        this.BeforeVisitConst_Byte(this, context, item)
+        match this.BeforeVisitConst_Byte(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Byte(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Byte(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Int16(item) ->
-        this.BeforeVisitConst_Int16(this, context, item)
+        match this.BeforeVisitConst_Int16(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Int16(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Int16(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UInt16(item) ->
-        this.BeforeVisitConst_UInt16(this, context, item)
+        match this.BeforeVisitConst_UInt16(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UInt16(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UInt16(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Int32(item) ->
-        this.BeforeVisitConst_Int32(this, context, item)
+        match this.BeforeVisitConst_Int32(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Int32(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Int32(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UInt32(item) ->
-        this.BeforeVisitConst_UInt32(this, context, item)
+        match this.BeforeVisitConst_UInt32(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UInt32(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UInt32(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Int64(item) ->
-        this.BeforeVisitConst_Int64(this, context, item)
+        match this.BeforeVisitConst_Int64(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Int64(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Int64(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UInt64(item) ->
-        this.BeforeVisitConst_UInt64(this, context, item)
+        match this.BeforeVisitConst_UInt64(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UInt64(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UInt64(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.IntPtr(item) ->
-        this.BeforeVisitConst_IntPtr(this, context, item)
+        match this.BeforeVisitConst_IntPtr(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_IntPtr(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.IntPtr(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UIntPtr(item) ->
-        this.BeforeVisitConst_UIntPtr(this, context, item)
+        match this.BeforeVisitConst_UIntPtr(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UIntPtr(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UIntPtr(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Single(item) ->
-        this.BeforeVisitConst_Single(this, context, item)
+        match this.BeforeVisitConst_Single(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Single(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Single(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Double(item) ->
-        this.BeforeVisitConst_Double(this, context, item)
+        match this.BeforeVisitConst_Double(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Double(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Double(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Char(item) ->
-        this.BeforeVisitConst_Char(this, context, item)
+        match this.BeforeVisitConst_Char(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Char(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Char(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Decimal(item) ->
-        this.BeforeVisitConst_Decimal(this, context, item)
+        match this.BeforeVisitConst_Decimal(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_Decimal(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Decimal(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UserNum(item) ->
-        this.BeforeVisitConst_UserNum(this, context, item)
+        match this.BeforeVisitConst_UserNum(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UserNum(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UserNum(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.String(text, range) ->
-        this.BeforeVisitConst_String(this, context, text, range)
+        match this.BeforeVisitConst_String(this, context, text, range) with
+        | Some result -> result
+        | None ->
+          let text, range = text, range
+          match this.VisitConst_String(this, context, text, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.String(text, range)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Bytes(bytes, range) ->
-        this.BeforeVisitConst_Bytes(this, context, bytes, range)
+        match this.BeforeVisitConst_Bytes(this, context, bytes, range) with
+        | Some result -> result
+        | None ->
+          let bytes, range = bytes, range
+          match this.VisitConst_Bytes(this, context, bytes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Bytes(bytes, range)
       | Microsoft.FSharp.Compiler.Ast.SynConst.UInt16s(item) ->
-        this.BeforeVisitConst_UInt16s(this, context, item)
+        match this.BeforeVisitConst_UInt16s(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitConst_UInt16s(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.UInt16s(item)
       | Microsoft.FSharp.Compiler.Ast.SynConst.Measure(constant, item2) ->
-        this.BeforeVisitConst_Measure(this, context, constant, item2)
+        match this.BeforeVisitConst_Measure(this, context, constant, item2) with
+        | Some result -> result
+        | None ->
+          let constant, item2 = (this.VisitConst context constant), (this.VisitMeasure context item2)
+          match this.VisitConst_Measure(this, context, constant, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConst.Measure(constant, item2)
     finally
       parents.Pop() |> ignore
 
@@ -1406,17 +1348,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConstructorArgs_Pats".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConstructorArgs_Pats =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynPat list) ->
-      visitor.VisitConstructorArgs_Pats(
-       visitor,
-       context,
-       item |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)))
+       item: Microsoft.FSharp.Compiler.Ast.SynPat list) -> None
     with get, set
 
   /// <summary>
@@ -1424,14 +1361,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConstructorArgs.Pats".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConstructorArgs_Pats =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynPat list) ->
-      Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynPat list) -> None
     with get, set
 
   /// <summary>
@@ -1439,19 +1374,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitConstructorArgs_NamePatPairs".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitConstructorArgs_NamePatPairs =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitConstructorArgs_NamePatPairs(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitPat context v1))),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1459,15 +1388,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynConstructorArgs.NamePatPairs".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitConstructorArgs_NamePatPairs =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -1484,9 +1411,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synConstructorArgs with
       | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item) ->
-        this.BeforeVisitConstructorArgs_Pats(this, context, item)
+        match this.BeforeVisitConstructorArgs_Pats(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitPat context v))
+          match this.VisitConstructorArgs_Pats(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item)
       | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs(item1, range) ->
-        this.BeforeVisitConstructorArgs_NamePatPairs(this, context, item1, range)
+        match this.BeforeVisitConstructorArgs_NamePatPairs(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitPat context v1))), range
+          match this.VisitConstructorArgs_NamePatPairs(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs(item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -1498,8 +1437,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitEnumCase_EnumCase".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitEnumCase_EnumCase =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1508,15 +1446,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        item3: Microsoft.FSharp.Compiler.Ast.SynConst,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitEnumCase_EnumCase(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       id,
-       (visitor.VisitConst context item3),
-       xmlDoc,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1524,8 +1454,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynEnumCase.EnumCase".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitEnumCase_EnumCase =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1534,8 +1463,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        item3: Microsoft.FSharp.Compiler.Ast.SynConst,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -1552,7 +1480,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synEnumCase with
       | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
-        this.BeforeVisitEnumCase_EnumCase(this, context, attributes, id, item3, xmlDoc, range)
+        match this.BeforeVisitEnumCase_EnumCase(this, context, attributes, id, item3, xmlDoc, range) with
+        | Some result -> result
+        | None ->
+          let attributes, id, item3, xmlDoc, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitConst context item3), xmlDoc, range
+          match this.VisitEnumCase_EnumCase(this, context, attributes, id, item3, xmlDoc, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range)
     finally
       parents.Pop() |> ignore
 
@@ -1564,21 +1498,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExceptionDefn_SynExceptionDefn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExceptionDefn_SynExceptionDefn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExceptionDefn_SynExceptionDefn(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefnRepr context exnRepr),
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1586,16 +1513,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExceptionDefn.SynExceptionDefn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExceptionDefn_SynExceptionDefn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -1612,7 +1537,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synExceptionDefn with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range) ->
-        this.BeforeVisitExceptionDefn_SynExceptionDefn(this, context, exnRepr, members, range)
+        match this.BeforeVisitExceptionDefn_SynExceptionDefn(this, context, exnRepr, members, range) with
+        | Some result -> result
+        | None ->
+          let exnRepr, members, range = (this.VisitExceptionDefnRepr context exnRepr), members |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberDefn context v)), range
+          match this.VisitExceptionDefn_SynExceptionDefn(this, context, exnRepr, members, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range)
     finally
       parents.Pop() |> ignore
 
@@ -1624,8 +1555,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExceptionDefnRepr_SynExceptionDefnRepr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1635,16 +1565,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        longId: Microsoft.FSharp.Compiler.Ast.Ident list option,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accesibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExceptionDefnRepr_SynExceptionDefnRepr(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       (visitor.VisitUnionCase context case),
-       longId,
-       xmlDoc,
-       accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1652,8 +1573,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExceptionDefnRepr.SynExceptionDefnRepr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExceptionDefnRepr_SynExceptionDefnRepr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1663,8 +1583,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        longId: Microsoft.FSharp.Compiler.Ast.Ident list option,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accesibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -1681,7 +1600,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synExceptionDefnRepr with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range) ->
-        this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr(this, context, item1, case, longId, xmlDoc, accesibility, range)
+        match this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr(this, context, item1, case, longId, xmlDoc, accesibility, range) with
+        | Some result -> result
+        | None ->
+          let item1, case, longId, xmlDoc, accesibility, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitUnionCase context case), longId, xmlDoc, accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitExceptionDefnRepr_SynExceptionDefnRepr(this, context, item1, case, longId, xmlDoc, accesibility, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range)
     finally
       parents.Pop() |> ignore
 
@@ -1693,21 +1618,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExceptionSig_SynExceptionSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExceptionSig_SynExceptionSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExceptionSig_SynExceptionSig(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefnRepr context exnRepr),
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1715,16 +1633,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExceptionSig.SynExceptionSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExceptionSig_SynExceptionSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnRepr: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -1741,7 +1657,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synExceptionSig with
       | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range) ->
-        this.BeforeVisitExceptionSig_SynExceptionSig(this, context, exnRepr, memberSigs, range)
+        match this.BeforeVisitExceptionSig_SynExceptionSig(this, context, exnRepr, memberSigs, range) with
+        | Some result -> result
+        | None ->
+          let exnRepr, memberSigs, range = (this.VisitExceptionDefnRepr context exnRepr), memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberSig context v)), range
+          match this.VisitExceptionSig_SynExceptionSig(this, context, exnRepr, memberSigs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range)
     finally
       parents.Pop() |> ignore
 
@@ -1753,8 +1675,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Paren".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Paren =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1762,14 +1683,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        leftParenRange: Microsoft.FSharp.Compiler.Range.range,
        rightParenRange: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Paren(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       leftParenRange,
-       rightParenRange,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1777,8 +1691,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Paren".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Paren =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1786,8 +1699,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        leftParenRange: Microsoft.FSharp.Compiler.Range.range,
        rightParenRange: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1795,8 +1707,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Quote".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Quote =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1805,15 +1716,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isRaw: bool,
        quotedSynExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        isFromQueryExpression: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Quote(
-       visitor,
-       context,
-       (visitor.VisitExpr context operator),
-       isRaw,
-       (visitor.VisitExpr context quotedSynExpr),
-       isFromQueryExpression,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1821,8 +1724,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Quote".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Quote =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -1831,8 +1733,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isRaw: bool,
        quotedSynExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        isFromQueryExpression: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Quote(operator, isRaw, quotedSynExpr, isFromQueryExpression, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1840,19 +1741,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Const".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Const =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Const(
-       visitor,
-       context,
-       (visitor.VisitConst context constant),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1860,15 +1755,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Const".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Const =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Const(constant, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1876,21 +1769,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Typed(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       (visitor.VisitType context typeSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1898,16 +1784,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1915,21 +1799,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list,
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Tuple(
-       visitor,
-       context,
-       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
-       commaRanges,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1937,16 +1814,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list,
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple(exprs, commaRanges, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1954,21 +1829,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ArrayOrList".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ArrayOrList =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        isList: bool,
        exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ArrayOrList(
-       visitor,
-       context,
-       isList,
-       exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1976,16 +1844,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ArrayOrList".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ArrayOrList =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        isList: bool,
        exprs: Microsoft.FSharp.Compiler.Ast.SynExpr list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList(isList, exprs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -1993,8 +1859,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2002,14 +1867,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        baseInfo: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option,
        copyInfo: (Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option,
        recordFields: ((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Record(
-       visitor,
-       context,
-       baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (visitor.VisitType context v0), (visitor.VisitExpr context v1), v2, v3, v4)),
-       copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitor.VisitExpr context v0), v1)),
-       recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)), v2)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2017,8 +1875,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2026,8 +1883,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        baseInfo: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option,
        copyInfo: (Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option,
        recordFields: ((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Record(baseInfo, copyInfo, recordFields, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2035,8 +1891,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_New".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_New =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2044,14 +1899,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isProtected: bool,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_New(
-       visitor,
-       context,
-       isProtected,
-       (visitor.VisitType context typeName),
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2059,8 +1907,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.New".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_New =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2068,8 +1915,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isProtected: bool,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.New(isProtected, typeName, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2077,8 +1923,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ObjExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ObjExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2088,16 +1933,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        extraImpls: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list,
        newPos: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ObjExpr(
-       visitor,
-       context,
-       (visitor.VisitType context objType),
-       argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitor.VisitExpr context v0), v1)),
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
-       extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitInterfaceImpl context v)),
-       newPos,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2105,8 +1941,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ObjExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ObjExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2116,8 +1951,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        extraImpls: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list,
        newPos: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOpt, bindings, extraImpls, newPos, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2125,8 +1959,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_While".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_While =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2134,14 +1967,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spWhile: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop,
        whileBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
        doBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_While(
-       visitor,
-       context,
-       spWhile,
-       (visitor.VisitExpr context whileBody),
-       (visitor.VisitExpr context doBody),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2149,8 +1975,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.While".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_While =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2158,8 +1983,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spWhile: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop,
        whileBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
        doBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.While(spWhile, whileBody, doBody, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2167,8 +1991,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_For".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_For =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2179,17 +2002,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item4: bool,
        toBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
        doBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_For(
-       visitor,
-       context,
-       spFor,
-       id,
-       (visitor.VisitExpr context idBody),
-       item4,
-       (visitor.VisitExpr context toBody),
-       (visitor.VisitExpr context doBody),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2197,8 +2010,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.For".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_For =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2209,8 +2021,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item4: bool,
        toBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
        doBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.For(spFor, id, idBody, item4, toBody, doBody, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2218,8 +2029,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ForEach".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ForEach =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2230,17 +2040,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        pattern: Microsoft.FSharp.Compiler.Ast.SynPat,
        enumExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ForEach(
-       visitor,
-       context,
-       spFor,
-       seqExprOnly,
-       isFromSource,
-       (visitor.VisitPat context pattern),
-       (visitor.VisitExpr context enumExpr),
-       (visitor.VisitExpr context bodyExpr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2248,8 +2048,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ForEach".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ForEach =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2260,8 +2059,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        pattern: Microsoft.FSharp.Compiler.Ast.SynPat,
        enumExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2269,21 +2067,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ArrayOrListOfSeqExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ArrayOrListOfSeqExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        isList: bool,
        elements: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ArrayOrListOfSeqExpr(
-       visitor,
-       context,
-       isList,
-       (visitor.VisitExpr context elements),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2291,16 +2082,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ArrayOrListOfSeqExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ArrayOrListOfSeqExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        isList: bool,
        elements: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, elements, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2308,8 +2097,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_CompExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_CompExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2317,14 +2105,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isArrayOrList: bool,
        isNotNakedRefCell: bool ref,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_CompExpr(
-       visitor,
-       context,
-       isArrayOrList,
-       isNotNakedRefCell,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2332,8 +2113,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.CompExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_CompExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2341,8 +2121,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isArrayOrList: bool,
        isNotNakedRefCell: bool ref,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr(isArrayOrList, isNotNakedRefCell, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2350,8 +2129,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Lambda".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Lambda =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2360,15 +2138,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        inLambdaSeq: bool,
        args: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
        body: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Lambda(
-       visitor,
-       context,
-       fromMethod,
-       inLambdaSeq,
-       (visitor.VisitSimplePats context args),
-       (visitor.VisitExpr context body),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2376,8 +2146,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Lambda".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Lambda =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2386,8 +2155,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        inLambdaSeq: bool,
        args: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
        body: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda(fromMethod, inLambdaSeq, args, body, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2395,8 +2163,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_MatchLambda".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_MatchLambda =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2405,15 +2172,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Range.range,
        clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list,
        spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_MatchLambda(
-       visitor,
-       context,
-       item1,
-       item2,
-       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
-       spBind,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2421,8 +2180,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.MatchLambda".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_MatchLambda =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2431,8 +2189,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Range.range,
        clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list,
        spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(item1, item2, clauses, spBind, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2440,8 +2197,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Match".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Match =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2450,15 +2206,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        matchExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list,
        isCexprExceptionMatch: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Match(
-       visitor,
-       context,
-       spBind,
-       (visitor.VisitExpr context matchExpr),
-       clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
-       isCexprExceptionMatch,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2466,8 +2214,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Match".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Match =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2476,8 +2223,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        matchExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        clauses: Microsoft.FSharp.Compiler.Ast.SynMatchClause list,
        isCexprExceptionMatch: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Match(spBind, matchExpr, clauses, isCexprExceptionMatch, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2485,19 +2231,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Do".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Do =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Do(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2505,15 +2245,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Do".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Do =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Do(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2521,19 +2259,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Assert".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Assert =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Assert(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2541,15 +2273,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Assert".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Assert =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Assert(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2557,8 +2287,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_App".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_App =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2567,15 +2296,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isInfix: bool,
        funcExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        argExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_App(
-       visitor,
-       context,
-       exprAtomicFlag,
-       isInfix,
-       (visitor.VisitExpr context funcExpr),
-       (visitor.VisitExpr context argExpr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2583,8 +2304,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.App".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_App =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2593,8 +2313,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isInfix: bool,
        funcExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        argExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2602,8 +2321,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_TypeApp".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_TypeApp =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2614,17 +2332,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
        typeArgs: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_TypeApp(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       leftAngleRange,
-       typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       commaRanges,
-       rightAngleRange,
-       typeArgs,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2632,8 +2340,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.TypeApp".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_TypeApp =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2644,8 +2351,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
        typeArgs: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2653,8 +2359,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LetOrUse".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LetOrUse =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2663,15 +2368,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isUse: bool,
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        exprBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LetOrUse(
-       visitor,
-       context,
-       isRecursive,
-       isUse,
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
-       (visitor.VisitExpr context exprBody),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2679,8 +2376,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LetOrUse".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LetOrUse =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2689,8 +2385,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isUse: bool,
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        exprBody: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(isRecursive, isUse, bindings, exprBody, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2698,8 +2393,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_TryWith".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_TryWith =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2710,17 +2404,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item4: Microsoft.FSharp.Compiler.Range.range,
        range: Microsoft.FSharp.Compiler.Range.range,
        spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry,
-       spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith) ->
-      visitor.VisitExpr_TryWith(
-       visitor,
-       context,
-       (visitor.VisitExpr context tryExpr),
-       item2,
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMatchClause context v)),
-       item4,
-       range,
-       spTry,
-       spWith)
+       spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith) -> None
     with get, set
 
   /// <summary>
@@ -2728,8 +2412,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.TryWith".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_TryWith =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2740,8 +2423,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item4: Microsoft.FSharp.Compiler.Range.range,
        range: Microsoft.FSharp.Compiler.Range.range,
        spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry,
-       spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, item2, item3, item4, range, spTry, spWith)
+       spWith: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith) -> None
     with get, set
 
   /// <summary>
@@ -2749,8 +2431,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_TryFinally".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_TryFinally =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2759,15 +2440,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        finallyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        range: Microsoft.FSharp.Compiler.Range.range,
        spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry,
-       spFinally: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally) ->
-      visitor.VisitExpr_TryFinally(
-       visitor,
-       context,
-       (visitor.VisitExpr context tryExpr),
-       (visitor.VisitExpr context finallyExpr),
-       range,
-       spTry,
-       spFinally)
+       spFinally: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally) -> None
     with get, set
 
   /// <summary>
@@ -2775,8 +2448,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.TryFinally".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_TryFinally =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2785,8 +2457,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        finallyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        range: Microsoft.FSharp.Compiler.Range.range,
        spTry: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry,
-       spFinally: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, spTry, spFinally)
+       spFinally: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally) -> None
     with get, set
 
   /// <summary>
@@ -2794,19 +2465,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Lazy".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Lazy =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Lazy(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2814,15 +2479,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Lazy".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Lazy =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2830,8 +2493,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Sequential".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Sequential =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2840,15 +2502,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isTrueSeq: bool,
        expr1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        expr2: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Sequential(
-       visitor,
-       context,
-       spSeq,
-       isTrueSeq,
-       (visitor.VisitExpr context expr1),
-       (visitor.VisitExpr context expr2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2856,8 +2510,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Sequential".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Sequential =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2866,8 +2519,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isTrueSeq: bool,
        expr1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        expr2: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(spSeq, isTrueSeq, expr1, expr2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2875,8 +2527,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_IfThenElse".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_IfThenElse =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2887,17 +2538,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spIfToThen: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
        isFromErrorRecovery: bool,
        ifToThen: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_IfThenElse(
-       visitor,
-       context,
-       (visitor.VisitExpr context exprGuard),
-       (visitor.VisitExpr context exprThen),
-       optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
-       spIfToThen,
-       isFromErrorRecovery,
-       ifToThen,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2905,8 +2546,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.IfThenElse".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_IfThenElse =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2917,8 +2557,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        spIfToThen: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
        isFromErrorRecovery: bool,
        ifToThen: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2926,17 +2565,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Ident".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Ident =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      visitor.VisitExpr_Ident(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
   /// <summary>
@@ -2944,14 +2578,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Ident".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Ident =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Ident(item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
   /// <summary>
@@ -2959,8 +2591,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2968,15 +2599,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isOptional: bool,
        longIdent: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        altNameRefCell: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      use _rwh_ = new RefWrapperHolder()
-      visitor.VisitExpr_LongIdent(
-       visitor,
-       context,
-       isOptional,
-       longIdent,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitor.VisitSimplePatAlternativeIdInfo context v.Value)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -2984,8 +2607,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -2993,8 +2615,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isOptional: bool,
        longIdent: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        altNameRefCell: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent(isOptional, longIdent, altNameRefCell, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3002,21 +2623,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LongIdentSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LongIdentSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LongIdentSet(
-       visitor,
-       context,
-       dotId,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3024,16 +2638,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LongIdentSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LongIdentSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(dotId, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3041,8 +2653,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DotGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DotGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3050,14 +2661,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        rangeOfDot: Microsoft.FSharp.Compiler.Range.range,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DotGet(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       rangeOfDot,
-       dotId,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3065,8 +2669,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DotGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DotGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3074,8 +2677,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        rangeOfDot: Microsoft.FSharp.Compiler.Range.range,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, dotId, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3083,8 +2685,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DotSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DotSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3092,14 +2693,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        exprValue: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DotSet(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       dotId,
-       (visitor.VisitExpr context exprValue),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3107,8 +2701,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DotSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DotSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3116,8 +2709,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        dotId: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        exprValue: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(expr, dotId, exprValue, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3125,8 +2717,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DotIndexedGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DotIndexedGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3134,14 +2725,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        indexExprs: Microsoft.FSharp.Compiler.Ast.SynIndexerArg list,
        item3: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DotIndexedGet(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitIndexerArg context v)),
-       item3,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3149,8 +2733,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DotIndexedGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DotIndexedGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3158,8 +2741,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        indexExprs: Microsoft.FSharp.Compiler.Ast.SynIndexerArg list,
        item3: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(expr, indexExprs, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3167,8 +2749,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DotIndexedSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DotIndexedSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3178,16 +2759,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        valueExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        rangeOfLeftOfSet: Microsoft.FSharp.Compiler.Range.range,
        rangeOfDot: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DotIndexedSet(
-       visitor,
-       context,
-       (visitor.VisitExpr context objectExpr),
-       indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitIndexerArg context v)),
-       (visitor.VisitExpr context valueExpr),
-       rangeOfLeftOfSet,
-       rangeOfDot,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3195,8 +2767,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DotIndexedSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DotIndexedSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3206,8 +2777,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        valueExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        rangeOfLeftOfSet: Microsoft.FSharp.Compiler.Range.range,
        rangeOfDot: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3215,8 +2785,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_NamedIndexedPropertySet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_NamedIndexedPropertySet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3224,14 +2793,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_NamedIndexedPropertySet(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitExpr context item2),
-       (visitor.VisitExpr context item3),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3239,8 +2801,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.NamedIndexedPropertySet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_NamedIndexedPropertySet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3248,8 +2809,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(item1, item2, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3257,8 +2817,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DotNamedIndexedPropertySet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DotNamedIndexedPropertySet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3267,15 +2826,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item4: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DotNamedIndexedPropertySet(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       item2,
-       (visitor.VisitExpr context item3),
-       (visitor.VisitExpr context item4),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3283,8 +2834,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DotNamedIndexedPropertySet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DotNamedIndexedPropertySet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3293,8 +2843,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item4: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, item2, item3, item4, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3302,21 +2851,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_TypeTest".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_TypeTest =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_TypeTest(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3324,16 +2866,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.TypeTest".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_TypeTest =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest(expr, typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3341,21 +2881,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Upcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Upcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Upcast(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       (visitor.VisitType context typeSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3363,16 +2896,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Upcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Upcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3380,21 +2911,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Downcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Downcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Downcast(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3402,16 +2926,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Downcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Downcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast(expr, typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3419,19 +2941,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_InferredUpcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_InferredUpcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_InferredUpcast(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3439,15 +2955,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.InferredUpcast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_InferredUpcast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3455,19 +2969,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_InferredDowncast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_InferredDowncast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_InferredDowncast(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3475,15 +2983,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.InferredDowncast".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_InferredDowncast =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3491,17 +2997,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Null".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Null =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Null(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3509,14 +3010,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Null".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Null =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Null(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3524,8 +3023,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_AddressOf".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_AddressOf =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3533,14 +3031,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_AddressOf(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitExpr context item2),
-       item3,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3548,8 +3039,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.AddressOf".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_AddressOf =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3557,8 +3047,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Range.range,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(item1, item2, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3566,8 +3055,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_TraitCall".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_TraitCall =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3575,14 +3063,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar list,
        item2: Microsoft.FSharp.Compiler.Ast.SynMemberSig,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_TraitCall(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypar context v)),
-       (visitor.VisitMemberSig context item2),
-       (visitor.VisitExpr context item3),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3590,8 +3071,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.TraitCall".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_TraitCall =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3599,8 +3079,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar list,
        item2: Microsoft.FSharp.Compiler.Ast.SynMemberSig,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall(item1, item2, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3608,8 +3087,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_JoinIn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_JoinIn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3617,14 +3095,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        inPos: Microsoft.FSharp.Compiler.Range.range,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_JoinIn(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       inPos,
-       (visitor.VisitExpr context item3),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3632,8 +3103,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.JoinIn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_JoinIn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3641,8 +3111,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        inPos: Microsoft.FSharp.Compiler.Range.range,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, inPos, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3650,17 +3119,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ImplicitZero".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ImplicitZero =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ImplicitZero(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3668,14 +3132,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ImplicitZero".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ImplicitZero =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ImplicitZero(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3683,21 +3145,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_YieldOrReturn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * bool),
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_YieldOrReturn(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3705,16 +3160,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.YieldOrReturn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_YieldOrReturn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * bool),
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn(item1, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3722,21 +3175,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturnFrom".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_YieldOrReturnFrom =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * bool),
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_YieldOrReturnFrom(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3744,16 +3190,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.YieldOrReturnFrom".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_YieldOrReturnFrom =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * bool),
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom(item1, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3761,8 +3205,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LetOrUseBang".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LetOrUseBang =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3773,17 +3216,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        pattern: Microsoft.FSharp.Compiler.Ast.SynPat,
        rhsExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LetOrUseBang(
-       visitor,
-       context,
-       spBind,
-       isUse,
-       isFromSource,
-       (visitor.VisitPat context pattern),
-       (visitor.VisitExpr context rhsExpr),
-       (visitor.VisitExpr context bodyExpr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3791,8 +3224,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LetOrUseBang".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LetOrUseBang =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3803,8 +3235,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        pattern: Microsoft.FSharp.Compiler.Ast.SynPat,
        rhsExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        bodyExpr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3812,19 +3243,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DoBang".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DoBang =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DoBang(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3832,15 +3257,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DoBang".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DoBang =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3848,8 +3271,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyILAssembly".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LibraryOnlyILAssembly =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3858,15 +3280,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.SynType list,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr list,
        item4: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LibraryOnlyILAssembly(
-       visitor,
-       context,
-       item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitExpr context v)),
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3874,8 +3288,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyILAssembly".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LibraryOnlyILAssembly =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3884,8 +3297,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.SynType list,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr list,
        item4: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly(item1, item2, item3, item4, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3893,8 +3305,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyStaticOptimization".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LibraryOnlyStaticOptimization =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3902,14 +3313,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LibraryOnlyStaticOptimization(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitStaticOptimizationConstraint context v)),
-       (visitor.VisitExpr context item2),
-       (visitor.VisitExpr context item3),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3917,8 +3321,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyStaticOptimization".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LibraryOnlyStaticOptimization =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3926,8 +3329,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization(item1, item2, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3935,8 +3337,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LibraryOnlyUnionCaseFieldGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3944,14 +3345,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
        item3: int,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LibraryOnlyUnionCaseFieldGet(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       longId,
-       item3,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3959,8 +3353,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldGet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LibraryOnlyUnionCaseFieldGet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3968,8 +3361,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
        item3: int,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(item1, longId, item3, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -3977,8 +3369,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_LibraryOnlyUnionCaseFieldSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -3987,15 +3378,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
        item3: int,
        item4: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_LibraryOnlyUnionCaseFieldSet(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       longId,
-       item3,
-       (visitor.VisitExpr context item4),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4003,8 +3386,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldSet".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_LibraryOnlyUnionCaseFieldSet =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4013,8 +3395,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
        item3: int,
        item4: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet(item1, longId, item3, item4, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4022,19 +3403,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_ArbitraryAfterError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_ArbitraryAfterError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        debugStr: string,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_ArbitraryAfterError(
-       visitor,
-       context,
-       debugStr,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4042,15 +3417,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.ArbitraryAfterError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_ArbitraryAfterError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        debugStr: string,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError(debugStr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4058,19 +3431,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_FromParseError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_FromParseError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_FromParseError(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4078,15 +3445,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.FromParseError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_FromParseError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4094,19 +3459,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_DiscardAfterMissingQualificationAfterDot".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_DiscardAfterMissingQualificationAfterDot =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_DiscardAfterMissingQualificationAfterDot(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4114,15 +3473,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.DiscardAfterMissingQualificationAfterDot".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_DiscardAfterMissingQualificationAfterDot =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4130,19 +3487,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitExpr_Fixed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitExpr_Fixed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitExpr_Fixed(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4150,15 +3501,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynExpr.Fixed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitExpr_Fixed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -4175,121 +3524,470 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synExpr with
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range) ->
-        this.BeforeVisitExpr_Paren(this, context, expr, leftParenRange, rightParenRange, range)
+        match this.BeforeVisitExpr_Paren(this, context, expr, leftParenRange, rightParenRange, range) with
+        | Some result -> result
+        | None ->
+          let expr, leftParenRange, rightParenRange, range = (this.VisitExpr context expr), leftParenRange, rightParenRange, range
+          match this.VisitExpr_Paren(this, context, expr, leftParenRange, rightParenRange, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Quote(operator, isRaw, quotedSynExpr, isFromQueryExpression, range) ->
-        this.BeforeVisitExpr_Quote(this, context, operator, isRaw, quotedSynExpr, isFromQueryExpression, range)
+        match this.BeforeVisitExpr_Quote(this, context, operator, isRaw, quotedSynExpr, isFromQueryExpression, range) with
+        | Some result -> result
+        | None ->
+          let operator, isRaw, quotedSynExpr, isFromQueryExpression, range = (this.VisitExpr context operator), isRaw, (this.VisitExpr context quotedSynExpr), isFromQueryExpression, range
+          match this.VisitExpr_Quote(this, context, operator, isRaw, quotedSynExpr, isFromQueryExpression, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Quote(operator, isRaw, quotedSynExpr, isFromQueryExpression, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Const(constant, range) ->
-        this.BeforeVisitExpr_Const(this, context, constant, range)
+        match this.BeforeVisitExpr_Const(this, context, constant, range) with
+        | Some result -> result
+        | None ->
+          let constant, range = (this.VisitConst context constant), range
+          match this.VisitExpr_Const(this, context, constant, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Const(constant, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeSig, range) ->
-        this.BeforeVisitExpr_Typed(this, context, expr, typeSig, range)
+        match this.BeforeVisitExpr_Typed(this, context, expr, typeSig, range) with
+        | Some result -> result
+        | None ->
+          let expr, typeSig, range = (this.VisitExpr context expr), (this.VisitType context typeSig), range
+          match this.VisitExpr_Typed(this, context, expr, typeSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple(exprs, commaRanges, range) ->
-        this.BeforeVisitExpr_Tuple(this, context, exprs, commaRanges, range)
+        match this.BeforeVisitExpr_Tuple(this, context, exprs, commaRanges, range) with
+        | Some result -> result
+        | None ->
+          let exprs, commaRanges, range = exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitExpr context v)), commaRanges, range
+          match this.VisitExpr_Tuple(this, context, exprs, commaRanges, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple(exprs, commaRanges, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList(isList, exprs, range) ->
-        this.BeforeVisitExpr_ArrayOrList(this, context, isList, exprs, range)
+        match this.BeforeVisitExpr_ArrayOrList(this, context, isList, exprs, range) with
+        | Some result -> result
+        | None ->
+          let isList, exprs, range = isList, exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitExpr context v)), range
+          match this.VisitExpr_ArrayOrList(this, context, isList, exprs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList(isList, exprs, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Record(baseInfo, copyInfo, recordFields, range) ->
-        this.BeforeVisitExpr_Record(this, context, baseInfo, copyInfo, recordFields, range)
+        match this.BeforeVisitExpr_Record(this, context, baseInfo, copyInfo, recordFields, range) with
+        | Some result -> result
+        | None ->
+          let baseInfo, copyInfo, recordFields, range = baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (this.VisitType context v0), (this.VisitExpr context v1), v2, v3, v4)), copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (this.VisitExpr context v0), v1)), recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), v2)), range
+          match this.VisitExpr_Record(this, context, baseInfo, copyInfo, recordFields, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Record(baseInfo, copyInfo, recordFields, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.New(isProtected, typeName, expr, range) ->
-        this.BeforeVisitExpr_New(this, context, isProtected, typeName, expr, range)
+        match this.BeforeVisitExpr_New(this, context, isProtected, typeName, expr, range) with
+        | Some result -> result
+        | None ->
+          let isProtected, typeName, expr, range = isProtected, (this.VisitType context typeName), (this.VisitExpr context expr), range
+          match this.VisitExpr_New(this, context, isProtected, typeName, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.New(isProtected, typeName, expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOpt, bindings, extraImpls, newPos, range) ->
-        this.BeforeVisitExpr_ObjExpr(this, context, objType, argOpt, bindings, extraImpls, newPos, range)
+        match this.BeforeVisitExpr_ObjExpr(this, context, objType, argOpt, bindings, extraImpls, newPos, range) with
+        | Some result -> result
+        | None ->
+          let objType, argOpt, bindings, extraImpls, newPos, range = (this.VisitType context objType), argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (this.VisitExpr context v0), v1)), bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)), extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitInterfaceImpl context v)), newPos, range
+          match this.VisitExpr_ObjExpr(this, context, objType, argOpt, bindings, extraImpls, newPos, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOpt, bindings, extraImpls, newPos, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.While(spWhile, whileBody, doBody, range) ->
-        this.BeforeVisitExpr_While(this, context, spWhile, whileBody, doBody, range)
+        match this.BeforeVisitExpr_While(this, context, spWhile, whileBody, doBody, range) with
+        | Some result -> result
+        | None ->
+          let spWhile, whileBody, doBody, range = spWhile, (this.VisitExpr context whileBody), (this.VisitExpr context doBody), range
+          match this.VisitExpr_While(this, context, spWhile, whileBody, doBody, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.While(spWhile, whileBody, doBody, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.For(spFor, id, idBody, item4, toBody, doBody, range) ->
-        this.BeforeVisitExpr_For(this, context, spFor, id, idBody, item4, toBody, doBody, range)
+        match this.BeforeVisitExpr_For(this, context, spFor, id, idBody, item4, toBody, doBody, range) with
+        | Some result -> result
+        | None ->
+          let spFor, id, idBody, item4, toBody, doBody, range = spFor, id, (this.VisitExpr context idBody), item4, (this.VisitExpr context toBody), (this.VisitExpr context doBody), range
+          match this.VisitExpr_For(this, context, spFor, id, idBody, item4, toBody, doBody, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.For(spFor, id, idBody, item4, toBody, doBody, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range) ->
-        this.BeforeVisitExpr_ForEach(this, context, spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range)
+        match this.BeforeVisitExpr_ForEach(this, context, spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range) with
+        | Some result -> result
+        | None ->
+          let spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range = spFor, seqExprOnly, isFromSource, (this.VisitPat context pattern), (this.VisitExpr context enumExpr), (this.VisitExpr context bodyExpr), range
+          match this.VisitExpr_ForEach(this, context, spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, elements, range) ->
-        this.BeforeVisitExpr_ArrayOrListOfSeqExpr(this, context, isList, elements, range)
+        match this.BeforeVisitExpr_ArrayOrListOfSeqExpr(this, context, isList, elements, range) with
+        | Some result -> result
+        | None ->
+          let isList, elements, range = isList, (this.VisitExpr context elements), range
+          match this.VisitExpr_ArrayOrListOfSeqExpr(this, context, isList, elements, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, elements, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr(isArrayOrList, isNotNakedRefCell, expr, range) ->
-        this.BeforeVisitExpr_CompExpr(this, context, isArrayOrList, isNotNakedRefCell, expr, range)
+        match this.BeforeVisitExpr_CompExpr(this, context, isArrayOrList, isNotNakedRefCell, expr, range) with
+        | Some result -> result
+        | None ->
+          let isArrayOrList, isNotNakedRefCell, expr, range = isArrayOrList, isNotNakedRefCell, (this.VisitExpr context expr), range
+          match this.VisitExpr_CompExpr(this, context, isArrayOrList, isNotNakedRefCell, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr(isArrayOrList, isNotNakedRefCell, expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda(fromMethod, inLambdaSeq, args, body, range) ->
-        this.BeforeVisitExpr_Lambda(this, context, fromMethod, inLambdaSeq, args, body, range)
+        match this.BeforeVisitExpr_Lambda(this, context, fromMethod, inLambdaSeq, args, body, range) with
+        | Some result -> result
+        | None ->
+          let fromMethod, inLambdaSeq, args, body, range = fromMethod, inLambdaSeq, (this.VisitSimplePats context args), (this.VisitExpr context body), range
+          match this.VisitExpr_Lambda(this, context, fromMethod, inLambdaSeq, args, body, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda(fromMethod, inLambdaSeq, args, body, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(item1, item2, clauses, spBind, range) ->
-        this.BeforeVisitExpr_MatchLambda(this, context, item1, item2, clauses, spBind, range)
+        match this.BeforeVisitExpr_MatchLambda(this, context, item1, item2, clauses, spBind, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, clauses, spBind, range = item1, item2, clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMatchClause context v)), spBind, range
+          match this.VisitExpr_MatchLambda(this, context, item1, item2, clauses, spBind, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(item1, item2, clauses, spBind, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Match(spBind, matchExpr, clauses, isCexprExceptionMatch, range) ->
-        this.BeforeVisitExpr_Match(this, context, spBind, matchExpr, clauses, isCexprExceptionMatch, range)
+        match this.BeforeVisitExpr_Match(this, context, spBind, matchExpr, clauses, isCexprExceptionMatch, range) with
+        | Some result -> result
+        | None ->
+          let spBind, matchExpr, clauses, isCexprExceptionMatch, range = spBind, (this.VisitExpr context matchExpr), clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMatchClause context v)), isCexprExceptionMatch, range
+          match this.VisitExpr_Match(this, context, spBind, matchExpr, clauses, isCexprExceptionMatch, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Match(spBind, matchExpr, clauses, isCexprExceptionMatch, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Do(expr, range) ->
-        this.BeforeVisitExpr_Do(this, context, expr, range)
+        match this.BeforeVisitExpr_Do(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_Do(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Do(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Assert(expr, range) ->
-        this.BeforeVisitExpr_Assert(this, context, expr, range)
+        match this.BeforeVisitExpr_Assert(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_Assert(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Assert(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
-        this.BeforeVisitExpr_App(this, context, exprAtomicFlag, isInfix, funcExpr, argExpr, range)
+        match this.BeforeVisitExpr_App(this, context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) with
+        | Some result -> result
+        | None ->
+          let exprAtomicFlag, isInfix, funcExpr, argExpr, range = exprAtomicFlag, isInfix, (this.VisitExpr context funcExpr), (this.VisitExpr context argExpr), range
+          match this.VisitExpr_App(this, context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range) ->
-        this.BeforeVisitExpr_TypeApp(this, context, expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range)
+        match this.BeforeVisitExpr_TypeApp(this, context, expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range) with
+        | Some result -> result
+        | None ->
+          let expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range = (this.VisitExpr context expr), leftAngleRange, typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), commaRanges, rightAngleRange, typeArgs, range
+          match this.VisitExpr_TypeApp(this, context, expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(isRecursive, isUse, bindings, exprBody, range) ->
-        this.BeforeVisitExpr_LetOrUse(this, context, isRecursive, isUse, bindings, exprBody, range)
+        match this.BeforeVisitExpr_LetOrUse(this, context, isRecursive, isUse, bindings, exprBody, range) with
+        | Some result -> result
+        | None ->
+          let isRecursive, isUse, bindings, exprBody, range = isRecursive, isUse, bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)), (this.VisitExpr context exprBody), range
+          match this.VisitExpr_LetOrUse(this, context, isRecursive, isUse, bindings, exprBody, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(isRecursive, isUse, bindings, exprBody, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, item2, item3, item4, range, spTry, spWith) ->
-        this.BeforeVisitExpr_TryWith(this, context, tryExpr, item2, item3, item4, range, spTry, spWith)
+        match this.BeforeVisitExpr_TryWith(this, context, tryExpr, item2, item3, item4, range, spTry, spWith) with
+        | Some result -> result
+        | None ->
+          let tryExpr, item2, item3, item4, range, spTry, spWith = (this.VisitExpr context tryExpr), item2, item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMatchClause context v)), item4, range, spTry, spWith
+          match this.VisitExpr_TryWith(this, context, tryExpr, item2, item3, item4, range, spTry, spWith) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, item2, item3, item4, range, spTry, spWith)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, spTry, spFinally) ->
-        this.BeforeVisitExpr_TryFinally(this, context, tryExpr, finallyExpr, range, spTry, spFinally)
+        match this.BeforeVisitExpr_TryFinally(this, context, tryExpr, finallyExpr, range, spTry, spFinally) with
+        | Some result -> result
+        | None ->
+          let tryExpr, finallyExpr, range, spTry, spFinally = (this.VisitExpr context tryExpr), (this.VisitExpr context finallyExpr), range, spTry, spFinally
+          match this.VisitExpr_TryFinally(this, context, tryExpr, finallyExpr, range, spTry, spFinally) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, spTry, spFinally)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(expr, range) ->
-        this.BeforeVisitExpr_Lazy(this, context, expr, range)
+        match this.BeforeVisitExpr_Lazy(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_Lazy(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(spSeq, isTrueSeq, expr1, expr2, range) ->
-        this.BeforeVisitExpr_Sequential(this, context, spSeq, isTrueSeq, expr1, expr2, range)
+        match this.BeforeVisitExpr_Sequential(this, context, spSeq, isTrueSeq, expr1, expr2, range) with
+        | Some result -> result
+        | None ->
+          let spSeq, isTrueSeq, expr1, expr2, range = spSeq, isTrueSeq, (this.VisitExpr context expr1), (this.VisitExpr context expr2), range
+          match this.VisitExpr_Sequential(this, context, spSeq, isTrueSeq, expr1, expr2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(spSeq, isTrueSeq, expr1, expr2, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range) ->
-        this.BeforeVisitExpr_IfThenElse(this, context, exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range)
+        match this.BeforeVisitExpr_IfThenElse(this, context, exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range) with
+        | Some result -> result
+        | None ->
+          let exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range = (this.VisitExpr context exprGuard), (this.VisitExpr context exprThen), optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), spIfToThen, isFromErrorRecovery, ifToThen, range
+          match this.VisitExpr_IfThenElse(this, context, exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Ident(item) ->
-        this.BeforeVisitExpr_Ident(this, context, item)
+        match this.BeforeVisitExpr_Ident(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitExpr_Ident(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Ident(item)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent(isOptional, longIdent, altNameRefCell, range) ->
-        this.BeforeVisitExpr_LongIdent(this, context, isOptional, longIdent, altNameRefCell, range)
+        match this.BeforeVisitExpr_LongIdent(this, context, isOptional, longIdent, altNameRefCell, range) with
+        | Some result -> result
+        | None ->
+          use _rwh_ = new RefWrapperHolder()
+          let isOptional, longIdent, altNameRefCell, range = isOptional, longIdent, altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (this.VisitSimplePatAlternativeIdInfo context v.Value)), range
+          match this.VisitExpr_LongIdent(this, context, isOptional, longIdent, altNameRefCell, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent(isOptional, longIdent, altNameRefCell, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(dotId, expr, range) ->
-        this.BeforeVisitExpr_LongIdentSet(this, context, dotId, expr, range)
+        match this.BeforeVisitExpr_LongIdentSet(this, context, dotId, expr, range) with
+        | Some result -> result
+        | None ->
+          let dotId, expr, range = dotId, (this.VisitExpr context expr), range
+          match this.VisitExpr_LongIdentSet(this, context, dotId, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(dotId, expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, dotId, range) ->
-        this.BeforeVisitExpr_DotGet(this, context, expr, rangeOfDot, dotId, range)
+        match this.BeforeVisitExpr_DotGet(this, context, expr, rangeOfDot, dotId, range) with
+        | Some result -> result
+        | None ->
+          let expr, rangeOfDot, dotId, range = (this.VisitExpr context expr), rangeOfDot, dotId, range
+          match this.VisitExpr_DotGet(this, context, expr, rangeOfDot, dotId, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, dotId, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(expr, dotId, exprValue, range) ->
-        this.BeforeVisitExpr_DotSet(this, context, expr, dotId, exprValue, range)
+        match this.BeforeVisitExpr_DotSet(this, context, expr, dotId, exprValue, range) with
+        | Some result -> result
+        | None ->
+          let expr, dotId, exprValue, range = (this.VisitExpr context expr), dotId, (this.VisitExpr context exprValue), range
+          match this.VisitExpr_DotSet(this, context, expr, dotId, exprValue, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(expr, dotId, exprValue, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(expr, indexExprs, item3, range) ->
-        this.BeforeVisitExpr_DotIndexedGet(this, context, expr, indexExprs, item3, range)
+        match this.BeforeVisitExpr_DotIndexedGet(this, context, expr, indexExprs, item3, range) with
+        | Some result -> result
+        | None ->
+          let expr, indexExprs, item3, range = (this.VisitExpr context expr), indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitIndexerArg context v)), item3, range
+          match this.VisitExpr_DotIndexedGet(this, context, expr, indexExprs, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(expr, indexExprs, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range) ->
-        this.BeforeVisitExpr_DotIndexedSet(this, context, objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range)
+        match this.BeforeVisitExpr_DotIndexedSet(this, context, objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range) with
+        | Some result -> result
+        | None ->
+          let objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range = (this.VisitExpr context objectExpr), indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitIndexerArg context v)), (this.VisitExpr context valueExpr), rangeOfLeftOfSet, rangeOfDot, range
+          match this.VisitExpr_DotIndexedSet(this, context, objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(item1, item2, item3, range) ->
-        this.BeforeVisitExpr_NamedIndexedPropertySet(this, context, item1, item2, item3, range)
+        match this.BeforeVisitExpr_NamedIndexedPropertySet(this, context, item1, item2, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, range = item1, (this.VisitExpr context item2), (this.VisitExpr context item3), range
+          match this.VisitExpr_NamedIndexedPropertySet(this, context, item1, item2, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(item1, item2, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, item2, item3, item4, range) ->
-        this.BeforeVisitExpr_DotNamedIndexedPropertySet(this, context, item1, item2, item3, item4, range)
+        match this.BeforeVisitExpr_DotNamedIndexedPropertySet(this, context, item1, item2, item3, item4, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, item4, range = (this.VisitExpr context item1), item2, (this.VisitExpr context item3), (this.VisitExpr context item4), range
+          match this.VisitExpr_DotNamedIndexedPropertySet(this, context, item1, item2, item3, item4, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, item2, item3, item4, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest(expr, typeName, range) ->
-        this.BeforeVisitExpr_TypeTest(this, context, expr, typeName, range)
+        match this.BeforeVisitExpr_TypeTest(this, context, expr, typeName, range) with
+        | Some result -> result
+        | None ->
+          let expr, typeName, range = (this.VisitExpr context expr), (this.VisitType context typeName), range
+          match this.VisitExpr_TypeTest(this, context, expr, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest(expr, typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeSig, range) ->
-        this.BeforeVisitExpr_Upcast(this, context, expr, typeSig, range)
+        match this.BeforeVisitExpr_Upcast(this, context, expr, typeSig, range) with
+        | Some result -> result
+        | None ->
+          let expr, typeSig, range = (this.VisitExpr context expr), (this.VisitType context typeSig), range
+          match this.VisitExpr_Upcast(this, context, expr, typeSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast(expr, typeName, range) ->
-        this.BeforeVisitExpr_Downcast(this, context, expr, typeName, range)
+        match this.BeforeVisitExpr_Downcast(this, context, expr, typeName, range) with
+        | Some result -> result
+        | None ->
+          let expr, typeName, range = (this.VisitExpr context expr), (this.VisitType context typeName), range
+          match this.VisitExpr_Downcast(this, context, expr, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast(expr, typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast(expr, range) ->
-        this.BeforeVisitExpr_InferredUpcast(this, context, expr, range)
+        match this.BeforeVisitExpr_InferredUpcast(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_InferredUpcast(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast(expr, range) ->
-        this.BeforeVisitExpr_InferredDowncast(this, context, expr, range)
+        match this.BeforeVisitExpr_InferredDowncast(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_InferredDowncast(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Null(range) ->
-        this.BeforeVisitExpr_Null(this, context, range)
+        match this.BeforeVisitExpr_Null(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitExpr_Null(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Null(range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(item1, item2, item3, range) ->
-        this.BeforeVisitExpr_AddressOf(this, context, item1, item2, item3, range)
+        match this.BeforeVisitExpr_AddressOf(this, context, item1, item2, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, range = item1, (this.VisitExpr context item2), item3, range
+          match this.VisitExpr_AddressOf(this, context, item1, item2, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(item1, item2, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall(item1, item2, item3, range) ->
-        this.BeforeVisitExpr_TraitCall(this, context, item1, item2, item3, range)
+        match this.BeforeVisitExpr_TraitCall(this, context, item1, item2, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypar context v)), (this.VisitMemberSig context item2), (this.VisitExpr context item3), range
+          match this.VisitExpr_TraitCall(this, context, item1, item2, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall(item1, item2, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, inPos, item3, range) ->
-        this.BeforeVisitExpr_JoinIn(this, context, item1, inPos, item3, range)
+        match this.BeforeVisitExpr_JoinIn(this, context, item1, inPos, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, inPos, item3, range = (this.VisitExpr context item1), inPos, (this.VisitExpr context item3), range
+          match this.VisitExpr_JoinIn(this, context, item1, inPos, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, inPos, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ImplicitZero(range) ->
-        this.BeforeVisitExpr_ImplicitZero(this, context, range)
+        match this.BeforeVisitExpr_ImplicitZero(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitExpr_ImplicitZero(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ImplicitZero(range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn(item1, expr, range) ->
-        this.BeforeVisitExpr_YieldOrReturn(this, context, item1, expr, range)
+        match this.BeforeVisitExpr_YieldOrReturn(this, context, item1, expr, range) with
+        | Some result -> result
+        | None ->
+          let item1, expr, range = item1, (this.VisitExpr context expr), range
+          match this.VisitExpr_YieldOrReturn(this, context, item1, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn(item1, expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom(item1, expr, range) ->
-        this.BeforeVisitExpr_YieldOrReturnFrom(this, context, item1, expr, range)
+        match this.BeforeVisitExpr_YieldOrReturnFrom(this, context, item1, expr, range) with
+        | Some result -> result
+        | None ->
+          let item1, expr, range = item1, (this.VisitExpr context expr), range
+          match this.VisitExpr_YieldOrReturnFrom(this, context, item1, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom(item1, expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) ->
-        this.BeforeVisitExpr_LetOrUseBang(this, context, spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range)
+        match this.BeforeVisitExpr_LetOrUseBang(this, context, spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) with
+        | Some result -> result
+        | None ->
+          let spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range = spBind, isUse, isFromSource, (this.VisitPat context pattern), (this.VisitExpr context rhsExpr), (this.VisitExpr context bodyExpr), range
+          match this.VisitExpr_LetOrUseBang(this, context, spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang(expr, range) ->
-        this.BeforeVisitExpr_DoBang(this, context, expr, range)
+        match this.BeforeVisitExpr_DoBang(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_DoBang(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly(item1, item2, item3, item4, range) ->
-        this.BeforeVisitExpr_LibraryOnlyILAssembly(this, context, item1, item2, item3, item4, range)
+        match this.BeforeVisitExpr_LibraryOnlyILAssembly(this, context, item1, item2, item3, item4, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, item4, range = item1, item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitExpr context v)), item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), range
+          match this.VisitExpr_LibraryOnlyILAssembly(this, context, item1, item2, item3, item4, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly(item1, item2, item3, item4, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization(item1, item2, item3, range) ->
-        this.BeforeVisitExpr_LibraryOnlyStaticOptimization(this, context, item1, item2, item3, range)
+        match this.BeforeVisitExpr_LibraryOnlyStaticOptimization(this, context, item1, item2, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitStaticOptimizationConstraint context v)), (this.VisitExpr context item2), (this.VisitExpr context item3), range
+          match this.VisitExpr_LibraryOnlyStaticOptimization(this, context, item1, item2, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization(item1, item2, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(item1, longId, item3, range) ->
-        this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldGet(this, context, item1, longId, item3, range)
+        match this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldGet(this, context, item1, longId, item3, range) with
+        | Some result -> result
+        | None ->
+          let item1, longId, item3, range = (this.VisitExpr context item1), longId, item3, range
+          match this.VisitExpr_LibraryOnlyUnionCaseFieldGet(this, context, item1, longId, item3, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(item1, longId, item3, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet(item1, longId, item3, item4, range) ->
-        this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldSet(this, context, item1, longId, item3, item4, range)
+        match this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldSet(this, context, item1, longId, item3, item4, range) with
+        | Some result -> result
+        | None ->
+          let item1, longId, item3, item4, range = (this.VisitExpr context item1), longId, item3, (this.VisitExpr context item4), range
+          match this.VisitExpr_LibraryOnlyUnionCaseFieldSet(this, context, item1, longId, item3, item4, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet(item1, longId, item3, item4, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError(debugStr, range) ->
-        this.BeforeVisitExpr_ArbitraryAfterError(this, context, debugStr, range)
+        match this.BeforeVisitExpr_ArbitraryAfterError(this, context, debugStr, range) with
+        | Some result -> result
+        | None ->
+          let debugStr, range = debugStr, range
+          match this.VisitExpr_ArbitraryAfterError(this, context, debugStr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError(debugStr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError(expr, range) ->
-        this.BeforeVisitExpr_FromParseError(this, context, expr, range)
+        match this.BeforeVisitExpr_FromParseError(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_FromParseError(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(expr, range) ->
-        this.BeforeVisitExpr_DiscardAfterMissingQualificationAfterDot(this, context, expr, range)
+        match this.BeforeVisitExpr_DiscardAfterMissingQualificationAfterDot(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitExpr_DiscardAfterMissingQualificationAfterDot(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2) ->
-        this.BeforeVisitExpr_Fixed(this, context, item1, item2)
+        match this.BeforeVisitExpr_Fixed(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = (this.VisitExpr context item1), item2
+          match this.VisitExpr_Fixed(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2)
     finally
       parents.Pop() |> ignore
 
@@ -4301,8 +3999,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitField_Field".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitField_Field =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4314,18 +4011,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item5: bool,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitField_Field(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       isStatic,
-       id,
-       (visitor.VisitType context typeName),
-       item5,
-       xmlDoc,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4333,8 +4019,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynField.Field".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitField_Field =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4346,8 +4031,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item5: bool,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -4364,7 +4048,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synField with
       | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
-        this.BeforeVisitField_Field(this, context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
+        match this.BeforeVisitField_Field(this, context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) with
+        | Some result -> result
+        | None ->
+          let attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, (this.VisitType context typeName), item5, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitField_Field(this, context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
     finally
       parents.Pop() |> ignore
 
@@ -4376,19 +4066,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitIndexerArg_Two".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitIndexerArg_Two =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item2: Microsoft.FSharp.Compiler.Ast.SynExpr) ->
-      visitor.VisitIndexerArg_Two(
-       visitor,
-       context,
-       (visitor.VisitExpr context item1),
-       (visitor.VisitExpr context item2))
+       item2: Microsoft.FSharp.Compiler.Ast.SynExpr) -> None
     with get, set
 
   /// <summary>
@@ -4396,15 +4080,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynIndexerArg.Two".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitIndexerArg_Two =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item2: Microsoft.FSharp.Compiler.Ast.SynExpr) ->
-      Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Ast.SynExpr) -> None
     with get, set
 
   /// <summary>
@@ -4412,17 +4094,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitIndexerArg_One".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitIndexerArg_One =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExpr) ->
-      visitor.VisitIndexerArg_One(
-       visitor,
-       context,
-       (visitor.VisitExpr context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynExpr) -> None
     with get, set
 
   /// <summary>
@@ -4430,14 +4107,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynIndexerArg.One".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitIndexerArg_One =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExpr) ->
-      Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynExpr) -> None
     with get, set
 
 
@@ -4454,9 +4129,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synIndexerArg with
       | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2) ->
-        this.BeforeVisitIndexerArg_Two(this, context, item1, item2)
+        match this.BeforeVisitIndexerArg_Two(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = (this.VisitExpr context item1), (this.VisitExpr context item2)
+          match this.VisitIndexerArg_Two(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One(item) ->
-        this.BeforeVisitIndexerArg_One(this, context, item)
+        match this.BeforeVisitIndexerArg_One(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitExpr context item)
+          match this.VisitIndexerArg_One(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One(item)
     finally
       parents.Pop() |> ignore
 
@@ -4468,21 +4155,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitInterfaceImpl_InterfaceImpl".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitInterfaceImpl_InterfaceImpl =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitInterfaceImpl_InterfaceImpl(
-       visitor,
-       context,
-       (visitor.VisitType context item1),
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4490,16 +4170,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynInterfaceImpl.InterfaceImpl".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitInterfaceImpl_InterfaceImpl =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -4516,7 +4194,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synInterfaceImpl with
       | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
-        this.BeforeVisitInterfaceImpl_InterfaceImpl(this, context, item1, bindings, range)
+        match this.BeforeVisitInterfaceImpl_InterfaceImpl(this, context, item1, bindings, range) with
+        | Some result -> result
+        | None ->
+          let item1, bindings, range = (this.VisitType context item1), bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)), range
+          match this.VisitInterfaceImpl_InterfaceImpl(this, context, item1, bindings, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range)
     finally
       parents.Pop() |> ignore
 
@@ -4528,8 +4212,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMatchClause_Clause".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMatchClause_Clause =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4538,15 +4221,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr option,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
        range: Microsoft.FSharp.Compiler.Range.range,
-       spTarget: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget) ->
-      visitor.VisitMatchClause_Clause(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
-       (visitor.VisitExpr context item3),
-       range,
-       spTarget)
+       spTarget: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget) -> None
     with get, set
 
   /// <summary>
@@ -4554,8 +4229,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMatchClause.Clause".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMatchClause_Clause =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4564,8 +4238,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr option,
        item3: Microsoft.FSharp.Compiler.Ast.SynExpr,
        range: Microsoft.FSharp.Compiler.Range.range,
-       spTarget: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget) ->
-      Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget)
+       spTarget: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget) -> None
     with get, set
 
 
@@ -4582,7 +4255,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synMatchClause with
       | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget) ->
-        this.BeforeVisitMatchClause_Clause(this, context, item1, item2, item3, range, spTarget)
+        match this.BeforeVisitMatchClause_Clause(this, context, item1, item2, item3, range, spTarget) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, range, spTarget = (this.VisitPat context item1), item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), (this.VisitExpr context item3), range, spTarget
+          match this.VisitMatchClause_Clause(this, context, item1, item2, item3, range, spTarget) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget)
     finally
       parents.Pop() |> ignore
 
@@ -4594,19 +4273,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Named".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Named =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Named(
-       visitor,
-       context,
-       longId,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4614,15 +4287,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Named".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Named =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Named(longId, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4630,21 +4301,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Product".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Product =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynMeasure,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Product(
-       visitor,
-       context,
-       (visitor.VisitMeasure context item1),
-       (visitor.VisitMeasure context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4652,16 +4316,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Product".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Product =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynMeasure,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Product(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4669,19 +4331,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Seq".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Seq =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Seq(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMeasure context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4689,15 +4345,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Seq".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Seq =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4705,21 +4359,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Divide".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Divide =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynMeasure,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Divide(
-       visitor,
-       context,
-       (visitor.VisitMeasure context item1),
-       (visitor.VisitMeasure context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4727,16 +4374,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Divide".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Divide =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynMeasure,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4744,21 +4389,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Power".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Power =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynRationalConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Power(
-       visitor,
-       context,
-       (visitor.VisitMeasure context item1),
-       (visitor.VisitRationalConst context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4766,16 +4404,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Power".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Power =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynMeasure,
        item2: Microsoft.FSharp.Compiler.Ast.SynRationalConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Power(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4783,15 +4419,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_One".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_One =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitMeasure_One(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -4799,13 +4431,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.One".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_One =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.One
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -4813,17 +4443,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Anon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Anon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Anon(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4831,14 +4456,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Anon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Anon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Anon(item)
+       item: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4846,19 +4469,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMeasure_Var".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMeasure_Var =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMeasure_Var(
-       visitor,
-       context,
-       (visitor.VisitTypar context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4866,15 +4483,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMeasure.Var".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMeasure_Var =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMeasure.Var(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -4891,21 +4506,68 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synMeasure with
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Named(longId, range) ->
-        this.BeforeVisitMeasure_Named(this, context, longId, range)
+        match this.BeforeVisitMeasure_Named(this, context, longId, range) with
+        | Some result -> result
+        | None ->
+          let longId, range = longId, range
+          match this.VisitMeasure_Named(this, context, longId, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Named(longId, range)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Product(item1, item2, range) ->
-        this.BeforeVisitMeasure_Product(this, context, item1, item2, range)
+        match this.BeforeVisitMeasure_Product(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitMeasure context item1), (this.VisitMeasure context item2), range
+          match this.VisitMeasure_Product(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Product(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq(item1, range) ->
-        this.BeforeVisitMeasure_Seq(this, context, item1, range)
+        match this.BeforeVisitMeasure_Seq(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMeasure context v)), range
+          match this.VisitMeasure_Seq(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide(item1, item2, range) ->
-        this.BeforeVisitMeasure_Divide(this, context, item1, item2, range)
+        match this.BeforeVisitMeasure_Divide(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitMeasure context item1), (this.VisitMeasure context item2), range
+          match this.VisitMeasure_Divide(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Power(item1, item2, range) ->
-        this.BeforeVisitMeasure_Power(this, context, item1, item2, range)
+        match this.BeforeVisitMeasure_Power(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitMeasure context item1), (this.VisitRationalConst context item2), range
+          match this.VisitMeasure_Power(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Power(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.One ->
-        this.BeforeVisitMeasure_One(this, context)
+        match this.BeforeVisitMeasure_One(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitMeasure_One(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.One
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Anon(item) ->
-        this.BeforeVisitMeasure_Anon(this, context, item)
+        match this.BeforeVisitMeasure_Anon(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitMeasure_Anon(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Anon(item)
       | Microsoft.FSharp.Compiler.Ast.SynMeasure.Var(item1, range) ->
-        this.BeforeVisitMeasure_Var(this, context, item1, range)
+        match this.BeforeVisitMeasure_Var(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitTypar context item1), range
+          match this.VisitMeasure_Var(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMeasure.Var(item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -4917,19 +4579,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_Open(
-       visitor,
-       context,
-       longId,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4937,15 +4593,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open(longId, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4953,19 +4607,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_Member".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_Member =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        memberDefn: Microsoft.FSharp.Compiler.Ast.SynBinding,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_Member(
-       visitor,
-       context,
-       (visitor.VisitBinding context memberDefn),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4973,15 +4621,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.Member".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_Member =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        memberDefn: Microsoft.FSharp.Compiler.Ast.SynBinding,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member(memberDefn, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -4989,8 +4635,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitCtor".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_ImplicitCtor =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -4999,15 +4644,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        ctorArgs: Microsoft.FSharp.Compiler.Ast.SynSimplePat list,
        selfIdentifier: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_ImplicitCtor(
-       visitor,
-       context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v)),
-       selfIdentifier,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5015,8 +4652,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitCtor".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_ImplicitCtor =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5025,8 +4661,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        ctorArgs: Microsoft.FSharp.Compiler.Ast.SynSimplePat list,
        selfIdentifier: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor(accessiblity, attributes, ctorArgs, selfIdentifier, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5034,8 +4669,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitInherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_ImplicitInherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5043,14 +4677,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        inheritType: Microsoft.FSharp.Compiler.Ast.SynType,
        inheritArgs: Microsoft.FSharp.Compiler.Ast.SynExpr,
        inheritAlias: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_ImplicitInherit(
-       visitor,
-       context,
-       (visitor.VisitType context inheritType),
-       (visitor.VisitExpr context inheritArgs),
-       inheritAlias,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5058,8 +4685,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitInherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_ImplicitInherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5067,8 +4693,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        inheritType: Microsoft.FSharp.Compiler.Ast.SynType,
        inheritArgs: Microsoft.FSharp.Compiler.Ast.SynExpr,
        inheritAlias: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit(inheritType, inheritArgs, inheritAlias, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5076,8 +4701,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_LetBindings".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_LetBindings =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5085,14 +4709,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        isStatic: bool,
        isRecursive: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_LetBindings(
-       visitor,
-       context,
-       bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
-       isStatic,
-       isRecursive,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5100,8 +4717,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.LetBindings".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_LetBindings =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5109,8 +4725,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
        isStatic: bool,
        isRecursive: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(bindings, isStatic, isRecursive, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5118,21 +4733,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_AbstractSlot".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_AbstractSlot =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        valSig: Microsoft.FSharp.Compiler.Ast.SynValSig,
        memberFlags: Microsoft.FSharp.Compiler.Ast.MemberFlags,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_AbstractSlot(
-       visitor,
-       context,
-       (visitor.VisitValSig context valSig),
-       memberFlags,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5140,16 +4748,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.AbstractSlot".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_AbstractSlot =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        valSig: Microsoft.FSharp.Compiler.Ast.SynValSig,
        memberFlags: Microsoft.FSharp.Compiler.Ast.MemberFlags,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(valSig, memberFlags, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5157,21 +4763,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_Interface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_Interface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        interfaceMembers: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_Interface(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v))),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5179,16 +4778,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.Interface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_Interface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        interfaceMembers: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(typeName, interfaceMembers, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5196,21 +4793,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_Inherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_Inherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        id: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_Inherit(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       id,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5218,16 +4808,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.Inherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_Inherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        id: Microsoft.FSharp.Compiler.Ast.Ident option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(typeName, id, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5235,19 +4823,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_ValField".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_ValField =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        field: Microsoft.FSharp.Compiler.Ast.SynField,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_ValField(
-       visitor,
-       context,
-       (visitor.VisitField context field),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5255,15 +4837,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.ValField".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_ValField =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        field: Microsoft.FSharp.Compiler.Ast.SynField,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(field, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5271,21 +4851,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_NestedType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_NestedType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefn: Microsoft.FSharp.Compiler.Ast.SynTypeDefn,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_NestedType(
-       visitor,
-       context,
-       (visitor.VisitTypeDefn context typeDefn),
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5293,16 +4866,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.NestedType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_NestedType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefn: Microsoft.FSharp.Compiler.Ast.SynTypeDefn,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessiblity, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5310,8 +4881,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberDefn_AutoProperty".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberDefn_AutoProperty =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5326,21 +4896,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        getSetPos: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberDefn_AutoProperty(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       isStatic,
-       id,
-       tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitType context v)),
-       propKind,
-       memberFlags,
-       xmlDoc,
-       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       (visitor.VisitExpr context expr),
-       getSetPos,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5348,8 +4904,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberDefn.AutoProperty".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberDefn_AutoProperty =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5364,8 +4919,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
        getSetPos: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -5382,27 +4936,93 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synMemberDefn with
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open(longId, range) ->
-        this.BeforeVisitMemberDefn_Open(this, context, longId, range)
+        match this.BeforeVisitMemberDefn_Open(this, context, longId, range) with
+        | Some result -> result
+        | None ->
+          let longId, range = longId, range
+          match this.VisitMemberDefn_Open(this, context, longId, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open(longId, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member(memberDefn, range) ->
-        this.BeforeVisitMemberDefn_Member(this, context, memberDefn, range)
+        match this.BeforeVisitMemberDefn_Member(this, context, memberDefn, range) with
+        | Some result -> result
+        | None ->
+          let memberDefn, range = (this.VisitBinding context memberDefn), range
+          match this.VisitMemberDefn_Member(this, context, memberDefn, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member(memberDefn, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor(accessiblity, attributes, ctorArgs, selfIdentifier, range) ->
-        this.BeforeVisitMemberDefn_ImplicitCtor(this, context, accessiblity, attributes, ctorArgs, selfIdentifier, range)
+        match this.BeforeVisitMemberDefn_ImplicitCtor(this, context, accessiblity, attributes, ctorArgs, selfIdentifier, range) with
+        | Some result -> result
+        | None ->
+          let accessiblity, attributes, ctorArgs, selfIdentifier, range = accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSimplePat context v)), selfIdentifier, range
+          match this.VisitMemberDefn_ImplicitCtor(this, context, accessiblity, attributes, ctorArgs, selfIdentifier, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor(accessiblity, attributes, ctorArgs, selfIdentifier, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit(inheritType, inheritArgs, inheritAlias, range) ->
-        this.BeforeVisitMemberDefn_ImplicitInherit(this, context, inheritType, inheritArgs, inheritAlias, range)
+        match this.BeforeVisitMemberDefn_ImplicitInherit(this, context, inheritType, inheritArgs, inheritAlias, range) with
+        | Some result -> result
+        | None ->
+          let inheritType, inheritArgs, inheritAlias, range = (this.VisitType context inheritType), (this.VisitExpr context inheritArgs), inheritAlias, range
+          match this.VisitMemberDefn_ImplicitInherit(this, context, inheritType, inheritArgs, inheritAlias, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit(inheritType, inheritArgs, inheritAlias, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(bindings, isStatic, isRecursive, range) ->
-        this.BeforeVisitMemberDefn_LetBindings(this, context, bindings, isStatic, isRecursive, range)
+        match this.BeforeVisitMemberDefn_LetBindings(this, context, bindings, isStatic, isRecursive, range) with
+        | Some result -> result
+        | None ->
+          let bindings, isStatic, isRecursive, range = bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)), isStatic, isRecursive, range
+          match this.VisitMemberDefn_LetBindings(this, context, bindings, isStatic, isRecursive, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(bindings, isStatic, isRecursive, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(valSig, memberFlags, range) ->
-        this.BeforeVisitMemberDefn_AbstractSlot(this, context, valSig, memberFlags, range)
+        match this.BeforeVisitMemberDefn_AbstractSlot(this, context, valSig, memberFlags, range) with
+        | Some result -> result
+        | None ->
+          let valSig, memberFlags, range = (this.VisitValSig context valSig), memberFlags, range
+          match this.VisitMemberDefn_AbstractSlot(this, context, valSig, memberFlags, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(valSig, memberFlags, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(typeName, interfaceMembers, range) ->
-        this.BeforeVisitMemberDefn_Interface(this, context, typeName, interfaceMembers, range)
+        match this.BeforeVisitMemberDefn_Interface(this, context, typeName, interfaceMembers, range) with
+        | Some result -> result
+        | None ->
+          let typeName, interfaceMembers, range = (this.VisitType context typeName), interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberDefn context v))), range
+          match this.VisitMemberDefn_Interface(this, context, typeName, interfaceMembers, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(typeName, interfaceMembers, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(typeName, id, range) ->
-        this.BeforeVisitMemberDefn_Inherit(this, context, typeName, id, range)
+        match this.BeforeVisitMemberDefn_Inherit(this, context, typeName, id, range) with
+        | Some result -> result
+        | None ->
+          let typeName, id, range = (this.VisitType context typeName), id, range
+          match this.VisitMemberDefn_Inherit(this, context, typeName, id, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(typeName, id, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(field, range) ->
-        this.BeforeVisitMemberDefn_ValField(this, context, field, range)
+        match this.BeforeVisitMemberDefn_ValField(this, context, field, range) with
+        | Some result -> result
+        | None ->
+          let field, range = (this.VisitField context field), range
+          match this.VisitMemberDefn_ValField(this, context, field, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(field, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessiblity, range) ->
-        this.BeforeVisitMemberDefn_NestedType(this, context, typeDefn, accessiblity, range)
+        match this.BeforeVisitMemberDefn_NestedType(this, context, typeDefn, accessiblity, range) with
+        | Some result -> result
+        | None ->
+          let typeDefn, accessiblity, range = (this.VisitTypeDefn context typeDefn), accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitMemberDefn_NestedType(this, context, typeDefn, accessiblity, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessiblity, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) ->
-        this.BeforeVisitMemberDefn_AutoProperty(this, context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range)
+        match this.BeforeVisitMemberDefn_AutoProperty(this, context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) with
+        | Some result -> result
+        | None ->
+          let attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitType context v)), propKind, memberFlags, xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitExpr context expr), getSetPos, range
+          match this.VisitMemberDefn_AutoProperty(this, context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range)
     finally
       parents.Pop() |> ignore
 
@@ -5414,21 +5034,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberSig_Member".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberSig_Member =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynValSig,
        memberFlags: Microsoft.FSharp.Compiler.Ast.MemberFlags,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberSig_Member(
-       visitor,
-       context,
-       (visitor.VisitValSig context item1),
-       memberFlags,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5436,16 +5049,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberSig.Member".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberSig_Member =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynValSig,
        memberFlags: Microsoft.FSharp.Compiler.Ast.MemberFlags,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5453,19 +5064,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberSig_Interface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberSig_Interface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberSig_Interface(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5473,15 +5078,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberSig.Interface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberSig_Interface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface(typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5489,19 +5092,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberSig_Inherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberSig_Inherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberSig_Inherit(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5509,15 +5106,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberSig.Inherit".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberSig_Inherit =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit(typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5525,19 +5120,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberSig_ValField".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberSig_ValField =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        field: Microsoft.FSharp.Compiler.Ast.SynField,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberSig_ValField(
-       visitor,
-       context,
-       (visitor.VisitField context field),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5545,15 +5134,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberSig.ValField".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberSig_ValField =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        field: Microsoft.FSharp.Compiler.Ast.SynField,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(field, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5561,19 +5148,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitMemberSig_NestedType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitMemberSig_NestedType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefnSig: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitMemberSig_NestedType(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnSig context typeDefnSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5581,15 +5162,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynMemberSig.NestedType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitMemberSig_NestedType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefnSig: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -5606,15 +5185,45 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synMemberSig with
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range) ->
-        this.BeforeVisitMemberSig_Member(this, context, item1, memberFlags, range)
+        match this.BeforeVisitMemberSig_Member(this, context, item1, memberFlags, range) with
+        | Some result -> result
+        | None ->
+          let item1, memberFlags, range = (this.VisitValSig context item1), memberFlags, range
+          match this.VisitMemberSig_Member(this, context, item1, memberFlags, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface(typeName, range) ->
-        this.BeforeVisitMemberSig_Interface(this, context, typeName, range)
+        match this.BeforeVisitMemberSig_Interface(this, context, typeName, range) with
+        | Some result -> result
+        | None ->
+          let typeName, range = (this.VisitType context typeName), range
+          match this.VisitMemberSig_Interface(this, context, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface(typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit(typeName, range) ->
-        this.BeforeVisitMemberSig_Inherit(this, context, typeName, range)
+        match this.BeforeVisitMemberSig_Inherit(this, context, typeName, range) with
+        | Some result -> result
+        | None ->
+          let typeName, range = (this.VisitType context typeName), range
+          match this.VisitMemberSig_Inherit(this, context, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit(typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(field, range) ->
-        this.BeforeVisitMemberSig_ValField(this, context, field, range)
+        match this.BeforeVisitMemberSig_ValField(this, context, field, range) with
+        | Some result -> result
+        | None ->
+          let field, range = (this.VisitField context field), range
+          match this.VisitMemberSig_ValField(this, context, field, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(field, range)
       | Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range) ->
-        this.BeforeVisitMemberSig_NestedType(this, context, typeDefnSig, range)
+        match this.BeforeVisitMemberSig_NestedType(this, context, typeDefnSig, range) with
+        | Some result -> result
+        | None ->
+          let typeDefnSig, range = (this.VisitTypeDefnSig context typeDefnSig), range
+          match this.VisitMemberSig_NestedType(this, context, typeDefnSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range)
     finally
       parents.Pop() |> ignore
 
@@ -5626,21 +5235,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_ModuleAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_ModuleAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.Ident,
        item2: Microsoft.FSharp.Compiler.Ast.Ident list,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_ModuleAbbrev(
-       visitor,
-       context,
-       item1,
-       item2,
-       item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5648,16 +5250,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.ModuleAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_ModuleAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.Ident,
        item2: Microsoft.FSharp.Compiler.Ast.Ident list,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev(item1, item2, item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5665,8 +5265,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_NestedModule".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_NestedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5675,15 +5274,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isRec: bool,
        item3: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
        item4: bool,
-       item5: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_NestedModule(
-       visitor,
-       context,
-       (visitor.VisitComponentInfo context item1),
-       isRec,
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleDecl context v)),
-       item4,
-       item5)
+       item5: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5691,8 +5282,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.NestedModule".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_NestedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -5701,8 +5291,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isRec: bool,
        item3: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
        item4: bool,
-       item5: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5)
+       item5: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5710,21 +5299,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_Let".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_Let =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynBinding list,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_Let(
-       visitor,
-       context,
-       item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitBinding context v)),
-       item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5732,16 +5314,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.Let".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_Let =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynBinding list,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5749,21 +5329,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_DoExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_DoExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_DoExpr(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitExpr context item2),
-       item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5771,16 +5344,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.DoExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_DoExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding,
        item2: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5788,19 +5359,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_Types".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_Types =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefn list,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_Types(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeDefn context v)),
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5808,15 +5373,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.Types".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_Types =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefn list,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5824,19 +5387,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_Exception(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefn context item1),
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5844,15 +5401,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5860,19 +5415,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_Open(
-       visitor,
-       context,
-       item1,
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5880,15 +5429,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5896,19 +5443,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_Attributes".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_Attributes =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_Attributes(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5916,15 +5457,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.Attributes".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_Attributes =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5932,19 +5471,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_HashDirective".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_HashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleDecl_HashDirective(
-       visitor,
-       context,
-       item1,
-       item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5952,15 +5485,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.HashDirective".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_HashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
-       item2: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -5968,17 +5499,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleDecl_NamespaceFragment".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleDecl_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) ->
-      visitor.VisitModuleDecl_NamespaceFragment(
-       visitor,
-       context,
-       (visitor.VisitModuleOrNamespace context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) -> None
     with get, set
 
   /// <summary>
@@ -5986,14 +5512,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleDecl.NamespaceFragment".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleDecl_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) -> None
     with get, set
 
 
@@ -6010,25 +5534,85 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synModuleDecl with
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev(item1, item2, item3) ->
-        this.BeforeVisitModuleDecl_ModuleAbbrev(this, context, item1, item2, item3)
+        match this.BeforeVisitModuleDecl_ModuleAbbrev(this, context, item1, item2, item3) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3 = item1, item2, item3
+          match this.VisitModuleDecl_ModuleAbbrev(this, context, item1, item2, item3) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev(item1, item2, item3)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5) ->
-        this.BeforeVisitModuleDecl_NestedModule(this, context, item1, isRec, item3, item4, item5)
+        match this.BeforeVisitModuleDecl_NestedModule(this, context, item1, isRec, item3, item4, item5) with
+        | Some result -> result
+        | None ->
+          let item1, isRec, item3, item4, item5 = (this.VisitComponentInfo context item1), isRec, item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), item4, item5
+          match this.VisitModuleDecl_NestedModule(this, context, item1, isRec, item3, item4, item5) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, item3) ->
-        this.BeforeVisitModuleDecl_Let(this, context, item1, item2, item3)
+        match this.BeforeVisitModuleDecl_Let(this, context, item1, item2, item3) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3 = item1, item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitBinding context v)), item3
+          match this.VisitModuleDecl_Let(this, context, item1, item2, item3) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, item3)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, item3) ->
-        this.BeforeVisitModuleDecl_DoExpr(this, context, item1, item2, item3)
+        match this.BeforeVisitModuleDecl_DoExpr(this, context, item1, item2, item3) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3 = item1, (this.VisitExpr context item2), item3
+          match this.VisitModuleDecl_DoExpr(this, context, item1, item2, item3) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, item3)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, item2) ->
-        this.BeforeVisitModuleDecl_Types(this, context, item1, item2)
+        match this.BeforeVisitModuleDecl_Types(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeDefn context v)), item2
+          match this.VisitModuleDecl_Types(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, item2) ->
-        this.BeforeVisitModuleDecl_Exception(this, context, item1, item2)
+        match this.BeforeVisitModuleDecl_Exception(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = (this.VisitExceptionDefn context item1), item2
+          match this.VisitModuleDecl_Exception(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open(item1, item2) ->
-        this.BeforeVisitModuleDecl_Open(this, context, item1, item2)
+        match this.BeforeVisitModuleDecl_Open(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = item1, item2
+          match this.VisitModuleDecl_Open(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2) ->
-        this.BeforeVisitModuleDecl_Attributes(this, context, item1, item2)
+        match this.BeforeVisitModuleDecl_Attributes(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item2
+          match this.VisitModuleDecl_Attributes(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2) ->
-        this.BeforeVisitModuleDecl_HashDirective(this, context, item1, item2)
+        match this.BeforeVisitModuleDecl_HashDirective(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = item1, item2
+          match this.VisitModuleDecl_HashDirective(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2)
       | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item) ->
-        this.BeforeVisitModuleDecl_NamespaceFragment(this, context, item)
+        match this.BeforeVisitModuleDecl_NamespaceFragment(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitModuleOrNamespace context item)
+          match this.VisitModuleDecl_NamespaceFragment(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item)
     finally
       parents.Pop() |> ignore
 
@@ -6040,8 +5624,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleOrNamespace_SynModuleOrNamespace".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleOrNamespace_SynModuleOrNamespace =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6053,18 +5636,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        access: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleOrNamespace_SynModuleOrNamespace(
-       visitor,
-       context,
-       id,
-       isRec,
-       isModule,
-       decls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleDecl context v)),
-       xmlDoc,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6072,8 +5644,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleOrNamespace.SynModuleOrNamespace".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleOrNamespace_SynModuleOrNamespace =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6085,8 +5656,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        access: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -6103,7 +5673,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synModuleOrNamespace with
       | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range) ->
-        this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace(this, context, id, isRec, isModule, decls, xmlDoc, attributes, access, range)
+        match this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace(this, context, id, isRec, isModule, decls, xmlDoc, attributes, access, range) with
+        | Some result -> result
+        | None ->
+          let id, isRec, isModule, decls, xmlDoc, attributes, access, range = id, isRec, isModule, decls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitModuleOrNamespace_SynModuleOrNamespace(this, context, id, isRec, isModule, decls, xmlDoc, attributes, access, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range)
     finally
       parents.Pop() |> ignore
 
@@ -6115,8 +5691,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6128,18 +5703,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        item7: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(
-       visitor,
-       context,
-       id,
-       isRec,
-       isModule,
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleSigDecl context v)),
-       xmlDoc,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6147,8 +5711,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6160,8 +5723,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
        item7: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -6178,7 +5740,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synModuleOrNamespaceSig with
       | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range) ->
-        this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(this, context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range)
+        match this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(this, context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range) with
+        | Some result -> result
+        | None ->
+          let id, isRec, isModule, item4, xmlDoc, attributes, item7, range = id, isRec, isModule, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(this, context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range)
     finally
       parents.Pop() |> ignore
 
@@ -6190,21 +5758,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_ModuleAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_ModuleAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_ModuleAbbrev(
-       visitor,
-       context,
-       id,
-       longId,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6212,16 +5773,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.ModuleAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_ModuleAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev(id, longId, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6229,8 +5788,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_NestedModule".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_NestedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6238,14 +5796,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        isRec: bool,
        moduleSigDecls: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_NestedModule(
-       visitor,
-       context,
-       (visitor.VisitComponentInfo context item1),
-       isRec,
-       moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitModuleSigDecl context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6253,8 +5804,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.NestedModule".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_NestedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6262,8 +5812,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        isRec: bool,
        moduleSigDecls: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6271,19 +5820,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_Val".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_Val =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        valSig: Microsoft.FSharp.Compiler.Ast.SynValSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_Val(
-       visitor,
-       context,
-       (visitor.VisitValSig context valSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6291,15 +5834,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.Val".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_Val =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        valSig: Microsoft.FSharp.Compiler.Ast.SynValSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(valSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6307,19 +5848,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_Types".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_Types =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefSigs: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_Types(
-       visitor,
-       context,
-       typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeDefnSig context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6327,15 +5862,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.Types".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_Types =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeDefSigs: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(typeDefSigs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6343,19 +5876,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnSig: Microsoft.FSharp.Compiler.Ast.SynExceptionSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_Exception(
-       visitor,
-       context,
-       (visitor.VisitExceptionSig context exnSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6363,15 +5890,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        exnSig: Microsoft.FSharp.Compiler.Ast.SynExceptionSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(exnSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6379,19 +5904,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_Open(
-       visitor,
-       context,
-       longId,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6399,15 +5918,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.Open".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_Open =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        longId: Microsoft.FSharp.Compiler.Ast.Ident list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open(longId, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6415,19 +5932,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_HashDirective".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_HashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        hashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitModuleSigDecl_HashDirective(
-       visitor,
-       context,
-       hashDirective,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6435,15 +5946,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.HashDirective".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_HashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        hashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6451,17 +5960,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitModuleSigDecl_NamespaceFragment".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitModuleSigDecl_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) ->
-      visitor.VisitModuleSigDecl_NamespaceFragment(
-       visitor,
-       context,
-       (visitor.VisitModuleOrNamespaceSig context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) -> None
     with get, set
 
   /// <summary>
@@ -6469,14 +5973,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynModuleSigDecl.NamespaceFragment".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitModuleSigDecl_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) ->
-      Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) -> None
     with get, set
 
 
@@ -6493,21 +5995,69 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synModuleSigDecl with
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev(id, longId, range) ->
-        this.BeforeVisitModuleSigDecl_ModuleAbbrev(this, context, id, longId, range)
+        match this.BeforeVisitModuleSigDecl_ModuleAbbrev(this, context, id, longId, range) with
+        | Some result -> result
+        | None ->
+          let id, longId, range = id, longId, range
+          match this.VisitModuleSigDecl_ModuleAbbrev(this, context, id, longId, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev(id, longId, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range) ->
-        this.BeforeVisitModuleSigDecl_NestedModule(this, context, item1, isRec, moduleSigDecls, range)
+        match this.BeforeVisitModuleSigDecl_NestedModule(this, context, item1, isRec, moduleSigDecls, range) with
+        | Some result -> result
+        | None ->
+          let item1, isRec, moduleSigDecls, range = (this.VisitComponentInfo context item1), isRec, moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), range
+          match this.VisitModuleSigDecl_NestedModule(this, context, item1, isRec, moduleSigDecls, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(valSig, range) ->
-        this.BeforeVisitModuleSigDecl_Val(this, context, valSig, range)
+        match this.BeforeVisitModuleSigDecl_Val(this, context, valSig, range) with
+        | Some result -> result
+        | None ->
+          let valSig, range = (this.VisitValSig context valSig), range
+          match this.VisitModuleSigDecl_Val(this, context, valSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(valSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(typeDefSigs, range) ->
-        this.BeforeVisitModuleSigDecl_Types(this, context, typeDefSigs, range)
+        match this.BeforeVisitModuleSigDecl_Types(this, context, typeDefSigs, range) with
+        | Some result -> result
+        | None ->
+          let typeDefSigs, range = typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeDefnSig context v)), range
+          match this.VisitModuleSigDecl_Types(this, context, typeDefSigs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(typeDefSigs, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(exnSig, range) ->
-        this.BeforeVisitModuleSigDecl_Exception(this, context, exnSig, range)
+        match this.BeforeVisitModuleSigDecl_Exception(this, context, exnSig, range) with
+        | Some result -> result
+        | None ->
+          let exnSig, range = (this.VisitExceptionSig context exnSig), range
+          match this.VisitModuleSigDecl_Exception(this, context, exnSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(exnSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open(longId, range) ->
-        this.BeforeVisitModuleSigDecl_Open(this, context, longId, range)
+        match this.BeforeVisitModuleSigDecl_Open(this, context, longId, range) with
+        | Some result -> result
+        | None ->
+          let longId, range = longId, range
+          match this.VisitModuleSigDecl_Open(this, context, longId, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open(longId, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range) ->
-        this.BeforeVisitModuleSigDecl_HashDirective(this, context, hashDirective, range)
+        match this.BeforeVisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
+        | Some result -> result
+        | None ->
+          let hashDirective, range = hashDirective, range
+          match this.VisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range)
       | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item) ->
-        this.BeforeVisitModuleSigDecl_NamespaceFragment(this, context, item)
+        match this.BeforeVisitModuleSigDecl_NamespaceFragment(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitModuleOrNamespaceSig context item)
+          match this.VisitModuleSigDecl_NamespaceFragment(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item)
     finally
       parents.Pop() |> ignore
 
@@ -6519,19 +6069,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Const".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Const =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Const(
-       visitor,
-       context,
-       (visitor.VisitConst context constant),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6539,15 +6083,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Const".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Const =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6555,17 +6097,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Wild".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Wild =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Wild(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6573,14 +6110,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Wild".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Wild =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Wild(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6588,8 +6123,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Named".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Named =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6598,15 +6132,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        isThisVar: bool,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Named(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       id,
-       isThisVar,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6614,8 +6140,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Named".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Named =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6624,8 +6149,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        isThisVar: bool,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, id, isThisVar, accessiblity, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6633,21 +6157,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Typed(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6655,16 +6172,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6672,21 +6187,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Attrib".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Attrib =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Attrib(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6694,16 +6202,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Attrib".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Attrib =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6711,21 +6217,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Or".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Or =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        item2: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Or(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       (visitor.VisitPat context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6733,16 +6232,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Or".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Or =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
        item2: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Or(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6750,19 +6247,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Ands".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Ands =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Ands(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6770,15 +6261,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Ands".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Ands =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Ands(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6786,8 +6275,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6797,16 +6285,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item3: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option,
        item4: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs,
        item5: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_LongIdent(
-       visitor,
-       context,
-       dotId,
-       item2,
-       item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitValTyparDecls context v)),
-       (visitor.VisitConstructorArgs context item4),
-       item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6814,8 +6293,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -6825,8 +6303,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item3: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option,
        item4: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs,
        item5: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(dotId, item2, item3, item4, item5, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6834,19 +6311,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Tuple(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6854,15 +6325,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Tuple(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6870,19 +6339,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Paren".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Paren =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Paren(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6890,15 +6353,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Paren".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Paren =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Paren(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6906,21 +6367,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_ArrayOrList".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_ArrayOrList =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_ArrayOrList(
-       visitor,
-       context,
-       item1,
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitPat context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6928,16 +6382,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.ArrayOrList".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_ArrayOrList =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: bool,
        item2: Microsoft.FSharp.Compiler.Ast.SynPat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6945,19 +6397,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        fields: ((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Record(
-       visitor,
-       context,
-       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitPat context v1))),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6965,15 +6411,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        fields: ((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Record(fields, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6981,17 +6425,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_Null".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_Null =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_Null(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -6999,14 +6438,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.Null".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_Null =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.Null(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7014,19 +6451,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_OptionalVal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_OptionalVal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.Ident,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_OptionalVal(
-       visitor,
-       context,
-       item1,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7034,15 +6465,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.OptionalVal".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_OptionalVal =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.Ident,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7050,19 +6479,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_IsInst".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_IsInst =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_IsInst(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7070,15 +6493,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.IsInst".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_IsInst =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7086,19 +6507,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_QuoteExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_QuoteExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_QuoteExpr(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7106,15 +6521,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.QuoteExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_QuoteExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7122,21 +6535,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_DeprecatedCharRange".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_DeprecatedCharRange =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: char,
        item2: char,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_DeprecatedCharRange(
-       visitor,
-       context,
-       item1,
-       item2,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7144,16 +6550,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.DeprecatedCharRange".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_DeprecatedCharRange =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: char,
        item2: char,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7161,8 +6565,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_InstanceMember".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_InstanceMember =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -7171,15 +6574,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.Ident,
        item3: Microsoft.FSharp.Compiler.Ast.Ident option,
        accesiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_InstanceMember(
-       visitor,
-       context,
-       item1,
-       item2,
-       item3,
-       accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7187,8 +6582,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.InstanceMember".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_InstanceMember =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -7197,8 +6591,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item2: Microsoft.FSharp.Compiler.Ast.Ident,
        item3: Microsoft.FSharp.Compiler.Ast.Ident option,
        accesiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accesiblity, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7206,19 +6599,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitPat_FromParseError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitPat_FromParseError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitPat_FromParseError(
-       visitor,
-       context,
-       (visitor.VisitPat context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7226,15 +6613,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynPat.FromParseError".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitPat_FromParseError =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynPat,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -7251,43 +6636,157 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synPat with
       | Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range) ->
-        this.BeforeVisitPat_Const(this, context, constant, range)
+        match this.BeforeVisitPat_Const(this, context, constant, range) with
+        | Some result -> result
+        | None ->
+          let constant, range = (this.VisitConst context constant), range
+          match this.VisitPat_Const(this, context, constant, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Wild(range) ->
-        this.BeforeVisitPat_Wild(this, context, range)
+        match this.BeforeVisitPat_Wild(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitPat_Wild(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Wild(range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, id, isThisVar, accessiblity, range) ->
-        this.BeforeVisitPat_Named(this, context, item1, id, isThisVar, accessiblity, range)
+        match this.BeforeVisitPat_Named(this, context, item1, id, isThisVar, accessiblity, range) with
+        | Some result -> result
+        | None ->
+          let item1, id, isThisVar, accessiblity, range = (this.VisitPat context item1), id, isThisVar, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitPat_Named(this, context, item1, id, isThisVar, accessiblity, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, id, isThisVar, accessiblity, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, typeName, range) ->
-        this.BeforeVisitPat_Typed(this, context, item1, typeName, range)
+        match this.BeforeVisitPat_Typed(this, context, item1, typeName, range) with
+        | Some result -> result
+        | None ->
+          let item1, typeName, range = (this.VisitPat context item1), (this.VisitType context typeName), range
+          match this.VisitPat_Typed(this, context, item1, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range) ->
-        this.BeforeVisitPat_Attrib(this, context, item1, attributes, range)
+        match this.BeforeVisitPat_Attrib(this, context, item1, attributes, range) with
+        | Some result -> result
+        | None ->
+          let item1, attributes, range = (this.VisitPat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          match this.VisitPat_Attrib(this, context, item1, attributes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Or(item1, item2, range) ->
-        this.BeforeVisitPat_Or(this, context, item1, item2, range)
+        match this.BeforeVisitPat_Or(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitPat context item1), (this.VisitPat context item2), range
+          match this.VisitPat_Or(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Or(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Ands(item1, range) ->
-        this.BeforeVisitPat_Ands(this, context, item1, range)
+        match this.BeforeVisitPat_Ands(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitPat context v)), range
+          match this.VisitPat_Ands(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Ands(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(dotId, item2, item3, item4, item5, range) ->
-        this.BeforeVisitPat_LongIdent(this, context, dotId, item2, item3, item4, item5, range)
+        match this.BeforeVisitPat_LongIdent(this, context, dotId, item2, item3, item4, item5, range) with
+        | Some result -> result
+        | None ->
+          let dotId, item2, item3, item4, item5, range = dotId, item2, item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitValTyparDecls context v)), (this.VisitConstructorArgs context item4), item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitPat_LongIdent(this, context, dotId, item2, item3, item4, item5, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(dotId, item2, item3, item4, item5, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Tuple(item1, range) ->
-        this.BeforeVisitPat_Tuple(this, context, item1, range)
+        match this.BeforeVisitPat_Tuple(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitPat context v)), range
+          match this.VisitPat_Tuple(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Tuple(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Paren(item1, range) ->
-        this.BeforeVisitPat_Paren(this, context, item1, range)
+        match this.BeforeVisitPat_Paren(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitPat context item1), range
+          match this.VisitPat_Paren(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Paren(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList(item1, item2, range) ->
-        this.BeforeVisitPat_ArrayOrList(this, context, item1, item2, range)
+        match this.BeforeVisitPat_ArrayOrList(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = item1, item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitPat context v)), range
+          match this.VisitPat_ArrayOrList(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Record(fields, range) ->
-        this.BeforeVisitPat_Record(this, context, fields, range)
+        match this.BeforeVisitPat_Record(this, context, fields, range) with
+        | Some result -> result
+        | None ->
+          let fields, range = fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitPat context v1))), range
+          match this.VisitPat_Record(this, context, fields, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Record(fields, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.Null(range) ->
-        this.BeforeVisitPat_Null(this, context, range)
+        match this.BeforeVisitPat_Null(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitPat_Null(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Null(range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal(item1, range) ->
-        this.BeforeVisitPat_OptionalVal(this, context, item1, range)
+        match this.BeforeVisitPat_OptionalVal(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1, range
+          match this.VisitPat_OptionalVal(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(typeName, range) ->
-        this.BeforeVisitPat_IsInst(this, context, typeName, range)
+        match this.BeforeVisitPat_IsInst(this, context, typeName, range) with
+        | Some result -> result
+        | None ->
+          let typeName, range = (this.VisitType context typeName), range
+          match this.VisitPat_IsInst(this, context, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(expr, range) ->
-        this.BeforeVisitPat_QuoteExpr(this, context, expr, range)
+        match this.BeforeVisitPat_QuoteExpr(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitPat_QuoteExpr(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange(item1, item2, range) ->
-        this.BeforeVisitPat_DeprecatedCharRange(this, context, item1, item2, range)
+        match this.BeforeVisitPat_DeprecatedCharRange(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = item1, item2, range
+          match this.VisitPat_DeprecatedCharRange(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accesiblity, range) ->
-        this.BeforeVisitPat_InstanceMember(this, context, item1, item2, item3, accesiblity, range)
+        match this.BeforeVisitPat_InstanceMember(this, context, item1, item2, item3, accesiblity, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, accesiblity, range = item1, item2, item3, accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitPat_InstanceMember(this, context, item1, item2, item3, accesiblity, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accesiblity, range)
       | Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range) ->
-        this.BeforeVisitPat_FromParseError(this, context, item1, range)
+        match this.BeforeVisitPat_FromParseError(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitPat context item1), range
+          match this.VisitPat_FromParseError(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -7299,17 +6798,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitRationalConst_Integer".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitRationalConst_Integer =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int) ->
-      visitor.VisitRationalConst_Integer(
-       visitor,
-       context,
-       item)
+       item: int) -> None
     with get, set
 
   /// <summary>
@@ -7317,14 +6811,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynRationalConst.Integer".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitRationalConst_Integer =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: int) ->
-      Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer(item)
+       item: int) -> None
     with get, set
 
   /// <summary>
@@ -7332,21 +6824,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitRationalConst_Rational".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitRationalConst_Rational =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: int,
        item2: int,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitRationalConst_Rational(
-       visitor,
-       context,
-       item1,
-       item2,
-       item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7354,16 +6839,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynRationalConst.Rational".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitRationalConst_Rational =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: int,
        item2: int,
-       item3: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational(item1, item2, item3)
+       item3: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7371,17 +6854,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitRationalConst_Negate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitRationalConst_Negate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynRationalConst) ->
-      visitor.VisitRationalConst_Negate(
-       visitor,
-       context,
-       (visitor.VisitRationalConst context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynRationalConst) -> None
     with get, set
 
   /// <summary>
@@ -7389,14 +6867,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynRationalConst.Negate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitRationalConst_Negate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynRationalConst) ->
-      Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynRationalConst) -> None
     with get, set
 
 
@@ -7413,11 +6889,29 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synRationalConst with
       | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer(item) ->
-        this.BeforeVisitRationalConst_Integer(this, context, item)
+        match this.BeforeVisitRationalConst_Integer(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitRationalConst_Integer(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer(item)
       | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational(item1, item2, item3) ->
-        this.BeforeVisitRationalConst_Rational(this, context, item1, item2, item3)
+        match this.BeforeVisitRationalConst_Rational(this, context, item1, item2, item3) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3 = item1, item2, item3
+          match this.VisitRationalConst_Rational(this, context, item1, item2, item3) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational(item1, item2, item3)
       | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate(item) ->
-        this.BeforeVisitRationalConst_Negate(this, context, item)
+        match this.BeforeVisitRationalConst_Negate(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitRationalConst context item)
+          match this.VisitRationalConst_Negate(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate(item)
     finally
       parents.Pop() |> ignore
 
@@ -7429,19 +6923,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitReturnInfo_SynReturnInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitReturnInfo_SynReturnInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo),
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitReturnInfo_SynReturnInfo(
-       visitor,
-       context,
-       (let v0, v1 = item1 in (visitor.VisitType context v0), (visitor.VisitArgInfo context v1)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7449,15 +6937,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynReturnInfo.SynReturnInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitReturnInfo_SynReturnInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo),
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -7474,7 +6960,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synReturnInfo with
       | Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range) ->
-        this.BeforeVisitReturnInfo_SynReturnInfo(this, context, item1, range)
+        match this.BeforeVisitReturnInfo_SynReturnInfo(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (let v0, v1 = item1 in (this.VisitType context v0), (this.VisitArgInfo context v1)), range
+          match this.VisitReturnInfo_SynReturnInfo(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -7486,8 +6978,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePat_Id".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePat_Id =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -7497,17 +6988,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isCompilerGenerated: bool,
        isThisVar: bool,
        isOptArg: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      use _rwh_ = new RefWrapperHolder()
-      visitor.VisitSimplePat_Id(
-       visitor,
-       context,
-       ident,
-       altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitor.VisitSimplePatAlternativeIdInfo context v.Value)),
-       isCompilerGenerated,
-       isThisVar,
-       isOptArg,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7515,8 +6996,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePat.Id".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePat_Id =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -7526,8 +7006,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        isCompilerGenerated: bool,
        isThisVar: bool,
        isOptArg: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7535,21 +7014,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePat_Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePat_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitSimplePat_Typed(
-       visitor,
-       context,
-       (visitor.VisitSimplePat context item1),
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7557,16 +7029,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePat.Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePat_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7574,21 +7044,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePat_Attrib".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePat_Attrib =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitSimplePat_Attrib(
-       visitor,
-       context,
-       (visitor.VisitSimplePat context item1),
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7596,16 +7059,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePat.Attrib".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePat_Attrib =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -7622,11 +7083,30 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synSimplePat with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) ->
-        this.BeforeVisitSimplePat_Id(this, context, ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range)
+        match this.BeforeVisitSimplePat_Id(this, context, ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) with
+        | Some result -> result
+        | None ->
+          use _rwh_ = new RefWrapperHolder()
+          let ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range = ident, altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (this.VisitSimplePatAlternativeIdInfo context v.Value)), isCompilerGenerated, isThisVar, isOptArg, range
+          match this.VisitSimplePat_Id(this, context, ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range)
       | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, typeName, range) ->
-        this.BeforeVisitSimplePat_Typed(this, context, item1, typeName, range)
+        match this.BeforeVisitSimplePat_Typed(this, context, item1, typeName, range) with
+        | Some result -> result
+        | None ->
+          let item1, typeName, range = (this.VisitSimplePat context item1), (this.VisitType context typeName), range
+          match this.VisitSimplePat_Typed(this, context, item1, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range) ->
-        this.BeforeVisitSimplePat_Attrib(this, context, item1, attributes, range)
+        match this.BeforeVisitSimplePat_Attrib(this, context, item1, attributes, range) with
+        | Some result -> result
+        | None ->
+          let item1, attributes, range = (this.VisitSimplePat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          match this.VisitSimplePat_Attrib(this, context, item1, attributes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range)
     finally
       parents.Pop() |> ignore
 
@@ -7638,17 +7118,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Undecided".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePatAlternativeIdInfo_Undecided =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      visitor.VisitSimplePatAlternativeIdInfo_Undecided(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
   /// <summary>
@@ -7656,14 +7131,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Undecided".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePatAlternativeIdInfo_Undecided =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided(item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
   /// <summary>
@@ -7671,17 +7144,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Decided".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePatAlternativeIdInfo_Decided =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      visitor.VisitSimplePatAlternativeIdInfo_Decided(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
   /// <summary>
@@ -7689,14 +7157,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Decided".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePatAlternativeIdInfo_Decided =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.Ident) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided(item)
+       item: Microsoft.FSharp.Compiler.Ast.Ident) -> None
     with get, set
 
 
@@ -7713,9 +7179,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synSimplePatAlternativeIdInfo with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided(item) ->
-        this.BeforeVisitSimplePatAlternativeIdInfo_Undecided(this, context, item)
+        match this.BeforeVisitSimplePatAlternativeIdInfo_Undecided(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitSimplePatAlternativeIdInfo_Undecided(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided(item)
       | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided(item) ->
-        this.BeforeVisitSimplePatAlternativeIdInfo_Decided(this, context, item)
+        match this.BeforeVisitSimplePatAlternativeIdInfo_Decided(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitSimplePatAlternativeIdInfo_Decided(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided(item)
     finally
       parents.Pop() |> ignore
 
@@ -7727,19 +7205,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePats_SimplePats".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePats_SimplePats =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitSimplePats_SimplePats(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7747,15 +7219,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePats.SimplePats".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePats_SimplePats =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7763,21 +7233,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitSimplePats_Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitSimplePats_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitSimplePats_Typed(
-       visitor,
-       context,
-       (visitor.VisitSimplePats context item1),
-       (visitor.VisitType context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7785,16 +7248,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynSimplePats.Typed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitSimplePats_Typed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -7811,9 +7272,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synSimplePats with
       | Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range) ->
-        this.BeforeVisitSimplePats_SimplePats(this, context, item1, range)
+        match this.BeforeVisitSimplePats_SimplePats(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSimplePat context v)), range
+          match this.VisitSimplePats_SimplePats(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range) ->
-        this.BeforeVisitSimplePats_Typed(this, context, item1, item2, range)
+        match this.BeforeVisitSimplePats_Typed(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitSimplePats context item1), (this.VisitType context item2), range
+          match this.VisitSimplePats_Typed(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range)
     finally
       parents.Pop() |> ignore
 
@@ -7825,21 +7298,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon(
-       visitor,
-       context,
-       (visitor.VisitTypar context item1),
-       (visitor.VisitType context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7847,16 +7313,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7864,19 +7328,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparIsStruct".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitStaticOptimizationConstraint_WhenTyparIsStruct(
-       visitor,
-       context,
-       (visitor.VisitTypar context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -7884,15 +7342,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparIsStruct".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitStaticOptimizationConstraint_WhenTyparIsStruct =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -7909,9 +7365,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synStaticOptimizationConstraint with
       | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range) ->
-        this.BeforeVisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon(this, context, item1, item2, range)
+        match this.BeforeVisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitTypar context item1), (this.VisitType context item2), range
+          match this.VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct(item1, range) ->
-        this.BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct(this, context, item1, range)
+        match this.BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitTypar context item1), range
+          match this.VisitStaticOptimizationConstraint_WhenTyparIsStruct(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct(item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -7923,21 +7391,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypar_Typar".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypar_Typar =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        staticReq: Microsoft.FSharp.Compiler.Ast.TyparStaticReq,
-       isCompGen: bool) ->
-      visitor.VisitTypar_Typar(
-       visitor,
-       context,
-       id,
-       staticReq,
-       isCompGen)
+       isCompGen: bool) -> None
     with get, set
 
   /// <summary>
@@ -7945,16 +7406,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypar.Typar".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypar_Typar =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        id: Microsoft.FSharp.Compiler.Ast.Ident,
        staticReq: Microsoft.FSharp.Compiler.Ast.TyparStaticReq,
-       isCompGen: bool) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen)
+       isCompGen: bool) -> None
     with get, set
 
 
@@ -7971,7 +7430,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypar with
       | Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen) ->
-        this.BeforeVisitTypar_Typar(this, context, id, staticReq, isCompGen)
+        match this.BeforeVisitTypar_Typar(this, context, id, staticReq, isCompGen) with
+        | Some result -> result
+        | None ->
+          let id, staticReq, isCompGen = id, staticReq, isCompGen
+          match this.VisitTypar_Typar(this, context, id, staticReq, isCompGen) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen)
     finally
       parents.Pop() |> ignore
 
@@ -7983,19 +7448,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTyparDecl_TyparDecl".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTyparDecl_TyparDecl =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) ->
-      visitor.VisitTyparDecl_TyparDecl(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       (visitor.VisitTypar context item2))
+       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) -> None
     with get, set
 
   /// <summary>
@@ -8003,15 +7462,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTyparDecl.TyparDecl".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTyparDecl_TyparDecl =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
-       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) ->
-      Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2)
+       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) -> None
     with get, set
 
 
@@ -8028,7 +7485,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTyparDecl with
       | Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2) ->
-        this.BeforeVisitTyparDecl_TyparDecl(this, context, attributes, item2)
+        match this.BeforeVisitTyparDecl_TyparDecl(this, context, attributes, item2) with
+        | Some result -> result
+        | None ->
+          let attributes, item2 = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitTypar context item2)
+          match this.VisitTyparDecl_TyparDecl(this, context, attributes, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2)
     finally
       parents.Pop() |> ignore
 
@@ -8040,17 +7503,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots) ->
-      visitor.VisitType_LongIdent(
-       visitor,
-       context,
-       item)
+       item: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots) -> None
     with get, set
 
   /// <summary>
@@ -8058,14 +7516,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.LongIdent".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_LongIdent =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.LongIdent(item)
+       item: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots) -> None
     with get, set
 
   /// <summary>
@@ -8073,8 +7529,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_App".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_App =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -8085,17 +7540,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
        isPostfix: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_App(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       leftAngleRange,
-       typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       commaRanges,
-       rightAngleRange,
-       isPostfix,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8103,8 +7548,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.App".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_App =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -8115,8 +7559,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
        isPostfix: bool,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8124,8 +7567,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_LongIdentApp".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_LongIdentApp =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -8136,17 +7578,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        genericNames: Microsoft.FSharp.Compiler.Ast.SynType list,
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_LongIdentApp(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       dotId,
-       leftAngleRange,
-       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       commaRanges,
-       rightAngleRange,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8154,8 +7586,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.LongIdentApp".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_LongIdentApp =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -8166,8 +7597,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        genericNames: Microsoft.FSharp.Compiler.Ast.SynType list,
        commaRanges: Microsoft.FSharp.Compiler.Range.range list,
        rightAngleRange: Microsoft.FSharp.Compiler.Range.range option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8175,19 +7605,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * Microsoft.FSharp.Compiler.Ast.SynType) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_Tuple(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitor.VisitType context v1))),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8195,15 +7619,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.Tuple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_Tuple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: (bool * Microsoft.FSharp.Compiler.Ast.SynType) list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.Tuple(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8211,21 +7633,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_Array".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_Array =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: int,
        elementType: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_Array(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitType context elementType),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8233,16 +7648,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.Array".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_Array =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: int,
        elementType: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.Array(item1, elementType, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8250,21 +7663,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_Fun".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_Fun =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        argType: Microsoft.FSharp.Compiler.Ast.SynType,
        returnType: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_Fun(
-       visitor,
-       context,
-       (visitor.VisitType context argType),
-       (visitor.VisitType context returnType),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8272,16 +7678,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.Fun".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_Fun =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        argType: Microsoft.FSharp.Compiler.Ast.SynType,
        returnType: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.Fun(argType, returnType, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8289,19 +7693,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_Var".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_Var =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_Var(
-       visitor,
-       context,
-       (visitor.VisitTypar context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8309,15 +7707,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.Var".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_Var =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.Var(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8325,17 +7721,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_Anon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_Anon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_Anon(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8343,14 +7734,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.Anon".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_Anon =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.Anon(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8358,21 +7747,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_WithGlobalConstraints".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_WithGlobalConstraints =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_WithGlobalConstraints(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8380,16 +7762,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.WithGlobalConstraints".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_WithGlobalConstraints =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints(typeName, constraints, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8397,19 +7777,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_HashConstraint".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_HashConstraint =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_HashConstraint(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8417,15 +7791,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.HashConstraint".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_HashConstraint =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(typeName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8433,21 +7805,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_MeasureDivide".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_MeasureDivide =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_MeasureDivide(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       (visitor.VisitType context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8455,16 +7820,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.MeasureDivide".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_MeasureDivide =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(typeName, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8472,21 +7835,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_MeasurePower".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_MeasurePower =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynRationalConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_MeasurePower(
-       visitor,
-       context,
-       (visitor.VisitType context typeName),
-       (visitor.VisitRationalConst context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8494,16 +7850,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.MeasurePower".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_MeasurePower =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        typeName: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynRationalConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(typeName, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8511,19 +7865,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_StaticConstant".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_StaticConstant =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_StaticConstant(
-       visitor,
-       context,
-       (visitor.VisitConst context constant),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8531,15 +7879,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.StaticConstant".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_StaticConstant =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        constant: Microsoft.FSharp.Compiler.Ast.SynConst,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant(constant, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8547,19 +7893,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_StaticConstantExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_StaticConstantExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_StaticConstantExpr(
-       visitor,
-       context,
-       (visitor.VisitExpr context expr),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8567,15 +7907,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.StaticConstantExpr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_StaticConstantExpr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr(expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8583,21 +7921,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitType_StaticConstantNamed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitType_StaticConstantNamed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitType_StaticConstantNamed(
-       visitor,
-       context,
-       (visitor.VisitType context item1),
-       (visitor.VisitType context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8605,16 +7936,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynType.StaticConstantNamed".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitType_StaticConstantNamed =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -8631,35 +7960,125 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synType with
       | Microsoft.FSharp.Compiler.Ast.SynType.LongIdent(item) ->
-        this.BeforeVisitType_LongIdent(this, context, item)
+        match this.BeforeVisitType_LongIdent(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = item
+          match this.VisitType_LongIdent(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.LongIdent(item)
       | Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) ->
-        this.BeforeVisitType_App(this, context, typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range)
+        match this.BeforeVisitType_App(this, context, typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) with
+        | Some result -> result
+        | None ->
+          let typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range = (this.VisitType context typeName), leftAngleRange, typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), commaRanges, rightAngleRange, isPostfix, range
+          match this.VisitType_App(this, context, typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range) ->
-        this.BeforeVisitType_LongIdentApp(this, context, typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range)
+        match this.BeforeVisitType_LongIdentApp(this, context, typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range) with
+        | Some result -> result
+        | None ->
+          let typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range = (this.VisitType context typeName), dotId, leftAngleRange, genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), commaRanges, rightAngleRange, range
+          match this.VisitType_LongIdentApp(this, context, typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.Tuple(item1, range) ->
-        this.BeforeVisitType_Tuple(this, context, item1, range)
+        match this.BeforeVisitType_Tuple(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (this.VisitType context v1))), range
+          match this.VisitType_Tuple(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.Tuple(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.Array(item1, elementType, range) ->
-        this.BeforeVisitType_Array(this, context, item1, elementType, range)
+        match this.BeforeVisitType_Array(this, context, item1, elementType, range) with
+        | Some result -> result
+        | None ->
+          let item1, elementType, range = item1, (this.VisitType context elementType), range
+          match this.VisitType_Array(this, context, item1, elementType, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.Array(item1, elementType, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.Fun(argType, returnType, range) ->
-        this.BeforeVisitType_Fun(this, context, argType, returnType, range)
+        match this.BeforeVisitType_Fun(this, context, argType, returnType, range) with
+        | Some result -> result
+        | None ->
+          let argType, returnType, range = (this.VisitType context argType), (this.VisitType context returnType), range
+          match this.VisitType_Fun(this, context, argType, returnType, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.Fun(argType, returnType, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.Var(item1, range) ->
-        this.BeforeVisitType_Var(this, context, item1, range)
+        match this.BeforeVisitType_Var(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitTypar context item1), range
+          match this.VisitType_Var(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.Var(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.Anon(range) ->
-        this.BeforeVisitType_Anon(this, context, range)
+        match this.BeforeVisitType_Anon(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitType_Anon(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.Anon(range)
       | Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints(typeName, constraints, range) ->
-        this.BeforeVisitType_WithGlobalConstraints(this, context, typeName, constraints, range)
+        match this.BeforeVisitType_WithGlobalConstraints(this, context, typeName, constraints, range) with
+        | Some result -> result
+        | None ->
+          let typeName, constraints, range = (this.VisitType context typeName), constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeConstraint context v)), range
+          match this.VisitType_WithGlobalConstraints(this, context, typeName, constraints, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints(typeName, constraints, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(typeName, range) ->
-        this.BeforeVisitType_HashConstraint(this, context, typeName, range)
+        match this.BeforeVisitType_HashConstraint(this, context, typeName, range) with
+        | Some result -> result
+        | None ->
+          let typeName, range = (this.VisitType context typeName), range
+          match this.VisitType_HashConstraint(this, context, typeName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(typeName, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(typeName, item2, range) ->
-        this.BeforeVisitType_MeasureDivide(this, context, typeName, item2, range)
+        match this.BeforeVisitType_MeasureDivide(this, context, typeName, item2, range) with
+        | Some result -> result
+        | None ->
+          let typeName, item2, range = (this.VisitType context typeName), (this.VisitType context item2), range
+          match this.VisitType_MeasureDivide(this, context, typeName, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(typeName, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(typeName, item2, range) ->
-        this.BeforeVisitType_MeasurePower(this, context, typeName, item2, range)
+        match this.BeforeVisitType_MeasurePower(this, context, typeName, item2, range) with
+        | Some result -> result
+        | None ->
+          let typeName, item2, range = (this.VisitType context typeName), (this.VisitRationalConst context item2), range
+          match this.VisitType_MeasurePower(this, context, typeName, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(typeName, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant(constant, range) ->
-        this.BeforeVisitType_StaticConstant(this, context, constant, range)
+        match this.BeforeVisitType_StaticConstant(this, context, constant, range) with
+        | Some result -> result
+        | None ->
+          let constant, range = (this.VisitConst context constant), range
+          match this.VisitType_StaticConstant(this, context, constant, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant(constant, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr(expr, range) ->
-        this.BeforeVisitType_StaticConstantExpr(this, context, expr, range)
+        match this.BeforeVisitType_StaticConstantExpr(this, context, expr, range) with
+        | Some result -> result
+        | None ->
+          let expr, range = (this.VisitExpr context expr), range
+          match this.VisitType_StaticConstantExpr(this, context, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr(expr, range)
       | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range) ->
-        this.BeforeVisitType_StaticConstantNamed(this, context, item1, item2, range)
+        match this.BeforeVisitType_StaticConstantNamed(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = (this.VisitType context item1), (this.VisitType context item2), range
+          match this.VisitType_StaticConstantNamed(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range)
     finally
       parents.Pop() |> ignore
 
@@ -8671,19 +8090,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsValueType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsValueType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsValueType(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8691,15 +8104,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsValueType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsValueType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8707,19 +8118,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsReferenceType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsReferenceType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsReferenceType(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8727,15 +8132,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsReferenceType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsReferenceType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8743,19 +8146,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsUnmanaged".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsUnmanaged =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsUnmanaged(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8763,15 +8160,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsUnmanaged".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsUnmanaged =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8779,19 +8174,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsNull".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparSupportsNull =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparSupportsNull(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8799,15 +8188,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsNull".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparSupportsNull =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8815,19 +8202,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsComparable".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsComparable =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsComparable(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8835,15 +8216,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsComparable".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsComparable =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8851,19 +8230,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEquatable".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsEquatable =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsEquatable(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8871,15 +8244,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEquatable".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsEquatable =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable(genericName, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8887,21 +8258,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparDefaultsToType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparDefaultsToType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparDefaultsToType(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       (visitor.VisitType context typeSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8909,16 +8273,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparDefaultsToType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparDefaultsToType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8926,21 +8288,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSubtypeOfType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparSubtypeOfType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparSubtypeOfType(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       (visitor.VisitType context typeSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8948,16 +8303,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSubtypeOfType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparSubtypeOfType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        typeSig: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8965,21 +8318,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsMember".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparSupportsMember =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericNames: Microsoft.FSharp.Compiler.Ast.SynTypar list,
        memberSig: Microsoft.FSharp.Compiler.Ast.SynMemberSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparSupportsMember(
-       visitor,
-       context,
-       genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypar context v)),
-       (visitor.VisitMemberSig context memberSig),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -8987,16 +8333,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsMember".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparSupportsMember =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericNames: Microsoft.FSharp.Compiler.Ast.SynTypar list,
        memberSig: Microsoft.FSharp.Compiler.Ast.SynMemberSig,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember(genericNames, memberSig, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9004,21 +8348,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEnum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsEnum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        enumTypes: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsEnum(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9026,16 +8363,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEnum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsEnum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        enumTypes: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, enumTypes, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9043,21 +8378,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsDelegate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeConstraint_WhereTyparIsDelegate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        delegateTypes: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeConstraint_WhereTyparIsDelegate(
-       visitor,
-       context,
-       (visitor.VisitTypar context genericName),
-       delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitType context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9065,16 +8393,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsDelegate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeConstraint_WhereTyparIsDelegate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        genericName: Microsoft.FSharp.Compiler.Ast.SynTypar,
        delegateTypes: Microsoft.FSharp.Compiler.Ast.SynType list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -9091,27 +8417,93 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeConstraint with
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsValueType(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsValueType(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparIsValueType(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsReferenceType(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsReferenceType(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparIsReferenceType(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsUnmanaged(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsUnmanaged(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparIsUnmanaged(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparSupportsNull(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparSupportsNull(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparSupportsNull(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsComparable(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsComparable(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparIsComparable(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable(genericName, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsEquatable(this, context, genericName, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsEquatable(this, context, genericName, range) with
+        | Some result -> result
+        | None ->
+          let genericName, range = (this.VisitTypar context genericName), range
+          match this.VisitTypeConstraint_WhereTyparIsEquatable(this, context, genericName, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable(genericName, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeSig, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparDefaultsToType(this, context, genericName, typeSig, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparDefaultsToType(this, context, genericName, typeSig, range) with
+        | Some result -> result
+        | None ->
+          let genericName, typeSig, range = (this.VisitTypar context genericName), (this.VisitType context typeSig), range
+          match this.VisitTypeConstraint_WhereTyparDefaultsToType(this, context, genericName, typeSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeSig, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparSubtypeOfType(this, context, genericName, typeSig, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparSubtypeOfType(this, context, genericName, typeSig, range) with
+        | Some result -> result
+        | None ->
+          let genericName, typeSig, range = (this.VisitTypar context genericName), (this.VisitType context typeSig), range
+          match this.VisitTypeConstraint_WhereTyparSubtypeOfType(this, context, genericName, typeSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember(genericNames, memberSig, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparSupportsMember(this, context, genericNames, memberSig, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparSupportsMember(this, context, genericNames, memberSig, range) with
+        | Some result -> result
+        | None ->
+          let genericNames, memberSig, range = genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypar context v)), (this.VisitMemberSig context memberSig), range
+          match this.VisitTypeConstraint_WhereTyparSupportsMember(this, context, genericNames, memberSig, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember(genericNames, memberSig, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, enumTypes, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsEnum(this, context, genericName, enumTypes, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsEnum(this, context, genericName, enumTypes, range) with
+        | Some result -> result
+        | None ->
+          let genericName, enumTypes, range = (this.VisitTypar context genericName), enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), range
+          match this.VisitTypeConstraint_WhereTyparIsEnum(this, context, genericName, enumTypes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, enumTypes, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range) ->
-        this.BeforeVisitTypeConstraint_WhereTyparIsDelegate(this, context, genericName, delegateTypes, range)
+        match this.BeforeVisitTypeConstraint_WhereTyparIsDelegate(this, context, genericName, delegateTypes, range) with
+        | Some result -> result
+        | None ->
+          let genericName, delegateTypes, range = (this.VisitTypar context genericName), delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitType context v)), range
+          match this.VisitTypeConstraint_WhereTyparIsDelegate(this, context, genericName, delegateTypes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range)
     finally
       parents.Pop() |> ignore
 
@@ -9123,8 +8515,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefn_TypeDefn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefn_TypeDefn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -9132,14 +8523,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefn_TypeDefn(
-       visitor,
-       context,
-       (visitor.VisitComponentInfo context item1),
-       (visitor.VisitTypeDefnRepr context item2),
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9147,8 +8531,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefn.TypeDefn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefn_TypeDefn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -9156,8 +8539,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -9174,7 +8556,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefn with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range) ->
-        this.BeforeVisitTypeDefn_TypeDefn(this, context, item1, item2, members, range)
+        match this.BeforeVisitTypeDefn_TypeDefn(this, context, item1, item2, members, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, members, range = (this.VisitComponentInfo context item1), (this.VisitTypeDefnRepr context item2), members |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberDefn context v)), range
+          match this.VisitTypeDefn_TypeDefn(this, context, item1, item2, members, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range)
     finally
       parents.Pop() |> ignore
 
@@ -9186,15 +8574,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconUnspecified".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconUnspecified =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconUnspecified(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9202,13 +8586,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconUnspecified".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconUnspecified =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9216,15 +8598,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconClass".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconClass =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconClass(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9232,13 +8610,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconClass".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconClass =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconClass
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9246,15 +8622,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconInterface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconInterface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconInterface(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9262,13 +8634,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconInterface".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconInterface =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconInterface
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9276,15 +8646,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconStruct".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconStruct =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconStruct(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9292,13 +8658,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconStruct".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconStruct =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconStruct
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9306,15 +8670,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconRecord".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconRecord =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconRecord(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9322,13 +8682,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconRecord".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconRecord =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconRecord
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9336,15 +8694,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconUnion".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconUnion =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconUnion(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9352,13 +8706,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconUnion".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconUnion =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnion
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9366,15 +8718,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconAbbrev(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9382,13 +8730,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAbbrev
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9396,15 +8742,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconHiddenRepr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconHiddenRepr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconHiddenRepr(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9412,13 +8754,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconHiddenRepr".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconHiddenRepr =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconHiddenRepr
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9426,15 +8766,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconAugmentation".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconAugmentation =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconAugmentation(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9442,13 +8778,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconAugmentation".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconAugmentation =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAugmentation
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9456,15 +8790,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconILAssemblyCode".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconILAssemblyCode =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      visitor.VisitTypeDefnKind_TyconILAssemblyCode(
-       visitor,
-       context)
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9472,13 +8802,11 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconILAssemblyCode".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconILAssemblyCode =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
-       context: 'TContext) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconILAssemblyCode
+       context: 'TContext) -> None
     with get, set
 
   /// <summary>
@@ -9486,19 +8814,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconDelegate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnKind_TyconDelegate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
-       item2: Microsoft.FSharp.Compiler.Ast.SynValInfo) ->
-      visitor.VisitTypeDefnKind_TyconDelegate(
-       visitor,
-       context,
-       (visitor.VisitType context item1),
-       (visitor.VisitValInfo context item2))
+       item2: Microsoft.FSharp.Compiler.Ast.SynValInfo) -> None
     with get, set
 
   /// <summary>
@@ -9506,15 +8828,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconDelegate".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnKind_TyconDelegate =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynType,
-       item2: Microsoft.FSharp.Compiler.Ast.SynValInfo) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Ast.SynValInfo) -> None
     with get, set
 
 
@@ -9531,27 +8851,83 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefnKind with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified ->
-        this.BeforeVisitTypeDefnKind_TyconUnspecified(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconUnspecified(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconUnspecified(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconClass ->
-        this.BeforeVisitTypeDefnKind_TyconClass(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconClass(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconClass(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconClass
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconInterface ->
-        this.BeforeVisitTypeDefnKind_TyconInterface(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconInterface(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconInterface(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconInterface
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconStruct ->
-        this.BeforeVisitTypeDefnKind_TyconStruct(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconStruct(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconStruct(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconStruct
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconRecord ->
-        this.BeforeVisitTypeDefnKind_TyconRecord(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconRecord(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconRecord(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconRecord
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnion ->
-        this.BeforeVisitTypeDefnKind_TyconUnion(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconUnion(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconUnion(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnion
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAbbrev ->
-        this.BeforeVisitTypeDefnKind_TyconAbbrev(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconAbbrev(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconAbbrev(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAbbrev
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconHiddenRepr ->
-        this.BeforeVisitTypeDefnKind_TyconHiddenRepr(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconHiddenRepr(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconHiddenRepr(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconHiddenRepr
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAugmentation ->
-        this.BeforeVisitTypeDefnKind_TyconAugmentation(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconAugmentation(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconAugmentation(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconAugmentation
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconILAssemblyCode ->
-        this.BeforeVisitTypeDefnKind_TyconILAssemblyCode(this, context)
+        match this.BeforeVisitTypeDefnKind_TyconILAssemblyCode(this, context) with
+        | Some result -> result
+        | None ->
+          match this.VisitTypeDefnKind_TyconILAssemblyCode(this, context) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconILAssemblyCode
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate(item1, item2) ->
-        this.BeforeVisitTypeDefnKind_TyconDelegate(this, context, item1, item2)
+        match this.BeforeVisitTypeDefnKind_TyconDelegate(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = (this.VisitType context item1), (this.VisitValInfo context item2)
+          match this.VisitTypeDefnKind_TyconDelegate(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate(item1, item2)
     finally
       parents.Pop() |> ignore
 
@@ -9563,21 +8939,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnRepr_ObjectModel".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnRepr_ObjectModel =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnRepr_ObjectModel(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnKind context item1),
-       members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberDefn context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9585,16 +8954,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnRepr.ObjectModel".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnRepr_ObjectModel =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind,
        members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9602,19 +8969,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Simple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnRepr_Simple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnRepr_Simple(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnSimpleRepr context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9622,15 +8983,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnRepr.Simple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnRepr_Simple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9638,17 +8997,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      visitor.VisitTypeDefnRepr_Exception(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefnRepr context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
   /// <summary>
@@ -9656,14 +9010,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnRepr.Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
 
@@ -9680,11 +9032,29 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefnRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range) ->
-        this.BeforeVisitTypeDefnRepr_ObjectModel(this, context, item1, members, range)
+        match this.BeforeVisitTypeDefnRepr_ObjectModel(this, context, item1, members, range) with
+        | Some result -> result
+        | None ->
+          let item1, members, range = (this.VisitTypeDefnKind context item1), members |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberDefn context v)), range
+          match this.VisitTypeDefnRepr_ObjectModel(this, context, item1, members, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple(item1, range) ->
-        this.BeforeVisitTypeDefnRepr_Simple(this, context, item1, range)
+        match this.BeforeVisitTypeDefnRepr_Simple(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitTypeDefnSimpleRepr context item1), range
+          match this.VisitTypeDefnRepr_Simple(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception(item) ->
-        this.BeforeVisitTypeDefnRepr_Exception(this, context, item)
+        match this.BeforeVisitTypeDefnRepr_Exception(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitExceptionDefnRepr context item)
+          match this.VisitTypeDefnRepr_Exception(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception(item)
     finally
       parents.Pop() |> ignore
 
@@ -9696,8 +9066,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSig_TypeDefnSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSig_TypeDefnSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -9705,14 +9074,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSig_TypeDefnSig(
-       visitor,
-       context,
-       (visitor.VisitComponentInfo context item1),
-       (visitor.VisitTypeDefnSigRepr context item2),
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9720,8 +9082,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSig.TypeDefnSig".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSig_TypeDefnSig =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -9729,8 +9090,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item1: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
        item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -9747,7 +9107,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefnSig with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
-        this.BeforeVisitTypeDefnSig_TypeDefnSig(this, context, item1, item2, memberSigs, range)
+        match this.BeforeVisitTypeDefnSig_TypeDefnSig(this, context, item1, item2, memberSigs, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, memberSigs, range = (this.VisitComponentInfo context item1), (this.VisitTypeDefnSigRepr context item2), memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberSig context v)), range
+          match this.VisitTypeDefnSig_TypeDefnSig(this, context, item1, item2, memberSigs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range)
     finally
       parents.Pop() |> ignore
 
@@ -9759,21 +9125,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_ObjectModel".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSigRepr_ObjectModel =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSigRepr_ObjectModel(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnKind context item1),
-       memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitMemberSig context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9781,16 +9140,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.ObjectModel".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSigRepr_ObjectModel =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind,
        memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9798,19 +9155,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Simple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSigRepr_Simple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSigRepr_Simple(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnSimpleRepr context item1),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9818,15 +9169,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Simple".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSigRepr_Simple =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9834,17 +9183,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSigRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      visitor.VisitTypeDefnSigRepr_Exception(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefnRepr context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
   /// <summary>
@@ -9852,14 +9196,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSigRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
 
@@ -9876,11 +9218,29 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefnSigRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range) ->
-        this.BeforeVisitTypeDefnSigRepr_ObjectModel(this, context, item1, memberSigs, range)
+        match this.BeforeVisitTypeDefnSigRepr_ObjectModel(this, context, item1, memberSigs, range) with
+        | Some result -> result
+        | None ->
+          let item1, memberSigs, range = (this.VisitTypeDefnKind context item1), memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitMemberSig context v)), range
+          match this.VisitTypeDefnSigRepr_ObjectModel(this, context, item1, memberSigs, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple(item1, range) ->
-        this.BeforeVisitTypeDefnSigRepr_Simple(this, context, item1, range)
+        match this.BeforeVisitTypeDefnSigRepr_Simple(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitTypeDefnSimpleRepr context item1), range
+          match this.VisitTypeDefnSigRepr_Simple(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception(item) ->
-        this.BeforeVisitTypeDefnSigRepr_Exception(this, context, item)
+        match this.BeforeVisitTypeDefnSigRepr_Exception(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitExceptionDefnRepr context item)
+          match this.VisitTypeDefnSigRepr_Exception(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception(item)
     finally
       parents.Pop() |> ignore
 
@@ -9892,21 +9252,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Union".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_Union =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        cases: Microsoft.FSharp.Compiler.Ast.SynUnionCase list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_Union(
-       visitor,
-       context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitUnionCase context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9914,16 +9267,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Union".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_Union =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        cases: Microsoft.FSharp.Compiler.Ast.SynUnionCase list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9931,19 +9282,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Enum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_Enum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        cases: Microsoft.FSharp.Compiler.Ast.SynEnumCase list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_Enum(
-       visitor,
-       context,
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitEnumCase context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9951,15 +9296,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Enum".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_Enum =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        cases: Microsoft.FSharp.Compiler.Ast.SynEnumCase list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(cases, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9967,21 +9310,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        fields: Microsoft.FSharp.Compiler.Ast.SynField list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_Record(
-       visitor,
-       context,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       fields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -9989,16 +9325,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Record".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_Record =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        fields: Microsoft.FSharp.Compiler.Ast.SynField list,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessiblity, fields, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10006,8 +9340,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_General".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_General =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10019,18 +9352,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item5: bool,
        item6: bool,
        item7: Microsoft.FSharp.Compiler.Ast.SynSimplePat list option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_General(
-       visitor,
-       context,
-       (visitor.VisitTypeDefnKind context item1),
-       item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (visitor.VisitType context v0), v1, v2)),
-       item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (visitor.VisitValSig context v0), v1)),
-       item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)),
-       item5,
-       item6,
-       item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitSimplePat context v))),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10038,8 +9360,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.General".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_General =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10051,8 +9372,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        item5: bool,
        item6: bool,
        item7: Microsoft.FSharp.Compiler.Ast.SynSimplePat list option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General(item1, item2, item3, item4, item5, item6, item7, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10060,19 +9380,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_LibraryOnlyILAssembly =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly(
-       visitor,
-       context,
-       item1,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10080,15 +9394,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly(item1, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10096,21 +9408,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_TypeAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_TypeAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.ParserDetail,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_TypeAbbrev(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitType context item2),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10118,16 +9423,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.TypeAbbrev".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_TypeAbbrev =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.ParserDetail,
        item2: Microsoft.FSharp.Compiler.Ast.SynType,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev(item1, item2, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10135,17 +9438,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_None".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_None =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitTypeDefnSimpleRepr_None(
-       visitor,
-       context,
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10153,14 +9451,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.None".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_None =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.None(range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10168,17 +9464,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitTypeDefnSimpleRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      visitor.VisitTypeDefnSimpleRepr_Exception(
-       visitor,
-       context,
-       (visitor.VisitExceptionDefnRepr context item))
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
   /// <summary>
@@ -10186,14 +9477,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Exception".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitTypeDefnSimpleRepr_Exception =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) ->
-      Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception(item)
+       item: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) -> None
     with get, set
 
 
@@ -10210,21 +9499,69 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synTypeDefnSimpleRepr with
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_Union(this, context, accessiblity, cases, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_Union(this, context, accessiblity, cases, range) with
+        | Some result -> result
+        | None ->
+          let accessiblity, cases, range = accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), cases |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitUnionCase context v)), range
+          match this.VisitTypeDefnSimpleRepr_Union(this, context, accessiblity, cases, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(cases, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_Enum(this, context, cases, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_Enum(this, context, cases, range) with
+        | Some result -> result
+        | None ->
+          let cases, range = cases |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitEnumCase context v)), range
+          match this.VisitTypeDefnSimpleRepr_Enum(this, context, cases, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(cases, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessiblity, fields, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_Record(this, context, accessiblity, fields, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_Record(this, context, accessiblity, fields, range) with
+        | Some result -> result
+        | None ->
+          let accessiblity, fields, range = accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), fields |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitField context v)), range
+          match this.VisitTypeDefnSimpleRepr_Record(this, context, accessiblity, fields, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessiblity, fields, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General(item1, item2, item3, item4, item5, item6, item7, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_General(this, context, item1, item2, item3, item4, item5, item6, item7, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_General(this, context, item1, item2, item3, item4, item5, item6, item7, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3, item4, item5, item6, item7, range = (this.VisitTypeDefnKind context item1), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (this.VisitType context v0), v1, v2)), item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (this.VisitValSig context v0), v1)), item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitField context v)), item5, item6, item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSimplePat context v))), range
+          match this.VisitTypeDefnSimpleRepr_General(this, context, item1, item2, item3, item4, item5, item6, item7, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General(item1, item2, item3, item4, item5, item6, item7, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly(item1, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_LibraryOnlyILAssembly(this, context, item1, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_LibraryOnlyILAssembly(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1, range
+          match this.VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly(item1, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev(item1, item2, range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_TypeAbbrev(this, context, item1, item2, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_TypeAbbrev(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = item1, (this.VisitType context item2), range
+          match this.VisitTypeDefnSimpleRepr_TypeAbbrev(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev(item1, item2, range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.None(range) ->
-        this.BeforeVisitTypeDefnSimpleRepr_None(this, context, range)
+        match this.BeforeVisitTypeDefnSimpleRepr_None(this, context, range) with
+        | Some result -> result
+        | None ->
+          let range = range
+          match this.VisitTypeDefnSimpleRepr_None(this, context, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.None(range)
       | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception(item) ->
-        this.BeforeVisitTypeDefnSimpleRepr_Exception(this, context, item)
+        match this.BeforeVisitTypeDefnSimpleRepr_Exception(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitExceptionDefnRepr context item)
+          match this.VisitTypeDefnSimpleRepr_Exception(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception(item)
     finally
       parents.Pop() |> ignore
 
@@ -10236,8 +9573,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitUnionCase_UnionCase".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitUnionCase_UnionCase =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10247,16 +9583,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        caseType: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitUnionCase_UnionCase(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       id,
-       (visitor.VisitUnionCaseType context caseType),
-       xmlDoc,
-       accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10264,8 +9591,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynUnionCase.UnionCase".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitUnionCase_UnionCase =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10275,8 +9601,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        caseType: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType,
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -10293,7 +9618,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synUnionCase with
       | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
-        this.BeforeVisitUnionCase_UnionCase(this, context, attributes, id, caseType, xmlDoc, accessibility, range)
+        match this.BeforeVisitUnionCase_UnionCase(this, context, attributes, id, caseType, xmlDoc, accessibility, range) with
+        | Some result -> result
+        | None ->
+          let attributes, id, caseType, xmlDoc, accessibility, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitUnionCaseType context caseType), xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          match this.VisitUnionCase_UnionCase(this, context, attributes, id, caseType, xmlDoc, accessibility, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range)
     finally
       parents.Pop() |> ignore
 
@@ -10305,17 +9636,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFields".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitUnionCaseType_UnionCaseFields =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       cases: Microsoft.FSharp.Compiler.Ast.SynField list) ->
-      visitor.VisitUnionCaseType_UnionCaseFields(
-       visitor,
-       context,
-       cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitField context v)))
+       cases: Microsoft.FSharp.Compiler.Ast.SynField list) -> None
     with get, set
 
   /// <summary>
@@ -10323,14 +9649,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFields".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitUnionCaseType_UnionCaseFields =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       cases: Microsoft.FSharp.Compiler.Ast.SynField list) ->
-      Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases)
+       cases: Microsoft.FSharp.Compiler.Ast.SynField list) -> None
     with get, set
 
   /// <summary>
@@ -10338,17 +9662,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFullType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitUnionCaseType_UnionCaseFullType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) ->
-      visitor.VisitUnionCaseType_UnionCaseFullType(
-       visitor,
-       context,
-       (let v0, v1 = item in (visitor.VisitType context v0), (visitor.VisitValInfo context v1)))
+       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) -> None
     with get, set
 
   /// <summary>
@@ -10356,14 +9675,12 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFullType".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitUnionCaseType_UnionCaseFullType =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
-       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) ->
-      Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType(item)
+       item: (Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)) -> None
     with get, set
 
 
@@ -10380,9 +9697,21 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synUnionCaseType with
       | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases) ->
-        this.BeforeVisitUnionCaseType_UnionCaseFields(this, context, cases)
+        match this.BeforeVisitUnionCaseType_UnionCaseFields(this, context, cases) with
+        | Some result -> result
+        | None ->
+          let cases = cases |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitField context v))
+          match this.VisitUnionCaseType_UnionCaseFields(this, context, cases) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases)
       | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType(item) ->
-        this.BeforeVisitUnionCaseType_UnionCaseFullType(this, context, item)
+        match this.BeforeVisitUnionCaseType_UnionCaseFullType(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (let v0, v1 = item in (this.VisitType context v0), (this.VisitValInfo context v1))
+          match this.VisitUnionCaseType_UnionCaseFullType(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType(item)
     finally
       parents.Pop() |> ignore
 
@@ -10394,21 +9723,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitValData_SynValData".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitValData_SynValData =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.MemberFlags option,
        item2: Microsoft.FSharp.Compiler.Ast.SynValInfo,
-       item3: Microsoft.FSharp.Compiler.Ast.Ident option) ->
-      visitor.VisitValData_SynValData(
-       visitor,
-       context,
-       item1,
-       (visitor.VisitValInfo context item2),
-       item3)
+       item3: Microsoft.FSharp.Compiler.Ast.Ident option) -> None
     with get, set
 
   /// <summary>
@@ -10416,16 +9738,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynValData.SynValData".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitValData_SynValData =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.MemberFlags option,
        item2: Microsoft.FSharp.Compiler.Ast.SynValInfo,
-       item3: Microsoft.FSharp.Compiler.Ast.Ident option) ->
-      Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3)
+       item3: Microsoft.FSharp.Compiler.Ast.Ident option) -> None
     with get, set
 
 
@@ -10442,7 +9762,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synValData with
       | Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3) ->
-        this.BeforeVisitValData_SynValData(this, context, item1, item2, item3)
+        match this.BeforeVisitValData_SynValData(this, context, item1, item2, item3) with
+        | Some result -> result
+        | None ->
+          let item1, item2, item3 = item1, (this.VisitValInfo context item2), item3
+          match this.VisitValData_SynValData(this, context, item1, item2, item3) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3)
     finally
       parents.Pop() |> ignore
 
@@ -10454,19 +9780,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitValInfo_SynValInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitValInfo_SynValInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynArgInfo list list,
-       item2: Microsoft.FSharp.Compiler.Ast.SynArgInfo) ->
-      visitor.VisitValInfo_SynValInfo(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitArgInfo context v))),
-       (visitor.VisitArgInfo context item2))
+       item2: Microsoft.FSharp.Compiler.Ast.SynArgInfo) -> None
     with get, set
 
   /// <summary>
@@ -10474,15 +9794,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynValInfo.SynValInfo".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitValInfo_SynValInfo =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynArgInfo list list,
-       item2: Microsoft.FSharp.Compiler.Ast.SynArgInfo) ->
-      Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2)
+       item2: Microsoft.FSharp.Compiler.Ast.SynArgInfo) -> None
     with get, set
 
 
@@ -10499,7 +9817,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synValInfo with
       | Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2) ->
-        this.BeforeVisitValInfo_SynValInfo(this, context, item1, item2)
+        match this.BeforeVisitValInfo_SynValInfo(this, context, item1, item2) with
+        | Some result -> result
+        | None ->
+          let item1, item2 = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitArgInfo context v))), (this.VisitArgInfo context item2)
+          match this.VisitValInfo_SynValInfo(this, context, item1, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2)
     finally
       parents.Pop() |> ignore
 
@@ -10511,8 +9835,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitValSig_ValSpfn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitValSig_ValSpfn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10527,21 +9850,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      visitor.VisitValSig_ValSpfn(
-       visitor,
-       context,
-       attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitor.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-       id,
-       (visitor.VisitValTyparDecls context typeParams),
-       (visitor.VisitType context typeName),
-       (visitor.VisitValInfo context valInfo),
-       item6,
-       isMutable,
-       xmlDoc,
-       accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitAccess context v)),
-       expr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitor.VisitExpr context v)),
-       range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
   /// <summary>
@@ -10549,8 +9858,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynValSig.ValSpfn".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitValSig_ValSpfn =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
@@ -10565,8 +9873,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
        xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
        accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
        expr: Microsoft.FSharp.Compiler.Ast.SynExpr option,
-       range: Microsoft.FSharp.Compiler.Range.range) ->
-      Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range)
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
     with get, set
 
 
@@ -10583,7 +9890,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synValSig with
       | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) ->
-        this.BeforeVisitValSig_ValSpfn(this, context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range)
+        match this.BeforeVisitValSig_ValSpfn(this, context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) with
+        | Some result -> result
+        | None ->
+          let attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitValTyparDecls context typeParams), (this.VisitType context typeName), (this.VisitValInfo context valInfo), item6, isMutable, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), expr |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), range
+          match this.VisitValSig_ValSpfn(this, context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range)
     finally
       parents.Pop() |> ignore
 
@@ -10595,21 +9908,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitValTyparDecls_SynValTyparDecls".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val BeforeVisitValTyparDecls_SynValTyparDecls =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTyparDecl list,
        item2: bool,
-       constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list) ->
-      visitor.VisitValTyparDecls_SynValTyparDecls(
-       visitor,
-       context,
-       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTyparDecl context v)),
-       item2,
-       constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitor.VisitTypeConstraint context v)))
+       constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list) -> None
     with get, set
 
   /// <summary>
@@ -10617,16 +9923,14 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// </summary>
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
-  /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "SynValTyparDecls.SynValTyparDecls".</remarks>
+  /// <returns>Constructed expression or None if defaulted.</returns>
   member val VisitValTyparDecls_SynValTyparDecls =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
        item1: Microsoft.FSharp.Compiler.Ast.SynTyparDecl list,
        item2: bool,
-       constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list) ->
-      Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints)
+       constraints: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list) -> None
     with get, set
 
 
@@ -10643,7 +9947,13 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
     try
       match synValTyparDecls with
       | Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints) ->
-        this.BeforeVisitValTyparDecls_SynValTyparDecls(this, context, item1, item2, constraints)
+        match this.BeforeVisitValTyparDecls_SynValTyparDecls(this, context, item1, item2, constraints) with
+        | Some result -> result
+        | None ->
+          let item1, item2, constraints = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTyparDecl context v)), item2, constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeConstraint context v))
+          match this.VisitValTyparDecls_SynValTyparDecls(this, context, item1, item2, constraints) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints)
     finally
       parents.Pop() |> ignore
 

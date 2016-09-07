@@ -42,14 +42,6 @@ type internal AstDelegatableVisitorGenerator() =
       yield "context: 'TContext"
       yield! fields |> Seq.map Utilities.formatDeclaration
     |]
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "visitor" "_rwh_")
-    let args = [|
-      yield "visitor"
-      yield "context"
-      yield! visited |> Seq.map fst   // Composed argument string
-    |]
-    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
-    let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
 
     String.Format(
       "  /// <summary>\r\n" +
@@ -57,14 +49,10 @@ type internal AstDelegatableVisitorGenerator() =
       "  /// </summary>\r\n" +
       "  /// <param name=\"visitor\">Visitor instance.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
+      "  /// <returns>Constructed expression or None if defaulted.</returns>\r\n" +
       "  member val BeforeVisit{0}_{3} =\r\n" +
       "    fun\r\n" +
-      "      ({5}) ->\r\n" +
-      "{8}" +
-      "      visitor.Visit{0}_{3}(\r\n" +
-      "       {6})\r\n" +
+      "      ({5}) -> None\r\n" +
       "    with get, set\r\n" +
       "\r\n" +
       "  /// <summary>\r\n" +
@@ -72,12 +60,10 @@ type internal AstDelegatableVisitorGenerator() =
       "  /// </summary>\r\n" +
       "  /// <param name=\"visitor\">Visitor instance.</param>\r\n" +
       "  /// <param name=\"context\">Context object.</param>\r\n" +
-      "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
-      "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
+      "  /// <returns>Constructed expression or None if defaulted.</returns>\r\n" +
       "  member val Visit{0}_{3} =\r\n" +
       "    fun\r\n" +
-      "      ({5}) ->\r\n" +
-      "      {4}{7}\r\n" +
+      "      ({5}) -> None\r\n" +
       "    with get, set\r\n" +
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
@@ -85,25 +71,38 @@ type internal AstDelegatableVisitorGenerator() =
       unionType.Name,
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
-      String.Join(",\r\n       ", decls),
-      String.Join(",\r\n       ", args),
-      (if Array.isEmpty fieldNames then "" else String.Format("({0})", String.Join(", ", fieldNames))),
-      if isUsingRef then "      use _rwh_ = new RefWrapperHolder()\r\n" else "")
+      String.Join(",\r\n       ", decls))
 
   /// Construct expression string for match.
-  let generateMatcher (unionType: Type) (unionCase: UnionCaseInfo) =
-    let fieldNames = unionCase.GetFields() |> Seq.map Utilities.formatFieldName |> Seq.toArray
-    let args = [|
+  let generateMatcher visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
+    let fields = unionCase.GetFields()
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "this" "_rwh_")
+    let args = visited |> Seq.map fst |> Seq.toArray   // Composed argument string
+    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
+    let fieldNames = [|
+      yield "this"
       yield "context"
-      yield! fieldNames
+      yield! fields |> Seq.map Utilities.formatFieldName
     |]
+    let decls = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
+    
     String.Format(
-      "      | {0}{1} ->\r\n        this.BeforeVisit{2}_{3}(this, {4})\r\n",
+      "      | {0}{1} ->\r\n" +
+      "        match this.BeforeVisit{2}_{3}({4}) with\r\n" +
+      "        | Some result -> result\r\n" +
+      "        | None ->\r\n" +
+      "{5}" +
+      "{6}" +
+      "          match this.Visit{2}_{3}({4}) with\r\n" +
+      "          | Some result -> result\r\n" +
+      "          | None -> {0}{1}\r\n",
       VisitorUtilities.formatUnionCaseName unionType unionCase,
-      (if Array.isEmpty fieldNames then "" else String.Format("({0})", String.Join(", ", fieldNames))),
+      (if decls.Length = 0 then "" else String.Format("({0})", String.Join(", ", decls))),
       VisitorUtilities.formatUnionTypeShortName unionType,
       unionCase.Name,
-      String.Join(", ", args))
+      String.Join(", ", fieldNames),
+      (if isUsingRef then "          use _rwh_ = new RefWrapperHolder()\r\n" else ""),
+      (if decls.Length = 0 then "" else String.Format("          let {0} = {1}\r\n", String.Join(", ", decls), String.Join(", ", args))))
 
   /// <summary>
   /// Generate lines by type declaration.
@@ -137,7 +136,7 @@ type internal AstDelegatableVisitorGenerator() =
       Utilities.formatCamelcase unionType.Name,
       Utilities.formatTypeName unionType)
     let unionCases = FSharpType.GetUnionCases unionType
-    yield! unionCases |> Seq.map (generateMatcher unionType)
+    yield! unionCases |> Seq.map (generateMatcher visitorTargets unionType)
     yield
       "    finally\r\n" +
       "      parents.Pop() |> ignore\r\n" +
