@@ -79,6 +79,7 @@
     <Compile Include="SafeResolver.fs" />
     <Compile Include="AssemblyLoader.fs" />
     <Compile Include="Compiler.fs" />
+    <Compile Include="FunctionalVisitor.fs" />
     <None Include="paket.references" />
     <Content Include="App.config" />
     <None Include="paket.template" />
