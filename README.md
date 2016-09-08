@@ -9,15 +9,10 @@ Easy infrastructure can replace F#'s AST at compile time.
 ## Status
 
 | NuGet (fscx) | [![NuGet fscx](https://img.shields.io/nuget/v/fscx.svg?style=flat)](https://www.nuget.org/packages/fscx) |
-|:------------:|:----:|
 | NuGet (core lib) | [![NuGet fscx](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.Core.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Core) |
-|:------------:|:----:|
 | CI (AppVeyor) | [![AppVeyor fscx](https://img.shields.io/appveyor/ci/kekyo/fscx/master.svg)](https://ci.appveyor.com/project/kekyo/fscx) |
-|:------------:|:----:|
 | Issue status | [![Issue Stats](http://issuestats.com/github/fscx-projects/fscx/badge/issue)](http://issuestats.com/github/fscx-projects/fscx) |
-|:------------:|:----:|
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/fscx/badge/pr)](http://issuestats.com/github/fscx-projects/fscx) |
-|:------------:|:----:|
 | Gitter chat | [![Gitter char](https://img.shields.io/gitter/room/fscx-projects/Lobby.js.svg)](https://gitter.im/fscx-projects/Lobby) |
 
 ## How applicable fscx?
