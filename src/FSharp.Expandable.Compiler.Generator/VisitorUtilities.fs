@@ -227,11 +227,11 @@ module internal VisitorUtilities =
   /// Results are composed argument string and require using reference cell.
   let formatArgument visitTargets (visitorName: string) (refWrapperHolderName: string) (field: PropertyInfo) = 
     formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
-                 
+
   let getTargetAstTypes () =
     let astType = typeof<SynExpr>.DeclaringType
     let assembly = astType.Assembly
     assembly.GetTypes()
-      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && ((t.Name.StartsWith "Syn") || (t.Name = "ParsedInput")))
+      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && ((t.Name.StartsWith "Syn") || (t.Name.StartsWith "Parsed")))
       |> Seq.sortBy (fun t -> t.Name)
       |> Seq.toArray

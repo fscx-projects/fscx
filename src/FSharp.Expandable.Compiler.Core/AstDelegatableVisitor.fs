@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 07 Sep 2016 08:50:16 GMT
+// Generated: Thu, 08 Sep 2016 00:56:02 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -36,6 +36,409 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <returns>Child empty visitor.</returns>
   member __.CreateChild() =
     new AstDelegatableVisitor<'TContext>(parents)
+
+  //////////////////////////////////////////////
+  // Expression: ParsedFsiInteraction
+
+  /// <summary>
+  /// Before visit "ParsedFsiInteraction.IDefns" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedFsiInteraction_IDefns =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedFsiInteraction.IDefns" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedFsiInteraction_IDefns =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Before visit "ParsedFsiInteraction.IHash" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedFsiInteraction_IHash =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedFsiInteraction.IHash" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedFsiInteraction_IHash =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedFsiInteraction" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedFsiInteraction">ParsedFsiInteraction expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedFsiInteraction
+      (context: 'TContext)
+      (parsedFsiInteraction: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedFsiInteraction parsedFsiInteraction)
+    try
+      match parsedFsiInteraction with
+      | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
+        match this.BeforeVisitParsedFsiInteraction_IDefns(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), range
+          match this.VisitParsedFsiInteraction_IDefns(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range)
+      | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range) ->
+        match this.BeforeVisitParsedFsiInteraction_IHash(this, context, item1, range) with
+        | Some result -> result
+        | None ->
+          let item1, range = (this.VisitParsedHashDirective context item1), range
+          match this.VisitParsedFsiInteraction_IHash(this, context, item1, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedHashDirective
+
+  /// <summary>
+  /// Before visit "ParsedHashDirective.ParsedHashDirective" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedHashDirective_ParsedHashDirective =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: string,
+       item2: string list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedHashDirective.ParsedHashDirective" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedHashDirective_ParsedHashDirective =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item1: string,
+       item2: string list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedHashDirective" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedHashDirective">ParsedHashDirective expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedHashDirective
+      (context: 'TContext)
+      (parsedHashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedHashDirective parsedHashDirective)
+    try
+      match parsedHashDirective with
+      | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range) ->
+        match this.BeforeVisitParsedHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
+        | Some result -> result
+        | None ->
+          let item1, item2, range = item1, item2, range
+          match this.VisitParsedHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedImplFile
+
+  /// <summary>
+  /// Before visit "ParsedImplFile.ParsedImplFile" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedImplFile_ParsedImplFile =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedImplFile.ParsedImplFile" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedImplFile_ParsedImplFile =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedImplFile" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedImplFile">ParsedImplFile expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedImplFile
+      (context: 'TContext)
+      (parsedImplFile: Microsoft.FSharp.Compiler.Ast.ParsedImplFile) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFile parsedImplFile)
+    try
+      match parsedImplFile with
+      | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
+        match this.BeforeVisitParsedImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
+        | Some result -> result
+        | None ->
+          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedImplFileFragment context v))
+          match this.VisitParsedImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedImplFileFragment
+
+  /// <summary>
+  /// Before visit "ParsedImplFileFragment.AnonModule" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedImplFileFragment_AnonModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedImplFileFragment.AnonModule" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedImplFileFragment_AnonModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Before visit "ParsedImplFileFragment.NamedModule" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedImplFileFragment_NamedModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedImplFileFragment.NamedModule" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedImplFileFragment_NamedModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) -> None
+    with get, set
+
+  /// <summary>
+  /// Before visit "ParsedImplFileFragment.NamespaceFragment" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedImplFileFragment_NamespaceFragment =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
+       item2: bool,
+       item3: bool,
+       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedImplFileFragment.NamespaceFragment" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedImplFileFragment_NamespaceFragment =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
+       item2: bool,
+       item3: bool,
+       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
+       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedImplFileFragment" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedImplFileFragment">ParsedImplFileFragment expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedImplFileFragment
+      (context: 'TContext)
+      (parsedImplFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileFragment parsedImplFileFragment)
+    try
+      match parsedImplFileFragment with
+      | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
+        match this.BeforeVisitParsedImplFileFragment_AnonModule(this, context, moduleDecls, range) with
+        | Some result -> result
+        | None ->
+          let moduleDecls, range = moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), range
+          match this.VisitParsedImplFileFragment_AnonModule(this, context, moduleDecls, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range)
+      | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item) ->
+        match this.BeforeVisitParsedImplFileFragment_NamedModule(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitModuleOrNamespace context item)
+          match this.VisitParsedImplFileFragment_NamedModule(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item)
+      | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
+        match this.BeforeVisitParsedImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
+        | Some result -> result
+        | None ->
+          let longId, item2, item3, moduleDecls, xmlDoc, attributes, range = longId, item2, item3, moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          match this.VisitParsedImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedImplFileInput
+
+  /// <summary>
+  /// Before visit "ParsedImplFileInput.ParsedImplFileInput" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedImplFileInput_ParsedImplFileInput =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       filename: string,
+       isScript: bool,
+       item3: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
+       item4: Microsoft.FSharp.Compiler.Ast.ScopedPragma list,
+       item5: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item6: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list,
+       item7: (bool * bool)) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedImplFileInput.ParsedImplFileInput" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedImplFileInput_ParsedImplFileInput =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       filename: string,
+       isScript: bool,
+       item3: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
+       item4: Microsoft.FSharp.Compiler.Ast.ScopedPragma list,
+       item5: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item6: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list,
+       item7: (bool * bool)) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedImplFileInput" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedImplFileInput">ParsedImplFileInput expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedImplFileInput
+      (context: 'TContext)
+      (parsedImplFileInput: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileInput parsedImplFileInput)
+    try
+      match parsedImplFileInput with
+      | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
+        match this.BeforeVisitParsedImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
+        | Some result -> result
+        | None ->
+          let filename, isScript, item3, item4, item5, item6, item7 = filename, isScript, item3, item4, item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespace context v)), item7
+          match this.VisitParsedImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7)
+    finally
+      parents.Pop() |> ignore
 
   //////////////////////////////////////////////
   // Expression: ParsedInput
@@ -109,7 +512,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitParsedInput_ImplFile(this, context, item) with
         | Some result -> result
         | None ->
-          let item = item
+          let item = (this.VisitParsedImplFileInput context item)
           match this.VisitParsedInput_ImplFile(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item)
@@ -117,10 +520,261 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitParsedInput_SigFile(this, context, item) with
         | Some result -> result
         | None ->
-          let item = item
+          let item = (this.VisitParsedSigFileInput context item)
           match this.VisitParsedInput_SigFile(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedSigFile
+
+  /// <summary>
+  /// Before visit "ParsedSigFile.ParsedSigFile" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedSigFile_ParsedSigFile =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedSigFile.ParsedSigFile" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedSigFile_ParsedSigFile =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedSigFile" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedSigFile">ParsedSigFile expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedSigFile
+      (context: 'TContext)
+      (parsedSigFile: Microsoft.FSharp.Compiler.Ast.ParsedSigFile) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFile parsedSigFile)
+    try
+      match parsedSigFile with
+      | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
+        match this.BeforeVisitParsedSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
+        | Some result -> result
+        | None ->
+          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedSigFileFragment context v))
+          match this.VisitParsedSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedSigFileFragment
+
+  /// <summary>
+  /// Before visit "ParsedSigFileFragment.AnonModule" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedSigFileFragment_AnonModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedSigFileFragment.AnonModule" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedSigFileFragment_AnonModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Before visit "ParsedSigFileFragment.NamedModule" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedSigFileFragment_NamedModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedSigFileFragment.NamedModule" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedSigFileFragment_NamedModule =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) -> None
+    with get, set
+
+  /// <summary>
+  /// Before visit "ParsedSigFileFragment.NamespaceFragment" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedSigFileFragment_NamespaceFragment =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
+       item2: bool,
+       item3: bool,
+       moduleSigDecls: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
+       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedSigFileFragment.NamespaceFragment" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedSigFileFragment_NamespaceFragment =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
+       item2: bool,
+       item3: bool,
+       moduleSigDecls: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
+       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
+       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
+       range: Microsoft.FSharp.Compiler.Range.range) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedSigFileFragment" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedSigFileFragment">ParsedSigFileFragment expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedSigFileFragment
+      (context: 'TContext)
+      (parsedSigFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileFragment parsedSigFileFragment)
+    try
+      match parsedSigFileFragment with
+      | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
+        match this.BeforeVisitParsedSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
+        | Some result -> result
+        | None ->
+          let moduleSigDecl, range = moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), range
+          match this.VisitParsedSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range)
+      | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item) ->
+        match this.BeforeVisitParsedSigFileFragment_NamedModule(this, context, item) with
+        | Some result -> result
+        | None ->
+          let item = (this.VisitModuleOrNamespaceSig context item)
+          match this.VisitParsedSigFileFragment_NamedModule(this, context, item) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item)
+      | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
+        match this.BeforeVisitParsedSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
+        | Some result -> result
+        | None ->
+          let longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range = longId, item2, item3, moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          match this.VisitParsedSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
+    finally
+      parents.Pop() |> ignore
+
+  //////////////////////////////////////////////
+  // Expression: ParsedSigFileInput
+
+  /// <summary>
+  /// Before visit "ParsedSigFileInput.ParsedSigFileInput" arguments.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val BeforeVisitParsedSigFileInput_ParsedSigFileInput =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       filename: string,
+       item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
+       item3: Microsoft.FSharp.Compiler.Ast.ScopedPragma list,
+       item4: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item5: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list) -> None
+    with get, set
+
+  /// <summary>
+  /// Visit "ParsedSigFileInput.ParsedSigFileInput" expression.
+  /// </summary>
+  /// <param name="visitor">Visitor instance.</param>
+  /// <param name="context">Context object.</param>
+  /// <returns>Constructed expression or None if defaulted.</returns>
+  member val VisitParsedSigFileInput_ParsedSigFileInput =
+    fun
+      (visitor: AstDelegatableVisitor<'TContext>,
+       context: 'TContext,
+       filename: string,
+       item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
+       item3: Microsoft.FSharp.Compiler.Ast.ScopedPragma list,
+       item4: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
+       item5: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list) -> None
+    with get, set
+
+
+  /// <summary>
+  /// Visit and dispatch "ParsedSigFileInput" expression.
+  /// </summary>
+  /// <param name="context">Context object.</param>
+  /// <param name="parsedSigFileInput">ParsedSigFileInput expression.</param>
+  /// <returns>Constructed (or target) expression.</returns>
+  member this.VisitParsedSigFileInput
+      (context: 'TContext)
+      (parsedSigFileInput: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileInput parsedSigFileInput)
+    try
+      match parsedSigFileInput with
+      | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
+        match this.BeforeVisitParsedSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
+        | Some result -> result
+        | None ->
+          let filename, item2, item3, item4, item5 = filename, item2, item3, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespaceSig context v))
+          match this.VisitParsedSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
+          | Some result -> result
+          | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5)
     finally
       parents.Pop() |> ignore
 
@@ -5601,7 +6255,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleDecl_HashDirective(this, context, item1, item2) with
         | Some result -> result
         | None ->
-          let item1, item2 = item1, item2
+          let item1, item2 = (this.VisitParsedHashDirective context item1), item2
           match this.VisitModuleDecl_HashDirective(this, context, item1, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2)
@@ -6046,7 +6700,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
         | Some result -> result
         | None ->
-          let hashDirective, range = hashDirective, range
+          let hashDirective, range = (this.VisitParsedHashDirective context hashDirective), range
           match this.VisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range)
