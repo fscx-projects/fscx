@@ -1,9 +1,9 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 04 Aug 2016 04:12:16 GMT
+// Generated: Thu, 08 Sep 2016 00:56:02 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
 open Microsoft.FSharp.Compiler
@@ -16,6 +16,15 @@ open Microsoft.FSharp.Compiler.Ast
 /// </summary>
 [<RequireQualifiedAccess>]
 type AstElement =
+  | ParsedFsiInteraction of ParsedFsiInteraction
+  | ParsedHashDirective of ParsedHashDirective
+  | ParsedImplFile of ParsedImplFile
+  | ParsedImplFileFragment of ParsedImplFileFragment
+  | ParsedImplFileInput of ParsedImplFileInput
+  | ParsedInput of ParsedInput
+  | ParsedSigFile of ParsedSigFile
+  | ParsedSigFileFragment of ParsedSigFileFragment
+  | ParsedSigFileInput of ParsedSigFileInput
   | Access of SynAccess
   | ArgInfo of SynArgInfo
   | Binding of SynBinding

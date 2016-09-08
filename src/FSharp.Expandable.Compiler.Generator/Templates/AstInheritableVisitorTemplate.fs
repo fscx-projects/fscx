@@ -3,21 +3,21 @@
 // Generated: {0:R}
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 #nowarn "1182"
 
 ////////////////////////////////////////////////////////////
 
 /// <summary>
-/// FSharp.Compiler.Service's untyped AST visitor.
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstVisitor<'TContext>() =
+type AstInheritableVisitor<'TContext>() =
 
   // TODO: du element
-  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.AstElement>()
+  let parents = new System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>()
 
   /// <summary>
   /// Parent nodes

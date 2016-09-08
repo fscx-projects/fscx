@@ -3,7 +3,7 @@
 // Generated: {0:R}
 //////////////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast
+namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
 open Microsoft.FSharp.Compiler

@@ -25,11 +25,21 @@ open System
 open System.IO
 open System.Text
 
+/// Base type of Generator.
 [<AbstractClass>]
 type internal GeneratorBase () =
 
+  /// <summary>
+  /// Generate body lines.
+  /// </summary>
+  /// <returns>Generated lines.</returns>
   abstract GenerateBodies: unit -> string seq
 
+  /// <summary>
+  /// Generate with template source codes (from embedded resource).
+  /// </summary>
+  /// <param name="basePath">Store to the path of generated source code files.</param>
+  /// <param name="time">Commonly generated timestamp.</param>
   member this.Generate (basePath: string) (time: DateTime) =
     let name = this.GetType().Name.Replace("Generator", "")
     let template = Utilities.readTemplate (name + "Template.fs")

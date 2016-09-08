@@ -1,4 +1,4 @@
-﻿//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 // 
 // fscx - Expandable F# compiler project
 //   Author: Kouji Matsui (@kekyo2), bleis-tift (@bleis-tift)
@@ -28,7 +28,7 @@ using System.Reflection;
 namespace FSharp.Expandable
 {
     /// <summary>
-    /// Compiler driver for fscx (fscx.exe)
+    /// Compiler driver for fscx (fscx.exe).
     /// </summary>
     internal static class Program
     {
