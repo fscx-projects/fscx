@@ -22,6 +22,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sample_inheritable_filter",
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sample_delegatable_filter", "sample_delegatable_filter\sample_delegatable_filter.fsproj", "{3621BFC5-12F8-424D-BEAC-D565423A0B0B}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "sample_functional_filter", "sample_functional_filter\sample_functional_filter.fsproj", "{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{3621BFC5-12F8-424D-BEAC-D565423A0B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3621BFC5-12F8-424D-BEAC-D565423A0B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3621BFC5-12F8-424D-BEAC-D565423A0B0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

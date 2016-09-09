@@ -5,14 +5,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>e300cac6-b388-4571-9e0d-8c298ddd013d</ProjectGuid>
+    <ProjectGuid>{76CF7BBF-4DB5-4D6B-A27B-EB7BDB1BCAB3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>sample_inheritable_filter</RootNamespace>
-    <AssemblyName>sample_inheritable_filter</AssemblyName>
+    <RootNamespace>sample_filter</RootNamespace>
+    <AssemblyName>sample_functional_filter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Name>sample_inheritable_filter</Name>
+    <Name>sample_functional_filter</Name>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -24,7 +24,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\sample_inheritable_filter.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\sample_functional_filter.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\sample_inheritable_filter.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\sample_functional_filter.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
@@ -54,7 +54,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Filter.fs" />
-    <None Include="sample_inheritable_filter.nuspec" />
+    <None Include="sample_functional_filter.nuspec" />
     <None Include="nupack.bat" />
     <Content Include="packages.config" />
   </ItemGroup>
