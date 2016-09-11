@@ -6,26 +6,10 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open Microsoft.FSharp.Compiler.Ast
 
-#nowarn "40"
-
 [<AutoOpen>]
 module FunctionalVisitor =
 
-  type SelfF<'a> =
-    private SelfF of obj
-  with
-    member this.Invoke(arg: 'a) : 'a =
-      let (SelfF self) = this
-      (self :?> ('a -> 'a)) arg
-
-  let private call f self expr g =
-    match f self expr with
-    | Some res -> res
-    | None -> g ()
-
-  let rec private self f : SelfF<SynExpr> = (SelfF (visitExpr f))
-
-  and private visitPat f (target: SynPat) : SynPat =
+  let rec private visitPat f (target: SynPat) : SynPat =
     match target with
     | SynPat.QuoteExpr(expr, range) -> SynPat.QuoteExpr(visitExpr f expr, range)
     | SynPat.Named(pat, id, isThisVar, accessiblity, range) -> SynPat.Named(visitPat f pat, id, isThisVar, accessiblity, range)
@@ -58,7 +42,7 @@ module FunctionalVisitor =
     | SynIndexerArg.One expr -> SynIndexerArg.One(visitExpr f expr)
     | SynIndexerArg.Two (expr1, expr2) -> SynIndexerArg.Two(visitExpr f expr1, visitExpr f expr2)
 
-  and visitExpr (f: SelfF<SynExpr> -> SynExpr -> SynExpr option) (target: SynExpr) : SynExpr =
+  and visitExpr (f: (SynExpr -> SynExpr) -> SynExpr -> SynExpr option) (target: SynExpr) : SynExpr =
     let g =
       match target with
       | SynExpr.Paren(expr, leftParenRange, rightParenRange, range) ->
@@ -193,4 +177,7 @@ module FunctionalVisitor =
       | SynExpr.ImplicitZero _
       | SynExpr.ArbitraryAfterError _ ->
           fun () -> target
-    call f (self f) target g
+
+    match f (visitExpr f) target with
+    | Some res -> res
+    | None -> g ()
