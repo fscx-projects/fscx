@@ -64,7 +64,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Expandable.Compiler.Core">
-      <HintPath>..\packages\FSharp.Expandable.Compiler.Core.0.1.32\lib\net45\FSharp.Expandable.Compiler.Core.dll</HintPath>
+      <HintPath>..\packages\FSharp.Expandable.Compiler.Core.0.1.33\lib\net45\FSharp.Expandable.Compiler.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
