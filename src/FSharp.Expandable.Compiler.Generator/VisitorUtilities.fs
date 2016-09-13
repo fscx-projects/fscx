@@ -51,7 +51,12 @@ module internal VisitorUtilities =
   // SynAccess --> Access
   let formatUnionTypeShortName (unionType: Type) =
     let name = unionType.Name
-    if name.StartsWith "Syn" then name.Substring 3 else name
+    if name.StartsWith "Syn" then
+      name.Substring 3
+    else if name.StartsWith "Parsed" then
+      name.Substring 6
+    else
+      name
 
   // HACK: If casename = typename: compiler meaning 1st name is casename, cause 2nd name is invalid...
   // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
@@ -199,9 +204,8 @@ module internal VisitorUtilities =
       // Invoke visitor function, so result force Projected.
       Projected(
         String.Format(
-          "({0}.Visit{1} context {2})",
-          visitorName,
-          formatUnionTypeShortName t,
+          "({0} {1})",
+          String.Format(visitorName, formatUnionTypeShortName t),
           name),
           false)
     // Other generic types with one argument.

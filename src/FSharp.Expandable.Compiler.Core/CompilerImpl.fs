@@ -131,7 +131,7 @@ module internal CompilerImpl =
      (visitors: IAstVisitor<FSharpCheckFileResults> seq)
      (context: FSharpCheckFileResults)
      (ast: ParsedInput) =
-    visitors |> Seq.fold (fun partialAst visitor -> visitor.VisitParsedInput context partialAst) ast
+    visitors |> Seq.fold (fun partialAst visitor -> visitor.VisitInput context partialAst) ast
  
   ///////////////////////////////////////////////////////
 

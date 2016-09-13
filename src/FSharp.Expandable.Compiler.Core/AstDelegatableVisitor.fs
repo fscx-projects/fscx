@@ -1,9 +1,11 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 08 Sep 2016 00:56:02 GMT
+// Generated: Tue, 13 Sep 2016 02:30:58 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
+
+open System
 
 #nowarn "1182"
 
@@ -14,6 +16,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
+[<Obsolete>]
 type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>) =
 
   // TODO: du element
@@ -46,7 +49,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedFsiInteraction_IDefns =
+  member val BeforeVisitFsiInteraction_IDefns =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -60,7 +63,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedFsiInteraction_IDefns =
+  member val VisitFsiInteraction_IDefns =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -74,7 +77,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedFsiInteraction_IHash =
+  member val BeforeVisitFsiInteraction_IHash =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -88,7 +91,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedFsiInteraction_IHash =
+  member val VisitFsiInteraction_IHash =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -103,26 +106,26 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedFsiInteraction">ParsedFsiInteraction expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedFsiInteraction
+  member this.VisitFsiInteraction
       (context: 'TContext)
       (parsedFsiInteraction: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedFsiInteraction parsedFsiInteraction)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.FsiInteraction parsedFsiInteraction)
     try
       match parsedFsiInteraction with
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
-        match this.BeforeVisitParsedFsiInteraction_IDefns(this, context, item1, range) with
+        match this.BeforeVisitFsiInteraction_IDefns(this, context, item1, range) with
         | Some result -> result
         | None ->
           let item1, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), range
-          match this.VisitParsedFsiInteraction_IDefns(this, context, item1, range) with
+          match this.VisitFsiInteraction_IDefns(this, context, item1, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range) ->
-        match this.BeforeVisitParsedFsiInteraction_IHash(this, context, item1, range) with
+        match this.BeforeVisitFsiInteraction_IHash(this, context, item1, range) with
         | Some result -> result
         | None ->
-          let item1, range = (this.VisitParsedHashDirective context item1), range
-          match this.VisitParsedFsiInteraction_IHash(this, context, item1, range) with
+          let item1, range = (this.VisitHashDirective context item1), range
+          match this.VisitFsiInteraction_IHash(this, context, item1, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range)
     finally
@@ -137,7 +140,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedHashDirective_ParsedHashDirective =
+  member val BeforeVisitHashDirective_ParsedHashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -152,7 +155,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedHashDirective_ParsedHashDirective =
+  member val VisitHashDirective_ParsedHashDirective =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -168,18 +171,18 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedHashDirective">ParsedHashDirective expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedHashDirective
+  member this.VisitHashDirective
       (context: 'TContext)
       (parsedHashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedHashDirective parsedHashDirective)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.HashDirective parsedHashDirective)
     try
       match parsedHashDirective with
       | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range) ->
-        match this.BeforeVisitParsedHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
+        match this.BeforeVisitHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
         | Some result -> result
         | None ->
           let item1, item2, range = item1, item2, range
-          match this.VisitParsedHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
+          match this.VisitHashDirective_ParsedHashDirective(this, context, item1, item2, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range)
     finally
@@ -194,7 +197,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedImplFile_ParsedImplFile =
+  member val BeforeVisitImplFile_ParsedImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -208,7 +211,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedImplFile_ParsedImplFile =
+  member val VisitImplFile_ParsedImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -223,18 +226,18 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFile">ParsedImplFile expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFile
+  member this.VisitImplFile
       (context: 'TContext)
       (parsedImplFile: Microsoft.FSharp.Compiler.Ast.ParsedImplFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFile parsedImplFile)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFile parsedImplFile)
     try
       match parsedImplFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
-        match this.BeforeVisitParsedImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
+        match this.BeforeVisitImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
         | Some result -> result
         | None ->
-          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedImplFileFragment context v))
-          match this.VisitParsedImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
+          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitImplFileFragment context v))
+          match this.VisitImplFile_ParsedImplFile(this, context, hashDirectives, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2)
     finally
@@ -249,7 +252,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedImplFileFragment_AnonModule =
+  member val BeforeVisitImplFileFragment_AnonModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -263,7 +266,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedImplFileFragment_AnonModule =
+  member val VisitImplFileFragment_AnonModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -277,7 +280,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedImplFileFragment_NamedModule =
+  member val BeforeVisitImplFileFragment_NamedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -290,7 +293,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedImplFileFragment_NamedModule =
+  member val VisitImplFileFragment_NamedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -303,7 +306,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedImplFileFragment_NamespaceFragment =
+  member val BeforeVisitImplFileFragment_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -322,7 +325,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedImplFileFragment_NamespaceFragment =
+  member val VisitImplFileFragment_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -342,34 +345,34 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFileFragment">ParsedImplFileFragment expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFileFragment
+  member this.VisitImplFileFragment
       (context: 'TContext)
       (parsedImplFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileFragment parsedImplFileFragment)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFileFragment parsedImplFileFragment)
     try
       match parsedImplFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
-        match this.BeforeVisitParsedImplFileFragment_AnonModule(this, context, moduleDecls, range) with
+        match this.BeforeVisitImplFileFragment_AnonModule(this, context, moduleDecls, range) with
         | Some result -> result
         | None ->
           let moduleDecls, range = moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), range
-          match this.VisitParsedImplFileFragment_AnonModule(this, context, moduleDecls, range) with
+          match this.VisitImplFileFragment_AnonModule(this, context, moduleDecls, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item) ->
-        match this.BeforeVisitParsedImplFileFragment_NamedModule(this, context, item) with
+        match this.BeforeVisitImplFileFragment_NamedModule(this, context, item) with
         | Some result -> result
         | None ->
           let item = (this.VisitModuleOrNamespace context item)
-          match this.VisitParsedImplFileFragment_NamedModule(this, context, item) with
+          match this.VisitImplFileFragment_NamedModule(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item)
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
-        match this.BeforeVisitParsedImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
+        match this.BeforeVisitImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
         | Some result -> result
         | None ->
           let longId, item2, item3, moduleDecls, xmlDoc, attributes, range = longId, item2, item3, moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
-          match this.VisitParsedImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
+          match this.VisitImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
     finally
@@ -384,7 +387,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedImplFileInput_ParsedImplFileInput =
+  member val BeforeVisitImplFileInput_ParsedImplFileInput =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -403,7 +406,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedImplFileInput_ParsedImplFileInput =
+  member val VisitImplFileInput_ParsedImplFileInput =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -423,18 +426,18 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFileInput">ParsedImplFileInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFileInput
+  member this.VisitImplFileInput
       (context: 'TContext)
       (parsedImplFileInput: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileInput parsedImplFileInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFileInput parsedImplFileInput)
     try
       match parsedImplFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
-        match this.BeforeVisitParsedImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
+        match this.BeforeVisitImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
         | Some result -> result
         | None ->
-          let filename, isScript, item3, item4, item5, item6, item7 = filename, isScript, item3, item4, item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespace context v)), item7
-          match this.VisitParsedImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
+          let filename, isScript, item3, item4, item5, item6, item7 = filename, isScript, item3, item4, item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)), item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespace context v)), item7
+          match this.VisitImplFileInput_ParsedImplFileInput(this, context, filename, isScript, item3, item4, item5, item6, item7) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7)
     finally
@@ -449,7 +452,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedInput_ImplFile =
+  member val BeforeVisitInput_ImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -462,7 +465,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedInput_ImplFile =
+  member val VisitInput_ImplFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -475,7 +478,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedInput_SigFile =
+  member val BeforeVisitInput_SigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -488,7 +491,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedInput_SigFile =
+  member val VisitInput_SigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -502,26 +505,26 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedInput">ParsedInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedInput
+  member this.VisitInput
       (context: 'TContext)
       (parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedInput parsedInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.Input parsedInput)
     try
       match parsedInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
-        match this.BeforeVisitParsedInput_ImplFile(this, context, item) with
+        match this.BeforeVisitInput_ImplFile(this, context, item) with
         | Some result -> result
         | None ->
-          let item = (this.VisitParsedImplFileInput context item)
-          match this.VisitParsedInput_ImplFile(this, context, item) with
+          let item = (this.VisitImplFileInput context item)
+          match this.VisitInput_ImplFile(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item)
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item) ->
-        match this.BeforeVisitParsedInput_SigFile(this, context, item) with
+        match this.BeforeVisitInput_SigFile(this, context, item) with
         | Some result -> result
         | None ->
-          let item = (this.VisitParsedSigFileInput context item)
-          match this.VisitParsedInput_SigFile(this, context, item) with
+          let item = (this.VisitSigFileInput context item)
+          match this.VisitInput_SigFile(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item)
     finally
@@ -536,7 +539,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedSigFile_ParsedSigFile =
+  member val BeforeVisitSigFile_ParsedSigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -550,7 +553,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedSigFile_ParsedSigFile =
+  member val VisitSigFile_ParsedSigFile =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -565,18 +568,18 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFile">ParsedSigFile expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFile
+  member this.VisitSigFile
       (context: 'TContext)
       (parsedSigFile: Microsoft.FSharp.Compiler.Ast.ParsedSigFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFile parsedSigFile)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFile parsedSigFile)
     try
       match parsedSigFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
-        match this.BeforeVisitParsedSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
+        match this.BeforeVisitSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
         | Some result -> result
         | None ->
-          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedSigFileFragment context v))
-          match this.VisitParsedSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
+          let hashDirectives, item2 = hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)), item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSigFileFragment context v))
+          match this.VisitSigFile_ParsedSigFile(this, context, hashDirectives, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2)
     finally
@@ -591,7 +594,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedSigFileFragment_AnonModule =
+  member val BeforeVisitSigFileFragment_AnonModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -605,7 +608,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedSigFileFragment_AnonModule =
+  member val VisitSigFileFragment_AnonModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -619,7 +622,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedSigFileFragment_NamedModule =
+  member val BeforeVisitSigFileFragment_NamedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -632,7 +635,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedSigFileFragment_NamedModule =
+  member val VisitSigFileFragment_NamedModule =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -645,7 +648,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedSigFileFragment_NamespaceFragment =
+  member val BeforeVisitSigFileFragment_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -664,7 +667,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedSigFileFragment_NamespaceFragment =
+  member val VisitSigFileFragment_NamespaceFragment =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -684,34 +687,34 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFileFragment">ParsedSigFileFragment expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFileFragment
+  member this.VisitSigFileFragment
       (context: 'TContext)
       (parsedSigFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileFragment parsedSigFileFragment)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFileFragment parsedSigFileFragment)
     try
       match parsedSigFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
-        match this.BeforeVisitParsedSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
+        match this.BeforeVisitSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
         | Some result -> result
         | None ->
           let moduleSigDecl, range = moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), range
-          match this.VisitParsedSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
+          match this.VisitSigFileFragment_AnonModule(this, context, moduleSigDecl, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item) ->
-        match this.BeforeVisitParsedSigFileFragment_NamedModule(this, context, item) with
+        match this.BeforeVisitSigFileFragment_NamedModule(this, context, item) with
         | Some result -> result
         | None ->
           let item = (this.VisitModuleOrNamespaceSig context item)
-          match this.VisitParsedSigFileFragment_NamedModule(this, context, item) with
+          match this.VisitSigFileFragment_NamedModule(this, context, item) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item)
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
-        match this.BeforeVisitParsedSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
+        match this.BeforeVisitSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
         | Some result -> result
         | None ->
           let longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range = longId, item2, item3, moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
-          match this.VisitParsedSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
+          match this.VisitSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
     finally
@@ -726,7 +729,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val BeforeVisitParsedSigFileInput_ParsedSigFileInput =
+  member val BeforeVisitSigFileInput_ParsedSigFileInput =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -743,7 +746,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="visitor">Visitor instance.</param>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed expression or None if defaulted.</returns>
-  member val VisitParsedSigFileInput_ParsedSigFileInput =
+  member val VisitSigFileInput_ParsedSigFileInput =
     fun
       (visitor: AstDelegatableVisitor<'TContext>,
        context: 'TContext,
@@ -761,18 +764,18 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFileInput">ParsedSigFileInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFileInput
+  member this.VisitSigFileInput
       (context: 'TContext)
       (parsedSigFileInput: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileInput parsedSigFileInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFileInput parsedSigFileInput)
     try
       match parsedSigFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
-        match this.BeforeVisitParsedSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
+        match this.BeforeVisitSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
         | Some result -> result
         | None ->
-          let filename, item2, item3, item4, item5 = filename, item2, item3, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)), item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespaceSig context v))
-          match this.VisitParsedSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
+          let filename, item2, item3, item4, item5 = filename, item2, item3, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)), item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespaceSig context v))
+          match this.VisitSigFileInput_ParsedSigFileInput(this, context, filename, item2, item3, item4, item5) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5)
     finally
@@ -6255,7 +6258,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleDecl_HashDirective(this, context, item1, item2) with
         | Some result -> result
         | None ->
-          let item1, item2 = (this.VisitParsedHashDirective context item1), item2
+          let item1, item2 = (this.VisitHashDirective context item1), item2
           match this.VisitModuleDecl_HashDirective(this, context, item1, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2)
@@ -6700,7 +6703,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
         | Some result -> result
         | None ->
-          let hashDirective, range = (this.VisitParsedHashDirective context hashDirective), range
+          let hashDirective, range = (this.VisitHashDirective context hashDirective), range
           match this.VisitModuleSigDecl_HashDirective(this, context, hashDirective, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range)

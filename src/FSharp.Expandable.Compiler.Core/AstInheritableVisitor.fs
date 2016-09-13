@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 08 Sep 2016 00:56:02 GMT
+// Generated: Tue, 13 Sep 2016 02:30:58 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -32,8 +32,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedFsiInteraction_IDefns".</remarks>
-  abstract member BeforeVisitParsedFsiInteraction_IDefns:
+  /// <remarks>Default implementation invoked "VisitFsiInteraction_IDefns".</remarks>
+  abstract member BeforeVisitFsiInteraction_IDefns:
     context: 'TContext *
     item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction
@@ -43,12 +43,12 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedFsiInteraction_IDefns".</remarks>
-  default this.BeforeVisitParsedFsiInteraction_IDefns
+  /// <remarks>Default implementation invoked "VisitFsiInteraction_IDefns".</remarks>
+  default this.BeforeVisitFsiInteraction_IDefns
      (context: 'TContext,
       item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedFsiInteraction_IDefns(
+    this.VisitFsiInteraction_IDefns(
       context,
       item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)),
       range)
@@ -59,7 +59,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IDefns".</remarks>
-  abstract member VisitParsedFsiInteraction_IDefns:
+  abstract member VisitFsiInteraction_IDefns:
     context: 'TContext *
     item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction
@@ -70,7 +70,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IDefns".</remarks>
-  default __.VisitParsedFsiInteraction_IDefns
+  default __.VisitFsiInteraction_IDefns
      (context: 'TContext,
       item1: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
@@ -81,8 +81,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedFsiInteraction_IHash".</remarks>
-  abstract member BeforeVisitParsedFsiInteraction_IHash:
+  /// <remarks>Default implementation invoked "VisitFsiInteraction_IHash".</remarks>
+  abstract member BeforeVisitFsiInteraction_IHash:
     context: 'TContext *
     item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction
@@ -92,14 +92,14 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedFsiInteraction_IHash".</remarks>
-  default this.BeforeVisitParsedFsiInteraction_IHash
+  /// <remarks>Default implementation invoked "VisitFsiInteraction_IHash".</remarks>
+  default this.BeforeVisitFsiInteraction_IHash
      (context: 'TContext,
       item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedFsiInteraction_IHash(
+    this.VisitFsiInteraction_IHash(
       context,
-      (this.VisitParsedHashDirective context item1),
+      (this.VisitHashDirective context item1),
       range)
 
   /// <summary>
@@ -108,7 +108,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IHash".</remarks>
-  abstract member VisitParsedFsiInteraction_IHash:
+  abstract member VisitFsiInteraction_IHash:
     context: 'TContext *
     item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction
@@ -119,7 +119,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IHash".</remarks>
-  default __.VisitParsedFsiInteraction_IHash
+  default __.VisitFsiInteraction_IHash
      (context: 'TContext,
       item1: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
       range: Microsoft.FSharp.Compiler.Range.range) =
@@ -132,16 +132,16 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedFsiInteraction">ParsedFsiInteraction expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedFsiInteraction
+  member this.VisitFsiInteraction
       (context: 'TContext)
       (parsedFsiInteraction: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedFsiInteraction parsedFsiInteraction)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.FsiInteraction parsedFsiInteraction)
     try
       match parsedFsiInteraction with
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
-        this.BeforeVisitParsedFsiInteraction_IDefns(context, item1, range)
+        this.BeforeVisitFsiInteraction_IDefns(context, item1, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range) ->
-        this.BeforeVisitParsedFsiInteraction_IHash(context, item1, range)
+        this.BeforeVisitFsiInteraction_IHash(context, item1, range)
     finally
       parents.Pop() |> ignore
 
@@ -153,8 +153,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedHashDirective_ParsedHashDirective".</remarks>
-  abstract member BeforeVisitParsedHashDirective_ParsedHashDirective:
+  /// <remarks>Default implementation invoked "VisitHashDirective_ParsedHashDirective".</remarks>
+  abstract member BeforeVisitHashDirective_ParsedHashDirective:
     context: 'TContext *
     item1: string *
     item2: string list *
@@ -165,13 +165,13 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedHashDirective_ParsedHashDirective".</remarks>
-  default this.BeforeVisitParsedHashDirective_ParsedHashDirective
+  /// <remarks>Default implementation invoked "VisitHashDirective_ParsedHashDirective".</remarks>
+  default this.BeforeVisitHashDirective_ParsedHashDirective
      (context: 'TContext,
       item1: string,
       item2: string list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedHashDirective_ParsedHashDirective(
+    this.VisitHashDirective_ParsedHashDirective(
       context,
       item1,
       item2,
@@ -183,7 +183,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedHashDirective.ParsedHashDirective".</remarks>
-  abstract member VisitParsedHashDirective_ParsedHashDirective:
+  abstract member VisitHashDirective_ParsedHashDirective:
     context: 'TContext *
     item1: string *
     item2: string list *
@@ -195,7 +195,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedHashDirective.ParsedHashDirective".</remarks>
-  default __.VisitParsedHashDirective_ParsedHashDirective
+  default __.VisitHashDirective_ParsedHashDirective
      (context: 'TContext,
       item1: string,
       item2: string list,
@@ -209,14 +209,14 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedHashDirective">ParsedHashDirective expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedHashDirective
+  member this.VisitHashDirective
       (context: 'TContext)
       (parsedHashDirective: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedHashDirective parsedHashDirective)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.HashDirective parsedHashDirective)
     try
       match parsedHashDirective with
       | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective(item1, item2, range) ->
-        this.BeforeVisitParsedHashDirective_ParsedHashDirective(context, item1, item2, range)
+        this.BeforeVisitHashDirective_ParsedHashDirective(context, item1, item2, range)
     finally
       parents.Pop() |> ignore
 
@@ -228,8 +228,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFile_ParsedImplFile".</remarks>
-  abstract member BeforeVisitParsedImplFile_ParsedImplFile:
+  /// <remarks>Default implementation invoked "VisitImplFile_ParsedImplFile".</remarks>
+  abstract member BeforeVisitImplFile_ParsedImplFile:
     context: 'TContext *
     hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list *
     item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list -> Microsoft.FSharp.Compiler.Ast.ParsedImplFile
@@ -239,15 +239,15 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFile_ParsedImplFile".</remarks>
-  default this.BeforeVisitParsedImplFile_ParsedImplFile
+  /// <remarks>Default implementation invoked "VisitImplFile_ParsedImplFile".</remarks>
+  default this.BeforeVisitImplFile_ParsedImplFile
      (context: 'TContext,
       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list) =
-    this.VisitParsedImplFile_ParsedImplFile(
+    this.VisitImplFile_ParsedImplFile(
       context,
-      hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)),
-      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedImplFileFragment context v)))
+      hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)),
+      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitImplFileFragment context v)))
 
   /// <summary>
   /// Visit "ParsedImplFile.ParsedImplFile" expression.
@@ -255,7 +255,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFile.ParsedImplFile".</remarks>
-  abstract member VisitParsedImplFile_ParsedImplFile:
+  abstract member VisitImplFile_ParsedImplFile:
     context: 'TContext *
     hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list *
     item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list -> Microsoft.FSharp.Compiler.Ast.ParsedImplFile
@@ -266,7 +266,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFile.ParsedImplFile".</remarks>
-  default __.VisitParsedImplFile_ParsedImplFile
+  default __.VisitImplFile_ParsedImplFile
      (context: 'TContext,
       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item2: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list) =
@@ -279,14 +279,14 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFile">ParsedImplFile expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFile
+  member this.VisitImplFile
       (context: 'TContext)
       (parsedImplFile: Microsoft.FSharp.Compiler.Ast.ParsedImplFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFile parsedImplFile)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFile parsedImplFile)
     try
       match parsedImplFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
-        this.BeforeVisitParsedImplFile_ParsedImplFile(context, hashDirectives, item2)
+        this.BeforeVisitImplFile_ParsedImplFile(context, hashDirectives, item2)
     finally
       parents.Pop() |> ignore
 
@@ -298,8 +298,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_AnonModule".</remarks>
-  abstract member BeforeVisitParsedImplFileFragment_AnonModule:
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_AnonModule".</remarks>
+  abstract member BeforeVisitImplFileFragment_AnonModule:
     context: 'TContext *
     moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment
@@ -309,12 +309,12 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_AnonModule".</remarks>
-  default this.BeforeVisitParsedImplFileFragment_AnonModule
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_AnonModule".</remarks>
+  default this.BeforeVisitImplFileFragment_AnonModule
      (context: 'TContext,
       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedImplFileFragment_AnonModule(
+    this.VisitImplFileFragment_AnonModule(
       context,
       moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)),
       range)
@@ -325,7 +325,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.AnonModule".</remarks>
-  abstract member VisitParsedImplFileFragment_AnonModule:
+  abstract member VisitImplFileFragment_AnonModule:
     context: 'TContext *
     moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment
@@ -336,7 +336,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.AnonModule".</remarks>
-  default __.VisitParsedImplFileFragment_AnonModule
+  default __.VisitImplFileFragment_AnonModule
      (context: 'TContext,
       moduleDecls: Microsoft.FSharp.Compiler.Ast.SynModuleDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
@@ -347,8 +347,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_NamedModule".</remarks>
-  abstract member BeforeVisitParsedImplFileFragment_NamedModule:
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_NamedModule".</remarks>
+  abstract member BeforeVisitImplFileFragment_NamedModule:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment
 
@@ -357,11 +357,11 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_NamedModule".</remarks>
-  default this.BeforeVisitParsedImplFileFragment_NamedModule
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_NamedModule".</remarks>
+  default this.BeforeVisitImplFileFragment_NamedModule
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) =
-    this.VisitParsedImplFileFragment_NamedModule(
+    this.VisitImplFileFragment_NamedModule(
       context,
       (this.VisitModuleOrNamespace context item))
 
@@ -371,7 +371,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamedModule".</remarks>
-  abstract member VisitParsedImplFileFragment_NamedModule:
+  abstract member VisitImplFileFragment_NamedModule:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment
 
@@ -381,7 +381,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamedModule".</remarks>
-  default __.VisitParsedImplFileFragment_NamedModule
+  default __.VisitImplFileFragment_NamedModule
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) =
     Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item)
@@ -391,8 +391,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_NamespaceFragment".</remarks>
-  abstract member BeforeVisitParsedImplFileFragment_NamespaceFragment:
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_NamespaceFragment".</remarks>
+  abstract member BeforeVisitImplFileFragment_NamespaceFragment:
     context: 'TContext *
     longId: Microsoft.FSharp.Compiler.Ast.Ident list *
     item2: bool *
@@ -407,8 +407,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileFragment_NamespaceFragment".</remarks>
-  default this.BeforeVisitParsedImplFileFragment_NamespaceFragment
+  /// <remarks>Default implementation invoked "VisitImplFileFragment_NamespaceFragment".</remarks>
+  default this.BeforeVisitImplFileFragment_NamespaceFragment
      (context: 'TContext,
       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
       item2: bool,
@@ -417,7 +417,7 @@ type AstInheritableVisitor<'TContext>() =
       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedImplFileFragment_NamespaceFragment(
+    this.VisitImplFileFragment_NamespaceFragment(
       context,
       longId,
       item2,
@@ -433,7 +433,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamespaceFragment".</remarks>
-  abstract member VisitParsedImplFileFragment_NamespaceFragment:
+  abstract member VisitImplFileFragment_NamespaceFragment:
     context: 'TContext *
     longId: Microsoft.FSharp.Compiler.Ast.Ident list *
     item2: bool *
@@ -449,7 +449,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamespaceFragment".</remarks>
-  default __.VisitParsedImplFileFragment_NamespaceFragment
+  default __.VisitImplFileFragment_NamespaceFragment
      (context: 'TContext,
       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
       item2: bool,
@@ -467,18 +467,18 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFileFragment">ParsedImplFileFragment expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFileFragment
+  member this.VisitImplFileFragment
       (context: 'TContext)
       (parsedImplFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileFragment parsedImplFileFragment)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFileFragment parsedImplFileFragment)
     try
       match parsedImplFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
-        this.BeforeVisitParsedImplFileFragment_AnonModule(context, moduleDecls, range)
+        this.BeforeVisitImplFileFragment_AnonModule(context, moduleDecls, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item) ->
-        this.BeforeVisitParsedImplFileFragment_NamedModule(context, item)
+        this.BeforeVisitImplFileFragment_NamedModule(context, item)
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
-        this.BeforeVisitParsedImplFileFragment_NamespaceFragment(context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
+        this.BeforeVisitImplFileFragment_NamespaceFragment(context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
     finally
       parents.Pop() |> ignore
 
@@ -490,8 +490,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileInput_ParsedImplFileInput".</remarks>
-  abstract member BeforeVisitParsedImplFileInput_ParsedImplFileInput:
+  /// <remarks>Default implementation invoked "VisitImplFileInput_ParsedImplFileInput".</remarks>
+  abstract member BeforeVisitImplFileInput_ParsedImplFileInput:
     context: 'TContext *
     filename: string *
     isScript: bool *
@@ -506,8 +506,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedImplFileInput_ParsedImplFileInput".</remarks>
-  default this.BeforeVisitParsedImplFileInput_ParsedImplFileInput
+  /// <remarks>Default implementation invoked "VisitImplFileInput_ParsedImplFileInput".</remarks>
+  default this.BeforeVisitImplFileInput_ParsedImplFileInput
      (context: 'TContext,
       filename: string,
       isScript: bool,
@@ -516,13 +516,13 @@ type AstInheritableVisitor<'TContext>() =
       item5: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item6: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list,
       item7: (bool * bool)) =
-    this.VisitParsedImplFileInput_ParsedImplFileInput(
+    this.VisitImplFileInput_ParsedImplFileInput(
       context,
       filename,
       isScript,
       item3,
       item4,
-      item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)),
+      item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)),
       item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespace context v)),
       item7)
 
@@ -532,7 +532,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileInput.ParsedImplFileInput".</remarks>
-  abstract member VisitParsedImplFileInput_ParsedImplFileInput:
+  abstract member VisitImplFileInput_ParsedImplFileInput:
     context: 'TContext *
     filename: string *
     isScript: bool *
@@ -548,7 +548,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileInput.ParsedImplFileInput".</remarks>
-  default __.VisitParsedImplFileInput_ParsedImplFileInput
+  default __.VisitImplFileInput_ParsedImplFileInput
      (context: 'TContext,
       filename: string,
       isScript: bool,
@@ -566,14 +566,14 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedImplFileInput">ParsedImplFileInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedImplFileInput
+  member this.VisitImplFileInput
       (context: 'TContext)
       (parsedImplFileInput: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedImplFileInput parsedImplFileInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ImplFileInput parsedImplFileInput)
     try
       match parsedImplFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
-        this.BeforeVisitParsedImplFileInput_ParsedImplFileInput(context, filename, isScript, item3, item4, item5, item6, item7)
+        this.BeforeVisitImplFileInput_ParsedImplFileInput(context, filename, isScript, item3, item4, item5, item6, item7)
     finally
       parents.Pop() |> ignore
 
@@ -585,8 +585,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_ImplFile".</remarks>
-  abstract member BeforeVisitParsedInput_ImplFile:
+  /// <remarks>Default implementation invoked "VisitInput_ImplFile".</remarks>
+  abstract member BeforeVisitInput_ImplFile:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput -> Microsoft.FSharp.Compiler.Ast.ParsedInput
 
@@ -595,13 +595,13 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_ImplFile".</remarks>
-  default this.BeforeVisitParsedInput_ImplFile
+  /// <remarks>Default implementation invoked "VisitInput_ImplFile".</remarks>
+  default this.BeforeVisitInput_ImplFile
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
-    this.VisitParsedInput_ImplFile(
+    this.VisitInput_ImplFile(
       context,
-      (this.VisitParsedImplFileInput context item))
+      (this.VisitImplFileInput context item))
 
   /// <summary>
   /// Visit "ParsedInput.ImplFile" expression.
@@ -609,7 +609,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.ImplFile".</remarks>
-  abstract member VisitParsedInput_ImplFile:
+  abstract member VisitInput_ImplFile:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput -> Microsoft.FSharp.Compiler.Ast.ParsedInput
 
@@ -619,7 +619,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.ImplFile".</remarks>
-  default __.VisitParsedInput_ImplFile
+  default __.VisitInput_ImplFile
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
     Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item)
@@ -629,8 +629,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_SigFile".</remarks>
-  abstract member BeforeVisitParsedInput_SigFile:
+  /// <remarks>Default implementation invoked "VisitInput_SigFile".</remarks>
+  abstract member BeforeVisitInput_SigFile:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput -> Microsoft.FSharp.Compiler.Ast.ParsedInput
 
@@ -639,13 +639,13 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedInput_SigFile".</remarks>
-  default this.BeforeVisitParsedInput_SigFile
+  /// <remarks>Default implementation invoked "VisitInput_SigFile".</remarks>
+  default this.BeforeVisitInput_SigFile
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
-    this.VisitParsedInput_SigFile(
+    this.VisitInput_SigFile(
       context,
-      (this.VisitParsedSigFileInput context item))
+      (this.VisitSigFileInput context item))
 
   /// <summary>
   /// Visit "ParsedInput.SigFile" expression.
@@ -653,7 +653,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.SigFile".</remarks>
-  abstract member VisitParsedInput_SigFile:
+  abstract member VisitInput_SigFile:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput -> Microsoft.FSharp.Compiler.Ast.ParsedInput
 
@@ -663,7 +663,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.SigFile".</remarks>
-  default __.VisitParsedInput_SigFile
+  default __.VisitInput_SigFile
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
     Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item)
@@ -675,16 +675,16 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedInput">ParsedInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedInput
+  member this.VisitInput
       (context: 'TContext)
       (parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedInput parsedInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.Input parsedInput)
     try
       match parsedInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
-        this.BeforeVisitParsedInput_ImplFile(context, item)
+        this.BeforeVisitInput_ImplFile(context, item)
       | Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item) ->
-        this.BeforeVisitParsedInput_SigFile(context, item)
+        this.BeforeVisitInput_SigFile(context, item)
     finally
       parents.Pop() |> ignore
 
@@ -696,8 +696,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFile_ParsedSigFile".</remarks>
-  abstract member BeforeVisitParsedSigFile_ParsedSigFile:
+  /// <remarks>Default implementation invoked "VisitSigFile_ParsedSigFile".</remarks>
+  abstract member BeforeVisitSigFile_ParsedSigFile:
     context: 'TContext *
     hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list *
     item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list -> Microsoft.FSharp.Compiler.Ast.ParsedSigFile
@@ -707,15 +707,15 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFile_ParsedSigFile".</remarks>
-  default this.BeforeVisitParsedSigFile_ParsedSigFile
+  /// <remarks>Default implementation invoked "VisitSigFile_ParsedSigFile".</remarks>
+  default this.BeforeVisitSigFile_ParsedSigFile
      (context: 'TContext,
       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list) =
-    this.VisitParsedSigFile_ParsedSigFile(
+    this.VisitSigFile_ParsedSigFile(
       context,
-      hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)),
-      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedSigFileFragment context v)))
+      hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)),
+      item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSigFileFragment context v)))
 
   /// <summary>
   /// Visit "ParsedSigFile.ParsedSigFile" expression.
@@ -723,7 +723,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFile.ParsedSigFile".</remarks>
-  abstract member VisitParsedSigFile_ParsedSigFile:
+  abstract member VisitSigFile_ParsedSigFile:
     context: 'TContext *
     hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list *
     item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list -> Microsoft.FSharp.Compiler.Ast.ParsedSigFile
@@ -734,7 +734,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFile.ParsedSigFile".</remarks>
-  default __.VisitParsedSigFile_ParsedSigFile
+  default __.VisitSigFile_ParsedSigFile
      (context: 'TContext,
       hashDirectives: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item2: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list) =
@@ -747,14 +747,14 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFile">ParsedSigFile expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFile
+  member this.VisitSigFile
       (context: 'TContext)
       (parsedSigFile: Microsoft.FSharp.Compiler.Ast.ParsedSigFile) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFile parsedSigFile)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFile parsedSigFile)
     try
       match parsedSigFile with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
-        this.BeforeVisitParsedSigFile_ParsedSigFile(context, hashDirectives, item2)
+        this.BeforeVisitSigFile_ParsedSigFile(context, hashDirectives, item2)
     finally
       parents.Pop() |> ignore
 
@@ -766,8 +766,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_AnonModule".</remarks>
-  abstract member BeforeVisitParsedSigFileFragment_AnonModule:
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_AnonModule".</remarks>
+  abstract member BeforeVisitSigFileFragment_AnonModule:
     context: 'TContext *
     moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment
@@ -777,12 +777,12 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_AnonModule".</remarks>
-  default this.BeforeVisitParsedSigFileFragment_AnonModule
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_AnonModule".</remarks>
+  default this.BeforeVisitSigFileFragment_AnonModule
      (context: 'TContext,
       moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedSigFileFragment_AnonModule(
+    this.VisitSigFileFragment_AnonModule(
       context,
       moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)),
       range)
@@ -793,7 +793,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.AnonModule".</remarks>
-  abstract member VisitParsedSigFileFragment_AnonModule:
+  abstract member VisitSigFileFragment_AnonModule:
     context: 'TContext *
     moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list *
     range: Microsoft.FSharp.Compiler.Range.range -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment
@@ -804,7 +804,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.AnonModule".</remarks>
-  default __.VisitParsedSigFileFragment_AnonModule
+  default __.VisitSigFileFragment_AnonModule
      (context: 'TContext,
       moduleSigDecl: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list,
       range: Microsoft.FSharp.Compiler.Range.range) =
@@ -815,8 +815,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_NamedModule".</remarks>
-  abstract member BeforeVisitParsedSigFileFragment_NamedModule:
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_NamedModule".</remarks>
+  abstract member BeforeVisitSigFileFragment_NamedModule:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment
 
@@ -825,11 +825,11 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_NamedModule".</remarks>
-  default this.BeforeVisitParsedSigFileFragment_NamedModule
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_NamedModule".</remarks>
+  default this.BeforeVisitSigFileFragment_NamedModule
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) =
-    this.VisitParsedSigFileFragment_NamedModule(
+    this.VisitSigFileFragment_NamedModule(
       context,
       (this.VisitModuleOrNamespaceSig context item))
 
@@ -839,7 +839,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamedModule".</remarks>
-  abstract member VisitParsedSigFileFragment_NamedModule:
+  abstract member VisitSigFileFragment_NamedModule:
     context: 'TContext *
     item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment
 
@@ -849,7 +849,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamedModule".</remarks>
-  default __.VisitParsedSigFileFragment_NamedModule
+  default __.VisitSigFileFragment_NamedModule
      (context: 'TContext,
       item: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) =
     Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item)
@@ -859,8 +859,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_NamespaceFragment".</remarks>
-  abstract member BeforeVisitParsedSigFileFragment_NamespaceFragment:
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_NamespaceFragment".</remarks>
+  abstract member BeforeVisitSigFileFragment_NamespaceFragment:
     context: 'TContext *
     longId: Microsoft.FSharp.Compiler.Ast.Ident list *
     item2: bool *
@@ -875,8 +875,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileFragment_NamespaceFragment".</remarks>
-  default this.BeforeVisitParsedSigFileFragment_NamespaceFragment
+  /// <remarks>Default implementation invoked "VisitSigFileFragment_NamespaceFragment".</remarks>
+  default this.BeforeVisitSigFileFragment_NamespaceFragment
      (context: 'TContext,
       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
       item2: bool,
@@ -885,7 +885,7 @@ type AstInheritableVisitor<'TContext>() =
       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    this.VisitParsedSigFileFragment_NamespaceFragment(
+    this.VisitSigFileFragment_NamespaceFragment(
       context,
       longId,
       item2,
@@ -901,7 +901,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamespaceFragment".</remarks>
-  abstract member VisitParsedSigFileFragment_NamespaceFragment:
+  abstract member VisitSigFileFragment_NamespaceFragment:
     context: 'TContext *
     longId: Microsoft.FSharp.Compiler.Ast.Ident list *
     item2: bool *
@@ -917,7 +917,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamespaceFragment".</remarks>
-  default __.VisitParsedSigFileFragment_NamespaceFragment
+  default __.VisitSigFileFragment_NamespaceFragment
      (context: 'TContext,
       longId: Microsoft.FSharp.Compiler.Ast.Ident list,
       item2: bool,
@@ -935,18 +935,18 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFileFragment">ParsedSigFileFragment expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFileFragment
+  member this.VisitSigFileFragment
       (context: 'TContext)
       (parsedSigFileFragment: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileFragment parsedSigFileFragment)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFileFragment parsedSigFileFragment)
     try
       match parsedSigFileFragment with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
-        this.BeforeVisitParsedSigFileFragment_AnonModule(context, moduleSigDecl, range)
+        this.BeforeVisitSigFileFragment_AnonModule(context, moduleSigDecl, range)
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item) ->
-        this.BeforeVisitParsedSigFileFragment_NamedModule(context, item)
+        this.BeforeVisitSigFileFragment_NamedModule(context, item)
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
-        this.BeforeVisitParsedSigFileFragment_NamespaceFragment(context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
+        this.BeforeVisitSigFileFragment_NamespaceFragment(context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
     finally
       parents.Pop() |> ignore
 
@@ -958,8 +958,8 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileInput_ParsedSigFileInput".</remarks>
-  abstract member BeforeVisitParsedSigFileInput_ParsedSigFileInput:
+  /// <remarks>Default implementation invoked "VisitSigFileInput_ParsedSigFileInput".</remarks>
+  abstract member BeforeVisitSigFileInput_ParsedSigFileInput:
     context: 'TContext *
     filename: string *
     item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile *
@@ -972,20 +972,20 @@ type AstInheritableVisitor<'TContext>() =
   /// </summary>
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  /// <remarks>Default implementation invoked "VisitParsedSigFileInput_ParsedSigFileInput".</remarks>
-  default this.BeforeVisitParsedSigFileInput_ParsedSigFileInput
+  /// <remarks>Default implementation invoked "VisitSigFileInput_ParsedSigFileInput".</remarks>
+  default this.BeforeVisitSigFileInput_ParsedSigFileInput
      (context: 'TContext,
       filename: string,
       item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
       item3: Microsoft.FSharp.Compiler.Ast.ScopedPragma list,
       item4: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list,
       item5: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list) =
-    this.VisitParsedSigFileInput_ParsedSigFileInput(
+    this.VisitSigFileInput_ParsedSigFileInput(
       context,
       filename,
       item2,
       item3,
-      item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitParsedHashDirective context v)),
+      item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitHashDirective context v)),
       item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleOrNamespaceSig context v)))
 
   /// <summary>
@@ -994,7 +994,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileInput.ParsedSigFileInput".</remarks>
-  abstract member VisitParsedSigFileInput_ParsedSigFileInput:
+  abstract member VisitSigFileInput_ParsedSigFileInput:
     context: 'TContext *
     filename: string *
     item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile *
@@ -1008,7 +1008,7 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileInput.ParsedSigFileInput".</remarks>
-  default __.VisitParsedSigFileInput_ParsedSigFileInput
+  default __.VisitSigFileInput_ParsedSigFileInput
      (context: 'TContext,
       filename: string,
       item2: Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile,
@@ -1024,14 +1024,14 @@ type AstInheritableVisitor<'TContext>() =
   /// <param name="context">Context object.</param>
   /// <param name="parsedSigFileInput">ParsedSigFileInput expression.</param>
   /// <returns>Constructed (or target) expression.</returns>
-  member this.VisitParsedSigFileInput
+  member this.VisitSigFileInput
       (context: 'TContext)
       (parsedSigFileInput: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
-    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ParsedSigFileInput parsedSigFileInput)
+    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SigFileInput parsedSigFileInput)
     try
       match parsedSigFileInput with
       | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
-        this.BeforeVisitParsedSigFileInput_ParsedSigFileInput(context, filename, item2, item3, item4, item5)
+        this.BeforeVisitSigFileInput_ParsedSigFileInput(context, filename, item2, item3, item4, item5)
     finally
       parents.Pop() |> ignore
 
@@ -8853,7 +8853,7 @@ type AstInheritableVisitor<'TContext>() =
       item2: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleDecl_HashDirective(
       context,
-      (this.VisitParsedHashDirective context item1),
+      (this.VisitHashDirective context item1),
       item2)
 
   /// <summary>
@@ -9494,7 +9494,7 @@ type AstInheritableVisitor<'TContext>() =
       range: Microsoft.FSharp.Compiler.Range.range) =
     this.VisitModuleSigDecl_HashDirective(
       context,
-      (this.VisitParsedHashDirective context hashDirective),
+      (this.VisitHashDirective context hashDirective),
       range)
 
   /// <summary>
@@ -15046,6 +15046,6 @@ type AstInheritableVisitor<'TContext>() =
     /// <param name="context">Visito context.</param>
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
-    member this.VisitParsedInput context parsedInput = 
-      this.VisitParsedInput context parsedInput
+    member this.VisitInput context parsedInput = 
+      this.VisitInput context parsedInput
 

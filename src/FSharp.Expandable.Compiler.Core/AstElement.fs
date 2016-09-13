@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 08 Sep 2016 00:56:02 GMT
+// Generated: Tue, 13 Sep 2016 02:30:58 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -16,15 +16,15 @@ open Microsoft.FSharp.Compiler.Ast
 /// </summary>
 [<RequireQualifiedAccess>]
 type AstElement =
-  | ParsedFsiInteraction of ParsedFsiInteraction
-  | ParsedHashDirective of ParsedHashDirective
-  | ParsedImplFile of ParsedImplFile
-  | ParsedImplFileFragment of ParsedImplFileFragment
-  | ParsedImplFileInput of ParsedImplFileInput
-  | ParsedInput of ParsedInput
-  | ParsedSigFile of ParsedSigFile
-  | ParsedSigFileFragment of ParsedSigFileFragment
-  | ParsedSigFileInput of ParsedSigFileInput
+  | FsiInteraction of ParsedFsiInteraction
+  | HashDirective of ParsedHashDirective
+  | ImplFile of ParsedImplFile
+  | ImplFileFragment of ParsedImplFileFragment
+  | ImplFileInput of ParsedImplFileInput
+  | Input of ParsedInput
+  | SigFile of ParsedSigFile
+  | SigFileFragment of ParsedSigFileFragment
+  | SigFileInput of ParsedSigFileInput
   | Access of SynAccess
   | ArgInfo of SynArgInfo
   | Binding of SynBinding

@@ -75,9 +75,9 @@
     <Compile Include="AstRecordCons.fs" />
     <Compile Include="AstElement.fs" />
     <Compile Include="AstDelegatableVisitor.fs" />
-    <Compile Include="DeclareAstDelegatableVisitor.fs" />
     <Compile Include="AstInheritableVisitor.fs" />
     <Compile Include="AstFunctionalVisitor.fs" />
+    <Compile Include="DeclareAstVisitor.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
     <Compile Include="SafeResolver.fs" />

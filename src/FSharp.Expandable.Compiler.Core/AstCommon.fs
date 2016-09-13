@@ -76,7 +76,7 @@ type IAstVisitor<'TContext> =
   /// <param name="context">Visito context.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  abstract VisitParsedInput :
+  abstract VisitInput :
     context: 'TContext ->
     parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
     Microsoft.FSharp.Compiler.Ast.ParsedInput
