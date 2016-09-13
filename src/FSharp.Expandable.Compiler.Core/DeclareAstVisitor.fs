@@ -25,6 +25,8 @@ open System
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.Ast.Visitor
 
+#nowarn "44"
+
 /// <summary>
 /// Basic delegatable visitor base type.
 /// </summary>
@@ -72,4 +74,4 @@ type DeclareAstFunctionalVisitor<'TContext>(visitor: 'TContext -> SynExpr -> Syn
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
     member this.VisitInput context parsedInput = 
-      AstFunctionalVisitor.visitInput visitor context parsedInput
+      AstFunctionalVisitor.visitInput context parsedInput visitor

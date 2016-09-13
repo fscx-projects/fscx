@@ -76,7 +76,7 @@ type internal AstDelegatableVisitorGenerator() =
   /// Construct expression string for match.
   let generateMatcher visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "this.Visit{0} context" "_rwh_")
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "this.Visit{0} context {1}" "_rwh_")
     let args = visited |> Seq.map (fun vr -> vr.ToString()) |> Seq.toArray      // Composed argument string
     let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef) // Require using reference cell
     let fieldNames = [|

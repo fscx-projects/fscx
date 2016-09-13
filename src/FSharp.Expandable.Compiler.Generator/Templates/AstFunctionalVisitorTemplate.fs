@@ -7,6 +7,8 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open Microsoft.FSharp.Compiler.Ast
 
+#nowarn "1182"
+
 [<AutoOpen>]
 module AstFunctionalVisitor =
 

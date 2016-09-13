@@ -208,9 +208,8 @@ module internal VisitorUtilities =
       // Invoke visitor function, so result force Projected.
       Projected(
         String.Format(
-          "({0} {1})",
-          String.Format(visitorName, formatUnionTypeShortName t),
-          name),
+          "({0})",
+          String.Format(visitorName, formatUnionTypeShortName t, name)),
           false)
     // Other generic types with one argument.
     | Generic [|argType|] ->

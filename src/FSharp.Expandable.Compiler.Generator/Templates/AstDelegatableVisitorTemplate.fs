@@ -7,6 +7,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
 
+#nowarn "44"
 #nowarn "1182"
 
 ////////////////////////////////////////////////////////////

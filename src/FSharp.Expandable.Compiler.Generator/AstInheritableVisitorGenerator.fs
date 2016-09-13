@@ -41,7 +41,7 @@ type internal AstInheritableVisitorGenerator() =
       yield "context: 'TContext"
       yield! fields |> Seq.map Utilities.formatDeclaration
     |]
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "this.Visit{0} context" "_rwh_")
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "this.Visit{0} context {1}" "_rwh_")
     let args = [|
       yield "context"
       yield! visited |> Seq.map (fun vr -> vr.ToString())   // Composed argument string

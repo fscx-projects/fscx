@@ -1,11 +1,13 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 13 Sep 2016 05:43:17 GMT
+// Generated: Tue, 13 Sep 2016 08:20:37 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open Microsoft.FSharp.Compiler.Ast
+
+#nowarn "1182"
 
 [<AutoOpen>]
 module AstFunctionalVisitor =
@@ -16,36 +18,36 @@ module AstFunctionalVisitor =
   /// Expression visitor function: ParsedFsiInteraction
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitFsiInteraction
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash
-        ((visitHashDirective fv context item1),
+        ((visitHashDirective context item1 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: ParsedHashDirective
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitHashDirective
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective _ -> target
 
@@ -53,62 +55,62 @@ module AstFunctionalVisitor =
   /// Expression visitor function: ParsedImplFile
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFile
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFile) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFile)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFile
-        (hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective fv context v)),
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitImplFileFragment fv context v)))
+        (hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective context v dlgVisitor)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitImplFileFragment context v dlgVisitor)))
 
   /// <summary>
   /// Expression visitor function: ParsedImplFileFragment
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFileFragment
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule
-        (moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl fv context v)),
+        (moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamedModule
-        ((visitModuleOrNamespace fv context item))
+        ((visitModuleOrNamespace context item dlgVisitor))
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment
         (longId,
          item2,
          item3,
-         moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl fv context v)),
+         moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl context v dlgVisitor)),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          range)
 
   /// <summary>
   /// Expression visitor function: ParsedImplFileInput
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFileInput
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput
@@ -116,111 +118,111 @@ module AstFunctionalVisitor =
          isScript,
          item3,
          item4,
-         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective fv context v)),
-         item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespace fv context v)),
+         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective context v dlgVisitor)),
+         item6 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespace context v dlgVisitor)),
          item7)
 
   /// <summary>
   /// Expression visitor function: ParsedInput
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitInput
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedInput) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedInput)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile
-        ((visitImplFileInput fv context item))
+        ((visitImplFileInput context item dlgVisitor))
     | Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedInput.SigFile
-        ((visitSigFileInput fv context item))
+        ((visitSigFileInput context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: ParsedSigFile
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFile
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFile) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFile)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFile
-        (hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective fv context v)),
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSigFileFragment fv context v)))
+        (hashDirectives |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective context v dlgVisitor)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSigFileFragment context v dlgVisitor)))
 
   /// <summary>
   /// Expression visitor function: ParsedSigFileFragment
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFileFragment
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule
-        (moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl fv context v)),
+        (moduleSigDecl |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamedModule
-        ((visitModuleOrNamespaceSig fv context item))
+        ((visitModuleOrNamespaceSig context item dlgVisitor))
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment
         (longId,
          item2,
          item3,
-         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl fv context v)),
+         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl context v dlgVisitor)),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          range)
 
   /// <summary>
   /// Expression visitor function: ParsedSigFileInput
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFileInput
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput) =
+     (target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput
         (filename,
          item2,
          item3,
-         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective fv context v)),
-         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespaceSig fv context v)))
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitHashDirective context v dlgVisitor)),
+         item5 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleOrNamespaceSig context v dlgVisitor)))
 
   /// <summary>
   /// Expression visitor function: SynAccess
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitAccess
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynAccess) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynAccess)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynAccess.Public _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynAccess.Internal _ -> target
@@ -230,18 +232,18 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynArgInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitArgInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynArgInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynArgInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id) ->
       Microsoft.FSharp.Compiler.Ast.SynArgInfo
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          optional,
          id)
 
@@ -249,27 +251,27 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynBinding
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBinding
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynBinding) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynBinding)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
       Microsoft.FSharp.Compiler.Ast.SynBinding.Binding
-        (access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         (visitBindingKind fv context bindingKind),
+        (access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         (visitBindingKind context bindingKind dlgVisitor),
          mustInline,
          isMutable,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          xmlDoc,
-         (visitValData fv context item7),
-         (visitPat fv context headPat),
-         item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitBindingReturnInfo fv context v)),
-         (visitExpr fv context expr),
+         (visitValData context item7 dlgVisitor),
+         (visitPat context headPat dlgVisitor),
+         item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitBindingReturnInfo context v dlgVisitor)),
+         (visitExpr context expr dlgVisitor),
          lhsRange,
          spBind)
 
@@ -277,14 +279,14 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynBindingKind
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBindingKind
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynBindingKind) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynBindingKind)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding _ -> target
@@ -294,57 +296,57 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynBindingReturnInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBindingReturnInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes) ->
       Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          range,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range))
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range))
 
   /// <summary>
   /// Expression visitor function: SynComponentInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitComponentInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynComponentInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynComponentInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTyparDecl fv context v)),
-         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint fv context v)),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTyparDecl context v dlgVisitor)),
+         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint context v dlgVisitor)),
          item4,
          xmlDoc,
          preferPostfix,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynConst
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitConst
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynConst) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynConst)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynConst.Unit _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynConst.Bool _ -> target
@@ -368,48 +370,48 @@ module AstFunctionalVisitor =
     | Microsoft.FSharp.Compiler.Ast.SynConst.UInt16s _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynConst.Measure(constant, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynConst.Measure
-        ((visitConst fv context constant),
-         (visitMeasure fv context item2))
+        ((visitConst context constant dlgVisitor),
+         (visitMeasure context item2 dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynConstructorArgs
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitConstructorArgs
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item) ->
       Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats
-        (item |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat fv context v)))
+        (item |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat context v dlgVisitor)))
     | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat fv context v1))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat context v1 dlgVisitor))),
          range)
 
   /// <summary>
   /// Expression visitor function: SynEnumCase
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitEnumCase
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynEnumCase) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynEnumCase)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
       Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          id,
-         (visitConst fv context item3),
+         (visitConst context item3 dlgVisitor),
          xmlDoc,
          range)
 
@@ -417,203 +419,203 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynExceptionDefn
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionDefn
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefn
-        ((visitExceptionDefnRepr fv context exnRepr),
-         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn fv context v)),
+        ((visitExceptionDefnRepr context exnRepr dlgVisitor),
+         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynExceptionDefnRepr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionDefnRepr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         (visitUnionCase fv context case),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         (visitUnionCase context case dlgVisitor),
          longId,
          xmlDoc,
-         accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynExceptionSig
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionSig
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionSig) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynExceptionSig)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionSig
-        ((visitExceptionDefnRepr fv context exnRepr),
-         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig fv context v)),
+        ((visitExceptionDefnRepr context exnRepr dlgVisitor),
+         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynExpr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and private __visitExpr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynExpr) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynExpr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Paren
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          leftParenRange,
          rightParenRange,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Quote(operator, isRaw, quotedSynExpr, isFromQueryExpression, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Quote
-        ((visitExpr fv context operator),
+        ((visitExpr context operator dlgVisitor),
          isRaw,
-         (visitExpr fv context quotedSynExpr),
+         (visitExpr context quotedSynExpr dlgVisitor),
          isFromQueryExpression,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Const(constant, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Const
-        ((visitConst fv context constant),
+        ((visitConst context constant dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Typed(expr, typeSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Typed
-        ((visitExpr fv context expr),
-         (visitType fv context typeSig),
+        ((visitExpr context expr dlgVisitor),
+         (visitType context typeSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple(exprs, commaRanges, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple
-        (exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr fv context v)),
+        (exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr context v dlgVisitor)),
          commaRanges,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList(isList, exprs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList
         (isList,
-         exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr fv context v)),
+         exprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Record(baseInfo, copyInfo, recordFields, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Record
-        (baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (visitType fv context v0), (visitExpr fv context v1), v2, v3, v4)),
-         copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr fv context v0), v1)),
-         recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr fv context v)), v2)),
+        (baseInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1, v2, v3, v4 = v in (visitType context v0 dlgVisitor), (visitExpr context v1 dlgVisitor), v2, v3, v4)),
+         copyInfo |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr context v0 dlgVisitor), v1)),
+         recordFields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in v0, v1 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr context v dlgVisitor)), v2)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.New(isProtected, typeName, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.New
         (isProtected,
-         (visitType fv context typeName),
-         (visitExpr fv context expr),
+         (visitType context typeName dlgVisitor),
+         (visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr(objType, argOpt, bindings, extraImpls, newPos, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr
-        ((visitType fv context objType),
-         argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr fv context v0), v1)),
-         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding fv context v)),
-         extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitInterfaceImpl fv context v)),
+        ((visitType context objType dlgVisitor),
+         argOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (let v0, v1 = v in (visitExpr context v0 dlgVisitor), v1)),
+         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding context v dlgVisitor)),
+         extraImpls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitInterfaceImpl context v dlgVisitor)),
          newPos,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.While(spWhile, whileBody, doBody, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.While
         (spWhile,
-         (visitExpr fv context whileBody),
-         (visitExpr fv context doBody),
+         (visitExpr context whileBody dlgVisitor),
+         (visitExpr context doBody dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.For(spFor, id, idBody, item4, toBody, doBody, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.For
         (spFor,
          id,
-         (visitExpr fv context idBody),
+         (visitExpr context idBody dlgVisitor),
          item4,
-         (visitExpr fv context toBody),
-         (visitExpr fv context doBody),
+         (visitExpr context toBody dlgVisitor),
+         (visitExpr context doBody dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach(spFor, seqExprOnly, isFromSource, pattern, enumExpr, bodyExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach
         (spFor,
          seqExprOnly,
          isFromSource,
-         (visitPat fv context pattern),
-         (visitExpr fv context enumExpr),
-         (visitExpr fv context bodyExpr),
+         (visitPat context pattern dlgVisitor),
+         (visitExpr context enumExpr dlgVisitor),
+         (visitExpr context bodyExpr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr(isList, elements, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr
         (isList,
-         (visitExpr fv context elements),
+         (visitExpr context elements dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr(isArrayOrList, isNotNakedRefCell, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr
         (isArrayOrList,
          isNotNakedRefCell,
-         (visitExpr fv context expr),
+         (visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda(fromMethod, inLambdaSeq, args, body, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda
         (fromMethod,
          inLambdaSeq,
-         (visitSimplePats fv context args),
-         (visitExpr fv context body),
+         (visitSimplePats context args dlgVisitor),
+         (visitExpr context body dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda(item1, item2, clauses, spBind, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda
         (item1,
          item2,
-         clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause fv context v)),
+         clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause context v dlgVisitor)),
          spBind,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Match(spBind, matchExpr, clauses, isCexprExceptionMatch, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Match
         (spBind,
-         (visitExpr fv context matchExpr),
-         clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause fv context v)),
+         (visitExpr context matchExpr dlgVisitor),
+         clauses |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause context v dlgVisitor)),
          isCexprExceptionMatch,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Do(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Do
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Assert(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Assert
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.App
         (exprAtomicFlag,
          isInfix,
-         (visitExpr fv context funcExpr),
-         (visitExpr fv context argExpr),
+         (visitExpr context funcExpr dlgVisitor),
+         (visitExpr context argExpr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp(expr, leftAngleRange, typeNames, commaRanges, rightAngleRange, typeArgs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          leftAngleRange,
-         typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+         typeNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          commaRanges,
          rightAngleRange,
          typeArgs,
@@ -622,41 +624,41 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse
         (isRecursive,
          isUse,
-         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding fv context v)),
-         (visitExpr fv context exprBody),
+         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding context v dlgVisitor)),
+         (visitExpr context exprBody dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(tryExpr, item2, item3, item4, range, spTry, spWith) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith
-        ((visitExpr fv context tryExpr),
+        ((visitExpr context tryExpr dlgVisitor),
          item2,
-         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause fv context v)),
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMatchClause context v dlgVisitor)),
          item4,
          range,
          spTry,
          spWith)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally(tryExpr, finallyExpr, range, spTry, spFinally) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally
-        ((visitExpr fv context tryExpr),
-         (visitExpr fv context finallyExpr),
+        ((visitExpr context tryExpr dlgVisitor),
+         (visitExpr context finallyExpr dlgVisitor),
          range,
          spTry,
          spFinally)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential(spSeq, isTrueSeq, expr1, expr2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential
         (spSeq,
          isTrueSeq,
-         (visitExpr fv context expr1),
-         (visitExpr fv context expr2),
+         (visitExpr context expr1 dlgVisitor),
+         (visitExpr context expr2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse(exprGuard, exprThen, optionalExprElse, spIfToThen, isFromErrorRecovery, ifToThen, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse
-        ((visitExpr fv context exprGuard),
-         (visitExpr fv context exprThen),
-         optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr fv context v)),
+        ((visitExpr context exprGuard dlgVisitor),
+         (visitExpr context exprThen dlgVisitor),
+         optionalExprElse |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr context v dlgVisitor)),
          spIfToThen,
          isFromErrorRecovery,
          ifToThen,
@@ -667,256 +669,256 @@ module AstFunctionalVisitor =
       Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent
         (isOptional,
          longIdent,
-         altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitSimplePatAlternativeIdInfo fv context v.Value)),
+         altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitSimplePatAlternativeIdInfo context v.Value dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet(dotId, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet
         (dotId,
-         (visitExpr fv context expr),
+         (visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet(expr, rangeOfDot, dotId, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          rangeOfDot,
          dotId,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet(expr, dotId, exprValue, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          dotId,
-         (visitExpr fv context exprValue),
+         (visitExpr context exprValue dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet(expr, indexExprs, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet
-        ((visitExpr fv context expr),
-         indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg fv context v)),
+        ((visitExpr context expr dlgVisitor),
+         indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg context v dlgVisitor)),
          item3,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet(objectExpr, indexExprs, valueExpr, rangeOfLeftOfSet, rangeOfDot, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet
-        ((visitExpr fv context objectExpr),
-         indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg fv context v)),
-         (visitExpr fv context valueExpr),
+        ((visitExpr context objectExpr dlgVisitor),
+         indexExprs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitIndexerArg context v dlgVisitor)),
+         (visitExpr context valueExpr dlgVisitor),
          rangeOfLeftOfSet,
          rangeOfDot,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet
         (item1,
-         (visitExpr fv context item2),
-         (visitExpr fv context item3),
+         (visitExpr context item2 dlgVisitor),
+         (visitExpr context item3 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet(item1, item2, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet
-        ((visitExpr fv context item1),
+        ((visitExpr context item1 dlgVisitor),
          item2,
-         (visitExpr fv context item3),
-         (visitExpr fv context item4),
+         (visitExpr context item3 dlgVisitor),
+         (visitExpr context item4 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest(expr, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest
-        ((visitExpr fv context expr),
-         (visitType fv context typeName),
+        ((visitExpr context expr dlgVisitor),
+         (visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast(expr, typeSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast
-        ((visitExpr fv context expr),
-         (visitType fv context typeSig),
+        ((visitExpr context expr dlgVisitor),
+         (visitType context typeSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast(expr, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast
-        ((visitExpr fv context expr),
-         (visitType fv context typeName),
+        ((visitExpr context expr dlgVisitor),
+         (visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Null _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf
         (item1,
-         (visitExpr fv context item2),
+         (visitExpr context item2 dlgVisitor),
          item3,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypar fv context v)),
-         (visitMemberSig fv context item2),
-         (visitExpr fv context item3),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypar context v dlgVisitor)),
+         (visitMemberSig context item2 dlgVisitor),
+         (visitExpr context item3 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn(item1, inPos, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn
-        ((visitExpr fv context item1),
+        ((visitExpr context item1 dlgVisitor),
          inPos,
-         (visitExpr fv context item3),
+         (visitExpr context item3 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ImplicitZero _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn(item1, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn
         (item1,
-         (visitExpr fv context expr),
+         (visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom(item1, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom
         (item1,
-         (visitExpr fv context expr),
+         (visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang(spBind, isUse, isFromSource, pattern, rhsExpr, bodyExpr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang
         (spBind,
          isUse,
          isFromSource,
-         (visitPat fv context pattern),
-         (visitExpr fv context rhsExpr),
-         (visitExpr fv context bodyExpr),
+         (visitPat context pattern dlgVisitor),
+         (visitExpr context rhsExpr dlgVisitor),
+         (visitExpr context bodyExpr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly(item1, item2, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly
         (item1,
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
-         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr fv context v)),
-         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitExpr context v dlgVisitor)),
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization(item1, item2, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitStaticOptimizationConstraint fv context v)),
-         (visitExpr fv context item2),
-         (visitExpr fv context item3),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitStaticOptimizationConstraint context v dlgVisitor)),
+         (visitExpr context item2 dlgVisitor),
+         (visitExpr context item3 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet(item1, longId, item3, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet
-        ((visitExpr fv context item1),
+        ((visitExpr context item1 dlgVisitor),
          longId,
          item3,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet(item1, longId, item3, item4, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet
-        ((visitExpr fv context item1),
+        ((visitExpr context item1 dlgVisitor),
          longId,
          item3,
-         (visitExpr fv context item4),
+         (visitExpr context item4 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed
-        ((visitExpr fv context item1),
+        ((visitExpr context item1 dlgVisitor),
          item2)
 
   /// <summary>
   /// Expression visitor function: SynExpr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExpr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: SynExpr) =
-    match fv context target with
+     (target: SynExpr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+    match dlgVisitor context target with
     | Some expr -> expr
-    | None -> __visitExpr fv context target
+    | None -> __visitExpr context target dlgVisitor
 
   /// <summary>
   /// Expression visitor function: SynField
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitField
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynField) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynField)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynField.Field
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          isStatic,
          id,
-         (visitType fv context typeName),
+         (visitType context typeName dlgVisitor),
          item5,
          xmlDoc,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynIndexerArg
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitIndexerArg
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynIndexerArg) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynIndexerArg)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two
-        ((visitExpr fv context item1),
-         (visitExpr fv context item2))
+        ((visitExpr context item1 dlgVisitor),
+         (visitExpr context item2 dlgVisitor))
     | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One(item) ->
       Microsoft.FSharp.Compiler.Ast.SynIndexerArg.One
-        ((visitExpr fv context item))
+        ((visitExpr context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynInterfaceImpl
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitInterfaceImpl
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
       Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl
-        ((visitType fv context item1),
-         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding fv context v)),
+        ((visitType context item1 dlgVisitor),
+         bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynMatchClause
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMatchClause
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynMatchClause) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynMatchClause)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget) ->
       Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause
-        ((visitPat fv context item1),
-         item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr fv context v)),
-         (visitExpr fv context item3),
+        ((visitPat context item1 dlgVisitor),
+         item2 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr context v dlgVisitor)),
+         (visitExpr context item3 dlgVisitor),
          range,
          spTarget)
 
@@ -924,114 +926,114 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynMeasure
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMeasure
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynMeasure) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynMeasure)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Named _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Product(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMeasure.Product
-        ((visitMeasure fv context item1),
-         (visitMeasure fv context item2),
+        ((visitMeasure context item1 dlgVisitor),
+         (visitMeasure context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMeasure fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMeasure context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide
-        ((visitMeasure fv context item1),
-         (visitMeasure fv context item2),
+        ((visitMeasure context item1 dlgVisitor),
+         (visitMeasure context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Power(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMeasure.Power
-        ((visitMeasure fv context item1),
-         (visitRationalConst fv context item2),
+        ((visitMeasure context item1 dlgVisitor),
+         (visitRationalConst context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.One _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Anon _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Var(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMeasure.Var
-        ((visitTypar fv context item1),
+        ((visitTypar context item1 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynMemberDefn
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMemberDefn
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynMemberDefn) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynMemberDefn)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member(memberDefn, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member
-        ((visitBinding fv context memberDefn),
+        ((visitBinding context memberDefn dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor(accessiblity, attributes, ctorArgs, selfIdentifier, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor
-        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat fv context v)),
+        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat context v dlgVisitor)),
          selfIdentifier,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit(inheritType, inheritArgs, inheritAlias, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit
-        ((visitType fv context inheritType),
-         (visitExpr fv context inheritArgs),
+        ((visitType context inheritType dlgVisitor),
+         (visitExpr context inheritArgs dlgVisitor),
          inheritAlias,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings(bindings, isStatic, isRecursive, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings
-        (bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding fv context v)),
+        (bindings |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding context v dlgVisitor)),
          isStatic,
          isRecursive,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot(valSig, memberFlags, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot
-        ((visitValSig fv context valSig),
+        ((visitValSig context valSig dlgVisitor),
          memberFlags,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface(typeName, interfaceMembers, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface
-        ((visitType fv context typeName),
-         interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn fv context v))),
+        ((visitType context typeName dlgVisitor),
+         interfaceMembers |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn context v dlgVisitor))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit(typeName, id, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          id,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField(field, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField
-        ((visitField fv context field),
+        ((visitField context field dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType(typeDefn, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType
-        ((visitTypeDefn fv context typeDefn),
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+        ((visitTypeDefn context typeDefn dlgVisitor),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          isStatic,
          id,
-         tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitType fv context v)),
+         tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (visitType context v dlgVisitor)),
          propKind,
          memberFlags,
          xmlDoc,
-         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         (visitExpr fv context expr),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         (visitExpr context expr dlgVisitor),
          getSetPos,
          range)
 
@@ -1039,256 +1041,256 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynMemberSig
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMemberSig
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynMemberSig) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynMemberSig)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member
-        ((visitValSig fv context item1),
+        ((visitValSig context item1 dlgVisitor),
          memberFlags,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface(typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit(typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField(field, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField
-        ((visitField fv context field),
+        ((visitField context field dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType(typeDefnSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType
-        ((visitTypeDefnSig fv context typeDefnSig),
+        ((visitTypeDefnSig context typeDefnSig dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynModuleDecl
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleDecl
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynModuleDecl) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynModuleDecl)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule
-        ((visitComponentInfo fv context item1),
+        ((visitComponentInfo context item1 dlgVisitor),
          isRec,
-         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl fv context v)),
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl context v dlgVisitor)),
          item4,
          item5)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let(item1, item2, item3) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let
         (item1,
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding fv context v)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitBinding context v dlgVisitor)),
          item3)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr(item1, item2, item3) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr
         (item1,
-         (visitExpr fv context item2),
+         (visitExpr context item2 dlgVisitor),
          item3)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefn fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefn context v dlgVisitor)),
          item2)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception
-        ((visitExceptionDefn fv context item1),
+        ((visitExceptionDefn context item1 dlgVisitor),
          item2)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          item2)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective
-        ((visitHashDirective fv context item1),
+        ((visitHashDirective context item1 dlgVisitor),
          item2)
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment(item) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NamespaceFragment
-        ((visitModuleOrNamespace fv context item))
+        ((visitModuleOrNamespace context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynModuleOrNamespace
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleOrNamespace
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace
         (id,
          isRec,
          isModule,
-         decls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl fv context v)),
+         decls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleDecl context v dlgVisitor)),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         access |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynModuleOrNamespaceSig
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleOrNamespaceSig
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig
         (id,
          isRec,
          isModule,
-         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl fv context v)),
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl context v dlgVisitor)),
          xmlDoc,
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynModuleSigDecl
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleSigDecl
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule
-        ((visitComponentInfo fv context item1),
+        ((visitComponentInfo context item1 dlgVisitor),
          isRec,
-         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl fv context v)),
+         moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (visitModuleSigDecl context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val(valSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val
-        ((visitValSig fv context valSig),
+        ((visitValSig context valSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types(typeDefSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types
-        (typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefnSig fv context v)),
+        (typeDefSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeDefnSig context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception(exnSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception
-        ((visitExceptionSig fv context exnSig),
+        ((visitExceptionSig context exnSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective(hashDirective, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective
-        ((visitHashDirective fv context hashDirective),
+        ((visitHashDirective context hashDirective dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment(item) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NamespaceFragment
-        ((visitModuleOrNamespaceSig fv context item))
+        ((visitModuleOrNamespaceSig context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynPat
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitPat
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynPat) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynPat)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Const
-        ((visitConst fv context constant),
+        ((visitConst context constant dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Wild _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynPat.Named(item1, id, isThisVar, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Named
-        ((visitPat fv context item1),
+        ((visitPat context item1 dlgVisitor),
          id,
          isThisVar,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Typed(item1, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Typed
-        ((visitPat fv context item1),
-         (visitType fv context typeName),
+        ((visitPat context item1 dlgVisitor),
+         (visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Attrib
-        ((visitPat fv context item1),
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        ((visitPat context item1 dlgVisitor),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Or(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Or
-        ((visitPat fv context item1),
-         (visitPat fv context item2),
+        ((visitPat context item1 dlgVisitor),
+         (visitPat context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Ands(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Ands
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent(dotId, item2, item3, item4, item5, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent
         (dotId,
          item2,
-         item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitValTyparDecls fv context v)),
-         (visitConstructorArgs fv context item4),
-         item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         item3 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitValTyparDecls context v dlgVisitor)),
+         (visitConstructorArgs context item4 dlgVisitor),
+         item5 |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Tuple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Tuple
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Paren(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Paren
-        ((visitPat fv context item1),
+        ((visitPat context item1 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList
         (item1,
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat fv context v)),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitPat context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Record(fields, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Record
-        (fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat fv context v1))),
+        (fields |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitPat context v1 dlgVisitor))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.Null _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynPat.IsInst(typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.IsInst
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember(item1, item2, item3, accesiblity, range) ->
@@ -1296,95 +1298,95 @@ module AstFunctionalVisitor =
         (item1,
          item2,
          item3,
-         accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accesiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError
-        ((visitPat fv context item1),
+        ((visitPat context item1 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynRationalConst
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitRationalConst
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynRationalConst) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynRationalConst)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate(item) ->
       Microsoft.FSharp.Compiler.Ast.SynRationalConst.Negate
-        ((visitRationalConst fv context item))
+        ((visitRationalConst context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynReturnInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitReturnInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynReturnInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynReturnInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynReturnInfo
-        ((let v0, v1 = item1 in (visitType fv context v0), (visitArgInfo fv context v1)),
+        ((let v0, v1 = item1 in (visitType context v0 dlgVisitor), (visitArgInfo context v1 dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynSimplePat
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePat
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePat) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePat)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) ->
       use _rwh_ = new RefWrapperHolder()
       Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id
         (ident,
-         altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitSimplePatAlternativeIdInfo fv context v.Value)),
+         altNameRefCell |> Microsoft.FSharp.Core.Option.map (fun v -> _rwh_.Wrap v (visitSimplePatAlternativeIdInfo context v.Value dlgVisitor)),
          isCompilerGenerated,
          isThisVar,
          isOptArg,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed(item1, typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed
-        ((visitSimplePat fv context item1),
-         (visitType fv context typeName),
+        ((visitSimplePat context item1 dlgVisitor),
+         (visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib
-        ((visitSimplePat fv context item1),
-         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        ((visitSimplePat context item1 dlgVisitor),
+         attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          range)
 
   /// <summary>
   /// Expression visitor function: SynSimplePatAlternativeIdInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePatAlternativeIdInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided _ -> target
@@ -1393,60 +1395,60 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynSimplePats
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePats
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePats) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynSimplePats)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed
-        ((visitSimplePats fv context item1),
-         (visitType fv context item2),
+        ((visitSimplePats context item1 dlgVisitor),
+         (visitType context item2 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynStaticOptimizationConstraint
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitStaticOptimizationConstraint
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon
-        ((visitTypar fv context item1),
-         (visitType fv context item2),
+        ((visitTypar context item1 dlgVisitor),
+         (visitType context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct
-        ((visitTypar fv context item1),
+        ((visitTypar context item1 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynTypar
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypar
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypar) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypar)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypar.Typar _ -> target
 
@@ -1454,199 +1456,199 @@ module AstFunctionalVisitor =
   /// Expression visitor function: SynTyparDecl
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTyparDecl
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTyparDecl) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTyparDecl)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
-         (visitTypar fv context item2))
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
+         (visitTypar context item2 dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynType
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitType
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynType) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynType)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynType.LongIdent _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.App
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          leftAngleRange,
-         typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+         typeArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          commaRanges,
          rightAngleRange,
          isPostfix,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp(typeName, dotId, leftAngleRange, genericNames, commaRanges, rightAngleRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          dotId,
          leftAngleRange,
-         genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+         genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          commaRanges,
          rightAngleRange,
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Tuple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Tuple
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitType fv context v1))),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in v0, (visitType context v1 dlgVisitor))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Array(item1, elementType, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Array
         (item1,
-         (visitType fv context elementType),
+         (visitType context elementType dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Fun(argType, returnType, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Fun
-        ((visitType fv context argType),
-         (visitType fv context returnType),
+        ((visitType context argType dlgVisitor),
+         (visitType context returnType dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Var(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.Var
-        ((visitTypar fv context item1),
+        ((visitTypar context item1 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.Anon _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints(typeName, constraints, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints
-        ((visitType fv context typeName),
-         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint fv context v)),
+        ((visitType context typeName dlgVisitor),
+         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint(typeName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint
-        ((visitType fv context typeName),
+        ((visitType context typeName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide(typeName, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide
-        ((visitType fv context typeName),
-         (visitType fv context item2),
+        ((visitType context typeName dlgVisitor),
+         (visitType context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower(typeName, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower
-        ((visitType fv context typeName),
-         (visitRationalConst fv context item2),
+        ((visitType context typeName dlgVisitor),
+         (visitRationalConst context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant(constant, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant
-        ((visitConst fv context constant),
+        ((visitConst context constant dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr(expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr
-        ((visitExpr fv context expr),
+        ((visitExpr context expr dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed
-        ((visitType fv context item1),
-         (visitType fv context item2),
+        ((visitType context item1 dlgVisitor),
+         (visitType context item2 dlgVisitor),
          range)
 
   /// <summary>
   /// Expression visitor function: SynTypeConstraint
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeConstraint
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable
-        ((visitTypar fv context genericName),
+        ((visitTypar context genericName dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType(genericName, typeSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType
-        ((visitTypar fv context genericName),
-         (visitType fv context typeSig),
+        ((visitTypar context genericName dlgVisitor),
+         (visitType context typeSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType(genericName, typeSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType
-        ((visitTypar fv context genericName),
-         (visitType fv context typeSig),
+        ((visitTypar context genericName dlgVisitor),
+         (visitType context typeSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember(genericNames, memberSig, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember
-        (genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypar fv context v)),
-         (visitMemberSig fv context memberSig),
+        (genericNames |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypar context v dlgVisitor)),
+         (visitMemberSig context memberSig dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum(genericName, enumTypes, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum
-        ((visitTypar fv context genericName),
-         enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+        ((visitTypar context genericName dlgVisitor),
+         enumTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate(genericName, delegateTypes, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate
-        ((visitTypar fv context genericName),
-         delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType fv context v)),
+        ((visitTypar context genericName dlgVisitor),
+         delegateTypes |> Microsoft.FSharp.Collections.List.map (fun v -> (visitType context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynTypeDefn
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefn
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefn) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefn)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn
-        ((visitComponentInfo fv context item1),
-         (visitTypeDefnRepr fv context item2),
-         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn fv context v)),
+        ((visitComponentInfo context item1 dlgVisitor),
+         (visitTypeDefnRepr context item2 dlgVisitor),
+         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynTypeDefnKind
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnKind
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconClass _ -> target
@@ -1660,250 +1662,250 @@ module AstFunctionalVisitor =
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconILAssemblyCode _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate
-        ((visitType fv context item1),
-         (visitValInfo fv context item2))
+        ((visitType context item1 dlgVisitor),
+         (visitValInfo context item2 dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynTypeDefnRepr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnRepr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel
-        ((visitTypeDefnKind fv context item1),
-         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn fv context v)),
+        ((visitTypeDefnKind context item1 dlgVisitor),
+         members |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberDefn context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple
-        ((visitTypeDefnSimpleRepr fv context item1),
+        ((visitTypeDefnSimpleRepr context item1 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception(item) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Exception
-        ((visitExceptionDefnRepr fv context item))
+        ((visitExceptionDefnRepr context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynTypeDefnSig
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSig
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig
-        ((visitComponentInfo fv context item1),
-         (visitTypeDefnSigRepr fv context item2),
-         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig fv context v)),
+        ((visitComponentInfo context item1 dlgVisitor),
+         (visitTypeDefnSigRepr context item2 dlgVisitor),
+         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynTypeDefnSigRepr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSigRepr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel
-        ((visitTypeDefnKind fv context item1),
-         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig fv context v)),
+        ((visitTypeDefnKind context item1 dlgVisitor),
+         memberSigs |> Microsoft.FSharp.Collections.List.map (fun v -> (visitMemberSig context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple
-        ((visitTypeDefnSimpleRepr fv context item1),
+        ((visitTypeDefnSimpleRepr context item1 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception(item) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Exception
-        ((visitExceptionDefnRepr fv context item))
+        ((visitExceptionDefnRepr context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynTypeDefnSimpleRepr
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSimpleRepr
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union
-        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitUnionCase fv context v)),
+        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitUnionCase context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum(cases, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum
-        (cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitEnumCase fv context v)),
+        (cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitEnumCase context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record(accessiblity, fields, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record
-        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         fields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField fv context v)),
+        (accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         fields |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField context v dlgVisitor)),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General(item1, item2, item3, item4, item5, item6, item7, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General
-        ((visitTypeDefnKind fv context item1),
-         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (visitType fv context v0), v1, v2)),
-         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (visitValSig fv context v0), v1)),
-         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField fv context v)),
+        ((visitTypeDefnKind context item1 dlgVisitor),
+         item2 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1, v2 = v in (visitType context v0 dlgVisitor), v1, v2)),
+         item3 |> Microsoft.FSharp.Collections.List.map (fun v -> (let v0, v1 = v in (visitValSig context v0 dlgVisitor), v1)),
+         item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField context v dlgVisitor)),
          item5,
          item6,
-         item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat fv context v))),
+         item7 |> Microsoft.FSharp.Core.Option.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitSimplePat context v dlgVisitor))),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev
         (item1,
-         (visitType fv context item2),
+         (visitType context item2 dlgVisitor),
          range)
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.None _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception(item) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Exception
-        ((visitExceptionDefnRepr fv context item))
+        ((visitExceptionDefnRepr context item dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynUnionCase
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitUnionCase
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynUnionCase) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynUnionCase)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          id,
-         (visitUnionCaseType fv context caseType),
+         (visitUnionCaseType context caseType dlgVisitor),
          xmlDoc,
-         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
+         accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynUnionCaseType
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitUnionCaseType
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields
-        (cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField fv context v)))
+        (cases |> Microsoft.FSharp.Collections.List.map (fun v -> (visitField context v dlgVisitor)))
     | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType(item) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFullType
-        ((let v0, v1 = item in (visitType fv context v0), (visitValInfo fv context v1)))
+        ((let v0, v1 = item in (visitType context v0 dlgVisitor), (visitValInfo context v1 dlgVisitor)))
 
   /// <summary>
   /// Expression visitor function: SynValData
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValData
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynValData) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynValData)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3) ->
       Microsoft.FSharp.Compiler.Ast.SynValData
         (item1,
-         (visitValInfo fv context item2),
+         (visitValInfo context item2 dlgVisitor),
          item3)
 
   /// <summary>
   /// Expression visitor function: SynValInfo
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValInfo
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynValInfo) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynValInfo)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynValInfo
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitArgInfo fv context v))),
-         (visitArgInfo fv context item2))
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> v |> Microsoft.FSharp.Collections.List.map (fun v -> (visitArgInfo context v dlgVisitor))),
+         (visitArgInfo context item2 dlgVisitor))
 
   /// <summary>
   /// Expression visitor function: SynValSig
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValSig
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynValSig) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynValSig)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn
-        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr fv context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range),
+        (attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (visitExpr context v.ArgExpr dlgVisitor) v.Target v.AppliesToGetterAndSetter v.Range),
          id,
-         (visitValTyparDecls fv context typeParams),
-         (visitType fv context typeName),
-         (visitValInfo fv context valInfo),
+         (visitValTyparDecls context typeParams dlgVisitor),
+         (visitType context typeName dlgVisitor),
+         (visitValInfo context valInfo dlgVisitor),
          item6,
          isMutable,
          xmlDoc,
-         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess fv context v)),
-         expr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr fv context v)),
+         accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (visitAccess context v dlgVisitor)),
+         expr |> Microsoft.FSharp.Core.Option.map (fun v -> (visitExpr context v dlgVisitor)),
          range)
 
   /// <summary>
   /// Expression visitor function: SynValTyparDecls
   /// </summary>
   /// <typeparam name="'TContext">Context instance type.</typeparam>
-  /// <param name="fv">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
+  /// <param name="dlgVisitor">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValTyparDecls
-     (fv: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option)
      (context: 'TContext)
-     (target: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls) =
+     (target: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls)
+     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints) ->
       Microsoft.FSharp.Compiler.Ast.SynValTyparDecls
-        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTyparDecl fv context v)),
+        (item1 |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTyparDecl context v dlgVisitor)),
          item2,
-         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint fv context v)))
+         constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (visitTypeConstraint context v dlgVisitor)))
