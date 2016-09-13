@@ -28,9 +28,10 @@ open System.Reflection
 
 [<Sealed; AutoSerializable(false); NoEquality; NoComparison>]
 type internal SafeResolver =
+  inherit MarshalByRefObject
   
   new() as this =
-    { }
+    { inherit MarshalByRefObject() }
     then
       let appDomain = AppDomain.CurrentDomain
       appDomain.add_AssemblyResolve(new ResolveEventHandler(this.Resolve))
