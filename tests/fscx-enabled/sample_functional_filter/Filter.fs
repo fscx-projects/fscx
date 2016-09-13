@@ -144,47 +144,45 @@ let isIdent = function
 
 ////////////////////////////////////////////////
 
-type InsertLoggingVisitor() =
-  inherit DeclareAstFunctionalVisitor<FSharpCheckFileResults>(
-    fun context expr ->
+let input (context: FSharpCheckFileResults) (expr: SynExpr) =
       match expr with
       | SynExpr.Quote(operator, _, _, _, _) ->
         // DEBUG
         printfn "%A" operator
         None
       | SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
-       Some (visitExpr (fun (context:FSharpCheckFileResults) (funcExpr:SynExpr) ->
-        match funcExpr with
-        | SynExpr.Ident _
-        | SynExpr.LongIdent _ -> 
-          let results =
-            match funcExpr with
-            | SynExpr.Ident ident -> [ident.idText], ident.idRange
-            | SynExpr.LongIdent (_, longIdent, _, range) ->
-                let elems = longIdent.Lid |> List.map (fun i -> i.idText)
-                elems, range
-            | _ -> failwith "Unknown"
-          let funcNameElems, funcIdentRange = results
-          let opt =
-            context.GetSymbolUseAtLocation(
-              funcIdentRange.Start.Line,
-              funcIdentRange.End.Column,
-              "",
-              funcNameElems)
-            |> Async.RunSynchronously
+        Some (visitExpr context funcExpr (fun context funcExpr ->
+          match funcExpr with
+          | SynExpr.Ident _
+          | SynExpr.LongIdent _ -> 
+            let results =
+              match funcExpr with
+              | SynExpr.Ident ident -> [ident.idText], ident.idRange
+              | SynExpr.LongIdent (_, longIdent, _, range) ->
+                  let elems = longIdent.Lid |> List.map (fun i -> i.idText)
+                  elems, range
+              | _ -> failwith "Unknown"
+            let funcNameElems, funcIdentRange = results
+            let opt =
+              context.GetSymbolUseAtLocation(
+                funcIdentRange.Start.Line,
+                funcIdentRange.End.Column,
+                "",
+                funcNameElems)
+              |> Async.RunSynchronously
 
-          // TODO : asmが対象外だったら変換せずにorigを返す
-          let asm =
-            match opt with
-            | Some symbolUse ->
-                let symbol = symbolUse.Symbol
-                let asm = symbol.Assembly
-                asm.SimpleName
-            | None -> "unknown"
+            // TODO : asmが対象外だったら変換せずにorigを返す
+            let asm =
+              match opt with
+              | Some symbolUse ->
+                  let symbol = symbolUse.Symbol
+                  let asm = symbol.Assembly
+                  asm.SimpleName
+              | None -> "unknown"
 
-          let funcName = (funcNameElems |> String.concat ".") + (sprintf " [%d行,%d列目]" funcIdentRange.Start.Line funcIdentRange.Start.Column)
+            let funcName = (funcNameElems |> String.concat ".") + (sprintf " [%d行,%d列目]" funcIdentRange.Start.Line funcIdentRange.Start.Column)
 
-          // from
+            // from
           //   f(expr1, expr2, ..., exprN)
           // to
           //   try
@@ -202,84 +200,87 @@ type InsertLoggingVisitor() =
           //       log3 ("f", e)
           //       reraise ()
 
-          match argExpr with
-          // f () の考慮   => Const(Unit)
+            match argExpr with
+            // f () の考慮   => Const(Unit)
           // f (()) の考慮 => Paren(Const(Unit))
-          | SynExpr.Const(SynConst.Unit, x)
-          | SynExpr.Paren(SynExpr.Const(SynConst.Unit, x), _, _, _) ->
-            let tryExpr =
-              genLetExpr(
-                "args",
-                genStringLit "()",
-                logStartCallMethod funcName "args"
-                +> (genLetExpr (
-                      "res",
-                      SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, zeroRange),
-                      logFinishCallMethod funcName "res"
-                      +> genIdent "res")))
-            Some
-              (genTryExpr
-                (tryExpr,
-                 [ genClause ("e", logExn funcName "e" +> (genReraise ())) ],
-                 range))
-
-          // f (x, y, ...) の考慮 => Paren(Tuple(exprs))
-          | SynExpr.Paren(SynExpr.Tuple(exprs, commaRange, trange), x, y, z) ->
-            let tryExpr =
-              let exprs = exprs |> List.mapi (fun i x -> (i + 1, x))
-              let args = exprs |> List.map (fun (n, _) -> SynExpr.Ident(Ident("arg" + string n, zeroRange)))
-              let seed =
+            | SynExpr.Const(SynConst.Unit, x)
+            | SynExpr.Paren(SynExpr.Const(SynConst.Unit, x), _, _, _) ->
+              let tryExpr =
                 genLetExpr(
                   "args",
-                  genOpChain ("op_Addition", args |> List.map (fun arg -> genAppFun ("string", arg)) |> addSep (genStringLit ", ")),
-                  logStartCallMethod funcName "args"
-                  +> genLetExpr (
-                        "res",
-                        SynExpr.App(
-                          exprAtomicFlag,
-                          isInfix,
-                          funcExpr,
-                          SynExpr.Paren(SynExpr.Tuple(args, commaRange, trange), x, y, z),
-                          zeroRange),
-                        logFinishCallMethod funcName "res"
-                        +> (genIdent "res")))
-              let x =
-                (exprs, seed)
-                ||> List.foldBack (fun (n, expr) acc ->
-                      let name = "arg" + string n
-                      genLetExpr (name, expr, acc))
-              x
-            Some
-              (genTryExpr
-                (tryExpr,
-                 [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
-                 range))
-
-          // f (x) の考慮 => Paren(expr)
-          // f x の考慮 =>  expr
-          | SynExpr.Paren(expr, _, _, _)
-          | expr ->
-            let tryExpr =
-              genLetExpr(
-                  "args",
-                  expr,
+                  genStringLit "()",
                   logStartCallMethod funcName "args"
                   +> (genLetExpr (
                         "res",
-                        SynExpr.App(
-                          exprAtomicFlag,
-                          isInfix,
-                          funcExpr,
-                          SynExpr.Paren(expr, zeroRange, None, zeroRange),
-                          zeroRange),
+                        SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, zeroRange),
                         logFinishCallMethod funcName "res"
                         +> genIdent "res")))
-            Some 
-              (genTryExpr
-                (tryExpr,
-                 [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
-                 range))
-        | _ ->
-          None) context funcExpr)
+              Some
+                (genTryExpr
+                  (tryExpr,
+                   [ genClause ("e", logExn funcName "e" +> (genReraise ())) ],
+                   range))
+
+            // f (x, y, ...) の考慮 => Paren(Tuple(exprs))
+            | SynExpr.Paren(SynExpr.Tuple(exprs, commaRange, trange), x, y, z) ->
+              let tryExpr =
+                let exprs = exprs |> List.mapi (fun i x -> (i + 1, x))
+                let args = exprs |> List.map (fun (n, _) -> SynExpr.Ident(Ident("arg" + string n, zeroRange)))
+                let seed =
+                  genLetExpr(
+                    "args",
+                    genOpChain ("op_Addition", args |> List.map (fun arg -> genAppFun ("string", arg)) |> addSep (genStringLit ", ")),
+                    logStartCallMethod funcName "args"
+                    +> genLetExpr (
+                          "res",
+                          SynExpr.App(
+                            exprAtomicFlag,
+                            isInfix,
+                            funcExpr,
+                            SynExpr.Paren(SynExpr.Tuple(args, commaRange, trange), x, y, z),
+                            zeroRange),
+                          logFinishCallMethod funcName "res"
+                          +> (genIdent "res")))
+                let x =
+                  (exprs, seed)
+                  ||> List.foldBack (fun (n, expr) acc ->
+                        let name = "arg" + string n
+                        genLetExpr (name, expr, acc))
+                x
+              Some
+                (genTryExpr
+                  (tryExpr,
+                   [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
+                   range))
+
+            // f (x) の考慮 => Paren(expr)
+          // f x の考慮 =>  expr
+            | SynExpr.Paren(expr, _, _, _)
+            | expr ->
+              let tryExpr =
+                genLetExpr(
+                    "args",
+                    expr,
+                    logStartCallMethod funcName "args"
+                    +> (genLetExpr (
+                          "res",
+                          SynExpr.App(
+                            exprAtomicFlag,
+                            isInfix,
+                            funcExpr,
+                            SynExpr.Paren(expr, zeroRange, None, zeroRange),
+                            zeroRange),
+                          logFinishCallMethod funcName "res"
+                          +> genIdent "res")))
+              Some 
+                (genTryExpr
+                  (tryExpr,
+                   [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
+                   range))
+          | _ ->
+            None))
       | _ ->
-        None)
+        None
+
+type InsertLoggingVisitor() =
+  inherit DeclareAstFunctionalVisitor<FSharpCheckFileResults>(input)
