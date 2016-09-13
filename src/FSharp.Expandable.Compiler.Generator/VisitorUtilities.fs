@@ -29,6 +29,20 @@ open System.Reflection
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
+/// Partial composed expression result.
+type internal ExprResult =
+  | Projected of compose:string * isUsingRef:bool    // Expr projected             (ex: fun v -> visitor.Visit v)
+  | NonProjected of rawName:string                   // Expr totally non projected (ex: fun v -> v)
+  with
+    member this.IsUsingRef =
+      match this with
+      | Projected (_, isUsingRef) -> isUsingRef
+      | NonProjected _ -> false
+    override this.ToString() =
+      match this with
+      | Projected (composed, _) -> composed
+      | NonProjected rawName -> rawName
+
 module internal VisitorUtilities =
 
   // Type pattern examples:
@@ -75,16 +89,6 @@ module internal VisitorUtilities =
   // Examine and compose expression to string:
   //   "Projected" means invoke visitor function.
   //   If non-projected all expression leafs, expression string is simply the symbol name.
-
-  /// Partial composed expression result.
-  type private ExprResult =
-    | Projected of compose:string * isUsingRef:bool    // Expr projected             (ex: fun v -> visitor.Visit v)
-    | NonProjected of rawName:string                   // Expr totally non projected (ex: fun v -> v)
-    with
-      override this.ToString() =
-        match this with
-        | Projected (composed, _) -> composed
-        | NonProjected rawName -> rawName
 
   /// String composer for ExprResult.
   [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
@@ -222,15 +226,10 @@ module internal VisitorUtilities =
     | _ ->
       NonProjected name
 
-  let private formatWithOperators name t visitorName refWrapperHolderName visitTargets =
-    match formatWithOperators0 name t visitorName refWrapperHolderName visitTargets with
-    | Projected(composed, isUsingRef) -> composed, isUsingRef
-    | NonProjected rawName -> rawName, false
-
   /// Construct expression string of visitor body with applied args for DU case.
   /// Results are composed argument string and require using reference cell.
   let formatArgument visitTargets (visitorName: string) (refWrapperHolderName: string) (field: PropertyInfo) = 
-    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
+    formatWithOperators0 (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
 
   let getTargetAstTypes () =
     let astType = typeof<SynExpr>.DeclaringType

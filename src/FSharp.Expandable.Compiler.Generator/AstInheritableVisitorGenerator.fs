@@ -44,9 +44,9 @@ type internal AstInheritableVisitorGenerator() =
     let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "this.Visit{0} context" "_rwh_")
     let args = [|
       yield "context"
-      yield! visited |> Seq.map fst   // Composed argument string
+      yield! visited |> Seq.map (fun vr -> vr.ToString())   // Composed argument string
     |]
-    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
+    let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef)   // Require using reference cell
     let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
 
     String.Format(
@@ -171,7 +171,7 @@ type internal AstInheritableVisitorGenerator() =
       "    /// <param name=\"context\">Visito context.</param>\r\n" +
       "    /// <param name=\"parsedInput\">Target for ParsedInput instance.</param>\r\n" +
       "    /// <returns>Visited instance.</returns>\r\n" +
-      "    member this.VisitParsedInput context parsedInput = \r\n" +
-      "      this.VisitParsedInput context parsedInput\r\n" +
+      "    member this.VisitInput context parsedInput = \r\n" +
+      "      this.VisitInput context parsedInput\r\n" +
       "\r\n"
   }

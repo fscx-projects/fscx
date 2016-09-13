@@ -62,7 +62,7 @@ type DeclareAstDelegatableVisitor<'TContext>() =
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor<'TContext>(visitor: 'TContext -> ParsedInput -> ParsedInput) =
+type DeclareAstFunctionalVisitor<'TContext>(visitor: 'TContext -> SynExpr -> SynExpr option) =
 
   interface IAstVisitor<'TContext> with
     /// <summary>

@@ -7,6 +7,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open Microsoft.FSharp.Compiler.Ast
 
+[<AutoOpen>]
 module AstFunctionalVisitor =
 
   let rec private visitDummy () = ()
