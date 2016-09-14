@@ -76,6 +76,8 @@ module internal Utilities =
       "({0} -> {1})",
       formatTypeName0 argType,
       formatTypeName0 returnType)
+  else if t.IsGenericParameter then
+    "_"
   else
     // Basic name
     let safeName =

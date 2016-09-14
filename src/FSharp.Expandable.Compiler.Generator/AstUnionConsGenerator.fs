@@ -28,36 +28,37 @@ open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
 [<Sealed>]
-type internal AstRecordConsGenerator() =
+type internal AstUnionConsGenerator() =
   inherit GeneratorBase()
-  
-  let generateByType (t: Type) =
-#if aaa
-    let tn =
-      match t.IsDefined(typeof<RequireQualifiedAccessAttribute>, true) with
-      | true -> (Utilities.formatSafeTypeName t) + "."
-      | false -> ""
-#else
-    let tn = (Utilities.formatSafeTypeName t) + "."
-#endif
-    let fields = FSharpType.GetRecordFields t
-    let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
-    let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
+
+  let generateByCase (t: Type) (c: UnionCaseInfo) =
+    let fields = c.GetFields()
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
       "  /// <returns>Constructed record.</returns>\r\n" +
-      "  let gen{1}\r\n" +
-      "     {2} =\r\n" +
-      "    {{ {3} }}\r\n" +
+      "  let gen{1} {2} =\r\n" +
+      "    {0}\r\n" +
+      "{3}" +
       "\r\n",
-      Utilities.formatTypeName t,
-      t.Name,
-      String.Join("\r\n     ", args),
-      String.Join(";\r\n      ", inits))
+      VisitorUtilities.formatUnionCaseName t c,
+      c.Name,
+      (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
+      (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
 
-  /// <summary>
+  let generateByType (t: Type) =
+    let cases = FSharpType.GetUnionCases t
+    seq {
+      yield String.Format(
+        "  ////////////////////////////////////////////////////\r\n" +
+        "  /// Construct \"{0}\".\r\n" +
+        "\r\n",
+        Utilities.formatTypeName t)
+      yield! cases |> Seq.map (generateByCase t)
+    }
+
+ /// <summary>
   /// Generate body lines.
   /// </summary>
   /// <returns>Generated lines.</returns>
@@ -67,10 +68,14 @@ type internal AstRecordConsGenerator() =
     let types =
       assembly.GetTypes()
       |> Seq.filter (fun t ->
-        (FSharpType.IsRecord t) &&
-        (not t.IsGenericType) &&
+        (FSharpType.IsUnion t) &&
         (t.Namespace.StartsWith "Microsoft.FSharp.Compiler") &&
-        ((FSharpType.GetRecordFields t).Length >= 1) &&
-        (not (t.IsDefined(typeof<ObsoleteAttribute>, true))))
+        ((FSharpType.GetUnionCases t).Length >= 1) &&
+        (t.DeclaringType <> t.BaseType) &&
+        (not (FSharpType.IsUnion t.BaseType)) &&
+        (not (t.IsDefined(typeof<ObsoleteAttribute>, true)))
+        // Conflict ILType, ignore...
+        && (not ((Utilities.formatTypeName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType"))
+        )
       |> Seq.sortBy (fun t -> t.Name)
-    types |> Seq.map generateByType
+    types |> Seq.collect generateByType

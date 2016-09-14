@@ -12,8 +12,7 @@
     <Name>FSharp.Expandable.Compiler.Core</Name>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile/>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -73,6 +72,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="AstCommon.fs" />
     <Compile Include="AstRecordCons.fs" />
+    <Compile Include="AstUnionCons.fs" />
     <Compile Include="AstElement.fs" />
     <Compile Include="AstDelegatableVisitor.fs" />
     <Compile Include="AstInheritableVisitor.fs" />

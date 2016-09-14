@@ -77,7 +77,9 @@ module internal VisitorUtilities =
   //   ...SynAccess.Public --> ...SynAccess.Public
   //   ...SynArgInfo.SynArgInfo --> ...SynArgInfo
   let formatUnionCaseName (unionType: Type) (unionCase: UnionCaseInfo) =
-    if unionCase.Name = unionType.Name then
+    let typeName = (Utilities.formatSafeTypeName unionType).Split('.') |> Seq.last
+    let cases = FSharpType.GetUnionCases unionType
+    if cases |> Seq.exists (fun c -> c.Name = typeName) then
       Utilities.formatTypeName unionType
     else
       String.Format(
@@ -193,11 +195,11 @@ module internal VisitorUtilities =
       match result with
       | Projected(composed, _) -> Projected(composed, true)     // Mark as isUsingRef
       | NonProjected _ -> result
-    // "AstRecordCons.initSynAttribute arg0.V0 arg0.V1"
+    // "AstRecordCons.genSynAttribute arg0.V0 arg0.V1"
     | Record fields ->
       ExprComposer.Format(
         name,
-        "AstRecordCons.init{0} {1}",
+        "AstRecordCons.gen{0} {1}",
         t.Name,
         ExprComposer.Join(
           name,
@@ -234,6 +236,10 @@ module internal VisitorUtilities =
     let astType = typeof<SynExpr>.DeclaringType
     let assembly = astType.Assembly
     assembly.GetTypes()
-      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && ((t.Name.StartsWith "Syn") || (t.Name.StartsWith "Parsed")))
+      |> Seq.filter (fun t ->
+        (FSharpType.IsUnion t) &&
+        (t.DeclaringType = astType) &&
+        ((t.Name.StartsWith "Syn") || (t.Name.StartsWith "Parsed")) &&
+        (not (t.IsDefined(typeof<ObsoleteAttribute>, true))))
       |> Seq.sortBy (fun t -> t.Name)
       |> Seq.toArray

@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 13 Sep 2016 08:20:37 GMT
+// Generated: Wed, 14 Sep 2016 08:36:13 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -372,7 +372,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
         | Some result -> result
         | None ->
-          let longId, item2, item3, moduleDecls, xmlDoc, attributes, range = longId, item2, item3, moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          let longId, item2, item3, moduleDecls, xmlDoc, attributes, range = longId, item2, item3, moduleDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
           match this.VisitImplFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleDecls, xmlDoc, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment(longId, item2, item3, moduleDecls, xmlDoc, attributes, range)
@@ -714,7 +714,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
         | Some result -> result
         | None ->
-          let longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range = longId, item2, item3, moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          let longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range = longId, item2, item3, moduleSigDecls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
           match this.VisitSigFileFragment_NamespaceFragment(this, context, longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment(longId, item2, item3, moduleSigDecls, xmlDoc, attributes, range)
@@ -944,7 +944,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitArgInfo_SynArgInfo(this, context, attributes, optional, id) with
         | Some result -> result
         | None ->
-          let attributes, optional, id = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), optional, id
+          let attributes, optional, id = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), optional, id
           match this.VisitArgInfo_SynArgInfo(this, context, attributes, optional, id) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id)
@@ -1019,7 +1019,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitBinding_Binding(this, context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) with
         | Some result -> result
         | None ->
-          let access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind = access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitBindingKind context bindingKind), mustInline, isMutable, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), xmlDoc, (this.VisitValData context item7), (this.VisitPat context headPat), item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitBindingReturnInfo context v)), (this.VisitExpr context expr), lhsRange, spBind
+          let access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind = access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitBindingKind context bindingKind), mustInline, isMutable, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), xmlDoc, (this.VisitValData context item7), (this.VisitPat context headPat), item9 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitBindingReturnInfo context v)), (this.VisitExpr context expr), lhsRange, spBind
           match this.VisitBinding_Binding(this, context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
@@ -1188,7 +1188,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitBindingReturnInfo_SynBindingReturnInfo(this, context, typeName, range, attributes) with
         | Some result -> result
         | None ->
-          let typeName, range, attributes = (this.VisitType context typeName), range, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range)
+          let typeName, range, attributes = (this.VisitType context typeName), range, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range)
           match this.VisitBindingReturnInfo_SynBindingReturnInfo(this, context, typeName, range, attributes) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes)
@@ -1255,7 +1255,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitComponentInfo_ComponentInfo(this, context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) with
         | Some result -> result
         | None ->
-          let attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTyparDecl context v)), constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeConstraint context v)), item4, xmlDoc, preferPostfix, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), typeParams |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTyparDecl context v)), constraints |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitTypeConstraint context v)), item4, xmlDoc, preferPostfix, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitComponentInfo_ComponentInfo(this, context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
@@ -2141,7 +2141,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitEnumCase_EnumCase(this, context, attributes, id, item3, xmlDoc, range) with
         | Some result -> result
         | None ->
-          let attributes, id, item3, xmlDoc, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitConst context item3), xmlDoc, range
+          let attributes, id, item3, xmlDoc, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitConst context item3), xmlDoc, range
           match this.VisitEnumCase_EnumCase(this, context, attributes, id, item3, xmlDoc, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range)
@@ -2261,7 +2261,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr(this, context, item1, case, longId, xmlDoc, accesibility, range) with
         | Some result -> result
         | None ->
-          let item1, case, longId, xmlDoc, accesibility, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitUnionCase context case), longId, xmlDoc, accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let item1, case, longId, xmlDoc, accesibility, range = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitUnionCase context case), longId, xmlDoc, accesibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitExceptionDefnRepr_SynExceptionDefnRepr(this, context, item1, case, longId, xmlDoc, accesibility, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range)
@@ -4709,7 +4709,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitField_Field(this, context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) with
         | Some result -> result
         | None ->
-          let attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, (this.VisitType context typeName), item5, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, (this.VisitType context typeName), item5, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitField_Field(this, context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
@@ -5613,7 +5613,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitMemberDefn_ImplicitCtor(this, context, accessiblity, attributes, ctorArgs, selfIdentifier, range) with
         | Some result -> result
         | None ->
-          let accessiblity, attributes, ctorArgs, selfIdentifier, range = accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSimplePat context v)), selfIdentifier, range
+          let accessiblity, attributes, ctorArgs, selfIdentifier, range = accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), ctorArgs |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitSimplePat context v)), selfIdentifier, range
           match this.VisitMemberDefn_ImplicitCtor(this, context, accessiblity, attributes, ctorArgs, selfIdentifier, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor(accessiblity, attributes, ctorArgs, selfIdentifier, range)
@@ -5677,7 +5677,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitMemberDefn_AutoProperty(this, context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) with
         | Some result -> result
         | None ->
-          let attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitType context v)), propKind, memberFlags, xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitExpr context expr), getSetPos, range
+          let attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), isStatic, id, tyOpt |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitType context v)), propKind, memberFlags, xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), (this.VisitExpr context expr), getSetPos, range
           match this.VisitMemberDefn_AutoProperty(this, context, attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty(attributes, isStatic, id, tyOpt, propKind, memberFlags, xmlDoc, accessibility, expr, getSetPos, range)
@@ -6251,7 +6251,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleDecl_Attributes(this, context, item1, item2) with
         | Some result -> result
         | None ->
-          let item1, item2 = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item2
+          let item1, item2 = item1 |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item2
           match this.VisitModuleDecl_Attributes(this, context, item1, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes(item1, item2)
@@ -6334,7 +6334,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace(this, context, id, isRec, isModule, decls, xmlDoc, attributes, access, range) with
         | Some result -> result
         | None ->
-          let id, isRec, isModule, decls, xmlDoc, attributes, access, range = id, isRec, isModule, decls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let id, isRec, isModule, decls, xmlDoc, attributes, access, range = id, isRec, isModule, decls |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), access |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitModuleOrNamespace_SynModuleOrNamespace(this, context, id, isRec, isModule, decls, xmlDoc, attributes, access, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range)
@@ -6401,7 +6401,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(this, context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range) with
         | Some result -> result
         | None ->
-          let id, isRec, isModule, item4, xmlDoc, attributes, item7, range = id, isRec, isModule, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let id, isRec, isModule, item4, xmlDoc, attributes, item7, range = id, isRec, isModule, item4 |> Microsoft.FSharp.Collections.List.map (fun v -> (this.VisitModuleSigDecl context v)), xmlDoc, attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), item7 |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig(this, context, id, isRec, isModule, item4, xmlDoc, attributes, item7, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range)
@@ -7329,7 +7329,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitPat_Attrib(this, context, item1, attributes, range) with
         | Some result -> result
         | None ->
-          let item1, attributes, range = (this.VisitPat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          let item1, attributes, range = (this.VisitPat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
           match this.VisitPat_Attrib(this, context, item1, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynPat.Attrib(item1, attributes, range)
@@ -7761,7 +7761,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitSimplePat_Attrib(this, context, item1, attributes, range) with
         | Some result -> result
         | None ->
-          let item1, attributes, range = (this.VisitSimplePat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
+          let item1, attributes, range = (this.VisitSimplePat context item1), attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), range
           match this.VisitSimplePat_Attrib(this, context, item1, attributes, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib(item1, attributes, range)
@@ -8146,7 +8146,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitTyparDecl_TyparDecl(this, context, attributes, item2) with
         | Some result -> result
         | None ->
-          let attributes, item2 = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitTypar context item2)
+          let attributes, item2 = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), (this.VisitTypar context item2)
           match this.VisitTyparDecl_TyparDecl(this, context, attributes, item2) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2)
@@ -10279,7 +10279,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitUnionCase_UnionCase(this, context, attributes, id, caseType, xmlDoc, accessibility, range) with
         | Some result -> result
         | None ->
-          let attributes, id, caseType, xmlDoc, accessibility, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitUnionCaseType context caseType), xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
+          let attributes, id, caseType, xmlDoc, accessibility, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitUnionCaseType context caseType), xmlDoc, accessibility |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), range
           match this.VisitUnionCase_UnionCase(this, context, attributes, id, caseType, xmlDoc, accessibility, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range)
@@ -10551,7 +10551,7 @@ type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections
         match this.BeforeVisitValSig_ValSpfn(this, context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) with
         | Some result -> result
         | None ->
-          let attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.initSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitValTyparDecls context typeParams), (this.VisitType context typeName), (this.VisitValInfo context valInfo), item6, isMutable, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), expr |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), range
+          let attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range = attributes |> Microsoft.FSharp.Collections.List.map (fun v -> AstRecordCons.genSynAttribute v.TypeName (this.VisitExpr context v.ArgExpr) v.Target v.AppliesToGetterAndSetter v.Range), id, (this.VisitValTyparDecls context typeParams), (this.VisitType context typeName), (this.VisitValInfo context valInfo), item6, isMutable, xmlDoc, accessiblity |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitAccess context v)), expr |> Microsoft.FSharp.Core.Option.map (fun v -> (this.VisitExpr context v)), range
           match this.VisitValSig_ValSpfn(this, context, attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) with
           | Some result -> result
           | None -> Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range)
