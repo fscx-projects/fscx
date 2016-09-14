@@ -32,18 +32,19 @@ type internal AstUnionConsGenerator() =
   inherit GeneratorBase()
 
   let generateByCase (t: Type) (c: UnionCaseInfo) =
+    let typeName = VisitorUtilities.formatUnionTypeShortName t
     let fields = c.GetFields()
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <returns>Constructed record.</returns>\r\n" +
+      "  /// <returns>Constructed instance.</returns>\r\n" +
       "  let gen{1} {2} =\r\n" +
       "    {0}\r\n" +
       "{3}" +
       "\r\n",
       VisitorUtilities.formatUnionCaseName t c,
-      c.Name,
+      (if VisitorUtilities.requireIgnoreTypeName t c then typeName else (typeName + "_" + c.Name)),
       (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
       (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
 
@@ -55,10 +56,14 @@ type internal AstUnionConsGenerator() =
         "  /// Construct \"{0}\".\r\n" +
         "\r\n",
         Utilities.formatTypeName t)
-      yield! cases |> Seq.map (generateByCase t)
+      yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 2) |> Seq.map (generateByCase t)
     }
 
- /// <summary>
+  let isTargetDUType (t: Type) =
+    let cases = FSharpType.GetUnionCases t
+    cases |> Seq.exists (fun c -> c.GetFields().Length >= 2);
+
+  /// <summary>
   /// Generate body lines.
   /// </summary>
   /// <returns>Generated lines.</returns>
@@ -70,12 +75,11 @@ type internal AstUnionConsGenerator() =
       |> Seq.filter (fun t ->
         (FSharpType.IsUnion t) &&
         (t.Namespace.StartsWith "Microsoft.FSharp.Compiler") &&
-        ((FSharpType.GetUnionCases t).Length >= 1) &&
+        (isTargetDUType t) &&
         (t.DeclaringType <> t.BaseType) &&
         (not (FSharpType.IsUnion t.BaseType)) &&
         (not (t.IsDefined(typeof<ObsoleteAttribute>, true)))
         // Conflict ILType, ignore...
-        && (not ((Utilities.formatTypeName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType"))
-        )
+        && (not ((Utilities.formatTypeName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType")))
       |> Seq.sortBy (fun t -> t.Name)
     types |> Seq.collect generateByType

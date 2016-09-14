@@ -62,9 +62,7 @@ module internal VisitorUtilities =
   // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
   // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
 
-  // SynAccess --> Access
-  let formatUnionTypeShortName (unionType: Type) =
-    let name = unionType.Name
+  let private toShortName (name: string) =
     if name.StartsWith "Syn" then
       name.Substring 3
     else if name.StartsWith "Parsed" then
@@ -72,14 +70,22 @@ module internal VisitorUtilities =
     else
       name
 
-  // HACK: If casename = typename: compiler meaning 1st name is casename, cause 2nd name is invalid...
+  // SynAccess --> Access
+  let formatUnionTypeShortName (unionType: Type) =
+    toShortName unionType.Name
+
+  let requireIgnoreTypeName (unionType: Type) (unionCase: UnionCaseInfo) =
+    let typeName = formatUnionTypeShortName unionType
+    let cases = FSharpType.GetUnionCases unionType
+    cases |> Seq.exists (fun c -> (toShortName c.Name) = typeName)
+
+  // HACK: If casename = typename: compiler meaning 1st name is ignore, 2nd name is alid...
   // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
   //   ...SynAccess.Public --> ...SynAccess.Public
   //   ...SynArgInfo.SynArgInfo --> ...SynArgInfo
+  //   ...SynBinding.Binding --> ...SynBinding.Binding
   let formatUnionCaseName (unionType: Type) (unionCase: UnionCaseInfo) =
-    let typeName = (Utilities.formatSafeTypeName unionType).Split('.') |> Seq.last
-    let cases = FSharpType.GetUnionCases unionType
-    if cases |> Seq.exists (fun c -> c.Name = typeName) then
+    if requireIgnoreTypeName unionType unionCase then
       Utilities.formatTypeName unionType
     else
       String.Format(
