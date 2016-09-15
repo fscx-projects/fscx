@@ -1,4 +1,10 @@
-#### 0.1.35 - 2016.09.15
+#### 0.5.1 - 2016.09.15
+* Pre release packages.
+* Basic filter utilities implemented.
+* NuGet package rearranged.
+* Full delayed load core libs, because VS loaded and locked Tasks assembly.
+
+#### 0.1.35 - 2016.09.13
 * WIP release
 
 #### 0.1.34 - 2016.09.13
