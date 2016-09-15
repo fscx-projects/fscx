@@ -24,6 +24,7 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
+open System.Security
 
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
@@ -41,12 +42,12 @@ type internal AstInheritableVisitorGenerator() =
       yield "context: 'TContext"
       yield! fields |> Seq.map Utilities.formatDeclaration
     |]
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "this" "_rwh_")
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitTargets "this.Visit{0} context {1}" "_rwh_")
     let args = [|
       yield "context"
-      yield! visited |> Seq.map fst   // Composed argument string
+      yield! visited |> Seq.map (fun vr -> vr.ToString())   // Composed argument string
     |]
-    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
+    let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef)   // Require using reference cell
     let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
 
     String.Format(
@@ -91,8 +92,8 @@ type internal AstInheritableVisitorGenerator() =
       "    {4}{8}\r\n" +
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
-      Utilities.formatTypeName unionType,
-      unionType.Name,
+      Utilities.formatTypeFullName unionType,
+      SecurityElement.Escape unionType.Name,
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(" *\r\n    ", decls),
@@ -143,10 +144,10 @@ type internal AstInheritableVisitorGenerator() =
       "    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
-      unionType.Name,
+      SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatCamelcase unionType.Name,
-      Utilities.formatTypeName unionType)
+      Utilities.formatTypeFullName unionType)
     let unionCases = FSharpType.GetUnionCases unionType
     yield! unionCases |> Seq.map (generateMatcher unionType)
     yield
@@ -171,7 +172,7 @@ type internal AstInheritableVisitorGenerator() =
       "    /// <param name=\"context\">Visito context.</param>\r\n" +
       "    /// <param name=\"parsedInput\">Target for ParsedInput instance.</param>\r\n" +
       "    /// <returns>Visited instance.</returns>\r\n" +
-      "    member this.VisitParsedInput context parsedInput = \r\n" +
-      "      this.VisitParsedInput context parsedInput\r\n" +
+      "    member this.VisitInput context parsedInput = \r\n" +
+      "      this.VisitInput context parsedInput\r\n" +
       "\r\n"
   }

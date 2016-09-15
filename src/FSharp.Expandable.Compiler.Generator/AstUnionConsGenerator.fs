@@ -29,27 +29,37 @@ open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
 [<Sealed>]
-type internal AstRecordConsGenerator() =
+type internal AstUnionConsGenerator() =
   inherit GeneratorBase()
-  
-  let generateByType (t: Type) =
-    let tn = (Utilities.formatTypeStrictShortName t) + "."
-    let fields = FSharpType.GetRecordFields t
-    let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
-    let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
+
+  let generateByCase (t: Type) (c: UnionCaseInfo) =
+    let typeName = Utilities.formatTypeName t
+    let fields = c.GetFields()
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <returns>Constructed record.</returns>\r\n" +
-      "  let gen{1}\r\n" +
-      "     {2} =\r\n" +
-      "    {{ {3} }}\r\n" +
+      "  /// <returns>Constructed instance.</returns>\r\n" +
+      "  let gen{2} {3} =\r\n" +
+      "    {1}\r\n" +
+      "{4}" +
       "\r\n",
-      SecurityElement.Escape (Utilities.formatTypeFullName t),
-      t.Name,
-      String.Join("\r\n     ", args),
-      String.Join(";\r\n      ", inits))
+      SecurityElement.Escape (VisitorUtilities.formatUnionCaseName t c),
+      VisitorUtilities.formatUnionCaseName t c,
+      (if VisitorUtilities.requireQualifiedCaseName t then (typeName + "_" + c.Name) else c.Name),
+      (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
+      (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
+
+  let generateByType (t: Type) =
+    let cases = FSharpType.GetUnionCases t
+    seq {
+      yield "  ////////////////////////////////////////////////////\r\n" + "\r\n"
+      yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 2) |> Seq.map (generateByCase t)
+    }
+
+  let isTargetDUType (t: Type) =
+    let cases = FSharpType.GetUnionCases t
+    cases |> Seq.exists (fun c -> c.GetFields().Length >= 2);
 
   /// <summary>
   /// Generate body lines.
@@ -61,10 +71,13 @@ type internal AstRecordConsGenerator() =
     let types =
       assembly.GetTypes()
       |> Seq.filter (fun t ->
-        (FSharpType.IsRecord t) &&
-        (not t.IsGenericType) &&
+        (FSharpType.IsUnion t) &&
         (t.Namespace.StartsWith "Microsoft.FSharp.Compiler") &&
-        ((FSharpType.GetRecordFields t).Length >= 1) &&
-        (not (t.IsDefined(typeof<ObsoleteAttribute>, true))))
+        (isTargetDUType t) &&
+        (t.DeclaringType <> t.BaseType) &&
+        (not (FSharpType.IsUnion t.BaseType)) &&
+        (not (t.IsDefined(typeof<ObsoleteAttribute>, true)))
+        // Conflict ILType, ignore...
+        && (not ((Utilities.formatTypeFullName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType")))
       |> Seq.sortBy (fun t -> t.Name)
-    types |> Seq.map generateByType
+    types |> Seq.collect generateByType

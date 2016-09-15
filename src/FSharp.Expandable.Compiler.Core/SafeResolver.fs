@@ -44,7 +44,9 @@ type internal SafeResolver =
     let path = Path.Combine(basePath, partialName + ".dll")
     if File.Exists path then
       try
-        Some (Assembly.LoadFrom path)
+        let assembly = Assembly.LoadFrom path
+        Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", partialName, assembly.Location))
+        Some assembly
       with
       | exn ->
         Debug.WriteLine(System.String.Format("SafeResolver: cannot load : {0} [{1}] [{2}]", partialName, path, exn.Message))
@@ -52,6 +54,14 @@ type internal SafeResolver =
     else
       Debug.WriteLine(System.String.Format("SafeResolver: assembly not found : {0} [{1}]", partialName, path))
       None
+
+  member private this.safeLoadBySide (baseAssembly: Assembly) partialName =
+    match this.loadBySide baseAssembly partialName with
+    | Some assembly -> assembly
+    | None ->
+      match this.loadBySide (Assembly.GetEntryAssembly()) partialName with
+      | Some assembly -> assembly
+      | None -> null
 
   /// Resolve partially-loaded assembly.
   member private this.Resolve _ (e: ResolveEventArgs) =
@@ -68,20 +78,8 @@ type internal SafeResolver =
     | Some assembly, _ ->
       Debug.WriteLine(System.String.Format("SafeResolver: resolved: {0} --> {1}", e.Name, assembly.FullName))
       assembly
-    | None, null ->
-      match this.loadBySide (Assembly.GetEntryAssembly()) partialName with
-      | Some assembly ->
-        Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", e.Name, assembly.Location))
-        assembly
-      | None ->
-        null
     | None, baseAssembly ->
-      match this.loadBySide baseAssembly partialName with
-      | Some assembly ->
-        Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", e.Name, assembly.Location))
-        assembly
-      | None ->
-        null
+      this.safeLoadBySide baseAssembly partialName
 
   member this.Dispose() =
     let appDomain = AppDomain.CurrentDomain

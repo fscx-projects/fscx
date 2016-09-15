@@ -23,6 +23,8 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
+open System.IO
+open System.Reflection
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
@@ -55,7 +57,6 @@ type Compiler =
   /// </summary>
   /// <param name="args">Compiration argument strings</param>
   /// <returns>Compilation arguments</returns>
-  [<Extension>]
   static member ExtractCompilerArguments args =
     CompilerArguments.extract args
 
@@ -66,7 +67,6 @@ type Compiler =
   /// </summary>
   /// <param name="paths">Assembly paths</param>
   /// <returns>Assembly paths of contains visitors</returns>
-  [<Extension>]
   static member FilterVisitors (paths: string seq) =
     use r = new SafeResolver()
     paths
@@ -82,48 +82,48 @@ type Compiler =
 
   /// WriteInfo ==> CompilerLogEntry bridge function.
   static member private WrappedBridgedWriter
-     (writer : Action<CompilerLogEntry>) : (WriteInfo -> unit) =
+     (writer : CompilerLogEntry -> unit) : (WriteInfo -> unit) =
     function
     | WriteInfo.Message(typ, path, message) ->
-      writer.Invoke(
+      writer
         { Type = typ;
           FileName = path;
           Line = 1;
           Column = 1;
           Code = "";
           Message = message;
-          Description = "" })
+          Description = "" }
     | WriteInfo.ParseFailed(error) ->
       let severity =
         match error.Severity with
         | FSharpErrorSeverity.Warning -> EventLogEntryType.Warning
         | FSharpErrorSeverity.Error -> EventLogEntryType.Error
-      writer.Invoke(
+      writer
         { Type = severity;
           FileName = error.FileName;
           Line = error.StartLineAlternate;
           Column = error.StartColumn;
           Code = String.Format("FS{0:D4}", error.ErrorNumber);
           Message = error.Message;
-          Description = "" })
+          Description = "" }
     | WriteInfo.CheckFailed(path) ->
-      writer.Invoke(
+      writer
         { Type = EventLogEntryType.Error;
           FileName = path;
           Line = 1;
           Column = 1;
           Code = "";
           Message = "Type checking failed.";
-          Description = "" })
+          Description = "" }
     | WriteInfo.UnknownFailed(path, exn) ->
-      writer.Invoke(
+      writer
         { Type = EventLogEntryType.Error;
           FileName = path;
           Line = 1;
           Column = 1;
           Code = exn.GetType().FullName;
           Message = exn.Message;
-          Description = exn.StackTrace })
+          Description = exn.StackTrace }
 
   /// Compile with filter assemblies.
   static member private asyncCompile writer (arguments: CompilerArguments) = async {
@@ -142,6 +142,9 @@ type Compiler =
     return! CompilerImpl.asyncCompile internalWriter arguments visitors
   }
 
+  static member private fromAction (writer: Action<CompilerLogEntry>) =
+    fun (logEntry: CompilerLogEntry) -> writer.Invoke(logEntry)
+
   /////////////////////////////////////////////////////////////////////////////////////
  
   /// <summary>
@@ -151,7 +154,7 @@ type Compiler =
   /// <param name="arguments">Compilation arguments</param>
   /// <returns>Result value</returns>
   static member AsyncCompileWithArguments writer arguments =
-    Compiler.asyncCompile writer arguments
+    Compiler.asyncCompile (Compiler.fromAction writer) arguments
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -160,7 +163,7 @@ type Compiler =
   /// <param name="arguments">Compilation arguments</param>
   /// <returns>Result value</returns>
   static member CompileWithArguments writer arguments =
-    Compiler.asyncCompile writer arguments |> Async.RunSynchronously
+    Compiler.asyncCompile (Compiler.fromAction writer) arguments |> Async.RunSynchronously
  
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -170,7 +173,7 @@ type Compiler =
   /// <returns>Result value</returns>
   static member AsyncCompile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.asyncCompile writer arguments
+    Compiler.asyncCompile (Compiler.fromAction writer) arguments
 
   /// <summary>
   /// Execute F# compiler with standard arguments.
@@ -180,7 +183,66 @@ type Compiler =
   /// <returns>Result value</returns>
   static member Compile writer args =
     let arguments = CompilerArguments.extract args
-    Compiler.asyncCompile writer arguments |> Async.RunSynchronously
+    Compiler.asyncCompile (Compiler.fromAction writer) arguments |> Async.RunSynchronously
+
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  /// Default compiler driver.
+  static member DefaultDriver (args: string[]) =
+
+    // Extract arguments.
+    let arguments = CompilerArguments.extract args
+
+    // If not giving visitor paths:
+    if Seq.isEmpty arguments.VisitorPaths then
+
+      ///////////////////////////////////////////////////////////////////////
+      // Crawl visitor assemblies
+
+      // NuGet package structure:
+      //   packages --+-- FSharp.Expandable.Compiler.Build --+-- build --+-- FSharp.Expandable.Compiler.Tasks.dll (1: from MSBuild)
+      //              |                                                  +-- fscx.exe (2: invoke from FscTask)
+      //              +-- FSharp.Expandable.Compiler.Core --+-- lib --+-- net45 --+-- FSharp.Expandable.Compiler.Core.dll (3: DefaultDriver() function)
+      //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll
+      //              +-- HagaFilter-1.0 --+-- build --+-- HagaFilter.dll
+
+      // (3)
+      let assemblyLocation = (new Uri(typeof<Compiler>.Assembly.CodeBase)).LocalPath
+
+      // the "packages" path.
+      let packagesPath = Path.Combine(Path.GetDirectoryName(assemblyLocation), "..", "..", "..")
+
+      let searchFolderBases =
+        if Directory.Exists(packagesPath) then
+          Directory.EnumerateDirectories(packagesPath, "*", SearchOption.TopDirectoryOnly)
+          |> Seq.collect (fun packagePath -> Directory.EnumerateDirectories(packagePath, "build", SearchOption.TopDirectoryOnly))
+          |> Seq.toArray
+        else
+          [| "." |]
+
+      let visitorPaths =
+        searchFolderBases
+        |> Seq.collect (fun searchFolderBase -> Directory.EnumerateFiles(searchFolderBase ,"*.dll", SearchOption.AllDirectories))
+        |> Compiler.FilterVisitors
+
+#if DEBUG
+      visitorPaths |> Seq.iter Debug.WriteLine
+#endif
+
+      // Set visitor paths.
+      arguments.VisitorPaths <- visitorPaths
+
+    // Compile
+    let logWriter logEntry =
+      Console.WriteLine(
+        "{0}({1},{2}): {3}{4}: {5}",
+        logEntry.FileName,
+        logEntry.Line,
+        logEntry.Column,
+        logEntry.Type.ToString().ToLowerInvariant(),
+        (if String.IsNullOrWhiteSpace(logEntry.Code) then "" else (" " + logEntry.Code)),
+        logEntry.Message)
+    Compiler.asyncCompile logWriter arguments |> Async.RunSynchronously
 
 ////////////////////////////////////////////////
 

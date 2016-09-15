@@ -29,6 +29,20 @@ open System.Reflection
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
 
+/// Partial composed expression result.
+type internal ExprResult =
+  | Projected of compose:string * isUsingRef:bool    // Expr projected             (ex: fun v -> visitor.Visit v)
+  | NonProjected of rawName:string                   // Expr totally non projected (ex: fun v -> v)
+  with
+    member this.IsUsingRef =
+      match this with
+      | Projected (_, isUsingRef) -> isUsingRef
+      | NonProjected _ -> false
+    override this.ToString() =
+      match this with
+      | Projected (composed, _) -> composed
+      | NonProjected rawName -> rawName
+
 module internal VisitorUtilities =
 
   // Type pattern examples:
@@ -48,38 +62,45 @@ module internal VisitorUtilities =
   // List<synExprs>         --> List.map (this.VisitSynExpr parents context) synExprs
   // Option<List<synExprs>> --> Option.map (List.map (this.VisitSynExpr parents context)) synExprs
 
+  let private toShortName (name: string) =
+    if name.StartsWith "Syn" then
+      name.Substring 3
+    else if name.StartsWith "Parsed" then
+      name.Substring 6
+    else
+      name
+
   // SynAccess --> Access
   let formatUnionTypeShortName (unionType: Type) =
-    let name = unionType.Name
-    if name.StartsWith "Syn" then name.Substring 3 else name
+    Utilities.formatTypeName unionType |> toShortName
 
-  // HACK: If casename = typename: compiler meaning 1st name is casename, cause 2nd name is invalid...
+  let requireQualifiedCaseName (unionType: Type) =
+    let qa = unionType.IsDefined(typeof<RequireQualifiedAccessAttribute>, true)
+    if qa then
+      true
+    else
+      let typeName = Utilities.formatTypeName unionType
+      let cases = FSharpType.GetUnionCases unionType
+      not (cases |> Seq.exists (fun c -> c.Name = typeName))
+
+  // HACK: If casename = typename: compiler meaning 1st name is ignore, 2nd name is alid...
   // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
   //   ...SynAccess.Public --> ...SynAccess.Public
   //   ...SynArgInfo.SynArgInfo --> ...SynArgInfo
+  //   ...SynBinding.Binding --> ...Binding (more shorter)
   let formatUnionCaseName (unionType: Type) (unionCase: UnionCaseInfo) =
-    if unionCase.Name = unionType.Name then
-      Utilities.formatTypeName unionType
-    else
+    if requireQualifiedCaseName unionType then
       String.Format(
         "{0}.{1}",
-        Utilities.formatTypeName unionType,
+        Utilities.formatTypeFullName unionType,
         unionCase.Name)
+    else
+      Utilities.formatTypeFullName unionType
 
   ///////////////////////////////////////////////////////////////////////////////
   // Examine and compose expression to string:
   //   "Projected" means invoke visitor function.
   //   If non-projected all expression leafs, expression string is simply the symbol name.
-
-  /// Partial composed expression result.
-  type private ExprResult =
-    | Projected of compose:string * isUsingRef:bool    // Expr projected             (ex: fun v -> visitor.Visit v)
-    | NonProjected of rawName:string                   // Expr totally non projected (ex: fun v -> v)
-    with
-      override this.ToString() =
-        match this with
-        | Projected (composed, _) -> composed
-        | NonProjected rawName -> rawName
 
   /// String composer for ExprResult.
   [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
@@ -184,11 +205,11 @@ module internal VisitorUtilities =
       match result with
       | Projected(composed, _) -> Projected(composed, true)     // Mark as isUsingRef
       | NonProjected _ -> result
-    // "AstRecordCons.initSynAttribute arg0.V0 arg0.V1"
+    // "AstRecordCons.genSynAttribute arg0.V0 arg0.V1"
     | Record fields ->
       ExprComposer.Format(
         name,
-        "AstRecordCons.init{0} {1}",
+        "AstRecordCons.gen{0} {1}",
         t.Name,
         ExprComposer.Join(
           name,
@@ -199,10 +220,8 @@ module internal VisitorUtilities =
       // Invoke visitor function, so result force Projected.
       Projected(
         String.Format(
-          "({0}.Visit{1} context {2})",
-          visitorName,
-          formatUnionTypeShortName t,
-          name),
+          "({0})",
+          String.Format(visitorName, formatUnionTypeShortName t, name)),
           false)
     // Other generic types with one argument.
     | Generic [|argType|] ->
@@ -212,26 +231,25 @@ module internal VisitorUtilities =
         name,
         "{0} |> {1}.map (fun v -> {2})",
         name,
-        Utilities.formatSafeTypeName t,
+        Utilities.formatTypeStrictShortName t,
         formatWithOperators0 "v" argType visitorName refWrapperHolderName visitTargets)
     // Other types ("arg0")
     | _ ->
       NonProjected name
 
-  let private formatWithOperators name t visitorName refWrapperHolderName visitTargets =
-    match formatWithOperators0 name t visitorName refWrapperHolderName visitTargets with
-    | Projected(composed, isUsingRef) -> composed, isUsingRef
-    | NonProjected rawName -> rawName, false
-
   /// Construct expression string of visitor body with applied args for DU case.
   /// Results are composed argument string and require using reference cell.
   let formatArgument visitTargets (visitorName: string) (refWrapperHolderName: string) (field: PropertyInfo) = 
-    formatWithOperators (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
+    formatWithOperators0 (Utilities.formatFieldName field) field.PropertyType visitorName refWrapperHolderName visitTargets
 
   let getTargetAstTypes () =
     let astType = typeof<SynExpr>.DeclaringType
     let assembly = astType.Assembly
     assembly.GetTypes()
-      |> Seq.filter (fun t -> (FSharpType.IsUnion t) && (t.DeclaringType = astType) && ((t.Name.StartsWith "Syn") || (t.Name.StartsWith "Parsed")))
+      |> Seq.filter (fun t ->
+        (FSharpType.IsUnion t) &&
+        (t.DeclaringType = astType) &&
+        ((t.Name.StartsWith "Syn") || (t.Name.StartsWith "Parsed")) &&
+        (not (t.IsDefined(typeof<ObsoleteAttribute>, true))))
       |> Seq.sortBy (fun t -> t.Name)
       |> Seq.toArray

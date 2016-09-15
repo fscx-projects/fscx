@@ -5,6 +5,9 @@
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
+open System
+
+#nowarn "44"
 #nowarn "1182"
 
 ////////////////////////////////////////////////////////////
@@ -14,6 +17,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 /// </summary>
 /// <typeparam name="TContext">Context type</typeparam>
 [<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
+[<Obsolete>]
 type AstDelegatableVisitor<'TContext> private (parentParents: System.Collections.Generic.Stack<Microsoft.FSharp.Compiler.Ast.Visitor.AstElement>) =
 
   // TODO: du element

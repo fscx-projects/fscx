@@ -5,8 +5,11 @@
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
-open System
+open Microsoft.FSharp.Compiler.Ast
 
-/// Construct record types without conflict free.
+#nowarn "1182"
+
 [<AutoOpen>]
-module AstRecordCons =
+module AstFunctionalVisitor =
+
+  let rec private visitDummy () = ()

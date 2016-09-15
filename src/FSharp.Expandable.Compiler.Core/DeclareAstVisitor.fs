@@ -21,6 +21,12 @@
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
+open System
+open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Ast.Visitor
+
+#nowarn "44"
+
 /// <summary>
 /// Basic delegatable visitor base type.
 /// </summary>
@@ -29,6 +35,7 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 /// Inherit this class if use AstDelegatableVisitor, and override SetupVisitor method.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+[<Obsolete>]
 type DeclareAstDelegatableVisitor<'TContext>() =
 
   /// <summary>
@@ -44,7 +51,27 @@ type DeclareAstDelegatableVisitor<'TContext>() =
     /// <param name="context">Visito context.</param>
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
-    member this.VisitParsedInput context parsedInput = 
+    member this.VisitInput context parsedInput = 
       let visitor = new AstDelegatableVisitor<'TContext>()
       this.SetupVisitor visitor
-      visitor.VisitParsedInput context parsedInput
+      visitor.VisitInput context parsedInput
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
+/// <typeparam name="'TContext">Visitor context type.</typeparam>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareAstFunctionalVisitor<'TContext>(visitor: 'TContext -> SynExpr -> SynExpr option) =
+
+  interface IAstVisitor<'TContext> with
+    /// <summary>
+    /// Visit the parsed input.
+    /// </summary>
+    /// <param name="context">Visito context.</param>
+    /// <param name="parsedInput">Target for ParsedInput instance.</param>
+    /// <returns>Visited instance.</returns>
+    member this.VisitInput context parsedInput = 
+      AstFunctionalVisitor.visitInput context parsedInput visitor

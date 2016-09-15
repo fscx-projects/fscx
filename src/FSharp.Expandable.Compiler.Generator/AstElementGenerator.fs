@@ -44,4 +44,4 @@ type internal AstElementGenerator() =
       String.Format(
         "  | {0} of {1}\r\n",
         VisitorUtilities.formatUnionTypeShortName t,
-        t.Name))
+        Utilities.formatTypeFullName t))

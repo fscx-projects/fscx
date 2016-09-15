@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>fscx-sample-functional-filter</id>
-    <version>0.1.32-pre</version>
+    <version>0.1.35-pre</version>
     <title>fscx-sample-functional-filter</title>
     <authors>Kouji Matsui</authors>
     <owners>Kouji Matsui</owners>
@@ -15,7 +15,7 @@
     <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
     <tags>fscx</tags>
     <dependencies>
-      <dependency id="fscx" version="0.1.32" />
+      <dependency id="fscx" version="0.1.35" />
     </dependencies>
   </metadata>
   <files>

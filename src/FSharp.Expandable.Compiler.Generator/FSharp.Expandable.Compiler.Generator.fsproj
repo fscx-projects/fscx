@@ -49,18 +49,22 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Templates\AstRecordConsTemplate.fs" />
-    <EmbeddedResource Include="Templates/AstElementTemplate.fs" />
+    <EmbeddedResource Include="Templates\AstUnionConsTemplate.fs" />
+    <EmbeddedResource Include="Templates\AstElementTemplate.fs" />
     <EmbeddedResource Include="Templates\AstDelegatableVisitorTemplate.fs" />
     <EmbeddedResource Include="Templates\AstInheritableVisitorTemplate.fs" />
+    <EmbeddedResource Include="Templates\AstFunctionalVisitorTemplate.fs" />
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Utilities.fs" />
     <Compile Include="VisitorUtilities.fs" />
     <Compile Include="GeneratorBase.fs" />
     <Compile Include="AstRecordConsGenerator.fs" />
+    <Compile Include="AstUnionConsGenerator.fs" />
     <Compile Include="AstElementGenerator.fs" />
     <Compile Include="AstVisitorGeneratorBase.fs" />
     <Compile Include="AstDelegatableVisitorGenerator.fs" />
     <Compile Include="AstInheritableVisitorGenerator.fs" />
+    <Compile Include="AstFunctionalVisitorGenerator.fs" />
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <None Include="paket.references" />

@@ -8,15 +8,17 @@ Easy infrastructure can replace F#'s AST at compile time.
 
 ## Status
 
-| NuGet (fscx) | [![NuGet fscx](https://img.shields.io/nuget/v/fscx.svg?style=flat)](https://www.nuget.org/packages/fscx) |
+| NuGet (build) | [![NuGet fscx build](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.build.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Build) |
 |:----|:----:|
-| NuGet (core lib) | [![NuGet fscx](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.Core.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Core) |
+| NuGet (core lib) | [![NuGet fscx core](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.Core.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Core) |
 | CI (AppVeyor) | [![AppVeyor fscx](https://img.shields.io/appveyor/ci/kekyo/fscx/master.svg)](https://ci.appveyor.com/project/kekyo/fscx) |
 | Issue status | [![Issue Stats](http://issuestats.com/github/fscx-projects/fscx/badge/issue)](http://issuestats.com/github/fscx-projects/fscx) |
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/fscx/badge/pr)](http://issuestats.com/github/fscx-projects/fscx) |
 | Gitter chat | [![Gitter char](https://img.shields.io/gitter/room/fscx-projects/Lobby.js.svg)](https://gitter.im/fscx-projects/Lobby) |
 
 ## How applicable fscx?
+
+* TODO: NuGet package id: "fscx" --> "FSharp.Expandable.Compiler.Build"
 
 ![For filter users](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide1.png)
 
@@ -29,7 +31,7 @@ Easy infrastructure can replace F#'s AST at compile time.
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>fscx-sample-filter</id>
-    <version>0.1.3-pre</version>
+    <version>0.5.1-pre</version>
     <title>fscx-sample-filter</title>
     <authors>Kouji Matsui</authors>
     <owners>Kouji Matsui</owners>
@@ -43,7 +45,7 @@ Easy infrastructure can replace F#'s AST at compile time.
     <tags>fscx</tags>
     <dependencies>
       <!-- More better auto-install fscx by dependency. -->
-      <dependency id="fscx" version="0.1.25" />
+      <dependency id="FSharp.Expandable.Compiler.Build" version="0.5.1" />
     </dependencies>
   </metadata>
   <files>

@@ -6,8 +6,6 @@
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
-open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast
 
 ////////////////////////////////////////////////////////////
 

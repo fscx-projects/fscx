@@ -1,16 +1,11 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 08 Sep 2016 00:56:02 GMT
+// Generated: Thu, 15 Sep 2016 06:01:15 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
-open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast
-open Microsoft.FSharp.Compiler.SourceCodeServices
-open Microsoft.FSharp.Compiler.AbstractIL
-open Microsoft.FSharp.Compiler.AbstractIL.IL
 
 /// Construct record types without conflict free.
 [<AutoOpen>]
@@ -20,7 +15,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationTopLevelDeclaration".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initFSharpNavigationTopLevelDeclaration
+  let genFSharpNavigationTopLevelDeclaration
      (declaration: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationDeclarationItem)
      (nested: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationDeclarationItem[]) =
     { Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationTopLevelDeclaration.Declaration = declaration;
@@ -30,7 +25,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpProjectOptions".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initFSharpProjectOptions
+  let genFSharpProjectOptions
      (projectFileName: string)
      (projectFileNames: string[])
      (otherOptions: string[])
@@ -52,7 +47,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenInfo".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initFSharpTokenInfo
+  let genFSharpTokenInfo
      (leftColumn: int)
      (rightColumn: int)
      (colorClass: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenColorKind)
@@ -74,7 +69,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyManifest".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILAssemblyManifest
+  let genILAssemblyManifest
      (name: string)
      (auxModuleHashAlgorithm: int)
      (securityDecls: Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermissions)
@@ -106,7 +101,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILAttribute
+  let genILAttribute
      (_method: Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodSpec)
      (data: byte[]) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute.Method = _method;
@@ -116,7 +111,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingSignature".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILCallingSignature
+  let genILCallingSignature
      (callingConv: Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv)
      (argTypes: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list)
      (returnType: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType) =
@@ -128,7 +123,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCode".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILCode
+  let genILCode
      (labels: System.Collections.Generic.Dictionary<int, int>)
      (instrs: Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[])
      (exceptions: Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionSpec list)
@@ -142,7 +137,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILEnumInfo".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILEnumInfo
+  let genILEnumInfo
      (enumValues: (string * Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit) list)
      (enumType: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILEnumInfo.enumValues = enumValues;
@@ -152,7 +147,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILEventDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILEventDef
+  let genILEventDef
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option)
      (name: string)
      (isRTSpecialName: bool)
@@ -176,7 +171,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionSpec".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILExceptionSpec
+  let genILExceptionSpec
      (range: (int * int))
      (clause: Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionClause) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionSpec.Range = range;
@@ -186,7 +181,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExportedTypeOrForwarder".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILExportedTypeOrForwarder
+  let genILExportedTypeOrForwarder
      (scopeRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILScopeRef)
      (name: string)
      (isForwarder: bool)
@@ -204,7 +199,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILFieldDef
+  let genILFieldDef
      (name: string)
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType)
      (isStatic: bool)
@@ -236,7 +231,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldRef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILFieldRef
+  let genILFieldRef
      (enclosingTypeRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef)
      (name: string)
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType) =
@@ -248,7 +243,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldSpec".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILFieldSpec
+  let genILFieldSpec
      (fieldRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldRef)
      (enclosingType: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldSpec.FieldRef = fieldRef;
@@ -258,7 +253,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericParameterDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILGenericParameterDef
+  let genILGenericParameterDef
      (name: string)
      (constraints: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list)
      (variance: Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericVariance)
@@ -278,7 +273,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILGlobals".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILGlobals
+  let genILGlobals
      (traits: Microsoft.FSharp.Compiler.AbstractIL.IL.IPrimaryAssemblyTraits)
      (primaryAssemblyName: string)
      (noDebugData: bool)
@@ -434,7 +429,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocal".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILLocal
+  let genILLocal
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType)
      (isPinned: bool)
      (debugInfo: (string * int * int) option) =
@@ -446,7 +441,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugInfo".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILLocalDebugInfo
+  let genILLocalDebugInfo
      (range: (int * int))
      (debugMappings: Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugMapping list) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugInfo.Range = range;
@@ -456,7 +451,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugMapping".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILLocalDebugMapping
+  let genILLocalDebugMapping
      (localIndex: int)
      (localName: string) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugMapping.LocalIndex = localIndex;
@@ -466,7 +461,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodBody".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILMethodBody
+  let genILMethodBody
      (isZeroInit: bool)
      (maxStack: int)
      (noInlining: bool)
@@ -484,7 +479,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILMethodDef
+  let genILMethodDef
      (name: string)
      (mdKind: Microsoft.FSharp.Compiler.AbstractIL.IL.MethodKind)
      (callingConv: Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv)
@@ -538,7 +533,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodImplDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILMethodImplDef
+  let genILMethodImplDef
      (overrides: Microsoft.FSharp.Compiler.AbstractIL.IL.ILOverridesSpec)
      (overrideBy: Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodSpec) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodImplDef.Overrides = overrides;
@@ -548,7 +543,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodVirtualInfo".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILMethodVirtualInfo
+  let genILMethodVirtualInfo
      (isFinal: bool)
      (isNewSlot: bool)
      (isCheckAccessOnOverride: bool)
@@ -562,7 +557,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILModuleDef
+  let genILModuleDef
      (manifest: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyManifest option)
      (customAttrs: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes)
      (name: string)
@@ -608,7 +603,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILNestedExportedType".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILNestedExportedType
+  let genILNestedExportedType
      (name: string)
      (access: Microsoft.FSharp.Compiler.AbstractIL.IL.ILMemberAccess)
      (nested: Microsoft.FSharp.Compiler.AbstractIL.IL.ILNestedExportedTypes)
@@ -622,7 +617,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILParameter".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILParameter
+  let genILParameter
      (name: string option)
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType)
      (_default: Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit option)
@@ -644,7 +639,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILPropertyDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILPropertyDef
+  let genILPropertyDef
      (name: string)
      (isRTSpecialName: bool)
      (isSpecialName: bool)
@@ -670,7 +665,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILReferences".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILReferences
+  let genILReferences
      (assemblyReferences: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyRef list)
      (moduleReferences: Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef list) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILReferences.AssemblyReferences = assemblyReferences;
@@ -680,7 +675,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILResource".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILResource
+  let genILResource
      (name: string)
      (location: Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceLocation)
      (access: Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceAccess)
@@ -694,7 +689,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILReturn".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILReturn
+  let genILReturn
      (marshal: Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType option)
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType)
      (customAttrs: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes) =
@@ -706,7 +701,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDef".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILTypeDef
+  let genILTypeDef
      (tdKind: Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefKind)
      (name: string)
      (genericParams: Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericParameterDef list)
@@ -758,7 +753,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefLayoutInfo".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initILTypeDefLayoutInfo
+  let genILTypeDefLayoutInfo
      (size: int option)
      (pack: System.UInt16 option) =
     { Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefLayoutInfo.Size = size;
@@ -768,7 +763,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.MemberFlags".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initMemberFlags
+  let genMemberFlags
      (isInstance: bool)
      (isDispatchSlot: bool)
      (isOverrideOrExplicitImpl: bool)
@@ -784,7 +779,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeMethod".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initPInvokeMethod
+  let genPInvokeMethod
      (where: Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef)
      (name: string)
      (callingConv: Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeCallingConvention)
@@ -806,7 +801,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.PhasedError".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initPhasedError
+  let genPhasedError
      (_exception: System.Exception)
      (phase: Microsoft.FSharp.Compiler.ErrorLogger.BuildPhase) =
     { Microsoft.FSharp.Compiler.ErrorLogger.PhasedError.Exception = _exception;
@@ -816,7 +811,7 @@ module AstRecordCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynAttribute".
   /// </summary>
   /// <returns>Constructed record.</returns>
-  let initSynAttribute
+  let genSynAttribute
      (typeName: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots)
      (argExpr: Microsoft.FSharp.Compiler.Ast.SynExpr)
      (target: Microsoft.FSharp.Compiler.Ast.Ident option)

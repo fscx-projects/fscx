@@ -24,6 +24,7 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
+open System.Security
 
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
@@ -67,8 +68,8 @@ type internal AstDelegatableVisitorGenerator() =
       "    with get, set\r\n" +
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
-      Utilities.formatTypeName unionType,
-      unionType.Name,
+      Utilities.formatTypeFullName unionType,
+      SecurityElement.Escape unionType.Name,
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(",\r\n       ", decls))
@@ -76,9 +77,9 @@ type internal AstDelegatableVisitorGenerator() =
   /// Construct expression string for match.
   let generateMatcher visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "this" "_rwh_")
-    let args = visited |> Seq.map fst |> Seq.toArray   // Composed argument string
-    let isUsingRef = visited |> Seq.exists snd  // Require using reference cell
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "this.Visit{0} context {1}" "_rwh_")
+    let args = visited |> Seq.map (fun vr -> vr.ToString()) |> Seq.toArray      // Composed argument string
+    let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef) // Require using reference cell
     let fieldNames = [|
       yield "this"
       yield "context"
@@ -131,10 +132,10 @@ type internal AstDelegatableVisitorGenerator() =
       "    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
-      unionType.Name,
+      SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatCamelcase unionType.Name,
-      Utilities.formatTypeName unionType)
+      Utilities.formatTypeFullName unionType)
     let unionCases = FSharpType.GetUnionCases unionType
     yield! unionCases |> Seq.map (generateMatcher visitorTargets unionType)
     yield

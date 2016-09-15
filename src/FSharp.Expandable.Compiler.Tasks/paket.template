@@ -1,7 +1,7 @@
 type file
-id fscx
+id FSharp.Expandable.Compiler.Build
 title
-    Expandable F# compiler
+    Expandable F# compiler (Build driver)
 owners
     Kouji Matsui, bleis-tift
 authors 
@@ -22,6 +22,10 @@ summary
     Easy infrastructure can replace F#'s AST at compile time.
 description
     Easy infrastructure can replace F#'s AST at compile time.
+excludedependencies
+    FSharp.Core
+dependencies
+    FSharp.Expandable.Compiler.Core >= 0.5.1
 files
     bin/Release/*.exe ==> build
     bin/Release/*.pdb ==> build
