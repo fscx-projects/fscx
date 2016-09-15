@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 14 Sep 2016 09:27:59 GMT
+// Generated: Thu, 15 Sep 2016 02:37:00 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -1352,7 +1352,7 @@ type AstInheritableVisitor<'TContext>() =
       expr: Microsoft.FSharp.Compiler.Ast.SynExpr,
       lhsRange: Microsoft.FSharp.Compiler.Range.range,
       spBind: Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding) =
-    Microsoft.FSharp.Compiler.Ast.SynBinding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
+    Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
 
 
   /// <summary>
@@ -1367,7 +1367,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.Binding synBinding)
     try
       match synBinding with
-      | Microsoft.FSharp.Compiler.Ast.SynBinding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
+      | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
         this.BeforeVisitBinding_Binding(context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind)
     finally
       parents.Pop() |> ignore
@@ -1669,7 +1669,7 @@ type AstInheritableVisitor<'TContext>() =
       preferPostfix: bool,
       accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
+    Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
 
 
   /// <summary>
@@ -1684,7 +1684,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.ComponentInfo synComponentInfo)
     try
       match synComponentInfo with
-      | Microsoft.FSharp.Compiler.Ast.SynComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
         this.BeforeVisitComponentInfo_ComponentInfo(context, attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range)
     finally
       parents.Pop() |> ignore
@@ -2865,7 +2865,7 @@ type AstInheritableVisitor<'TContext>() =
       item3: Microsoft.FSharp.Compiler.Ast.SynConst,
       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynEnumCase(attributes, id, item3, xmlDoc, range)
+    Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range)
 
 
   /// <summary>
@@ -2880,7 +2880,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.EnumCase synEnumCase)
     try
       match synEnumCase with
-      | Microsoft.FSharp.Compiler.Ast.SynEnumCase(attributes, id, item3, xmlDoc, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
         this.BeforeVisitEnumCase_EnumCase(context, attributes, id, item3, xmlDoc, range)
     finally
       parents.Pop() |> ignore
@@ -6723,7 +6723,7 @@ type AstInheritableVisitor<'TContext>() =
       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
       accessiblity: Microsoft.FSharp.Compiler.Ast.SynAccess option,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynField(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
+    Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
 
 
   /// <summary>
@@ -6738,7 +6738,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.Field synField)
     try
       match synField with
-      | Microsoft.FSharp.Compiler.Ast.SynField(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
         this.BeforeVisitField_Field(context, attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range)
     finally
       parents.Pop() |> ignore
@@ -6914,7 +6914,7 @@ type AstInheritableVisitor<'TContext>() =
       item1: Microsoft.FSharp.Compiler.Ast.SynType,
       bindings: Microsoft.FSharp.Compiler.Ast.SynBinding list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl(item1, bindings, range)
+    Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range)
 
 
   /// <summary>
@@ -6929,7 +6929,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.InterfaceImpl synInterfaceImpl)
     try
       match synInterfaceImpl with
-      | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl(item1, bindings, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
         this.BeforeVisitInterfaceImpl_InterfaceImpl(context, item1, bindings, range)
     finally
       parents.Pop() |> ignore
@@ -11250,7 +11250,7 @@ type AstInheritableVisitor<'TContext>() =
      (context: 'TContext,
       item1: Microsoft.FSharp.Compiler.Ast.SynSimplePat list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynSimplePats(item1, range)
+    Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range)
 
   /// <summary>
   /// Before visit "SynSimplePats.Typed" arguments.
@@ -11304,7 +11304,7 @@ type AstInheritableVisitor<'TContext>() =
       item1: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
       item2: Microsoft.FSharp.Compiler.Ast.SynType,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynSimplePats(item1, item2, range)
+    Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range)
 
 
   /// <summary>
@@ -11319,9 +11319,9 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.SimplePats synSimplePats)
     try
       match synSimplePats with
-      | Microsoft.FSharp.Compiler.Ast.SynSimplePats(item1, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range) ->
         this.BeforeVisitSimplePats_SimplePats(context, item1, range)
-      | Microsoft.FSharp.Compiler.Ast.SynSimplePats(item1, item2, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed(item1, item2, range) ->
         this.BeforeVisitSimplePats_Typed(context, item1, item2, range)
     finally
       parents.Pop() |> ignore
@@ -11507,7 +11507,7 @@ type AstInheritableVisitor<'TContext>() =
       id: Microsoft.FSharp.Compiler.Ast.Ident,
       staticReq: Microsoft.FSharp.Compiler.Ast.TyparStaticReq,
       isCompGen: bool) =
-    Microsoft.FSharp.Compiler.Ast.SynTypar(id, staticReq, isCompGen)
+    Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen)
 
 
   /// <summary>
@@ -11522,7 +11522,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.Typar synTypar)
     try
       match synTypar with
-      | Microsoft.FSharp.Compiler.Ast.SynTypar(id, staticReq, isCompGen) ->
+      | Microsoft.FSharp.Compiler.Ast.SynTypar.Typar(id, staticReq, isCompGen) ->
         this.BeforeVisitTypar_Typar(context, id, staticReq, isCompGen)
     finally
       parents.Pop() |> ignore
@@ -11577,7 +11577,7 @@ type AstInheritableVisitor<'TContext>() =
      (context: 'TContext,
       attributes: Microsoft.FSharp.Compiler.Ast.SynAttribute list,
       item2: Microsoft.FSharp.Compiler.Ast.SynTypar) =
-    Microsoft.FSharp.Compiler.Ast.SynTyparDecl(attributes, item2)
+    Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2)
 
 
   /// <summary>
@@ -11592,7 +11592,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.TyparDecl synTyparDecl)
     try
       match synTyparDecl with
-      | Microsoft.FSharp.Compiler.Ast.SynTyparDecl(attributes, item2) ->
+      | Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2) ->
         this.BeforeVisitTyparDecl_TyparDecl(context, attributes, item2)
     finally
       parents.Pop() |> ignore
@@ -13116,7 +13116,7 @@ type AstInheritableVisitor<'TContext>() =
       item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr,
       members: Microsoft.FSharp.Compiler.Ast.SynMemberDefn list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynTypeDefn(item1, item2, members, range)
+    Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range)
 
 
   /// <summary>
@@ -13131,7 +13131,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.TypeDefn synTypeDefn)
     try
       match synTypeDefn with
-      | Microsoft.FSharp.Compiler.Ast.SynTypeDefn(item1, item2, members, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range) ->
         this.BeforeVisitTypeDefn_TypeDefn(context, item1, item2, members, range)
     finally
       parents.Pop() |> ignore
@@ -13848,7 +13848,7 @@ type AstInheritableVisitor<'TContext>() =
       item2: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr,
       memberSigs: Microsoft.FSharp.Compiler.Ast.SynMemberSig list,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig(item1, item2, memberSigs, range)
+    Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range)
 
 
   /// <summary>
@@ -13863,7 +13863,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.TypeDefnSig synTypeDefnSig)
     try
       match synTypeDefnSig with
-      | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig(item1, item2, memberSigs, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
         this.BeforeVisitTypeDefnSig_TypeDefnSig(context, item1, item2, memberSigs, range)
     finally
       parents.Pop() |> ignore
@@ -14572,7 +14572,7 @@ type AstInheritableVisitor<'TContext>() =
       xmlDoc: Microsoft.FSharp.Compiler.Ast.PreXmlDoc,
       accessibility: Microsoft.FSharp.Compiler.Ast.SynAccess option,
       range: Microsoft.FSharp.Compiler.Range.range) =
-    Microsoft.FSharp.Compiler.Ast.SynUnionCase(attributes, id, caseType, xmlDoc, accessibility, range)
+    Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range)
 
 
   /// <summary>
@@ -14587,7 +14587,7 @@ type AstInheritableVisitor<'TContext>() =
     parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.UnionCase synUnionCase)
     try
       match synUnionCase with
-      | Microsoft.FSharp.Compiler.Ast.SynUnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
+      | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
         this.BeforeVisitUnionCase_UnionCase(context, attributes, id, caseType, xmlDoc, accessibility, range)
     finally
       parents.Pop() |> ignore

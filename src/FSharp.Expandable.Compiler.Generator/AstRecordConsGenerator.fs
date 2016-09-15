@@ -32,14 +32,7 @@ type internal AstRecordConsGenerator() =
   inherit GeneratorBase()
   
   let generateByType (t: Type) =
-#if aaa
-    let tn =
-      match t.IsDefined(typeof<RequireQualifiedAccessAttribute>, true) with
-      | true -> (Utilities.formatSafeTypeName t) + "."
-      | false -> ""
-#else
-    let tn = (Utilities.formatSafeTypeName t) + "."
-#endif
+    let tn = (Utilities.formatTypeStrictShortName t) + "."
     let fields = FSharpType.GetRecordFields t
     let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
     let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
@@ -52,7 +45,7 @@ type internal AstRecordConsGenerator() =
       "     {2} =\r\n" +
       "    {{ {3} }}\r\n" +
       "\r\n",
-      Utilities.formatTypeName t,
+      Utilities.formatTypeFullName t,
       t.Name,
       String.Join("\r\n     ", args),
       String.Join(";\r\n      ", inits))

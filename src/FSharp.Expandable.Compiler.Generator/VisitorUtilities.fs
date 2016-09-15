@@ -72,26 +72,30 @@ module internal VisitorUtilities =
 
   // SynAccess --> Access
   let formatUnionTypeShortName (unionType: Type) =
-    toShortName unionType.Name
+    Utilities.formatTypeName unionType |> toShortName
 
-  let requireIgnoreTypeName (unionType: Type) (unionCase: UnionCaseInfo) =
-    let typeName = formatUnionTypeShortName unionType
-    let cases = FSharpType.GetUnionCases unionType
-    cases |> Seq.exists (fun c -> (toShortName c.Name) = typeName)
+  let requireQualifiedCaseName (unionType: Type) =
+    let qa = unionType.IsDefined(typeof<RequireQualifiedAccessAttribute>, true)
+    if qa then
+      true
+    else
+      let typeName = Utilities.formatTypeName unionType
+      let cases = FSharpType.GetUnionCases unionType
+      not (cases |> Seq.exists (fun c -> c.Name = typeName))
 
   // HACK: If casename = typename: compiler meaning 1st name is ignore, 2nd name is alid...
   // https://gitter.im/fsugjp/public?at=57a1776100663f5b1b46528e
   //   ...SynAccess.Public --> ...SynAccess.Public
   //   ...SynArgInfo.SynArgInfo --> ...SynArgInfo
-  //   ...SynBinding.Binding --> ...SynBinding.Binding
+  //   ...SynBinding.Binding --> ...Binding (more shorter)
   let formatUnionCaseName (unionType: Type) (unionCase: UnionCaseInfo) =
-    if requireIgnoreTypeName unionType unionCase then
-      Utilities.formatTypeName unionType
-    else
+    if requireQualifiedCaseName unionType then
       String.Format(
         "{0}.{1}",
-        Utilities.formatTypeName unionType,
+        Utilities.formatTypeFullName unionType,
         unionCase.Name)
+    else
+      Utilities.formatTypeFullName unionType
 
   ///////////////////////////////////////////////////////////////////////////////
   // Examine and compose expression to string:
@@ -227,7 +231,7 @@ module internal VisitorUtilities =
         name,
         "{0} |> {1}.map (fun v -> {2})",
         name,
-        Utilities.formatSafeTypeName t,
+        Utilities.formatTypeStrictShortName t,
         formatWithOperators0 "v" argType visitorName refWrapperHolderName visitTargets)
     // Other types ("arg0")
     | _ ->

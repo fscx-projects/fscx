@@ -67,7 +67,7 @@ type internal AstDelegatableVisitorGenerator() =
       "    with get, set\r\n" +
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
-      Utilities.formatTypeName unionType,
+      Utilities.formatTypeFullName unionType,
       unionType.Name,
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
@@ -134,7 +134,7 @@ type internal AstDelegatableVisitorGenerator() =
       unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatCamelcase unionType.Name,
-      Utilities.formatTypeName unionType)
+      Utilities.formatTypeFullName unionType)
     let unionCases = FSharpType.GetUnionCases unionType
     yield! unionCases |> Seq.map (generateMatcher visitorTargets unionType)
     yield

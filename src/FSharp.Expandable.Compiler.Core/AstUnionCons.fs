@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Wed, 14 Sep 2016 09:27:59 GMT
+// Generated: Thu, 15 Sep 2016 02:37:00 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -672,7 +672,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.OkResult".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genOperationResult`1_OkResult item1 item2 =
+  let genOperationResult_OkResult item1 item2 =
     Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.OkResult
       (item1,
        item2)
@@ -681,7 +681,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.ErrorResult".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genOperationResult`1_ErrorResult item1 item2 =
+  let genOperationResult_ErrorResult item1 item2 =
     Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.ErrorResult
       (item1,
        item2)
@@ -693,7 +693,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genFsiInteraction_IDefns item1 range =
+  let genParsedFsiInteraction_IDefns item1 range =
     Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns
       (item1,
        range)
@@ -702,7 +702,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genFsiInteraction_IHash item1 range =
+  let genParsedFsiInteraction_IHash item1 range =
     Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IHash
       (item1,
        range)
@@ -714,7 +714,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedHashDirective".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genHashDirective item1 item2 range =
+  let genParsedHashDirective item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.ParsedHashDirective
       (item1,
        item2,
@@ -727,7 +727,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFile".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genImplFile hashDirectives item2 =
+  let genParsedImplFile hashDirectives item2 =
     Microsoft.FSharp.Compiler.Ast.ParsedImplFile
       (hashDirectives,
        item2)
@@ -739,7 +739,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genImplFileFragment_AnonModule moduleDecls range =
+  let genParsedImplFileFragment_AnonModule moduleDecls range =
     Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule
       (moduleDecls,
        range)
@@ -748,7 +748,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genImplFileFragment_NamespaceFragment longId item2 item3 moduleDecls xmlDoc attributes range =
+  let genParsedImplFileFragment_NamespaceFragment longId item2 item3 moduleDecls xmlDoc attributes range =
     Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.NamespaceFragment
       (longId,
        item2,
@@ -765,7 +765,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genImplFileInput filename isScript item3 item4 item5 item6 item7 =
+  let genParsedImplFileInput filename isScript item3 item4 item5 item6 item7 =
     Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput
       (filename,
        isScript,
@@ -782,7 +782,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFile".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSigFile hashDirectives item2 =
+  let genParsedSigFile hashDirectives item2 =
     Microsoft.FSharp.Compiler.Ast.ParsedSigFile
       (hashDirectives,
        item2)
@@ -794,7 +794,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSigFileFragment_AnonModule moduleSigDecl range =
+  let genParsedSigFileFragment_AnonModule moduleSigDecl range =
     Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule
       (moduleSigDecl,
        range)
@@ -803,7 +803,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSigFileFragment_NamespaceFragment longId item2 item3 moduleSigDecls xmlDoc attributes range =
+  let genParsedSigFileFragment_NamespaceFragment longId item2 item3 moduleSigDecls xmlDoc attributes range =
     Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.NamespaceFragment
       (longId,
        item2,
@@ -820,7 +820,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSigFileInput filename item2 item3 item4 item5 =
+  let genParsedSigFileInput filename item2 item3 item4 item5 =
     Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput
       (filename,
        item2,
@@ -835,7 +835,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.PreXmlDoc".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPreXmlDoc item1 item2 =
+  let genPreXmlMerge item1 item2 =
     Microsoft.FSharp.Compiler.Ast.PreXmlDoc
       (item1,
        item2)
@@ -868,7 +868,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynArgInfo".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genArgInfo attributes optional id =
+  let genSynArgInfo attributes optional id =
     Microsoft.FSharp.Compiler.Ast.SynArgInfo
       (attributes,
        optional,
@@ -878,11 +878,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynBinding".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynBinding".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynBinding.Binding".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genBinding access bindingKind mustInline isMutable attributes xmlDoc item7 headPat item9 expr lhsRange spBind =
-    Microsoft.FSharp.Compiler.Ast.SynBinding
+  let genSynBinding_Binding access bindingKind mustInline isMutable attributes xmlDoc item7 headPat item9 expr lhsRange spBind =
+    Microsoft.FSharp.Compiler.Ast.SynBinding.Binding
       (access,
        bindingKind,
        mustInline,
@@ -903,7 +903,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genBindingReturnInfo typeName range attributes =
+  let genSynBindingReturnInfo typeName range attributes =
     Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo
       (typeName,
        range,
@@ -913,11 +913,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynComponentInfo".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynComponentInfo".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genComponentInfo attributes typeParams constraints item4 xmlDoc preferPostfix accessiblity range =
-    Microsoft.FSharp.Compiler.Ast.SynComponentInfo
+  let genSynComponentInfo_ComponentInfo attributes typeParams constraints item4 xmlDoc preferPostfix accessiblity range =
+    Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo
       (attributes,
        typeParams,
        constraints,
@@ -934,7 +934,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConst.String".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genConst_String text range =
+  let genSynConst_String text range =
     Microsoft.FSharp.Compiler.Ast.SynConst.String
       (text,
        range)
@@ -943,7 +943,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConst.Bytes".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genConst_Bytes bytes range =
+  let genSynConst_Bytes bytes range =
     Microsoft.FSharp.Compiler.Ast.SynConst.Bytes
       (bytes,
        range)
@@ -952,7 +952,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConst.Measure".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genConst_Measure constant item2 =
+  let genSynConst_Measure constant item2 =
     Microsoft.FSharp.Compiler.Ast.SynConst.Measure
       (constant,
        item2)
@@ -964,7 +964,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genConstructorArgs_NamePatPairs item1 range =
+  let genSynConstructorArgs_NamePatPairs item1 range =
     Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs
       (item1,
        range)
@@ -973,11 +973,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynEnumCase".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynEnumCase".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genEnumCase attributes id item3 xmlDoc range =
-    Microsoft.FSharp.Compiler.Ast.SynEnumCase
+  let genSynEnumCase_EnumCase attributes id item3 xmlDoc range =
+    Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase
       (attributes,
        id,
        item3,
@@ -991,7 +991,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefn".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExceptionDefn exnRepr members range =
+  let genSynExceptionDefn exnRepr members range =
     Microsoft.FSharp.Compiler.Ast.SynExceptionDefn
       (exnRepr,
        members,
@@ -1004,7 +1004,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExceptionDefnRepr item1 case longId xmlDoc accesibility range =
+  let genSynExceptionDefnRepr item1 case longId xmlDoc accesibility range =
     Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr
       (item1,
        case,
@@ -1020,7 +1020,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionSig".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExceptionSig exnRepr memberSigs range =
+  let genSynExceptionSig exnRepr memberSigs range =
     Microsoft.FSharp.Compiler.Ast.SynExceptionSig
       (exnRepr,
        memberSigs,
@@ -1033,7 +1033,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Paren".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Paren expr leftParenRange rightParenRange range =
+  let genSynExpr_Paren expr leftParenRange rightParenRange range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Paren
       (expr,
        leftParenRange,
@@ -1044,7 +1044,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Quote".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Quote operator isRaw quotedSynExpr isFromQueryExpression range =
+  let genSynExpr_Quote operator isRaw quotedSynExpr isFromQueryExpression range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Quote
       (operator,
        isRaw,
@@ -1056,7 +1056,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Const".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Const constant range =
+  let genSynExpr_Const constant range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Const
       (constant,
        range)
@@ -1065,7 +1065,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Typed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Typed expr typeSig range =
+  let genSynExpr_Typed expr typeSig range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Typed
       (expr,
        typeSig,
@@ -1075,7 +1075,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Tuple exprs commaRanges range =
+  let genSynExpr_Tuple exprs commaRanges range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple
       (exprs,
        commaRanges,
@@ -1085,7 +1085,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_ArrayOrList isList exprs range =
+  let genSynExpr_ArrayOrList isList exprs range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrList
       (isList,
        exprs,
@@ -1095,7 +1095,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Record".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Record baseInfo copyInfo recordFields range =
+  let genSynExpr_Record baseInfo copyInfo recordFields range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Record
       (baseInfo,
        copyInfo,
@@ -1106,7 +1106,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.New".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_New isProtected typeName expr range =
+  let genSynExpr_New isProtected typeName expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.New
       (isProtected,
        typeName,
@@ -1117,7 +1117,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_ObjExpr objType argOpt bindings extraImpls newPos range =
+  let genSynExpr_ObjExpr objType argOpt bindings extraImpls newPos range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.ObjExpr
       (objType,
        argOpt,
@@ -1130,7 +1130,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.While".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_While spWhile whileBody doBody range =
+  let genSynExpr_While spWhile whileBody doBody range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.While
       (spWhile,
        whileBody,
@@ -1141,7 +1141,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.For".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_For spFor id idBody item4 toBody doBody range =
+  let genSynExpr_For spFor id idBody item4 toBody doBody range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.For
       (spFor,
        id,
@@ -1155,7 +1155,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_ForEach spFor seqExprOnly isFromSource pattern enumExpr bodyExpr range =
+  let genSynExpr_ForEach spFor seqExprOnly isFromSource pattern enumExpr bodyExpr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.ForEach
       (spFor,
        seqExprOnly,
@@ -1169,7 +1169,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_ArrayOrListOfSeqExpr isList elements range =
+  let genSynExpr_ArrayOrListOfSeqExpr isList elements range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.ArrayOrListOfSeqExpr
       (isList,
        elements,
@@ -1179,7 +1179,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_CompExpr isArrayOrList isNotNakedRefCell expr range =
+  let genSynExpr_CompExpr isArrayOrList isNotNakedRefCell expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.CompExpr
       (isArrayOrList,
        isNotNakedRefCell,
@@ -1190,7 +1190,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Lambda fromMethod inLambdaSeq args body range =
+  let genSynExpr_Lambda fromMethod inLambdaSeq args body range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Lambda
       (fromMethod,
        inLambdaSeq,
@@ -1202,7 +1202,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_MatchLambda item1 item2 clauses spBind range =
+  let genSynExpr_MatchLambda item1 item2 clauses spBind range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.MatchLambda
       (item1,
        item2,
@@ -1214,7 +1214,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Match".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Match spBind matchExpr clauses isCexprExceptionMatch range =
+  let genSynExpr_Match spBind matchExpr clauses isCexprExceptionMatch range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Match
       (spBind,
        matchExpr,
@@ -1226,7 +1226,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Do".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Do expr range =
+  let genSynExpr_Do expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Do
       (expr,
        range)
@@ -1235,7 +1235,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Assert".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Assert expr range =
+  let genSynExpr_Assert expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Assert
       (expr,
        range)
@@ -1244,7 +1244,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.App".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_App exprAtomicFlag isInfix funcExpr argExpr range =
+  let genSynExpr_App exprAtomicFlag isInfix funcExpr argExpr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.App
       (exprAtomicFlag,
        isInfix,
@@ -1256,7 +1256,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_TypeApp expr leftAngleRange typeNames commaRanges rightAngleRange typeArgs range =
+  let genSynExpr_TypeApp expr leftAngleRange typeNames commaRanges rightAngleRange typeArgs range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.TypeApp
       (expr,
        leftAngleRange,
@@ -1270,7 +1270,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LetOrUse isRecursive isUse bindings exprBody range =
+  let genSynExpr_LetOrUse isRecursive isUse bindings exprBody range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse
       (isRecursive,
        isUse,
@@ -1282,7 +1282,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_TryWith tryExpr item2 item3 item4 range spTry spWith =
+  let genSynExpr_TryWith tryExpr item2 item3 item4 range spTry spWith =
     Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith
       (tryExpr,
        item2,
@@ -1296,7 +1296,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_TryFinally tryExpr finallyExpr range spTry spFinally =
+  let genSynExpr_TryFinally tryExpr finallyExpr range spTry spFinally =
     Microsoft.FSharp.Compiler.Ast.SynExpr.TryFinally
       (tryExpr,
        finallyExpr,
@@ -1308,7 +1308,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Lazy expr range =
+  let genSynExpr_Lazy expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Lazy
       (expr,
        range)
@@ -1317,7 +1317,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Sequential spSeq isTrueSeq expr1 expr2 range =
+  let genSynExpr_Sequential spSeq isTrueSeq expr1 expr2 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Sequential
       (spSeq,
        isTrueSeq,
@@ -1329,7 +1329,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_IfThenElse exprGuard exprThen optionalExprElse spIfToThen isFromErrorRecovery ifToThen range =
+  let genSynExpr_IfThenElse exprGuard exprThen optionalExprElse spIfToThen isFromErrorRecovery ifToThen range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.IfThenElse
       (exprGuard,
        exprThen,
@@ -1343,7 +1343,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LongIdent isOptional longIdent altNameRefCell range =
+  let genSynExpr_LongIdent isOptional longIdent altNameRefCell range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdent
       (isOptional,
        longIdent,
@@ -1354,7 +1354,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LongIdentSet dotId expr range =
+  let genSynExpr_LongIdentSet dotId expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LongIdentSet
       (dotId,
        expr,
@@ -1364,7 +1364,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DotGet expr rangeOfDot dotId range =
+  let genSynExpr_DotGet expr rangeOfDot dotId range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DotGet
       (expr,
        rangeOfDot,
@@ -1375,7 +1375,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DotSet expr dotId exprValue range =
+  let genSynExpr_DotSet expr dotId exprValue range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DotSet
       (expr,
        dotId,
@@ -1386,7 +1386,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DotIndexedGet expr indexExprs item3 range =
+  let genSynExpr_DotIndexedGet expr indexExprs item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedGet
       (expr,
        indexExprs,
@@ -1397,7 +1397,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DotIndexedSet objectExpr indexExprs valueExpr rangeOfLeftOfSet rangeOfDot range =
+  let genSynExpr_DotIndexedSet objectExpr indexExprs valueExpr rangeOfLeftOfSet rangeOfDot range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DotIndexedSet
       (objectExpr,
        indexExprs,
@@ -1410,7 +1410,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_NamedIndexedPropertySet item1 item2 item3 range =
+  let genSynExpr_NamedIndexedPropertySet item1 item2 item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.NamedIndexedPropertySet
       (item1,
        item2,
@@ -1421,7 +1421,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DotNamedIndexedPropertySet item1 item2 item3 item4 range =
+  let genSynExpr_DotNamedIndexedPropertySet item1 item2 item3 item4 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DotNamedIndexedPropertySet
       (item1,
        item2,
@@ -1433,7 +1433,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_TypeTest expr typeName range =
+  let genSynExpr_TypeTest expr typeName range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.TypeTest
       (expr,
        typeName,
@@ -1443,7 +1443,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Upcast expr typeSig range =
+  let genSynExpr_Upcast expr typeSig range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Upcast
       (expr,
        typeSig,
@@ -1453,7 +1453,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Downcast expr typeName range =
+  let genSynExpr_Downcast expr typeName range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Downcast
       (expr,
        typeName,
@@ -1463,7 +1463,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_InferredUpcast expr range =
+  let genSynExpr_InferredUpcast expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.InferredUpcast
       (expr,
        range)
@@ -1472,7 +1472,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_InferredDowncast expr range =
+  let genSynExpr_InferredDowncast expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.InferredDowncast
       (expr,
        range)
@@ -1481,7 +1481,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_AddressOf item1 item2 item3 range =
+  let genSynExpr_AddressOf item1 item2 item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.AddressOf
       (item1,
        item2,
@@ -1492,7 +1492,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_TraitCall item1 item2 item3 range =
+  let genSynExpr_TraitCall item1 item2 item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.TraitCall
       (item1,
        item2,
@@ -1503,7 +1503,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_JoinIn item1 inPos item3 range =
+  let genSynExpr_JoinIn item1 inPos item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.JoinIn
       (item1,
        inPos,
@@ -1514,7 +1514,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_YieldOrReturn item1 expr range =
+  let genSynExpr_YieldOrReturn item1 expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturn
       (item1,
        expr,
@@ -1524,7 +1524,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_YieldOrReturnFrom item1 expr range =
+  let genSynExpr_YieldOrReturnFrom item1 expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.YieldOrReturnFrom
       (item1,
        expr,
@@ -1534,7 +1534,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LetOrUseBang spBind isUse isFromSource pattern rhsExpr bodyExpr range =
+  let genSynExpr_LetOrUseBang spBind isUse isFromSource pattern rhsExpr bodyExpr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUseBang
       (spBind,
        isUse,
@@ -1548,7 +1548,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DoBang expr range =
+  let genSynExpr_DoBang expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DoBang
       (expr,
        range)
@@ -1557,7 +1557,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LibraryOnlyILAssembly item1 item2 item3 item4 range =
+  let genSynExpr_LibraryOnlyILAssembly item1 item2 item3 item4 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyILAssembly
       (item1,
        item2,
@@ -1569,7 +1569,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LibraryOnlyStaticOptimization item1 item2 item3 range =
+  let genSynExpr_LibraryOnlyStaticOptimization item1 item2 item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyStaticOptimization
       (item1,
        item2,
@@ -1580,7 +1580,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LibraryOnlyUnionCaseFieldGet item1 longId item3 range =
+  let genSynExpr_LibraryOnlyUnionCaseFieldGet item1 longId item3 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldGet
       (item1,
        longId,
@@ -1591,7 +1591,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_LibraryOnlyUnionCaseFieldSet item1 longId item3 item4 range =
+  let genSynExpr_LibraryOnlyUnionCaseFieldSet item1 longId item3 item4 range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.LibraryOnlyUnionCaseFieldSet
       (item1,
        longId,
@@ -1603,7 +1603,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_ArbitraryAfterError debugStr range =
+  let genSynExpr_ArbitraryAfterError debugStr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.ArbitraryAfterError
       (debugStr,
        range)
@@ -1612,7 +1612,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_FromParseError expr range =
+  let genSynExpr_FromParseError expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.FromParseError
       (expr,
        range)
@@ -1621,7 +1621,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_DiscardAfterMissingQualificationAfterDot expr range =
+  let genSynExpr_DiscardAfterMissingQualificationAfterDot expr range =
     Microsoft.FSharp.Compiler.Ast.SynExpr.DiscardAfterMissingQualificationAfterDot
       (expr,
        range)
@@ -1630,7 +1630,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genExpr_Fixed item1 item2 =
+  let genSynExpr_Fixed item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynExpr.Fixed
       (item1,
        item2)
@@ -1639,11 +1639,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynField".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynField".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynField.Field".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genField attributes isStatic id typeName item5 xmlDoc accessiblity range =
-    Microsoft.FSharp.Compiler.Ast.SynField
+  let genSynField_Field attributes isStatic id typeName item5 xmlDoc accessiblity range =
+    Microsoft.FSharp.Compiler.Ast.SynField.Field
       (attributes,
        isStatic,
        id,
@@ -1660,7 +1660,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genIndexerArg_Two item1 item2 =
+  let genSynIndexerArg_Two item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two
       (item1,
        item2)
@@ -1669,11 +1669,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genInterfaceImpl item1 bindings range =
-    Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl
+  let genSynInterfaceImpl_InterfaceImpl item1 bindings range =
+    Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl
       (item1,
        bindings,
        range)
@@ -1685,7 +1685,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMatchClause_Clause item1 item2 item3 range spTarget =
+  let genSynMatchClause_Clause item1 item2 item3 range spTarget =
     Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause
       (item1,
        item2,
@@ -1700,7 +1700,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Named".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Named longId range =
+  let genSynMeasure_Named longId range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Named
       (longId,
        range)
@@ -1709,7 +1709,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Product".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Product item1 item2 range =
+  let genSynMeasure_Product item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Product
       (item1,
        item2,
@@ -1719,7 +1719,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Seq item1 range =
+  let genSynMeasure_Seq item1 range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Seq
       (item1,
        range)
@@ -1728,7 +1728,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Divide item1 item2 range =
+  let genSynMeasure_Divide item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Divide
       (item1,
        item2,
@@ -1738,7 +1738,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Power".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Power item1 item2 range =
+  let genSynMeasure_Power item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Power
       (item1,
        item2,
@@ -1748,7 +1748,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Var".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMeasure_Var item1 range =
+  let genSynMeasure_Var item1 range =
     Microsoft.FSharp.Compiler.Ast.SynMeasure.Var
       (item1,
        range)
@@ -1760,7 +1760,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_Open longId range =
+  let genSynMemberDefn_Open longId range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open
       (longId,
        range)
@@ -1769,7 +1769,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_Member memberDefn range =
+  let genSynMemberDefn_Member memberDefn range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member
       (memberDefn,
        range)
@@ -1778,7 +1778,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_ImplicitCtor accessiblity attributes ctorArgs selfIdentifier range =
+  let genSynMemberDefn_ImplicitCtor accessiblity attributes ctorArgs selfIdentifier range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitCtor
       (accessiblity,
        attributes,
@@ -1790,7 +1790,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_ImplicitInherit inheritType inheritArgs inheritAlias range =
+  let genSynMemberDefn_ImplicitInherit inheritType inheritArgs inheritAlias range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ImplicitInherit
       (inheritType,
        inheritArgs,
@@ -1801,7 +1801,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_LetBindings bindings isStatic isRecursive range =
+  let genSynMemberDefn_LetBindings bindings isStatic isRecursive range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.LetBindings
       (bindings,
        isStatic,
@@ -1812,7 +1812,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_AbstractSlot valSig memberFlags range =
+  let genSynMemberDefn_AbstractSlot valSig memberFlags range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AbstractSlot
       (valSig,
        memberFlags,
@@ -1822,7 +1822,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_Interface typeName interfaceMembers range =
+  let genSynMemberDefn_Interface typeName interfaceMembers range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Interface
       (typeName,
        interfaceMembers,
@@ -1832,7 +1832,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_Inherit typeName id range =
+  let genSynMemberDefn_Inherit typeName id range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Inherit
       (typeName,
        id,
@@ -1842,7 +1842,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_ValField field range =
+  let genSynMemberDefn_ValField field range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.ValField
       (field,
        range)
@@ -1851,7 +1851,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_NestedType typeDefn accessiblity range =
+  let genSynMemberDefn_NestedType typeDefn accessiblity range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.NestedType
       (typeDefn,
        accessiblity,
@@ -1861,7 +1861,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberDefn_AutoProperty attributes isStatic id tyOpt propKind memberFlags xmlDoc accessibility expr getSetPos range =
+  let genSynMemberDefn_AutoProperty attributes isStatic id tyOpt propKind memberFlags xmlDoc accessibility expr getSetPos range =
     Microsoft.FSharp.Compiler.Ast.SynMemberDefn.AutoProperty
       (attributes,
        isStatic,
@@ -1882,7 +1882,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberSig_Member item1 memberFlags range =
+  let genSynMemberSig_Member item1 memberFlags range =
     Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member
       (item1,
        memberFlags,
@@ -1892,7 +1892,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberSig_Interface typeName range =
+  let genSynMemberSig_Interface typeName range =
     Microsoft.FSharp.Compiler.Ast.SynMemberSig.Interface
       (typeName,
        range)
@@ -1901,7 +1901,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberSig_Inherit typeName range =
+  let genSynMemberSig_Inherit typeName range =
     Microsoft.FSharp.Compiler.Ast.SynMemberSig.Inherit
       (typeName,
        range)
@@ -1910,7 +1910,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberSig_ValField field range =
+  let genSynMemberSig_ValField field range =
     Microsoft.FSharp.Compiler.Ast.SynMemberSig.ValField
       (field,
        range)
@@ -1919,7 +1919,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genMemberSig_NestedType typeDefnSig range =
+  let genSynMemberSig_NestedType typeDefnSig range =
     Microsoft.FSharp.Compiler.Ast.SynMemberSig.NestedType
       (typeDefnSig,
        range)
@@ -1931,7 +1931,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_ModuleAbbrev item1 item2 item3 =
+  let genSynModuleDecl_ModuleAbbrev item1 item2 item3 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev
       (item1,
        item2,
@@ -1941,7 +1941,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_NestedModule item1 isRec item3 item4 item5 =
+  let genSynModuleDecl_NestedModule item1 isRec item3 item4 item5 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule
       (item1,
        isRec,
@@ -1953,7 +1953,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_Let item1 item2 item3 =
+  let genSynModuleDecl_Let item1 item2 item3 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Let
       (item1,
        item2,
@@ -1963,7 +1963,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_DoExpr item1 item2 item3 =
+  let genSynModuleDecl_DoExpr item1 item2 item3 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.DoExpr
       (item1,
        item2,
@@ -1973,7 +1973,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_Types item1 item2 =
+  let genSynModuleDecl_Types item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Types
       (item1,
        item2)
@@ -1982,7 +1982,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_Exception item1 item2 =
+  let genSynModuleDecl_Exception item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Exception
       (item1,
        item2)
@@ -1991,7 +1991,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_Open item1 item2 =
+  let genSynModuleDecl_Open item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Open
       (item1,
        item2)
@@ -2000,7 +2000,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_Attributes item1 item2 =
+  let genSynModuleDecl_Attributes item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.Attributes
       (item1,
        item2)
@@ -2009,7 +2009,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleDecl_HashDirective item1 item2 =
+  let genSynModuleDecl_HashDirective item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynModuleDecl.HashDirective
       (item1,
        item2)
@@ -2021,7 +2021,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleOrNamespace id isRec isModule decls xmlDoc attributes access range =
+  let genSynModuleOrNamespace id isRec isModule decls xmlDoc attributes access range =
     Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace
       (id,
        isRec,
@@ -2039,7 +2039,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleOrNamespaceSig id isRec isModule item4 xmlDoc attributes item7 range =
+  let genSynModuleOrNamespaceSig id isRec isModule item4 xmlDoc attributes item7 range =
     Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig
       (id,
        isRec,
@@ -2057,7 +2057,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_ModuleAbbrev id longId range =
+  let genSynModuleSigDecl_ModuleAbbrev id longId range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev
       (id,
        longId,
@@ -2067,7 +2067,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_NestedModule item1 isRec moduleSigDecls range =
+  let genSynModuleSigDecl_NestedModule item1 isRec moduleSigDecls range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule
       (item1,
        isRec,
@@ -2078,7 +2078,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_Val valSig range =
+  let genSynModuleSigDecl_Val valSig range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Val
       (valSig,
        range)
@@ -2087,7 +2087,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_Types typeDefSigs range =
+  let genSynModuleSigDecl_Types typeDefSigs range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Types
       (typeDefSigs,
        range)
@@ -2096,7 +2096,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_Exception exnSig range =
+  let genSynModuleSigDecl_Exception exnSig range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Exception
       (exnSig,
        range)
@@ -2105,7 +2105,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_Open longId range =
+  let genSynModuleSigDecl_Open longId range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.Open
       (longId,
        range)
@@ -2114,7 +2114,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genModuleSigDecl_HashDirective hashDirective range =
+  let genSynModuleSigDecl_HashDirective hashDirective range =
     Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.HashDirective
       (hashDirective,
        range)
@@ -2126,7 +2126,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Const".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Const constant range =
+  let genSynPat_Const constant range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Const
       (constant,
        range)
@@ -2135,7 +2135,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Named".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Named item1 id isThisVar accessiblity range =
+  let genSynPat_Named item1 id isThisVar accessiblity range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Named
       (item1,
        id,
@@ -2147,7 +2147,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Typed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Typed item1 typeName range =
+  let genSynPat_Typed item1 typeName range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Typed
       (item1,
        typeName,
@@ -2157,7 +2157,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Attrib".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Attrib item1 attributes range =
+  let genSynPat_Attrib item1 attributes range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Attrib
       (item1,
        attributes,
@@ -2167,7 +2167,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Or".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Or item1 item2 range =
+  let genSynPat_Or item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Or
       (item1,
        item2,
@@ -2177,7 +2177,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Ands".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Ands item1 range =
+  let genSynPat_Ands item1 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Ands
       (item1,
        range)
@@ -2186,7 +2186,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_LongIdent dotId item2 item3 item4 item5 range =
+  let genSynPat_LongIdent dotId item2 item3 item4 item5 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.LongIdent
       (dotId,
        item2,
@@ -2199,7 +2199,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Tuple".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Tuple item1 range =
+  let genSynPat_Tuple item1 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Tuple
       (item1,
        range)
@@ -2208,7 +2208,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Paren".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Paren item1 range =
+  let genSynPat_Paren item1 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Paren
       (item1,
        range)
@@ -2217,7 +2217,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_ArrayOrList item1 item2 range =
+  let genSynPat_ArrayOrList item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.ArrayOrList
       (item1,
        item2,
@@ -2227,7 +2227,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Record".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_Record fields range =
+  let genSynPat_Record fields range =
     Microsoft.FSharp.Compiler.Ast.SynPat.Record
       (fields,
        range)
@@ -2236,7 +2236,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_OptionalVal item1 range =
+  let genSynPat_OptionalVal item1 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.OptionalVal
       (item1,
        range)
@@ -2245,7 +2245,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.IsInst".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_IsInst typeName range =
+  let genSynPat_IsInst typeName range =
     Microsoft.FSharp.Compiler.Ast.SynPat.IsInst
       (typeName,
        range)
@@ -2254,7 +2254,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_QuoteExpr expr range =
+  let genSynPat_QuoteExpr expr range =
     Microsoft.FSharp.Compiler.Ast.SynPat.QuoteExpr
       (expr,
        range)
@@ -2263,7 +2263,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_DeprecatedCharRange item1 item2 range =
+  let genSynPat_DeprecatedCharRange item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.DeprecatedCharRange
       (item1,
        item2,
@@ -2273,7 +2273,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_InstanceMember item1 item2 item3 accesiblity range =
+  let genSynPat_InstanceMember item1 item2 item3 accesiblity range =
     Microsoft.FSharp.Compiler.Ast.SynPat.InstanceMember
       (item1,
        item2,
@@ -2285,7 +2285,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genPat_FromParseError item1 range =
+  let genSynPat_FromParseError item1 range =
     Microsoft.FSharp.Compiler.Ast.SynPat.FromParseError
       (item1,
        range)
@@ -2297,7 +2297,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genRationalConst_Rational item1 item2 item3 =
+  let genSynRationalConst_Rational item1 item2 item3 =
     Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational
       (item1,
        item2,
@@ -2310,7 +2310,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynReturnInfo".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genReturnInfo item1 range =
+  let genSynReturnInfo item1 range =
     Microsoft.FSharp.Compiler.Ast.SynReturnInfo
       (item1,
        range)
@@ -2322,7 +2322,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSimplePat_Id ident altNameRefCell isCompilerGenerated isThisVar isOptArg range =
+  let genSynSimplePat_Id ident altNameRefCell isCompilerGenerated isThisVar isOptArg range =
     Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id
       (ident,
        altNameRefCell,
@@ -2335,7 +2335,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSimplePat_Typed item1 typeName range =
+  let genSynSimplePat_Typed item1 typeName range =
     Microsoft.FSharp.Compiler.Ast.SynSimplePat.Typed
       (item1,
        typeName,
@@ -2345,7 +2345,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSimplePat_Attrib item1 attributes range =
+  let genSynSimplePat_Attrib item1 attributes range =
     Microsoft.FSharp.Compiler.Ast.SynSimplePat.Attrib
       (item1,
        attributes,
@@ -2355,20 +2355,20 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSimplePats item1 range =
-    Microsoft.FSharp.Compiler.Ast.SynSimplePats
+  let genSynSimplePats_SimplePats item1 range =
+    Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats
       (item1,
        range)
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genSimplePats item1 item2 range =
-    Microsoft.FSharp.Compiler.Ast.SynSimplePats
+  let genSynSimplePats_Typed item1 item2 range =
+    Microsoft.FSharp.Compiler.Ast.SynSimplePats.Typed
       (item1,
        item2,
        range)
@@ -2380,7 +2380,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genStaticOptimizationConstraint_WhenTyparTyconEqualsTycon item1 item2 range =
+  let genSynStaticOptimizationConstraint_WhenTyparTyconEqualsTycon item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon
       (item1,
        item2,
@@ -2390,7 +2390,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genStaticOptimizationConstraint_WhenTyparIsStruct item1 range =
+  let genSynStaticOptimizationConstraint_WhenTyparIsStruct item1 range =
     Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparIsStruct
       (item1,
        range)
@@ -2399,11 +2399,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypar".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypar".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypar.Typar".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypar id staticReq isCompGen =
-    Microsoft.FSharp.Compiler.Ast.SynTypar
+  let genSynTypar_Typar id staticReq isCompGen =
+    Microsoft.FSharp.Compiler.Ast.SynTypar.Typar
       (id,
        staticReq,
        isCompGen)
@@ -2412,11 +2412,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTyparDecl".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTyparDecl".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTyparDecl attributes item2 =
-    Microsoft.FSharp.Compiler.Ast.SynTyparDecl
+  let genSynTyparDecl_TyparDecl attributes item2 =
+    Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl
       (attributes,
        item2)
 
@@ -2427,7 +2427,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.App".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_App typeName leftAngleRange typeArgs commaRanges rightAngleRange isPostfix range =
+  let genSynType_App typeName leftAngleRange typeArgs commaRanges rightAngleRange isPostfix range =
     Microsoft.FSharp.Compiler.Ast.SynType.App
       (typeName,
        leftAngleRange,
@@ -2441,7 +2441,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_LongIdentApp typeName dotId leftAngleRange genericNames commaRanges rightAngleRange range =
+  let genSynType_LongIdentApp typeName dotId leftAngleRange genericNames commaRanges rightAngleRange range =
     Microsoft.FSharp.Compiler.Ast.SynType.LongIdentApp
       (typeName,
        dotId,
@@ -2455,7 +2455,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.Tuple".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_Tuple item1 range =
+  let genSynType_Tuple item1 range =
     Microsoft.FSharp.Compiler.Ast.SynType.Tuple
       (item1,
        range)
@@ -2464,7 +2464,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.Array".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_Array item1 elementType range =
+  let genSynType_Array item1 elementType range =
     Microsoft.FSharp.Compiler.Ast.SynType.Array
       (item1,
        elementType,
@@ -2474,7 +2474,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.Fun".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_Fun argType returnType range =
+  let genSynType_Fun argType returnType range =
     Microsoft.FSharp.Compiler.Ast.SynType.Fun
       (argType,
        returnType,
@@ -2484,7 +2484,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.Var".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_Var item1 range =
+  let genSynType_Var item1 range =
     Microsoft.FSharp.Compiler.Ast.SynType.Var
       (item1,
        range)
@@ -2493,7 +2493,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_WithGlobalConstraints typeName constraints range =
+  let genSynType_WithGlobalConstraints typeName constraints range =
     Microsoft.FSharp.Compiler.Ast.SynType.WithGlobalConstraints
       (typeName,
        constraints,
@@ -2503,7 +2503,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_HashConstraint typeName range =
+  let genSynType_HashConstraint typeName range =
     Microsoft.FSharp.Compiler.Ast.SynType.HashConstraint
       (typeName,
        range)
@@ -2512,7 +2512,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_MeasureDivide typeName item2 range =
+  let genSynType_MeasureDivide typeName item2 range =
     Microsoft.FSharp.Compiler.Ast.SynType.MeasureDivide
       (typeName,
        item2,
@@ -2522,7 +2522,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_MeasurePower typeName item2 range =
+  let genSynType_MeasurePower typeName item2 range =
     Microsoft.FSharp.Compiler.Ast.SynType.MeasurePower
       (typeName,
        item2,
@@ -2532,7 +2532,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_StaticConstant constant range =
+  let genSynType_StaticConstant constant range =
     Microsoft.FSharp.Compiler.Ast.SynType.StaticConstant
       (constant,
        range)
@@ -2541,7 +2541,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_StaticConstantExpr expr range =
+  let genSynType_StaticConstantExpr expr range =
     Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantExpr
       (expr,
        range)
@@ -2550,7 +2550,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genType_StaticConstantNamed item1 item2 range =
+  let genSynType_StaticConstantNamed item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynType.StaticConstantNamed
       (item1,
        item2,
@@ -2563,7 +2563,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsValueType genericName range =
+  let genSynTypeConstraint_WhereTyparIsValueType genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType
       (genericName,
        range)
@@ -2572,7 +2572,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsReferenceType genericName range =
+  let genSynTypeConstraint_WhereTyparIsReferenceType genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsReferenceType
       (genericName,
        range)
@@ -2581,7 +2581,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsUnmanaged genericName range =
+  let genSynTypeConstraint_WhereTyparIsUnmanaged genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsUnmanaged
       (genericName,
        range)
@@ -2590,7 +2590,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparSupportsNull genericName range =
+  let genSynTypeConstraint_WhereTyparSupportsNull genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsNull
       (genericName,
        range)
@@ -2599,7 +2599,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsComparable genericName range =
+  let genSynTypeConstraint_WhereTyparIsComparable genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsComparable
       (genericName,
        range)
@@ -2608,7 +2608,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsEquatable genericName range =
+  let genSynTypeConstraint_WhereTyparIsEquatable genericName range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEquatable
       (genericName,
        range)
@@ -2617,7 +2617,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparDefaultsToType genericName typeSig range =
+  let genSynTypeConstraint_WhereTyparDefaultsToType genericName typeSig range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparDefaultsToType
       (genericName,
        typeSig,
@@ -2627,7 +2627,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparSubtypeOfType genericName typeSig range =
+  let genSynTypeConstraint_WhereTyparSubtypeOfType genericName typeSig range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSubtypeOfType
       (genericName,
        typeSig,
@@ -2637,7 +2637,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparSupportsMember genericNames memberSig range =
+  let genSynTypeConstraint_WhereTyparSupportsMember genericNames memberSig range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparSupportsMember
       (genericNames,
        memberSig,
@@ -2647,7 +2647,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsEnum genericName enumTypes range =
+  let genSynTypeConstraint_WhereTyparIsEnum genericName enumTypes range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsEnum
       (genericName,
        enumTypes,
@@ -2657,7 +2657,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeConstraint_WhereTyparIsDelegate genericName delegateTypes range =
+  let genSynTypeConstraint_WhereTyparIsDelegate genericName delegateTypes range =
     Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsDelegate
       (genericName,
        delegateTypes,
@@ -2667,11 +2667,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefn".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefn".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefn item1 item2 members range =
-    Microsoft.FSharp.Compiler.Ast.SynTypeDefn
+  let genSynTypeDefn_TypeDefn item1 item2 members range =
+    Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn
       (item1,
        item2,
        members,
@@ -2684,7 +2684,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnKind_TyconDelegate item1 item2 =
+  let genSynTypeDefnKind_TyconDelegate item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate
       (item1,
        item2)
@@ -2696,7 +2696,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnRepr_ObjectModel item1 members range =
+  let genSynTypeDefnRepr_ObjectModel item1 members range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel
       (item1,
        members,
@@ -2706,7 +2706,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnRepr_Simple item1 range =
+  let genSynTypeDefnRepr_Simple item1 range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.Simple
       (item1,
        range)
@@ -2715,11 +2715,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSig item1 item2 memberSigs range =
-    Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig
+  let genSynTypeDefnSig_TypeDefnSig item1 item2 memberSigs range =
+    Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig
       (item1,
        item2,
        memberSigs,
@@ -2732,7 +2732,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSigRepr_ObjectModel item1 memberSigs range =
+  let genSynTypeDefnSigRepr_ObjectModel item1 memberSigs range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel
       (item1,
        memberSigs,
@@ -2742,7 +2742,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSigRepr_Simple item1 range =
+  let genSynTypeDefnSigRepr_Simple item1 range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.Simple
       (item1,
        range)
@@ -2754,7 +2754,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_Union accessiblity cases range =
+  let genSynTypeDefnSimpleRepr_Union accessiblity cases range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union
       (accessiblity,
        cases,
@@ -2764,7 +2764,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_Enum cases range =
+  let genSynTypeDefnSimpleRepr_Enum cases range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Enum
       (cases,
        range)
@@ -2773,7 +2773,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_Record accessiblity fields range =
+  let genSynTypeDefnSimpleRepr_Record accessiblity fields range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Record
       (accessiblity,
        fields,
@@ -2783,7 +2783,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_General item1 item2 item3 item4 item5 item6 item7 range =
+  let genSynTypeDefnSimpleRepr_General item1 item2 item3 item4 item5 item6 item7 range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.General
       (item1,
        item2,
@@ -2798,7 +2798,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_LibraryOnlyILAssembly item1 range =
+  let genSynTypeDefnSimpleRepr_LibraryOnlyILAssembly item1 range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.LibraryOnlyILAssembly
       (item1,
        range)
@@ -2807,7 +2807,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genTypeDefnSimpleRepr_TypeAbbrev item1 item2 range =
+  let genSynTypeDefnSimpleRepr_TypeAbbrev item1 item2 range =
     Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.TypeAbbrev
       (item1,
        item2,
@@ -2817,11 +2817,11 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynUnionCase".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynUnionCase".
+  /// Construct "Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genUnionCase attributes id caseType xmlDoc accessibility range =
-    Microsoft.FSharp.Compiler.Ast.SynUnionCase
+  let genSynUnionCase_UnionCase attributes id caseType xmlDoc accessibility range =
+    Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase
       (attributes,
        id,
        caseType,
@@ -2836,7 +2836,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValData".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genValData item1 item2 item3 =
+  let genSynValData item1 item2 item3 =
     Microsoft.FSharp.Compiler.Ast.SynValData
       (item1,
        item2,
@@ -2849,7 +2849,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValInfo".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genValInfo item1 item2 =
+  let genSynValInfo item1 item2 =
     Microsoft.FSharp.Compiler.Ast.SynValInfo
       (item1,
        item2)
@@ -2861,7 +2861,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genValSig_ValSpfn attributes id typeParams typeName valInfo item6 isMutable xmlDoc accessiblity expr range =
+  let genSynValSig_ValSpfn attributes id typeParams typeName valInfo item6 isMutable xmlDoc accessiblity expr range =
     Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn
       (attributes,
        id,
@@ -2882,7 +2882,7 @@ module AstUnionCons =
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValTyparDecls".
   /// </summary>
   /// <returns>Constructed instance.</returns>
-  let genValTyparDecls item1 item2 constraints =
+  let genSynValTyparDecls item1 item2 constraints =
     Microsoft.FSharp.Compiler.Ast.SynValTyparDecls
       (item1,
        item2,

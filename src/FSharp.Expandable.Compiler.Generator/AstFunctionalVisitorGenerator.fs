@@ -89,7 +89,7 @@ type internal AstFunctionalVisitorGenerator() =
       "    match target with\r\n",
       unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
-      Utilities.formatTypeName unionType,
+      Utilities.formatTypeFullName unionType,
       if isSynExpr then "private __" else "")
     yield! FSharpType.GetUnionCases unionType |> Seq.map (generateByUnion visitorTargets unionType)
     if isSynExpr then

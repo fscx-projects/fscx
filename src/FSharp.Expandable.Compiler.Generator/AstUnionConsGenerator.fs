@@ -32,7 +32,7 @@ type internal AstUnionConsGenerator() =
   inherit GeneratorBase()
 
   let generateByCase (t: Type) (c: UnionCaseInfo) =
-    let typeName = VisitorUtilities.formatUnionTypeShortName t
+    let typeName = Utilities.formatTypeName t
     let fields = c.GetFields()
     String.Format(
       "  /// <summary>\r\n" +
@@ -44,7 +44,7 @@ type internal AstUnionConsGenerator() =
       "{3}" +
       "\r\n",
       VisitorUtilities.formatUnionCaseName t c,
-      (if VisitorUtilities.requireIgnoreTypeName t c then typeName else (typeName + "_" + c.Name)),
+      (if VisitorUtilities.requireQualifiedCaseName t then (typeName + "_" + c.Name) else c.Name),
       (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
       (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
 
@@ -55,7 +55,7 @@ type internal AstUnionConsGenerator() =
         "  ////////////////////////////////////////////////////\r\n" +
         "  /// Construct \"{0}\".\r\n" +
         "\r\n",
-        Utilities.formatTypeName t)
+        Utilities.formatTypeFullName t)
       yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 2) |> Seq.map (generateByCase t)
     }
 
@@ -80,6 +80,6 @@ type internal AstUnionConsGenerator() =
         (not (FSharpType.IsUnion t.BaseType)) &&
         (not (t.IsDefined(typeof<ObsoleteAttribute>, true)))
         // Conflict ILType, ignore...
-        && (not ((Utilities.formatTypeName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType")))
+        && (not ((Utilities.formatTypeFullName t) = "Microsoft.FSharp.Compiler.AbstractIL.IL.ILType")))
       |> Seq.sortBy (fun t -> t.Name)
     types |> Seq.collect generateByType
