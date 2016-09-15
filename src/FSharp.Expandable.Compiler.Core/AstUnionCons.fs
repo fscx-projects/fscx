@@ -1,119 +1,20 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Thu, 15 Sep 2016 02:37:00 GMT
+// Generated: Thu, 15 Sep 2016 06:01:15 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
 
 open System
+open System.Reflection
 
 /// Construct discriminal union types arguments less.
 [<AutoOpen>]
 module AstUnionCons =
-#if disabl
-  let genStringLit lit =
-    Microsoft.FSharp.Compiler.Ast.SynExpr.Const
-      (Microsoft.FSharp.Compiler.Ast.SynConst.String(lit, zeroRange), zeroRange)
 
-  let genIdent name =
-    Microsoft.FSharp.Compiler.Ast.SynExpr.Ident
-      (Microsoft.FSharp.Compiler.Ast.Ident(name, zeroRange))
-
-  let genParen x = Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(x, zeroRange, None, zeroRange)
-
-  let genAppFun (name, arg) =
-    Microsoft.FSharp.Compiler.Ast.SynExpr.App
-      (Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag.Atomic, false, genIdent name, arg, zeroRange)
-
-  let genOpChain (op, operands) =
-    operands
-    |> List.reduce (fun acc operand ->
-       let func =
-         Microsoft.FSharp.Compiler.Ast.SynExpr.App
-           (Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag.NonAtomic, true, genIdent op, acc, zeroRange)
-       Microsoft.FSharp.Compiler.Ast.SynExpr.App
-         (Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag.NonAtomic, false, func, operand, zeroRange))
-
-  let genCallStaticMethod (mi: MethodInfo, args: SynExpr list) =
-    let argExpr =
-      match args with
-      | [] ->
-        Microsoft.FSharp.Compiler.Ast.SynExpr.Const
-          (Microsoft.FSharp.Compiler.Ast.SynConst.Unit, zeroRange)
-      | [x] -> x
-      | xs ->
-        Microsoft.FSharp.Compiler.Ast.SynExpr.Tuple
-          (xs, (List.replicate (xs.Length - 1) zeroRange), zeroRange)
-    Microsoft.FSharp.Compiler.Ast.SynExpr.App
-      (Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag.Atomic,
-       false,
-       MethodInfo.toIdent mi,
-       genParen argExpr,
-       zeroRange)
-
-  let genLetExpr (name, value, expr) =
-    let binding =
-     Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(
-      None,
-      Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding,
-      false,
-      false,
-      [],
-      PreXmlDocEmpty,
-      Microsoft.FSharp.Compiler.Ast.SynValData
-        (None,
-         Microsoft.FSharp.Compiler.Ast.SynValInfo
-           ([], Microsoft.FSharp.Compiler.Ast.SynArgInfo([], false, None)),
-         None),
-      Microsoft.FSharp.Compiler.Ast.SynPat.Named
-        (Microsoft.FSharp.Compiler.Ast.SynPat.Wild(zeroRange),
-         Microsoft.FSharp.Compiler.Ast.Ident(name, zeroRange),
-         false,
-         None,
-         zeroRange),
-      None,
-      value,
-      zeroRange,
-      NoSequencePointAtInvisibleBinding)
-    Microsoft.FSharp.Compiler.Ast.SynExpr.LetOrUse(false, false, [binding], expr, zeroRange)
-
-  let genTryExpr (tryExpr, clauses, range) =
-    Microsoft.FSharp.Compiler.Ast.SynExpr.TryWith(
-      tryExpr,
-      zeroRange,
-      clauses,
-      zeroRange,
-      zeroRange,
-      Microsoft.FSharp.Compiler.Ast.SequencePointAtTry range,  // Make break point data (pdb)
-      NoSequencePointAtWith)
-
-  let genClause (identName, expr) =
-    Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(
-      Microsoft.FSharp.Compiler.Ast.SynPat.Named(
-        Microsoft.FSharp.Compiler.Ast.SynPat.Wild(zeroRange),
-        Microsoft.FSharp.Compiler.Ast.Ident(identName, zeroRange),
-        false,
-        None,
-        zeroRange),
-      None,
-      expr,
-      zeroRange,
-      SuppressSequencePointAtTarget)
-
-  let genReraise () =
-    Microsoft.FSharp.Compiler.Ast.SynExpr.App(
-      Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag.Atomic,
-      false,
-      genIdent "reraise",
-      Microsoft.FSharp.Compiler.Ast.SynExpr.Paren
-        (Microsoft.FSharp.Compiler.Ast.SynExpr.Const
-          (Microsoft.FSharp.Compiler.Ast.SynConst.Unit, zeroRange),
-         zeroRange, None, zeroRange),
-      zeroRange)
-#endif
+  let zeroRange = Microsoft.FSharp.Compiler.Range.range.Zero
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.PrettyNaming.ActivePatternInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.PrettyNaming.ActivePatternInfo.APInfo".
@@ -126,7 +27,6 @@ module AstUnionCons =
        item3)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpImplementationFileDeclaration".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpImplementationFileDeclaration.Entity".
@@ -148,7 +48,6 @@ module AstUnionCons =
        item3)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpToolTipElement".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpToolTipElement.Single".
@@ -170,7 +69,6 @@ module AstUnionCons =
        item3)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpXmlDoc".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpXmlDoc.XmlDocFileSignature".
@@ -182,7 +80,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribElem".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribElem.Array".
@@ -194,7 +91,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv.Callconv".
@@ -206,7 +102,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionClause".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionClause.FilterCatch".
@@ -227,7 +122,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr.AI_ldc".
@@ -441,7 +335,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType.Custom".
@@ -473,7 +366,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILOverridesSpec".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILOverridesSpec.OverridesSpec".
@@ -485,7 +377,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermission".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermission.PermissionSet".
@@ -497,7 +388,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceLocation".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceLocation.File".
@@ -509,7 +399,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.LexerEndlineContinuation".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.LexerEndlineContinuation.Skip".
@@ -522,7 +411,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.LexerIfdefExpression".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.LexerIfdefExpression.IfdefAnd".
@@ -543,7 +431,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.LexerWhitespaceContinuation".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.LexerWhitespaceContinuation.IfDefSkip".
@@ -642,7 +529,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.LongIdentWithDots".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.LongIdentWithDots".
@@ -654,7 +540,6 @@ module AstUnionCons =
        dotms)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.PrettyNaming.NameArityPair".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.PrettyNaming.NameArityPair".
@@ -666,10 +551,9 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>".
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.OkResult".
+  /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult&lt;_&gt;.OkResult".
   /// </summary>
   /// <returns>Constructed instance.</returns>
   let genOperationResult_OkResult item1 item2 =
@@ -678,7 +562,7 @@ module AstUnionCons =
        item2)
 
   /// <summary>
-  /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult<_>.ErrorResult".
+  /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.OperationResult&lt;_&gt;.ErrorResult".
   /// </summary>
   /// <returns>Constructed instance.</returns>
   let genOperationResult_ErrorResult item1 item2 =
@@ -687,7 +571,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns".
@@ -708,7 +591,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedHashDirective".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedHashDirective".
@@ -721,7 +603,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFile".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFile".
@@ -733,7 +614,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule".
@@ -759,7 +639,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput".
@@ -776,7 +655,6 @@ module AstUnionCons =
        item7)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFile".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFile".
@@ -788,7 +666,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule".
@@ -814,7 +691,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput".
@@ -829,7 +705,6 @@ module AstUnionCons =
        item5)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.PreXmlDoc".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.PreXmlDoc".
@@ -850,7 +725,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.ScopedPragma".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.ScopedPragma.WarningOff".
@@ -862,7 +736,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynArgInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynArgInfo".
@@ -875,7 +748,6 @@ module AstUnionCons =
        id)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynBinding".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynBinding.Binding".
@@ -897,7 +769,6 @@ module AstUnionCons =
        spBind)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo".
@@ -910,7 +781,6 @@ module AstUnionCons =
        attributes)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynComponentInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo".
@@ -928,7 +798,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynConst".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConst.String".
@@ -958,7 +827,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynConstructorArgs".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.NamePatPairs".
@@ -970,7 +838,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynEnumCase".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase".
@@ -985,7 +852,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefn".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefn".
@@ -998,7 +864,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr".
@@ -1014,7 +879,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionSig".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExceptionSig".
@@ -1027,7 +891,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynExpr.Paren".
@@ -1636,7 +1499,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynField".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynField.Field".
@@ -1654,7 +1516,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynIndexerArg".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two".
@@ -1666,7 +1527,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl".
@@ -1679,7 +1539,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynMatchClause".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause".
@@ -1694,7 +1553,6 @@ module AstUnionCons =
        spTarget)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMeasure.Named".
@@ -1754,7 +1612,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open".
@@ -1876,7 +1733,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member".
@@ -1925,7 +1781,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev".
@@ -2015,7 +1870,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace".
@@ -2033,7 +1887,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig".
@@ -2051,7 +1904,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev".
@@ -2120,7 +1972,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynPat.Const".
@@ -2291,7 +2142,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynRationalConst".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational".
@@ -2304,7 +2154,6 @@ module AstUnionCons =
        item3)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynReturnInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynReturnInfo".
@@ -2316,7 +2165,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePat".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id".
@@ -2352,7 +2200,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats".
@@ -2374,7 +2221,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon".
@@ -2396,7 +2242,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypar".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypar.Typar".
@@ -2409,7 +2254,6 @@ module AstUnionCons =
        isCompGen)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTyparDecl".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl".
@@ -2421,7 +2265,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynType".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynType.App".
@@ -2557,7 +2400,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType".
@@ -2664,7 +2506,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefn".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn".
@@ -2678,7 +2519,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconDelegate".
@@ -2690,7 +2530,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel".
@@ -2712,7 +2551,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig".
@@ -2726,7 +2564,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel".
@@ -2748,7 +2585,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union".
@@ -2814,7 +2650,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynUnionCase".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase".
@@ -2830,7 +2665,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynValData".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValData".
@@ -2843,7 +2677,6 @@ module AstUnionCons =
        item3)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynValInfo".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValInfo".
@@ -2855,7 +2688,6 @@ module AstUnionCons =
        item2)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynValSig".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn".
@@ -2876,7 +2708,6 @@ module AstUnionCons =
        range)
 
   ////////////////////////////////////////////////////
-  /// Construct "Microsoft.FSharp.Compiler.Ast.SynValTyparDecls".
 
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynValTyparDecls".
@@ -2887,4 +2718,3 @@ module AstUnionCons =
       (item1,
        item2,
        constraints)
-

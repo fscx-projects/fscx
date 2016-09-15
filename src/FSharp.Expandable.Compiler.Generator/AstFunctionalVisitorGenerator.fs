@@ -24,6 +24,7 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
+open System.Security
 
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
@@ -87,7 +88,7 @@ type internal AstFunctionalVisitorGenerator() =
       //     vvv --- hard coded delegation type is SynExpr.
       "     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
       "    match target with\r\n",
-      unionType.Name,
+      SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatTypeFullName unionType,
       if isSynExpr then "private __" else "")

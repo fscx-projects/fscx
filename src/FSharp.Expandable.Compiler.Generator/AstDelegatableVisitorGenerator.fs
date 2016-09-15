@@ -24,6 +24,7 @@ namespace FSharp.Expandable.Compiler.Generator
 open System
 open System.Collections.Generic
 open System.Linq
+open System.Security
 
 open Microsoft.FSharp.Reflection
 open Microsoft.FSharp.Compiler.Ast
@@ -68,7 +69,7 @@ type internal AstDelegatableVisitorGenerator() =
       "\r\n",
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatTypeFullName unionType,
-      unionType.Name,
+      SecurityElement.Escape unionType.Name,
       unionCase.Name,
       VisitorUtilities.formatUnionCaseName unionType unionCase,
       String.Join(",\r\n       ", decls))
@@ -131,7 +132,7 @@ type internal AstDelegatableVisitorGenerator() =
       "    parents.Push(Microsoft.FSharp.Compiler.Ast.Visitor.AstElement.{1} {2})\r\n" +
       "    try\r\n" +
       "      match {2} with\r\n",
-      unionType.Name,
+      SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
       Utilities.formatCamelcase unionType.Name,
       Utilities.formatTypeFullName unionType)

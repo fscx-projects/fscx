@@ -22,6 +22,7 @@
 namespace FSharp.Expandable.Compiler.Generator
 
 open System
+open System.Security
 
 open Microsoft.FSharp.Core
 open Microsoft.FSharp.Reflection
@@ -45,7 +46,7 @@ type internal AstRecordConsGenerator() =
       "     {2} =\r\n" +
       "    {{ {3} }}\r\n" +
       "\r\n",
-      Utilities.formatTypeFullName t,
+      SecurityElement.Escape (Utilities.formatTypeFullName t),
       t.Name,
       String.Join("\r\n     ", args),
       String.Join(";\r\n      ", inits))

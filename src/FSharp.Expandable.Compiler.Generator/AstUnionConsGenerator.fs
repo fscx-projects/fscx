@@ -22,6 +22,7 @@
 namespace FSharp.Expandable.Compiler.Generator
 
 open System
+open System.Security
 
 open Microsoft.FSharp.Core
 open Microsoft.FSharp.Reflection
@@ -39,10 +40,11 @@ type internal AstUnionConsGenerator() =
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
       "  /// <returns>Constructed instance.</returns>\r\n" +
-      "  let gen{1} {2} =\r\n" +
-      "    {0}\r\n" +
-      "{3}" +
+      "  let gen{2} {3} =\r\n" +
+      "    {1}\r\n" +
+      "{4}" +
       "\r\n",
+      SecurityElement.Escape (VisitorUtilities.formatUnionCaseName t c),
       VisitorUtilities.formatUnionCaseName t c,
       (if VisitorUtilities.requireQualifiedCaseName t then (typeName + "_" + c.Name) else c.Name),
       (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
@@ -51,11 +53,7 @@ type internal AstUnionConsGenerator() =
   let generateByType (t: Type) =
     let cases = FSharpType.GetUnionCases t
     seq {
-      yield String.Format(
-        "  ////////////////////////////////////////////////////\r\n" +
-        "  /// Construct \"{0}\".\r\n" +
-        "\r\n",
-        Utilities.formatTypeFullName t)
+      yield "  ////////////////////////////////////////////////////\r\n" + "\r\n"
       yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 2) |> Seq.map (generateByCase t)
     }
 
