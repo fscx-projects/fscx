@@ -61,6 +61,7 @@
       <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CenterCLR.RelaxVersioner.0.8.2\build\CenterCLR.RelaxVersioner.targets'))" />
+    <Error Condition="!Exists('..\packages\FSharp.Expandable.Compiler.Build.0.5.2\build\FSharp.Expandable.Compiler.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\FSharp.Expandable.Compiler.Build.0.5.2\build\FSharp.Expandable.Compiler.Build.targets'))" />
   </Target>
   <ItemGroup>
     <Compile Include="FscxOutputSample2.fs" />
@@ -75,7 +76,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Expandable.Compiler.Core">
-      <HintPath>..\packages\FSharp.Expandable.Compiler.Core.0.5.1\lib\net45\FSharp.Expandable.Compiler.Core.dll</HintPath>
+      <HintPath>..\packages\FSharp.Expandable.Compiler.Core.0.5.2\lib\net45\FSharp.Expandable.Compiler.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
@@ -94,6 +95,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <Import Project="..\packages\FSharp.Expandable.Compiler.Build.0.5.2\build\FSharp.Expandable.Compiler.Build.targets" Condition="Exists('..\packages\FSharp.Expandable.Compiler.Build.0.5.2\build\FSharp.Expandable.Compiler.Build.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

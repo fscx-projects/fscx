@@ -1,5 +1,5 @@
 @echo off
-set nupkg_ver=0.5.1
+set nupkg_ver=0.5.2
 
 cd sample_delegatable_filter
 call nupack.bat %nupkg_ver%
