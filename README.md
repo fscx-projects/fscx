@@ -18,19 +18,28 @@ Expandable F# compiler (fscx) is an alternative F# compiler which enables to rep
 
 ## How fscx works?
 
-fscx can apply user defined filters at compile time.
+### For filter users
 
+fscx can apply user defined filters at compile time.
 To use fscx, you need to install fscx's filter packages via NuGet.
 
-* TODO: We're planning to change NuGet package id from "fscx" to "FSharp.Expandable.Compiler.Build"
-
 ![For filter users](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide1.png)
+
+### For filter developers
 
 For developers who want to create filters, you need to install `FSharp.Expandable.Compiler.Core` via NuGet to your project, build the project to create a nupkg, and then publish the nupkg file.
 
 ![For filter developers](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide2.png)
 
-## Filter project sample nuspec
+### Overall
+
+Building architechture overall illustrated:
+
+![Overall](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide3.png)
+
+## Filter project sample nuspec (For filter developer)
+
+Pack to the filter package, using NuGet with following sample nuspec definitions:
 
 ```xml
 <?xml version="1.0"?>
@@ -55,7 +64,7 @@ For developers who want to create filters, you need to install `FSharp.Expandabl
     </dependencies>
   </metadata>
   <files>
-    <!-- Place filter binary (and pdb) into "build" package folder (NOT into "lib"). -->
+    <!-- Place filter binary (and if require pdb) into "build" package folder (NOT into "lib"). -->
     <!-- Because prevent auto added assembly reference. -->
     <file src="bin/Debug/sample_filter.dll" target="build" />
     <file src="bin/Debug/sample_filter.pdb" target="build" />
