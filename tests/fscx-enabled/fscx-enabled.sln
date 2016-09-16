@@ -13,6 +13,7 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "no-fscx-enabled-main", "no-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9EC5766-13A7-4DE5-9DCC-E259E36B9D28}"
 	ProjectSection(SolutionItems) = preProject
+		build-filters.bat = build-filters.bat
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\nuget.exe = .nuget\nuget.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
