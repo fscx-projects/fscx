@@ -1,3 +1,3 @@
 @echo off
 del /q *.nupkg
-..\.nuget\nuget.exe pack sample_filter.nuspec -Properties Version=%1
+..\.nuget\nuget.exe pack sample_filter.nuspec -Build -Properties Version=%1
