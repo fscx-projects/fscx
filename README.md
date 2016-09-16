@@ -2,9 +2,9 @@
 
 ![fscx-projects](https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png)
 
-fscx is an alternative F# compiler which enables to replace AST at compile time.
+Expandable F# compiler (fscx) is an alternative F# compiler which enables to replace F#'s AST at compile time.
 
-* TODO: Still under construction...
+* TODO: This project is still work in progress, and need more documents.
 
 ## Status
 
@@ -16,13 +16,19 @@ fscx is an alternative F# compiler which enables to replace AST at compile time.
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/fscx/badge/pr)](http://issuestats.com/github/fscx-projects/fscx) |
 | Gitter chat | [![Gitter char](https://img.shields.io/gitter/room/fscx-projects/Lobby.js.svg)](https://gitter.im/fscx-projects/Lobby) |
 
-## How applicable fscx?
+## How fscx works?
 
-* TODO: NuGet package id: "fscx" --> "FSharp.Expandable.Compiler.Build"
+fscx can apply user defined filters at compile time.
+
+To use fscx, you need to install fscx's filter packages via NuGet.
+
+* TODO: We're planning to change NuGet package id from "fscx" to "FSharp.Expandable.Compiler.Build"
 
 ![For filter users](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide1.png)
 
-![For filter developer](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide2.png)
+For developers who want to create filters, you need to install `FSharp.Expandable.Compiler.Core` via NuGet to your project, build the project to create a nupkg, and then publish the nupkg file.
+
+![For filter developers](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide2.png)
 
 ## Filter project sample nuspec
 
