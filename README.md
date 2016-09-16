@@ -30,7 +30,7 @@ For developers who want to create filters, you need to install `FSharp.Expandabl
 
 ![For filter developers](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide2.png)
 
-## Filter project sample nuspec
+## Sample nuspec file for a filter project
 
 ```xml
 <?xml version="1.0"?>
@@ -50,13 +50,13 @@ For developers who want to create filters, you need to install `FSharp.Expandabl
     <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
     <tags>fscx</tags>
     <dependencies>
-      <!-- More better auto-install fscx by dependency. -->
+      <!-- Including fscx dependency is highly recommended. -->
       <dependency id="FSharp.Expandable.Compiler.Build" version="0.5.1" />
     </dependencies>
   </metadata>
   <files>
-    <!-- Place filter binary (and pdb) into "build" package folder (NOT into "lib"). -->
-    <!-- Because prevent auto added assembly reference. -->
+    <!-- Add filter binaries (and pdb files if needed) into "build" package folder. -->
+    <!-- Note that it's not "lib" folder because we should avoid to get these assemblies referenced automatically. -->
     <file src="bin/Debug/sample_filter.dll" target="build" />
     <file src="bin/Debug/sample_filter.pdb" target="build" />
   </files>
