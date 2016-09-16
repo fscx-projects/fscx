@@ -2,7 +2,7 @@
 
 ![fscx-projects](https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png)
 
-Easy infrastructure can replace F#'s AST at compile time.
+fscx is an alternative F# compiler which enables to replace AST at compile time.
 
 * TODO: Still under construction...
 
