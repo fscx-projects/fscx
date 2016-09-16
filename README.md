@@ -59,13 +59,13 @@ Pack to the filter package, using NuGet with following sample nuspec definitions
     <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
     <tags>fscx</tags>
     <dependencies>
-      <!-- More better auto-install fscx by dependency. -->
+      <!-- Including fscx dependency is highly recommended. -->
       <dependency id="FSharp.Expandable.Compiler.Build" version="0.5.1" />
     </dependencies>
   </metadata>
   <files>
-    <!-- Place filter binary (and if require pdb) into "build" package folder (NOT into "lib"). -->
-    <!-- Because prevent auto added assembly reference. -->
+    <!-- Add filter binaries (and pdb files if needed) into "build" package folder. -->
+    <!-- Note that it's not "lib" folder because we should avoid to get these assemblies referenced automatically. -->
     <file src="bin/Debug/sample_filter.dll" target="build" />
     <file src="bin/Debug/sample_filter.pdb" target="build" />
   </files>
