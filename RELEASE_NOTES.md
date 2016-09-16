@@ -1,3 +1,6 @@
+#### 0.5.2 - 2016.09.16
+* Fixed msbuild script.
+
 #### 0.5.1 - 2016.09.15
 * Pre release packages.
 * Basic filter utilities implemented.
