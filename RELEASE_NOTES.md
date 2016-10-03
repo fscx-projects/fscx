@@ -1,3 +1,6 @@
+#### 0.5.6 - 2016.10.03
+* Fixed core lib loader impl.
+
 #### 0.5.5 - 2016.10.03
 * WIP release
 

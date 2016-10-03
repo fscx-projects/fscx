@@ -25,7 +25,7 @@ description
 excludedependencies
     FSharp.Core
 dependencies
-    FSharp.Expandable.Compiler.Core >= 0.5.2
+    FSharp.Expandable.Compiler.Core >= 0.5.5
 files
     bin/Release/*.exe ==> build
     bin/Release/*.pdb ==> build
