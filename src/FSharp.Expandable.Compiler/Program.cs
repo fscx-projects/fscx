@@ -95,7 +95,7 @@ namespace FSharp.Expandable
                 from libPath in
                   Directory.EnumerateDirectories(packagePath, "lib", SearchOption.TopDirectoryOnly)
                 from monikerPath in
-                  Directory.EnumerateDirectories(packagePath, platformName, SearchOption.TopDirectoryOnly)
+                  Directory.EnumerateDirectories(libPath, platformName, SearchOption.TopDirectoryOnly)
                 orderby monikerPath descending
                 select monikerPath).
                 ToArray()
@@ -126,19 +126,22 @@ namespace FSharp.Expandable
             //              |
             //              +-- FSharp.Compiler.Service --+-- lib --+-- net45 --+-- FSharp.Compiler.Service.dll (3: implicitly load from assembly loader)
 
-            // TEST:
-            Trace.Assert(false);
-
             var exeLocation = new Uri(typeof(Program).Assembly.CodeBase).LocalPath;
             var packagesPath =
-                Path.GetFullPath(Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..", ".."));
+                Path.GetFullPath(Path.Combine(Path.GetDirectoryName(exeLocation), "..", ".."));
 
-            // Load FCS.
+            // Manually preload FCS.
             var fcsSearchFolderBases =
-                GetCandidateBaseFolderPath(packagesPath, "FSharp.Compiler.Service", "net*");
+                GetCandidateBaseFolderPath(
+                    packagesPath,
+                    "FSharp.Compiler.Service",
+                    "net*");
             var fcsPaths =
                 from searchFolderBase in fcsSearchFolderBases
-                from dllPath in Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories)
+                from dllPath in Directory.EnumerateFiles(
+                    searchFolderBase,
+                    "FSharp.Compiler.Service.dll",
+                    SearchOption.AllDirectories)
                 select dllPath;
             foreach (var fcsPath in fcsPaths)
             {
@@ -151,10 +154,16 @@ namespace FSharp.Expandable
 
             // Load and execute fscx core.
             var coreSearchFolderBases =
-                GetCandidateBaseFolderPath(packagesPath, "FSharp.Expandable.Compiler.Core", "net*");
+                GetCandidateBaseFolderPath(
+                    packagesPath,
+                    "FSharp.Expandable.Compiler.Core",
+                    "net*");
             var corePaths =
                 from searchFolderBase in coreSearchFolderBases
-                from dllPath in Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories)
+                from dllPath in Directory.EnumerateFiles(
+                    searchFolderBase,
+                    "*.dll",
+                    SearchOption.AllDirectories)
                 select dllPath;
             foreach (var corePath in corePaths)
             {
