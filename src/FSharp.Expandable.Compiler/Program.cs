@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -41,6 +42,18 @@ namespace FSharp.Expandable
             else
             {
                 return -1;
+            }
+        }
+
+        private static Assembly TryLoad(string path)
+        {
+            try
+            {
+                return Assembly.LoadFrom(path);
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -67,6 +80,28 @@ namespace FSharp.Expandable
             return (int)mi.Invoke(null, new object[] {args});
         }
 
+        private static string[] GetCandidateBaseFolderPath(
+            string packagesPath, string targetAssemblyName, string platformName)
+        {
+            // Search base folders by assembly name.
+            return
+              Directory.Exists(packagesPath)
+              ? (from packagePath in
+                  Directory.EnumerateDirectories(packagesPath, "*", SearchOption.TopDirectoryOnly)
+                let packageName = Path.GetFileName(packagePath)
+                where packageName.StartsWith(targetAssemblyName + ".")
+                let version = ParseVersion(packageName.Substring(targetAssemblyName.Length + 1))
+                orderby version descending
+                from libPath in
+                  Directory.EnumerateDirectories(packagePath, "lib", SearchOption.TopDirectoryOnly)
+                from monikerPath in
+                  Directory.EnumerateDirectories(packagePath, platformName, SearchOption.TopDirectoryOnly)
+                orderby monikerPath descending
+                select monikerPath).
+                ToArray()
+              : new[] { "." };
+        }
+
         /// <summary>
         /// Main entry point.
         /// </summary>
@@ -85,31 +120,41 @@ namespace FSharp.Expandable
             // NuGet package structure:
             //   packages --+-- FSharp.Expandable.Compiler.Build --+-- build --+-- FSharp.Expandable.Compiler.Tasks.dll (1: from MSBuild)
             //              |                                                  +-- fscx.exe (2: invoke from FscTask)
+            //              |                                                  +-- FSharp.Core.dll (3: implicitly load from assembly loader)
+            //              |
             //              +-- FSharp.Expandable.Compiler.Core --+-- lib --+-- net45 --+-- FSharp.Expandable.Compiler.Core.dll (3: DefaultDriver() function)
+            //              |
+            //              +-- FSharp.Compiler.Service --+-- lib --+-- net45 --+-- FSharp.Compiler.Service.dll (3: implicitly load from assembly loader)
+
+            // TEST:
+            Trace.Assert(false);
 
             var exeLocation = new Uri(typeof(Program).Assembly.CodeBase).LocalPath;
             var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
 
-            var searchFolderBases =
-              Directory.Exists(packagesPath)
-              ? from packagePath in
-                  Directory.EnumerateDirectories(packagesPath, "*", SearchOption.TopDirectoryOnly)
-                let packageName = Path.GetFileName(packagePath)
-                where packageName.StartsWith("FSharp.Expandable.Compiler.Core.")
-                let version = ParseVersion(packageName.Substring("FSharp.Expandable.Compiler.Core.".Length))
-                orderby version descending
-                from libPath in
-                  Directory.EnumerateDirectories(packagePath, "lib", SearchOption.TopDirectoryOnly)
-                from monikerPath in
-                  Directory.EnumerateDirectories(packagePath, "net45", SearchOption.TopDirectoryOnly)
-                select monikerPath
-              : new[] { "." };
-
-            var corePaths =
-                from searchFolderBase in searchFolderBases
+            // Load FCS.
+            var fcsSearchFolderBases =
+                GetCandidateBaseFolderPath(packagesPath, "FSharp.Compiler.Service", "net*");
+            var fcsPaths =
+                from searchFolderBase in fcsSearchFolderBases
                 from dllPath in Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories)
                 select dllPath;
+            foreach (var fcsPath in fcsPaths)
+            {
+                var assembly = TryLoad(fcsPath);
+                if (assembly != null)
+                {
+                    break;
+                }
+            }
 
+            // Load and execute fscx core.
+            var coreSearchFolderBases =
+                GetCandidateBaseFolderPath(packagesPath, "FSharp.Expandable.Compiler.Core", "net*");
+            var corePaths =
+                from searchFolderBase in coreSearchFolderBases
+                from dllPath in Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories)
+                select dllPath;
             foreach (var corePath in corePaths)
             {
                 var result = TryLoadAndRun(corePath, args);

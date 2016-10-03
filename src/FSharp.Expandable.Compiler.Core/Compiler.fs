@@ -202,8 +202,13 @@ type Compiler =
       // NuGet package structure:
       //   packages --+-- FSharp.Expandable.Compiler.Build --+-- build --+-- FSharp.Expandable.Compiler.Tasks.dll (1: from MSBuild)
       //              |                                                  +-- fscx.exe (2: invoke from FscTask)
+      //              |                                                  +-- FSharp.Core.dll (3: implicitly load from assembly loader)
+      //              |
       //              +-- FSharp.Expandable.Compiler.Core --+-- lib --+-- net45 --+-- FSharp.Expandable.Compiler.Core.dll (3: DefaultDriver() function)
-      //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll
+      //              |
+      //              +-- FSharp.Compiler.Service --+-- lib --+-- net45 --+-- FSharp.Compiler.Service.dll (3: implicitly load from assembly loader)
+      //              |
+      //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll   (Filter must place into "build" folder)
       //              +-- HagaFilter-1.0 --+-- build --+-- HagaFilter.dll
 
       // (3)

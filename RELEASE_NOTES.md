@@ -1,3 +1,6 @@
+#### 0.5.3 - 2016.10.03
+* WIP release
+
 #### 0.5.2 - 2016.09.16
 * Fixed msbuild script.
 
