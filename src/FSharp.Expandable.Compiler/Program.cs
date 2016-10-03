@@ -130,7 +130,8 @@ namespace FSharp.Expandable
             Trace.Assert(false);
 
             var exeLocation = new Uri(typeof(Program).Assembly.CodeBase).LocalPath;
-            var packagesPath = Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..");
+            var packagesPath =
+                Path.GetFullPath(Path.Combine(Path.GetDirectoryName(exeLocation), "..", "..", ".."));
 
             // Load FCS.
             var fcsSearchFolderBases =
