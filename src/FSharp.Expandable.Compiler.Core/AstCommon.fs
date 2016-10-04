@@ -67,16 +67,14 @@ type RefWrapperHolder() =
 /// <summary>
 /// Target for fscx filter.
 /// </summary>
-/// <typeparam name="'TContext">Visitor context type.</typeparam>
-type IAstVisitor<'TContext> =
+type IAstVisitor =
 
   /// <summary>
-  /// Visit the parsed input.
+  /// Visit the parsed input (Entry point).
   /// </summary>
-  /// <param name="context">Visito context.</param>
+  /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  abstract VisitInput :
-    context: 'TContext ->
-    parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
+  abstract Visit :
+    symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
     Microsoft.FSharp.Compiler.Ast.ParsedInput

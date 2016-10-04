@@ -40,14 +40,14 @@ type internal AstUnionConsGenerator() =
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
       "  /// <returns>Constructed instance.</returns>\r\n" +
-      "  let gen{2} {3} =\r\n" +
+      "  let gen{2}({3}) =\r\n" +
       "    {1}\r\n" +
       "{4}" +
       "\r\n",
       SecurityElement.Escape (VisitorUtilities.formatUnionCaseName t c),
       VisitorUtilities.formatUnionCaseName t c,
       (if VisitorUtilities.requireQualifiedCaseName t then (typeName + "_" + c.Name) else c.Name),
-      (if fields.Length = 0 then "()" else String.Join(" ", fields |> Seq.map Utilities.formatFieldName)),
+      String.Join(", ", fields |> Seq.map Utilities.formatFieldName),
       (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
 
   let generateByType (t: Type) =

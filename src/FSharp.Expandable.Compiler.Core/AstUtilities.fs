@@ -34,6 +34,8 @@ open Microsoft.FSharp.Compiler.Ast.Visitor
 [<AutoOpen>]
 module AstUtilities =
 
+  let zeroRange = Microsoft.FSharp.Compiler.Range.range.Zero
+
   module MethodInfo =
 
     let extract (expr: Expr) =

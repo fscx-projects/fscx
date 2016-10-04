@@ -35,7 +35,7 @@ type internal AstRecordConsGenerator() =
   let generateByType (t: Type) =
     let tn = (Utilities.formatTypeStrictShortName t) + "."
     let fields = FSharpType.GetRecordFields t
-    let args = fields |> Array.map (fun field -> String.Format("({0})", Utilities.formatDeclaration field))
+    let args = fields |> Array.map Utilities.formatDeclaration
     let inits = fields |> Array.map (fun field -> String.Format("{0} = {1}", tn + field.Name, Utilities.formatFieldName field))
     String.Format(
       "  /// <summary>\r\n" +
@@ -43,12 +43,12 @@ type internal AstRecordConsGenerator() =
       "  /// </summary>\r\n" +
       "  /// <returns>Constructed record.</returns>\r\n" +
       "  let gen{1}\r\n" +
-      "     {2} =\r\n" +
+      "     ({2}) =\r\n" +
       "    {{ {3} }}\r\n" +
       "\r\n",
       SecurityElement.Escape (Utilities.formatTypeFullName t),
       t.Name,
-      String.Join("\r\n     ", args),
+      String.Join(",\r\n      ", args),
       String.Join(";\r\n      ", inits))
 
   /// <summary>

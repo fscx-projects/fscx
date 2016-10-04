@@ -24,54 +24,34 @@ namespace Microsoft.FSharp.Compiler.Ast.Visitor
 open System
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.Ast.Visitor
+open Microsoft.FSharp.Compiler.SourceCodeServices
 
 #nowarn "44"
 
 /// <summary>
-/// Basic delegatable visitor base type.
-/// </summary>
-/// <typeparam name="'TContext">Visitor context type.</typeparam>
-/// <remarks>
-/// Inherit this class if use AstDelegatableVisitor, and override SetupVisitor method.
-/// </remarks>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-[<Obsolete>]
-type DeclareAstDelegatableVisitor<'TContext>() =
-
-  /// <summary>
-  /// Setup visitor.
-  /// </summary>
-  /// <param name="visitor">Target visitor instance.</param>
-  abstract SetupVisitor : visitor:AstDelegatableVisitor<'TContext> -> unit
-
-  interface IAstVisitor<'TContext> with
-    /// <summary>
-    /// Visit the parsed input.
-    /// </summary>
-    /// <param name="context">Visito context.</param>
-    /// <param name="parsedInput">Target for ParsedInput instance.</param>
-    /// <returns>Visited instance.</returns>
-    member this.VisitInput context parsedInput = 
-      let visitor = new AstDelegatableVisitor<'TContext>()
-      this.SetupVisitor visitor
-      visitor.VisitInput context parsedInput
-
-/// <summary>
 /// Basic functional visitor base type.
 /// </summary>
-/// <typeparam name="'TContext">Visitor context type.</typeparam>
 /// <remarks>
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor<'TContext>(visitor: 'TContext -> SynExpr -> SynExpr option) =
+type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>(visitor: FSharpCheckFileResults * SynExpr -> SynExpr option) =
 
-  interface IAstVisitor<'TContext> with
+  /// <summary>
+  /// Visit the parsed input (Entry point).
+  /// </summary>
+  /// <param name="symbolInformation">Symbol information.</param>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  /// <returns>Visited instance.</returns>
+  member __.Visit(symbolInformation, parsedInput) = 
+    AstFunctionalVisitor.visitInput(symbolInformation, new 'TContext(), parsedInput, visitor)
+
+  interface IAstVisitor with
     /// <summary>
-    /// Visit the parsed input.
+    /// Visit the parsed input (Entry point).
     /// </summary>
-    /// <param name="context">Visito context.</param>
+    /// <param name="symbolInformation">Symbol information.</param>
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
-    member this.VisitInput context parsedInput = 
-      AstFunctionalVisitor.visitInput context parsedInput visitor
+    member this.Visit(symbolInformation, parsedInput) = 
+      this.Visit(symbolInformation, parsedInput)

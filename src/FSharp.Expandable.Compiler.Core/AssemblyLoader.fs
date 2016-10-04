@@ -37,7 +37,7 @@ module internal AssemblyLoader =
 
   /// Include only visitor type.
   let isVisitorType (t: Type) =
-    let visitorType = typeof<IAstVisitor<FSharpCheckFileResults>>
+    let visitorType = typeof<IAstVisitor>
     visitorType.IsAssignableFrom t && (t.GetConstructor(Type.EmptyTypes) <> null)
 
   /// Get local path from assembly.

@@ -209,11 +209,11 @@ module internal VisitorUtilities =
     | Record fields ->
       ExprComposer.Format(
         name,
-        "AstRecordCons.gen{0} {1}",
+        "AstRecordCons.gen{0}({1})",
         t.Name,
         ExprComposer.Join(
           name,
-          " ",
+          ", ",
           fields |> Seq.map (fun field -> formatWithOperators0 (name + "." + field.Name) field.PropertyType visitorName refWrapperHolderName visitTargets)))
     // "this.VisitHoge context arg0"
     | VisitTarget targetSymbolName ->

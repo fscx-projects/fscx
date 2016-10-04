@@ -75,7 +75,6 @@
     <Compile Include="AstUnionCons.fs" />
     <Compile Include="AstElement.fs" />
     <Compile Include="AstUtilities.fs" />
-    <Compile Include="AstDelegatableVisitor.fs" />
     <Compile Include="AstInheritableVisitor.fs" />
     <Compile Include="AstFunctionalVisitor.fs" />
     <Compile Include="DeclareAstVisitor.fs" />

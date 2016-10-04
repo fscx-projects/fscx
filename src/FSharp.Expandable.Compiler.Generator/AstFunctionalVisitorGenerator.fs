@@ -42,7 +42,7 @@ type internal AstFunctionalVisitorGenerator() =
   let generateByUnion visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
     let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
-    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "visit{0} context {1} dlgVisitor" "_rwh_")
+    let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "visit{0}(symbolInformation, context, {1}, dlgVisitor)" "_rwh_")
     let args = visited |> Seq.map (fun vr -> vr.ToString()) |> Seq.toArray   // Composed argument string
     let isProjected = visited |> Seq.exists (function Projected _ -> true | _ -> false) // Args projected?
     let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef)  // Require using reference cell
@@ -74,19 +74,20 @@ type internal AstFunctionalVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Expression visitor function: {0}\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <typeparam name=\"'TContext\">Context instance type.</typeparam>\r\n" +
+      "  /// <typeparam name=\"'TContext\">Custom context type.</typeparam>\r\n" +
+      "  /// <param name=\"symbolInformation\">Symbol information.</param>\r\n" +
       "  /// <param name=\"context\">Context instance.</param>\r\n" +
       "  /// <param name=\"target\">Visit target expression.</param>\r\n" +
-      "  /// <param name=\"dlgVisitor\">Visitor delegated function ('TContext -> SynExpr -> SynExpr option).</param>\r\n" +
+      "  /// <param name=\"dlgVisitor\">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>\r\n" +
       "  /// <returns>Visited expression.</returns>\r\n"
     let isSynExpr = unionType = typeof<SynExpr>
     yield String.Format(
       header +
       "  and {3}visit{1}\r\n" +
-      "     (context: 'TContext)\r\n" +
-      "     (target: {2})\r\n" +
-      //     vvv --- hard coded delegation type is SynExpr.
-      "     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+      "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
+      "      context: 'TContext,\r\n" +
+      "      target: {2},\r\n" +
+      "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
       "    match target with\r\n",
       SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
@@ -97,12 +98,12 @@ type internal AstFunctionalVisitorGenerator() =
       yield String.Format(
         header +
         "  and visitExpr\r\n" +
-        "     (context: 'TContext)\r\n" +
-        "     (target: SynExpr)\r\n" +
-        //     vvv --- hard coded delegation type is SynExpr.
-        "     (dlgVisitor: 'TContext -> Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
-        "    match dlgVisitor context target with\r\n" +
+        "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
+        "      context: 'TContext,\r\n" +
+        "      target: SynExpr,\r\n" +
+        "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+        "    match dlgVisitor(symbolInformation, target) with\r\n" +
         "    | Some expr -> expr\r\n" +
-        "    | None -> __visitExpr context target dlgVisitor\r\n",
+        "    | None -> __visitExpr(symbolInformation, context, target, dlgVisitor)\r\n",
         "SynExpr")
   |]

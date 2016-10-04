@@ -100,9 +100,9 @@ module internal CompilerImpl =
       // Type check
       let! checkAnswer = checker.CheckFileInProject(parseResult, sourceCode.Path, 1, body, options)
       match checkAnswer with
-      | FSharpCheckFileAnswer.Succeeded(checkAnswer) ->
+      | FSharpCheckFileAnswer.Succeeded(symbolInformation) ->
         // Apply filter
-        let filteredAst = filter checkAnswer ast
+        let filteredAst = filter symbolInformation ast
         return Succeeded (sourceCode.Path, filteredAst)
       | FSharpCheckFileAnswer.Aborted ->
         return CheckFailed sourceCode.Path
@@ -128,14 +128,14 @@ module internal CompilerImpl =
  
   /// Apply filter with visitors
   let astFilter
-     (visitors: IAstVisitor<FSharpCheckFileResults> seq)
-     (context: FSharpCheckFileResults)
+     (visitors: IAstVisitor seq)
+     (symbolInformation: FSharpCheckFileResults)
      (ast: ParsedInput) =
-    visitors |> Seq.fold (fun partialAst visitor -> visitor.VisitInput context partialAst) ast
+    visitors |> Seq.fold (fun partialAst visitor -> visitor.Visit(symbolInformation, partialAst)) ast
  
   ///////////////////////////////////////////////////////
 
-  let private simpleTypeName (visitor: IAstVisitor<FSharpCheckFileResults>) =
+  let private simpleTypeName (visitor: IAstVisitor) =
     let t = visitor.GetType()
     let name = t.FullName
     let index = name.IndexOf '`'
@@ -144,7 +144,7 @@ module internal CompilerImpl =
        (if index >= 0 then name.Substring(0, index) else name),
        t.Assembly.GetName().Name)
 
-  let private printVisitor (visitor: IAstVisitor<FSharpCheckFileResults>) =
+  let private printVisitor (visitor: IAstVisitor) =
     System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
 
   /// Read text file and iterate.
@@ -178,7 +178,7 @@ module internal CompilerImpl =
   let asyncCompile
      (writer: WriteInfo -> unit)
      (arguments: CompilerArguments)
-     (visitors: IAstVisitor<FSharpCheckFileResults> seq) = async {
+     (visitors: IAstVisitor seq) = async {
     try
       // Debugger hook point
       if arguments.FscxDebug then
