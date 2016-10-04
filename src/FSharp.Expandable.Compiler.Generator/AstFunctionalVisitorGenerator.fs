@@ -41,13 +41,13 @@ type internal AstFunctionalVisitorGenerator() =
 
   let generateByUnion visitorTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
-    let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
     let visited = fields |> Seq.map (VisitorUtilities.formatArgument visitorTargets "visit{0}(symbolInformation, context, {1}, dlgVisitor)" "_rwh_")
-    let args = visited |> Seq.map (fun vr -> vr.ToString()) |> Seq.toArray   // Composed argument string
     let isProjected = visited |> Seq.exists (function Projected _ -> true | _ -> false) // Args projected?
-    let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef)  // Require using reference cell
     match isProjected with
     | true ->
+      let fieldNames = fields |> Seq.map Utilities.formatFieldName |> Seq.toArray
+      let args = visited |> Seq.map (fun vr -> vr.ToString()) |> Seq.toArray   // Composed argument string
+      let isUsingRef = visited |> Seq.exists (fun vr -> vr.IsUsingRef)  // Require using reference cell
       String.Format(
         "    | {0}{1} ->\r\n" +
         "{2}" +
@@ -78,7 +78,7 @@ type internal AstFunctionalVisitorGenerator() =
       "  /// <param name=\"symbolInformation\">Symbol information.</param>\r\n" +
       "  /// <param name=\"context\">Context instance.</param>\r\n" +
       "  /// <param name=\"target\">Visit target expression.</param>\r\n" +
-      "  /// <param name=\"dlgVisitor\">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>\r\n" +
+      "  /// <param name=\"dlgVisitor\">Visitor delegated function ((FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr) * FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>\r\n" +
       "  /// <returns>Visited expression.</returns>\r\n"
     let isSynExpr = unionType = typeof<SynExpr>
     yield String.Format(
@@ -87,7 +87,7 @@ type internal AstFunctionalVisitorGenerator() =
       "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
       "      context: 'TContext,\r\n" +
       "      target: {2},\r\n" +
-      "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+      "      dlgVisitor: (Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
       "    match target with\r\n",
       SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
@@ -100,9 +100,9 @@ type internal AstFunctionalVisitorGenerator() =
         "  and visitExpr\r\n" +
         "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
         "      context: 'TContext,\r\n" +
-        "      target: SynExpr,\r\n" +
-        "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
-        "    match dlgVisitor(symbolInformation, context, target) with\r\n" +
+        "      target: Microsoft.FSharp.Compiler.Ast.SynExpr,\r\n" +
+        "      dlgVisitor: (Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr) * Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+        "    match dlgVisitor((fun (si, c, t) -> visitExpr(si, c, t, dlgVisitor)), symbolInformation, context, target) with\r\n" +
         "    | Some expr -> expr\r\n" +
         "    | None -> __visitExpr(symbolInformation, context, target, dlgVisitor)\r\n",
         "SynExpr")

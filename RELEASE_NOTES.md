@@ -1,3 +1,9 @@
+#### 0.6.1 - 2016.10.04
+* Remove DelegatableVisitor.
+* Remove IAstVisitor generic parameter.
+* Change context to symbol information.
+* Add real context.
+
 #### 0.5.6 - 2016.10.03
 * Fixed core lib loader impl.
 

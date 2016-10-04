@@ -29,6 +29,13 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 #nowarn "44"
 
 /// <summary>
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
+/// </summary>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type AstInheritableVisitor() =
+  inherit AstInheritableVisitor<NoContext>()
+
+/// <summary>
 /// Basic functional visitor base type.
 /// </summary>
 /// <typeparam name="'TContext">Custom context type.</typeparam>
@@ -36,7 +43,8 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>(visitor: FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option) =
+type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
+    (visitor: ( (* default: *) FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) 'TContext * (* target: *) SynExpr -> SynExpr option) =
 
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -56,3 +64,14 @@ type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TConte
     /// <returns>Visited instance.</returns>
     member this.Visit(symbolInformation, parsedInput) = 
       this.Visit(symbolInformation, parsedInput)
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareAstFunctionalVisitor
+    (visitor: ( (* default: *) FSharpCheckFileResults * NoContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) NoContext * (* target: *) SynExpr -> SynExpr option) =
+  inherit DeclareAstFunctionalVisitor<NoContext>(visitor)

@@ -65,7 +65,7 @@ type RefWrapperHolder() =
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
-/// Target for fscx filter.
+/// Target interface for fscx filter.
 /// </summary>
 type IAstVisitor =
 
@@ -78,3 +78,7 @@ type IAstVisitor =
   abstract Visit :
     symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
     Microsoft.FSharp.Compiler.Ast.ParsedInput
+
+/// Context means no additional information.
+[<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
+type NoContext() = class end
