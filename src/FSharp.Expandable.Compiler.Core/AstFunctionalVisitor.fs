@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 04 Oct 2016 07:36:11 GMT
+// Generated: Tue, 04 Oct 2016 08:05:56 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -21,13 +21,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitFsiInteraction
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedFsiInteraction.IDefns
@@ -45,13 +45,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitHashDirective
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedHashDirective,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedHashDirective _ -> target
 
@@ -62,13 +62,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFile
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedImplFile,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFile(hashDirectives, item2) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFile
@@ -82,13 +82,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFileFragment
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule(moduleDecls, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment.AnonModule
@@ -114,13 +114,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitImplFileInput
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput(filename, isScript, item3, item4, item5, item6, item7) ->
       Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput
@@ -139,13 +139,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitInput
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedInput,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile(item) ->
       Microsoft.FSharp.Compiler.Ast.ParsedInput.ImplFile
@@ -161,13 +161,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFile
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedSigFile,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFile(hashDirectives, item2) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFile
@@ -181,13 +181,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFileFragment
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule(moduleSigDecl, range) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment.AnonModule
@@ -213,13 +213,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSigFileInput
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput(filename, item2, item3, item4, item5) ->
       Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput
@@ -236,13 +236,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitAccess
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynAccess,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynAccess.Public _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynAccess.Internal _ -> target
@@ -255,13 +255,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitArgInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynArgInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynArgInfo(attributes, optional, id) ->
       Microsoft.FSharp.Compiler.Ast.SynArgInfo
@@ -276,13 +276,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBinding
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynBinding,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBinding.Binding(access, bindingKind, mustInline, isMutable, attributes, xmlDoc, item7, headPat, item9, expr, lhsRange, spBind) ->
       Microsoft.FSharp.Compiler.Ast.SynBinding.Binding
@@ -306,13 +306,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBindingKind
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynBindingKind,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBindingKind.StandaloneExpression _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynBindingKind.NormalBinding _ -> target
@@ -325,13 +325,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitBindingReturnInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo(typeName, range, attributes) ->
       Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo
@@ -346,13 +346,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitComponentInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynComponentInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo(attributes, typeParams, constraints, item4, xmlDoc, preferPostfix, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynComponentInfo.ComponentInfo
@@ -372,13 +372,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitConst
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynConst,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynConst.Unit _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynConst.Bool _ -> target
@@ -412,13 +412,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitConstructorArgs
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynConstructorArgs,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats(item) ->
       Microsoft.FSharp.Compiler.Ast.SynConstructorArgs.Pats
@@ -435,13 +435,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitEnumCase
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynEnumCase,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase(attributes, id, item3, xmlDoc, range) ->
       Microsoft.FSharp.Compiler.Ast.SynEnumCase.EnumCase
@@ -458,13 +458,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionDefn
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefn,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionDefn(exnRepr, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefn
@@ -479,13 +479,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionDefnRepr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr(item1, case, longId, xmlDoc, accesibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr
@@ -503,13 +503,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExceptionSig
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExceptionSig,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExceptionSig(exnRepr, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExceptionSig
@@ -524,13 +524,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and private __visitExpr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynExpr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynExpr.Paren(expr, leftParenRange, rightParenRange, range) ->
       Microsoft.FSharp.Compiler.Ast.SynExpr.Paren
@@ -872,14 +872,14 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitExpr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: SynExpr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
-    match dlgVisitor(symbolInformation, target) with
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+    match dlgVisitor(symbolInformation, context, target) with
     | Some expr -> expr
     | None -> __visitExpr(symbolInformation, context, target, dlgVisitor)
 
@@ -890,13 +890,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitField
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynField,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynField.Field(attributes, isStatic, id, typeName, item5, xmlDoc, accessiblity, range) ->
       Microsoft.FSharp.Compiler.Ast.SynField.Field
@@ -916,13 +916,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitIndexerArg
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynIndexerArg,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynIndexerArg.Two
@@ -939,13 +939,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitInterfaceImpl
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl(item1, bindings, range) ->
       Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl.InterfaceImpl
@@ -960,13 +960,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMatchClause
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMatchClause,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause(item1, item2, item3, range, spTarget) ->
       Microsoft.FSharp.Compiler.Ast.SynMatchClause.Clause
@@ -983,13 +983,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMeasure
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMeasure,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Named _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMeasure.Product(item1, item2, range) ->
@@ -1025,13 +1025,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMemberDefn
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMemberDefn,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Open _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynMemberDefn.Member(memberDefn, range) ->
@@ -1102,13 +1102,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitMemberSig
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynMemberSig,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member(item1, memberFlags, range) ->
       Microsoft.FSharp.Compiler.Ast.SynMemberSig.Member
@@ -1139,13 +1139,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleDecl
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleDecl,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.ModuleAbbrev _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleDecl.NestedModule(item1, isRec, item3, item4, item5) ->
@@ -1193,13 +1193,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleOrNamespace
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace(id, isRec, isModule, decls, xmlDoc, attributes, access, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace
@@ -1219,13 +1219,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleOrNamespaceSig
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig(id, isRec, isModule, item4, xmlDoc, attributes, item7, range) ->
       Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig
@@ -1245,13 +1245,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitModuleSigDecl
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.ModuleAbbrev _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl.NestedModule(item1, isRec, moduleSigDecls, range) ->
@@ -1288,13 +1288,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitPat
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynPat,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynPat.Const(constant, range) ->
       Microsoft.FSharp.Compiler.Ast.SynPat.Const
@@ -1382,13 +1382,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitRationalConst
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynRationalConst,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Integer _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynRationalConst.Rational _ -> target
@@ -1403,13 +1403,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitReturnInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynReturnInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynReturnInfo(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynReturnInfo
@@ -1423,13 +1423,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePat
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynSimplePat,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePat.Id(ident, altNameRefCell, isCompilerGenerated, isThisVar, isOptArg, range) ->
       use _rwh_ = new RefWrapperHolder()
@@ -1458,13 +1458,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePatAlternativeIdInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Undecided _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo.Decided _ -> target
@@ -1476,13 +1476,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitSimplePats
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynSimplePats,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats(item1, range) ->
       Microsoft.FSharp.Compiler.Ast.SynSimplePats.SimplePats
@@ -1501,13 +1501,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitStaticOptimizationConstraint
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon(item1, item2, range) ->
       Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon
@@ -1526,13 +1526,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypar
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypar,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypar.Typar _ -> target
 
@@ -1543,13 +1543,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTyparDecl
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTyparDecl,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl(attributes, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynTyparDecl.TyparDecl
@@ -1563,13 +1563,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitType
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynType,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynType.LongIdent _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynType.App(typeName, leftAngleRange, typeArgs, commaRanges, rightAngleRange, isPostfix, range) ->
@@ -1649,13 +1649,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeConstraint
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeConstraint,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType(genericName, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeConstraint.WhereTyparIsValueType
@@ -1714,13 +1714,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefn
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefn,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn(item1, item2, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefn.TypeDefn
@@ -1736,13 +1736,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnKind
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconUnspecified _ -> target
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind.TyconClass _ -> target
@@ -1766,13 +1766,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnRepr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel(item1, members, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr.ObjectModel
@@ -1794,13 +1794,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSig
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig(item1, item2, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig.TypeDefnSig
@@ -1816,13 +1816,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSigRepr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel(item1, memberSigs, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr.ObjectModel
@@ -1844,13 +1844,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitTypeDefnSimpleRepr
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union(accessiblity, cases, range) ->
       Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr.Union
@@ -1894,13 +1894,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitUnionCase
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynUnionCase,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase(attributes, id, caseType, xmlDoc, accessibility, range) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCase.UnionCase
@@ -1918,13 +1918,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitUnionCaseType
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynUnionCaseType,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields(cases) ->
       Microsoft.FSharp.Compiler.Ast.SynUnionCaseType.UnionCaseFields
@@ -1940,13 +1940,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValData
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynValData,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValData(item1, item2, item3) ->
       Microsoft.FSharp.Compiler.Ast.SynValData
@@ -1961,13 +1961,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValInfo
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynValInfo,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValInfo(item1, item2) ->
       Microsoft.FSharp.Compiler.Ast.SynValInfo
@@ -1981,13 +1981,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValSig
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynValSig,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn(attributes, id, typeParams, typeName, valInfo, item6, isMutable, xmlDoc, accessiblity, expr, range) ->
       Microsoft.FSharp.Compiler.Ast.SynValSig.ValSpfn
@@ -2010,13 +2010,13 @@ module AstFunctionalVisitor =
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="context">Context instance.</param>
   /// <param name="target">Visit target expression.</param>
-  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>
+  /// <param name="dlgVisitor">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>
   /// <returns>Visited expression.</returns>
   and visitValTyparDecls
      (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,
       context: 'TContext,
       target: Microsoft.FSharp.Compiler.Ast.SynValTyparDecls,
-      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
+      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =
     match target with
     | Microsoft.FSharp.Compiler.Ast.SynValTyparDecls(item1, item2, constraints) ->
       Microsoft.FSharp.Compiler.Ast.SynValTyparDecls

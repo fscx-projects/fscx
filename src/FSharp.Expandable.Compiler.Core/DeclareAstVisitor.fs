@@ -31,11 +31,12 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 /// <summary>
 /// Basic functional visitor base type.
 /// </summary>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
 /// <remarks>
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>(visitor: FSharpCheckFileResults * SynExpr -> SynExpr option) =
+type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>(visitor: FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option) =
 
   /// <summary>
   /// Visit the parsed input (Entry point).

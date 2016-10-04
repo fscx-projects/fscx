@@ -78,7 +78,7 @@ type internal AstFunctionalVisitorGenerator() =
       "  /// <param name=\"symbolInformation\">Symbol information.</param>\r\n" +
       "  /// <param name=\"context\">Context instance.</param>\r\n" +
       "  /// <param name=\"target\">Visit target expression.</param>\r\n" +
-      "  /// <param name=\"dlgVisitor\">Visitor delegated function (FSharpCheckFileResults * SynExpr -> SynExpr option).</param>\r\n" +
+      "  /// <param name=\"dlgVisitor\">Visitor delegated function (FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr option).</param>\r\n" +
       "  /// <returns>Visited expression.</returns>\r\n"
     let isSynExpr = unionType = typeof<SynExpr>
     yield String.Format(
@@ -87,7 +87,7 @@ type internal AstFunctionalVisitorGenerator() =
       "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
       "      context: 'TContext,\r\n" +
       "      target: {2},\r\n" +
-      "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+      "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
       "    match target with\r\n",
       SecurityElement.Escape unionType.Name,
       VisitorUtilities.formatUnionTypeShortName unionType,
@@ -101,8 +101,8 @@ type internal AstFunctionalVisitorGenerator() =
         "     (symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults,\r\n" +
         "      context: 'TContext,\r\n" +
         "      target: SynExpr,\r\n" +
-        "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
-        "    match dlgVisitor(symbolInformation, target) with\r\n" +
+        "      dlgVisitor: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * 'TContext * Microsoft.FSharp.Compiler.Ast.SynExpr -> Microsoft.FSharp.Compiler.Ast.SynExpr option) =\r\n" +
+        "    match dlgVisitor(symbolInformation, context, target) with\r\n" +
         "    | Some expr -> expr\r\n" +
         "    | None -> __visitExpr(symbolInformation, context, target, dlgVisitor)\r\n",
         "SynExpr")
