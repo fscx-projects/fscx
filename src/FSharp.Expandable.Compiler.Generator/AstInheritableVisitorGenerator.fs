@@ -38,6 +38,11 @@ type internal AstInheritableVisitorGenerator() =
   /// Construct function strings for DU case.
   let generateByUnion visitTargets (unionType: Type) (unionCase: UnionCaseInfo) =
     let fields = unionCase.GetFields()
+    let paramLists =
+      [ yield "context", "Context object."
+        yield! fields |> Seq.map (fun field -> Utilities.formatFieldName field, Utilities.formatFieldTypeFullName field) ]
+      |> Seq.map (fun (name, comment) -> String.Format("/// <param name=\"{0}\">{1}</param>", name, SecurityElement.Escape comment))
+      |> Seq.toArray
     let decls = [|
       yield "context: 'TContext"
       yield! fields |> Seq.map Utilities.formatDeclaration
@@ -54,7 +59,7 @@ type internal AstInheritableVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  {10}\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
       "  abstract member BeforeVisit{0}_{3}:\r\n" +
@@ -63,7 +68,7 @@ type internal AstInheritableVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Before visit \"{2}.{3}\" arguments.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  {10}\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"Visit{0}_{3}\".</remarks>\r\n" +
       "  default this.BeforeVisit{0}_{3}\r\n" +
@@ -75,7 +80,7 @@ type internal AstInheritableVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Visit \"{2}.{3}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  {10}\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
       "  abstract member Visit{0}_{3}:\r\n" +
@@ -84,7 +89,7 @@ type internal AstInheritableVisitorGenerator() =
       "  /// <summary>\r\n" +
       "  /// Visit \"{2}.{3}\" expression.\r\n" +
       "  /// </summary>\r\n" +
-      "  /// <param name=\"context\">Context object.</param>\r\n" +
+      "  {10}\r\n" +
       "  /// <returns>Constructed (or target) expression.</returns>\r\n" +
       "  /// <remarks>Default implementation invoked \"{2}.{3}\".</remarks>\r\n" +
       "  default __.Visit{0}_{3}\r\n" +
@@ -100,7 +105,8 @@ type internal AstInheritableVisitorGenerator() =
       String.Join(",\r\n      ", decls),
       String.Join(",\r\n      ", args),
       (if Array.isEmpty fieldNames then "" else String.Format("({0})", String.Join(", ", fieldNames))),
-      if isUsingRef then "    use _rwh_ = new RefWrapperHolder()\r\n" else "")
+      (if isUsingRef then "    use _rwh_ = new RefWrapperHolder()\r\n" else ""),
+      String.Join("\r\n  ", paramLists))
 
   /// Construct expression string for match.
   let generateMatcher (unionType: Type) (unionCase: UnionCaseInfo) =

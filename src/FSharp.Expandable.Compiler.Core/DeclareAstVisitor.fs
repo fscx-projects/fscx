@@ -53,7 +53,7 @@ type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TConte
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
   member __.Visit(symbolInformation, parsedInput) = 
-    AstFunctionalVisitor.visitInput(symbolInformation, new 'TContext(), parsedInput, visitor)
+    AstFunctionalVisitor.visitInput(visitor, symbolInformation, new 'TContext(), parsedInput)
 
   interface IAstVisitor with
     /// <summary>

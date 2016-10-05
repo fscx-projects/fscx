@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 04 Oct 2016 09:08:35 GMT
+// Generated: Wed, 05 Oct 2016 01:38:49 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -41,6 +41,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedFsiInteraction.IDefns" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitFsiInteraction_IDefns".</remarks>
   abstract member BeforeVisitFsiInteraction_IDefns:
@@ -52,6 +54,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedFsiInteraction.IDefns" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitFsiInteraction_IDefns".</remarks>
   default this.BeforeVisitFsiInteraction_IDefns
@@ -67,6 +71,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedFsiInteraction.IDefns" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IDefns".</remarks>
   abstract member VisitFsiInteraction_IDefns:
@@ -78,6 +84,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedFsiInteraction.IDefns" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IDefns".</remarks>
   default __.VisitFsiInteraction_IDefns
@@ -90,6 +98,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedFsiInteraction.IHash" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitFsiInteraction_IHash".</remarks>
   abstract member BeforeVisitFsiInteraction_IHash:
@@ -101,6 +111,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedFsiInteraction.IHash" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitFsiInteraction_IHash".</remarks>
   default this.BeforeVisitFsiInteraction_IHash
@@ -116,6 +128,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedFsiInteraction.IHash" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IHash".</remarks>
   abstract member VisitFsiInteraction_IHash:
@@ -127,6 +141,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedFsiInteraction.IHash" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedFsiInteraction.IHash".</remarks>
   default __.VisitFsiInteraction_IHash
@@ -162,6 +178,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedHashDirective.ParsedHashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">string</param>
+  /// <param name="item2">string list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitHashDirective_ParsedHashDirective".</remarks>
   abstract member BeforeVisitHashDirective_ParsedHashDirective:
@@ -174,6 +193,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedHashDirective.ParsedHashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">string</param>
+  /// <param name="item2">string list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitHashDirective_ParsedHashDirective".</remarks>
   default this.BeforeVisitHashDirective_ParsedHashDirective
@@ -191,6 +213,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedHashDirective.ParsedHashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">string</param>
+  /// <param name="item2">string list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedHashDirective.ParsedHashDirective".</remarks>
   abstract member VisitHashDirective_ParsedHashDirective:
@@ -203,6 +228,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedHashDirective.ParsedHashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">string</param>
+  /// <param name="item2">string list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedHashDirective.ParsedHashDirective".</remarks>
   default __.VisitHashDirective_ParsedHashDirective
@@ -237,6 +265,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFile.ParsedImplFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFile_ParsedImplFile".</remarks>
   abstract member BeforeVisitImplFile_ParsedImplFile:
@@ -248,6 +278,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFile.ParsedImplFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFile_ParsedImplFile".</remarks>
   default this.BeforeVisitImplFile_ParsedImplFile
@@ -263,6 +295,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFile.ParsedImplFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFile.ParsedImplFile".</remarks>
   abstract member VisitImplFile_ParsedImplFile:
@@ -274,6 +308,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFile.ParsedImplFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedImplFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFile.ParsedImplFile".</remarks>
   default __.VisitImplFile_ParsedImplFile
@@ -307,6 +343,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.AnonModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_AnonModule".</remarks>
   abstract member BeforeVisitImplFileFragment_AnonModule:
@@ -318,6 +356,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.AnonModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_AnonModule".</remarks>
   default this.BeforeVisitImplFileFragment_AnonModule
@@ -333,6 +373,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.AnonModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.AnonModule".</remarks>
   abstract member VisitImplFileFragment_AnonModule:
@@ -344,6 +386,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.AnonModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.AnonModule".</remarks>
   default __.VisitImplFileFragment_AnonModule
@@ -356,6 +400,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.NamedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_NamedModule".</remarks>
   abstract member BeforeVisitImplFileFragment_NamedModule:
@@ -366,6 +411,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.NamedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_NamedModule".</remarks>
   default this.BeforeVisitImplFileFragment_NamedModule
@@ -379,6 +425,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.NamedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamedModule".</remarks>
   abstract member VisitImplFileFragment_NamedModule:
@@ -389,6 +436,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.NamedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamedModule".</remarks>
   default __.VisitImplFileFragment_NamedModule
@@ -400,6 +448,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_NamespaceFragment".</remarks>
   abstract member BeforeVisitImplFileFragment_NamespaceFragment:
@@ -416,6 +471,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileFragment.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileFragment_NamespaceFragment".</remarks>
   default this.BeforeVisitImplFileFragment_NamespaceFragment
@@ -441,6 +503,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamespaceFragment".</remarks>
   abstract member VisitImplFileFragment_NamespaceFragment:
@@ -457,6 +526,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileFragment.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleDecls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileFragment.NamespaceFragment".</remarks>
   default __.VisitImplFileFragment_NamespaceFragment
@@ -499,6 +575,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileInput.ParsedImplFileInput" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="isScript">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item6">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list</param>
+  /// <param name="item7">(bool * bool)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileInput_ParsedImplFileInput".</remarks>
   abstract member BeforeVisitImplFileInput_ParsedImplFileInput:
@@ -515,6 +598,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedImplFileInput.ParsedImplFileInput" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="isScript">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item6">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list</param>
+  /// <param name="item7">(bool * bool)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitImplFileInput_ParsedImplFileInput".</remarks>
   default this.BeforeVisitImplFileInput_ParsedImplFileInput
@@ -540,6 +630,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileInput.ParsedImplFileInput" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="isScript">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item6">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list</param>
+  /// <param name="item7">(bool * bool)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileInput.ParsedImplFileInput".</remarks>
   abstract member VisitImplFileInput_ParsedImplFileInput:
@@ -556,6 +653,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedImplFileInput.ParsedImplFileInput" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="isScript">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item6">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace list</param>
+  /// <param name="item7">(bool * bool)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedImplFileInput.ParsedImplFileInput".</remarks>
   default __.VisitImplFileInput_ParsedImplFileInput
@@ -594,6 +698,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedInput.ImplFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInput_ImplFile".</remarks>
   abstract member BeforeVisitInput_ImplFile:
@@ -604,6 +709,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedInput.ImplFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInput_ImplFile".</remarks>
   default this.BeforeVisitInput_ImplFile
@@ -617,6 +723,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedInput.ImplFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.ImplFile".</remarks>
   abstract member VisitInput_ImplFile:
@@ -627,6 +734,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedInput.ImplFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedImplFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.ImplFile".</remarks>
   default __.VisitInput_ImplFile
@@ -638,6 +746,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedInput.SigFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInput_SigFile".</remarks>
   abstract member BeforeVisitInput_SigFile:
@@ -648,6 +757,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedInput.SigFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInput_SigFile".</remarks>
   default this.BeforeVisitInput_SigFile
@@ -661,6 +771,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedInput.SigFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.SigFile".</remarks>
   abstract member VisitInput_SigFile:
@@ -671,6 +782,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedInput.SigFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.ParsedSigFileInput</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedInput.SigFile".</remarks>
   default __.VisitInput_SigFile
@@ -705,6 +817,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFile.ParsedSigFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFile_ParsedSigFile".</remarks>
   abstract member BeforeVisitSigFile_ParsedSigFile:
@@ -716,6 +830,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFile.ParsedSigFile" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFile_ParsedSigFile".</remarks>
   default this.BeforeVisitSigFile_ParsedSigFile
@@ -731,6 +847,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFile.ParsedSigFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFile.ParsedSigFile".</remarks>
   abstract member VisitSigFile_ParsedSigFile:
@@ -742,6 +860,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFile.ParsedSigFile" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirectives">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.ParsedSigFileFragment list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFile.ParsedSigFile".</remarks>
   default __.VisitSigFile_ParsedSigFile
@@ -775,6 +895,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.AnonModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleSigDecl">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_AnonModule".</remarks>
   abstract member BeforeVisitSigFileFragment_AnonModule:
@@ -786,6 +908,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.AnonModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleSigDecl">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_AnonModule".</remarks>
   default this.BeforeVisitSigFileFragment_AnonModule
@@ -801,6 +925,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.AnonModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleSigDecl">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.AnonModule".</remarks>
   abstract member VisitSigFileFragment_AnonModule:
@@ -812,6 +938,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.AnonModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="moduleSigDecl">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.AnonModule".</remarks>
   default __.VisitSigFileFragment_AnonModule
@@ -824,6 +952,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.NamedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_NamedModule".</remarks>
   abstract member BeforeVisitSigFileFragment_NamedModule:
@@ -834,6 +963,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.NamedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_NamedModule".</remarks>
   default this.BeforeVisitSigFileFragment_NamedModule
@@ -847,6 +977,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.NamedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamedModule".</remarks>
   abstract member VisitSigFileFragment_NamedModule:
@@ -857,6 +988,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.NamedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamedModule".</remarks>
   default __.VisitSigFileFragment_NamedModule
@@ -868,6 +1000,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_NamespaceFragment".</remarks>
   abstract member BeforeVisitSigFileFragment_NamespaceFragment:
@@ -884,6 +1023,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileFragment.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileFragment_NamespaceFragment".</remarks>
   default this.BeforeVisitSigFileFragment_NamespaceFragment
@@ -909,6 +1055,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamespaceFragment".</remarks>
   abstract member VisitSigFileFragment_NamespaceFragment:
@@ -925,6 +1078,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileFragment.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="item3">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileFragment.NamespaceFragment".</remarks>
   default __.VisitSigFileFragment_NamespaceFragment
@@ -967,6 +1127,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileInput.ParsedSigFileInput" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileInput_ParsedSigFileInput".</remarks>
   abstract member BeforeVisitSigFileInput_ParsedSigFileInput:
@@ -981,6 +1146,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "ParsedSigFileInput.ParsedSigFileInput" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSigFileInput_ParsedSigFileInput".</remarks>
   default this.BeforeVisitSigFileInput_ParsedSigFileInput
@@ -1002,6 +1172,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileInput.ParsedSigFileInput" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileInput.ParsedSigFileInput".</remarks>
   abstract member VisitSigFileInput_ParsedSigFileInput:
@@ -1016,6 +1191,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "ParsedSigFileInput.ParsedSigFileInput" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="filename">string</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.QualifiedNameOfFile</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.ScopedPragma list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective list</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "ParsedSigFileInput.ParsedSigFileInput".</remarks>
   default __.VisitSigFileInput_ParsedSigFileInput
@@ -1194,6 +1374,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynArgInfo.SynArgInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="optional">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitArgInfo_SynArgInfo".</remarks>
   abstract member BeforeVisitArgInfo_SynArgInfo:
@@ -1206,6 +1389,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynArgInfo.SynArgInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="optional">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitArgInfo_SynArgInfo".</remarks>
   default this.BeforeVisitArgInfo_SynArgInfo
@@ -1223,6 +1409,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynArgInfo.SynArgInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="optional">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynArgInfo.SynArgInfo".</remarks>
   abstract member VisitArgInfo_SynArgInfo:
@@ -1235,6 +1424,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynArgInfo.SynArgInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="optional">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynArgInfo.SynArgInfo".</remarks>
   default __.VisitArgInfo_SynArgInfo
@@ -1269,6 +1461,18 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynBinding.Binding" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="bindingKind">Microsoft.FSharp.Compiler.Ast.SynBindingKind</param>
+  /// <param name="mustInline">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynValData</param>
+  /// <param name="headPat">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item9">Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="lhsRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitBinding_Binding".</remarks>
   abstract member BeforeVisitBinding_Binding:
@@ -1290,6 +1494,18 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynBinding.Binding" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="bindingKind">Microsoft.FSharp.Compiler.Ast.SynBindingKind</param>
+  /// <param name="mustInline">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynValData</param>
+  /// <param name="headPat">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item9">Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="lhsRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitBinding_Binding".</remarks>
   default this.BeforeVisitBinding_Binding
@@ -1325,6 +1541,18 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynBinding.Binding" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="bindingKind">Microsoft.FSharp.Compiler.Ast.SynBindingKind</param>
+  /// <param name="mustInline">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynValData</param>
+  /// <param name="headPat">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item9">Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="lhsRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynBinding.Binding".</remarks>
   abstract member VisitBinding_Binding:
@@ -1346,6 +1574,18 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynBinding.Binding" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="bindingKind">Microsoft.FSharp.Compiler.Ast.SynBindingKind</param>
+  /// <param name="mustInline">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynValData</param>
+  /// <param name="headPat">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item9">Microsoft.FSharp.Compiler.Ast.SynBindingReturnInfo option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="lhsRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynBinding.Binding".</remarks>
   default __.VisitBinding_Binding
@@ -1531,6 +1771,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynBindingReturnInfo.SynBindingReturnInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitBindingReturnInfo_SynBindingReturnInfo".</remarks>
   abstract member BeforeVisitBindingReturnInfo_SynBindingReturnInfo:
@@ -1543,6 +1786,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynBindingReturnInfo.SynBindingReturnInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitBindingReturnInfo_SynBindingReturnInfo".</remarks>
   default this.BeforeVisitBindingReturnInfo_SynBindingReturnInfo
@@ -1560,6 +1806,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynBindingReturnInfo.SynBindingReturnInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynBindingReturnInfo.SynBindingReturnInfo".</remarks>
   abstract member VisitBindingReturnInfo_SynBindingReturnInfo:
@@ -1572,6 +1821,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynBindingReturnInfo.SynBindingReturnInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynBindingReturnInfo.SynBindingReturnInfo".</remarks>
   default __.VisitBindingReturnInfo_SynBindingReturnInfo
@@ -1606,6 +1858,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynComponentInfo.ComponentInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="preferPostfix">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitComponentInfo_ComponentInfo".</remarks>
   abstract member BeforeVisitComponentInfo_ComponentInfo:
@@ -1623,6 +1883,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynComponentInfo.ComponentInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="preferPostfix">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitComponentInfo_ComponentInfo".</remarks>
   default this.BeforeVisitComponentInfo_ComponentInfo
@@ -1650,6 +1918,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynComponentInfo.ComponentInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="preferPostfix">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynComponentInfo.ComponentInfo".</remarks>
   abstract member VisitComponentInfo_ComponentInfo:
@@ -1667,6 +1943,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynComponentInfo.ComponentInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="preferPostfix">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynComponentInfo.ComponentInfo".</remarks>
   default __.VisitComponentInfo_ComponentInfo
@@ -1745,6 +2029,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Bool" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Bool".</remarks>
   abstract member BeforeVisitConst_Bool:
@@ -1755,6 +2040,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Bool" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Bool".</remarks>
   default this.BeforeVisitConst_Bool
@@ -1768,6 +2054,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Bool" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Bool".</remarks>
   abstract member VisitConst_Bool:
@@ -1778,6 +2065,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Bool" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Bool".</remarks>
   default __.VisitConst_Bool
@@ -1789,6 +2077,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.SByte" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.SByte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_SByte".</remarks>
   abstract member BeforeVisitConst_SByte:
@@ -1799,6 +2088,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.SByte" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.SByte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_SByte".</remarks>
   default this.BeforeVisitConst_SByte
@@ -1812,6 +2102,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.SByte" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.SByte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.SByte".</remarks>
   abstract member VisitConst_SByte:
@@ -1822,6 +2113,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.SByte" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.SByte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.SByte".</remarks>
   default __.VisitConst_SByte
@@ -1833,6 +2125,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Byte" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">byte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Byte".</remarks>
   abstract member BeforeVisitConst_Byte:
@@ -1843,6 +2136,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Byte" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">byte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Byte".</remarks>
   default this.BeforeVisitConst_Byte
@@ -1856,6 +2150,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Byte" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">byte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Byte".</remarks>
   abstract member VisitConst_Byte:
@@ -1866,6 +2161,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Byte" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">byte</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Byte".</remarks>
   default __.VisitConst_Byte
@@ -1877,6 +2173,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int16" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int16".</remarks>
   abstract member BeforeVisitConst_Int16:
@@ -1887,6 +2184,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int16" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int16".</remarks>
   default this.BeforeVisitConst_Int16
@@ -1900,6 +2198,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int16" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int16".</remarks>
   abstract member VisitConst_Int16:
@@ -1910,6 +2209,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int16" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int16".</remarks>
   default __.VisitConst_Int16
@@ -1921,6 +2221,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt16" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt16".</remarks>
   abstract member BeforeVisitConst_UInt16:
@@ -1931,6 +2232,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt16" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt16".</remarks>
   default this.BeforeVisitConst_UInt16
@@ -1944,6 +2246,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt16" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt16".</remarks>
   abstract member VisitConst_UInt16:
@@ -1954,6 +2257,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt16" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt16".</remarks>
   default __.VisitConst_UInt16
@@ -1965,6 +2269,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int32" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int32".</remarks>
   abstract member BeforeVisitConst_Int32:
@@ -1975,6 +2280,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int32" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int32".</remarks>
   default this.BeforeVisitConst_Int32
@@ -1988,6 +2294,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int32" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int32".</remarks>
   abstract member VisitConst_Int32:
@@ -1998,6 +2305,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int32" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int32".</remarks>
   default __.VisitConst_Int32
@@ -2009,6 +2317,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt32" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt32</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt32".</remarks>
   abstract member BeforeVisitConst_UInt32:
@@ -2019,6 +2328,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt32" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt32</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt32".</remarks>
   default this.BeforeVisitConst_UInt32
@@ -2032,6 +2342,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt32" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt32</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt32".</remarks>
   abstract member VisitConst_UInt32:
@@ -2042,6 +2353,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt32" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt32</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt32".</remarks>
   default __.VisitConst_UInt32
@@ -2053,6 +2365,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int64" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int64".</remarks>
   abstract member BeforeVisitConst_Int64:
@@ -2063,6 +2376,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Int64" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Int64".</remarks>
   default this.BeforeVisitConst_Int64
@@ -2076,6 +2390,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int64" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int64".</remarks>
   abstract member VisitConst_Int64:
@@ -2086,6 +2401,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Int64" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Int64".</remarks>
   default __.VisitConst_Int64
@@ -2097,6 +2413,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt64" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt64".</remarks>
   abstract member BeforeVisitConst_UInt64:
@@ -2107,6 +2424,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt64" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt64".</remarks>
   default this.BeforeVisitConst_UInt64
@@ -2120,6 +2438,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt64" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt64".</remarks>
   abstract member VisitConst_UInt64:
@@ -2130,6 +2449,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt64" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt64".</remarks>
   default __.VisitConst_UInt64
@@ -2141,6 +2461,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.IntPtr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_IntPtr".</remarks>
   abstract member BeforeVisitConst_IntPtr:
@@ -2151,6 +2472,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.IntPtr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_IntPtr".</remarks>
   default this.BeforeVisitConst_IntPtr
@@ -2164,6 +2486,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.IntPtr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.IntPtr".</remarks>
   abstract member VisitConst_IntPtr:
@@ -2174,6 +2497,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.IntPtr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.IntPtr".</remarks>
   default __.VisitConst_IntPtr
@@ -2185,6 +2509,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UIntPtr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UIntPtr".</remarks>
   abstract member BeforeVisitConst_UIntPtr:
@@ -2195,6 +2520,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UIntPtr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UIntPtr".</remarks>
   default this.BeforeVisitConst_UIntPtr
@@ -2208,6 +2534,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UIntPtr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UIntPtr".</remarks>
   abstract member VisitConst_UIntPtr:
@@ -2218,6 +2545,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UIntPtr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt64</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UIntPtr".</remarks>
   default __.VisitConst_UIntPtr
@@ -2229,6 +2557,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Single" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Single</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Single".</remarks>
   abstract member BeforeVisitConst_Single:
@@ -2239,6 +2568,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Single" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Single</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Single".</remarks>
   default this.BeforeVisitConst_Single
@@ -2252,6 +2582,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Single" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Single</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Single".</remarks>
   abstract member VisitConst_Single:
@@ -2262,6 +2593,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Single" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Single</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Single".</remarks>
   default __.VisitConst_Single
@@ -2273,6 +2605,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Double" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Double</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Double".</remarks>
   abstract member BeforeVisitConst_Double:
@@ -2283,6 +2616,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Double" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Double</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Double".</remarks>
   default this.BeforeVisitConst_Double
@@ -2296,6 +2630,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Double" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Double</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Double".</remarks>
   abstract member VisitConst_Double:
@@ -2306,6 +2641,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Double" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Double</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Double".</remarks>
   default __.VisitConst_Double
@@ -2317,6 +2653,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Char" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">char</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Char".</remarks>
   abstract member BeforeVisitConst_Char:
@@ -2327,6 +2664,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Char" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">char</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Char".</remarks>
   default this.BeforeVisitConst_Char
@@ -2340,6 +2678,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Char" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">char</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Char".</remarks>
   abstract member VisitConst_Char:
@@ -2350,6 +2689,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Char" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">char</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Char".</remarks>
   default __.VisitConst_Char
@@ -2361,6 +2701,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Decimal" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Decimal</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Decimal".</remarks>
   abstract member BeforeVisitConst_Decimal:
@@ -2371,6 +2712,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Decimal" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Decimal</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Decimal".</remarks>
   default this.BeforeVisitConst_Decimal
@@ -2384,6 +2726,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Decimal" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Decimal</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Decimal".</remarks>
   abstract member VisitConst_Decimal:
@@ -2394,6 +2737,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Decimal" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.Decimal</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Decimal".</remarks>
   default __.VisitConst_Decimal
@@ -2405,6 +2749,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UserNum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(string * string)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UserNum".</remarks>
   abstract member BeforeVisitConst_UserNum:
@@ -2415,6 +2760,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UserNum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(string * string)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UserNum".</remarks>
   default this.BeforeVisitConst_UserNum
@@ -2428,6 +2774,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UserNum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(string * string)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UserNum".</remarks>
   abstract member VisitConst_UserNum:
@@ -2438,6 +2785,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UserNum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(string * string)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UserNum".</remarks>
   default __.VisitConst_UserNum
@@ -2449,6 +2797,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.String" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="text">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_String".</remarks>
   abstract member BeforeVisitConst_String:
@@ -2460,6 +2810,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.String" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="text">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_String".</remarks>
   default this.BeforeVisitConst_String
@@ -2475,6 +2827,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.String" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="text">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.String".</remarks>
   abstract member VisitConst_String:
@@ -2486,6 +2840,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.String" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="text">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.String".</remarks>
   default __.VisitConst_String
@@ -2498,6 +2854,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Bytes" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bytes">byte[]</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Bytes".</remarks>
   abstract member BeforeVisitConst_Bytes:
@@ -2509,6 +2867,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Bytes" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bytes">byte[]</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Bytes".</remarks>
   default this.BeforeVisitConst_Bytes
@@ -2524,6 +2884,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Bytes" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bytes">byte[]</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Bytes".</remarks>
   abstract member VisitConst_Bytes:
@@ -2535,6 +2897,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Bytes" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bytes">byte[]</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Bytes".</remarks>
   default __.VisitConst_Bytes
@@ -2547,6 +2911,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt16s" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16[]</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt16s".</remarks>
   abstract member BeforeVisitConst_UInt16s:
@@ -2557,6 +2922,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.UInt16s" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16[]</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_UInt16s".</remarks>
   default this.BeforeVisitConst_UInt16s
@@ -2570,6 +2936,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt16s" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16[]</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt16s".</remarks>
   abstract member VisitConst_UInt16s:
@@ -2580,6 +2947,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.UInt16s" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">System.UInt16[]</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.UInt16s".</remarks>
   default __.VisitConst_UInt16s
@@ -2591,6 +2959,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Measure" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Measure".</remarks>
   abstract member BeforeVisitConst_Measure:
@@ -2602,6 +2972,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConst.Measure" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConst_Measure".</remarks>
   default this.BeforeVisitConst_Measure
@@ -2617,6 +2989,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Measure" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Measure".</remarks>
   abstract member VisitConst_Measure:
@@ -2628,6 +3002,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConst.Measure" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConst.Measure".</remarks>
   default __.VisitConst_Measure
@@ -2701,6 +3077,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConstructorArgs.Pats" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConstructorArgs_Pats".</remarks>
   abstract member BeforeVisitConstructorArgs_Pats:
@@ -2711,6 +3088,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConstructorArgs.Pats" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConstructorArgs_Pats".</remarks>
   default this.BeforeVisitConstructorArgs_Pats
@@ -2724,6 +3102,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConstructorArgs.Pats" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConstructorArgs.Pats".</remarks>
   abstract member VisitConstructorArgs_Pats:
@@ -2734,6 +3113,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConstructorArgs.Pats" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConstructorArgs.Pats".</remarks>
   default __.VisitConstructorArgs_Pats
@@ -2745,6 +3125,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConstructorArgs.NamePatPairs" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConstructorArgs_NamePatPairs".</remarks>
   abstract member BeforeVisitConstructorArgs_NamePatPairs:
@@ -2756,6 +3138,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynConstructorArgs.NamePatPairs" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitConstructorArgs_NamePatPairs".</remarks>
   default this.BeforeVisitConstructorArgs_NamePatPairs
@@ -2771,6 +3155,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConstructorArgs.NamePatPairs" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConstructorArgs.NamePatPairs".</remarks>
   abstract member VisitConstructorArgs_NamePatPairs:
@@ -2782,6 +3168,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynConstructorArgs.NamePatPairs" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.Ident * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynConstructorArgs.NamePatPairs".</remarks>
   default __.VisitConstructorArgs_NamePatPairs
@@ -2817,6 +3205,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynEnumCase.EnumCase" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitEnumCase_EnumCase".</remarks>
   abstract member BeforeVisitEnumCase_EnumCase:
@@ -2831,6 +3224,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynEnumCase.EnumCase" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitEnumCase_EnumCase".</remarks>
   default this.BeforeVisitEnumCase_EnumCase
@@ -2852,6 +3250,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynEnumCase.EnumCase" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynEnumCase.EnumCase".</remarks>
   abstract member VisitEnumCase_EnumCase:
@@ -2866,6 +3269,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynEnumCase.EnumCase" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynEnumCase.EnumCase".</remarks>
   default __.VisitEnumCase_EnumCase
@@ -2902,6 +3310,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionDefn.SynExceptionDefn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefn_SynExceptionDefn".</remarks>
   abstract member BeforeVisitExceptionDefn_SynExceptionDefn:
@@ -2914,6 +3325,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionDefn.SynExceptionDefn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefn_SynExceptionDefn".</remarks>
   default this.BeforeVisitExceptionDefn_SynExceptionDefn
@@ -2931,6 +3345,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionDefn.SynExceptionDefn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionDefn.SynExceptionDefn".</remarks>
   abstract member VisitExceptionDefn_SynExceptionDefn:
@@ -2943,6 +3360,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionDefn.SynExceptionDefn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionDefn.SynExceptionDefn".</remarks>
   default __.VisitExceptionDefn_SynExceptionDefn
@@ -2977,6 +3397,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionDefnRepr.SynExceptionDefnRepr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="case">Microsoft.FSharp.Compiler.Ast.SynUnionCase</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list option</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accesibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefnRepr_SynExceptionDefnRepr".</remarks>
   abstract member BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr:
@@ -2992,6 +3418,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionDefnRepr.SynExceptionDefnRepr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="case">Microsoft.FSharp.Compiler.Ast.SynUnionCase</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list option</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accesibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionDefnRepr_SynExceptionDefnRepr".</remarks>
   default this.BeforeVisitExceptionDefnRepr_SynExceptionDefnRepr
@@ -3015,6 +3447,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionDefnRepr.SynExceptionDefnRepr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="case">Microsoft.FSharp.Compiler.Ast.SynUnionCase</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list option</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accesibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionDefnRepr.SynExceptionDefnRepr".</remarks>
   abstract member VisitExceptionDefnRepr_SynExceptionDefnRepr:
@@ -3030,6 +3468,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionDefnRepr.SynExceptionDefnRepr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="case">Microsoft.FSharp.Compiler.Ast.SynUnionCase</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list option</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accesibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionDefnRepr.SynExceptionDefnRepr".</remarks>
   default __.VisitExceptionDefnRepr_SynExceptionDefnRepr
@@ -3067,6 +3511,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionSig.SynExceptionSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionSig_SynExceptionSig".</remarks>
   abstract member BeforeVisitExceptionSig_SynExceptionSig:
@@ -3079,6 +3526,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExceptionSig.SynExceptionSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExceptionSig_SynExceptionSig".</remarks>
   default this.BeforeVisitExceptionSig_SynExceptionSig
@@ -3096,6 +3546,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionSig.SynExceptionSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionSig.SynExceptionSig".</remarks>
   abstract member VisitExceptionSig_SynExceptionSig:
@@ -3108,6 +3561,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExceptionSig.SynExceptionSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnRepr">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExceptionSig.SynExceptionSig".</remarks>
   default __.VisitExceptionSig_SynExceptionSig
@@ -3142,6 +3598,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Paren" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftParenRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rightParenRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Paren".</remarks>
   abstract member BeforeVisitExpr_Paren:
@@ -3155,6 +3615,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Paren" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftParenRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rightParenRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Paren".</remarks>
   default this.BeforeVisitExpr_Paren
@@ -3174,6 +3638,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Paren" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftParenRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rightParenRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Paren".</remarks>
   abstract member VisitExpr_Paren:
@@ -3187,6 +3655,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Paren" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftParenRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rightParenRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Paren".</remarks>
   default __.VisitExpr_Paren
@@ -3201,6 +3673,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Quote" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="operator">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isRaw">bool</param>
+  /// <param name="quotedSynExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isFromQueryExpression">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Quote".</remarks>
   abstract member BeforeVisitExpr_Quote:
@@ -3215,6 +3692,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Quote" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="operator">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isRaw">bool</param>
+  /// <param name="quotedSynExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isFromQueryExpression">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Quote".</remarks>
   default this.BeforeVisitExpr_Quote
@@ -3236,6 +3718,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Quote" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="operator">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isRaw">bool</param>
+  /// <param name="quotedSynExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isFromQueryExpression">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Quote".</remarks>
   abstract member VisitExpr_Quote:
@@ -3250,6 +3737,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Quote" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="operator">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isRaw">bool</param>
+  /// <param name="quotedSynExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="isFromQueryExpression">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Quote".</remarks>
   default __.VisitExpr_Quote
@@ -3265,6 +3757,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Const" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Const".</remarks>
   abstract member BeforeVisitExpr_Const:
@@ -3276,6 +3770,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Const" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Const".</remarks>
   default this.BeforeVisitExpr_Const
@@ -3291,6 +3787,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Const" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Const".</remarks>
   abstract member VisitExpr_Const:
@@ -3302,6 +3800,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Const" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Const".</remarks>
   default __.VisitExpr_Const
@@ -3314,6 +3814,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Typed".</remarks>
   abstract member BeforeVisitExpr_Typed:
@@ -3326,6 +3829,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Typed".</remarks>
   default this.BeforeVisitExpr_Typed
@@ -3343,6 +3849,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Typed".</remarks>
   abstract member VisitExpr_Typed:
@@ -3355,6 +3864,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Typed".</remarks>
   default __.VisitExpr_Typed
@@ -3368,6 +3880,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Tuple".</remarks>
   abstract member BeforeVisitExpr_Tuple:
@@ -3380,6 +3895,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Tuple".</remarks>
   default this.BeforeVisitExpr_Tuple
@@ -3397,6 +3915,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Tuple".</remarks>
   abstract member VisitExpr_Tuple:
@@ -3409,6 +3930,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Tuple".</remarks>
   default __.VisitExpr_Tuple
@@ -3422,6 +3946,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArrayOrList" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArrayOrList".</remarks>
   abstract member BeforeVisitExpr_ArrayOrList:
@@ -3434,6 +3961,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArrayOrList" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArrayOrList".</remarks>
   default this.BeforeVisitExpr_ArrayOrList
@@ -3451,6 +3981,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArrayOrList" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArrayOrList".</remarks>
   abstract member VisitExpr_ArrayOrList:
@@ -3463,6 +3996,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArrayOrList" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="exprs">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArrayOrList".</remarks>
   default __.VisitExpr_ArrayOrList
@@ -3476,6 +4012,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="baseInfo">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option</param>
+  /// <param name="copyInfo">(Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option</param>
+  /// <param name="recordFields">((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Record".</remarks>
   abstract member BeforeVisitExpr_Record:
@@ -3489,6 +4029,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="baseInfo">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option</param>
+  /// <param name="copyInfo">(Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option</param>
+  /// <param name="recordFields">((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Record".</remarks>
   default this.BeforeVisitExpr_Record
@@ -3508,6 +4052,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="baseInfo">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option</param>
+  /// <param name="copyInfo">(Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option</param>
+  /// <param name="recordFields">((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Record".</remarks>
   abstract member VisitExpr_Record:
@@ -3521,6 +4069,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="baseInfo">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Range.range * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option * Microsoft.FSharp.Compiler.Range.range) option</param>
+  /// <param name="copyInfo">(Microsoft.FSharp.Compiler.Ast.SynExpr * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option)) option</param>
+  /// <param name="recordFields">((Microsoft.FSharp.Compiler.Ast.LongIdentWithDots * bool) * Microsoft.FSharp.Compiler.Ast.SynExpr option * (Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Range.pos option) option) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Record".</remarks>
   default __.VisitExpr_Record
@@ -3535,6 +4087,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.New" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isProtected">bool</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_New".</remarks>
   abstract member BeforeVisitExpr_New:
@@ -3548,6 +4104,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.New" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isProtected">bool</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_New".</remarks>
   default this.BeforeVisitExpr_New
@@ -3567,6 +4127,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.New" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isProtected">bool</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.New".</remarks>
   abstract member VisitExpr_New:
@@ -3580,6 +4144,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.New" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isProtected">bool</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.New".</remarks>
   default __.VisitExpr_New
@@ -3594,6 +4162,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ObjExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="argOpt">(Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Ast.Ident option) option</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="extraImpls">Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list</param>
+  /// <param name="newPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ObjExpr".</remarks>
   abstract member BeforeVisitExpr_ObjExpr:
@@ -3609,6 +4183,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ObjExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="argOpt">(Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Ast.Ident option) option</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="extraImpls">Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list</param>
+  /// <param name="newPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ObjExpr".</remarks>
   default this.BeforeVisitExpr_ObjExpr
@@ -3632,6 +4212,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ObjExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="argOpt">(Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Ast.Ident option) option</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="extraImpls">Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list</param>
+  /// <param name="newPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ObjExpr".</remarks>
   abstract member VisitExpr_ObjExpr:
@@ -3647,6 +4233,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ObjExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="argOpt">(Microsoft.FSharp.Compiler.Ast.SynExpr * Microsoft.FSharp.Compiler.Ast.Ident option) option</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="extraImpls">Microsoft.FSharp.Compiler.Ast.SynInterfaceImpl list</param>
+  /// <param name="newPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ObjExpr".</remarks>
   default __.VisitExpr_ObjExpr
@@ -3663,6 +4255,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.While" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spWhile">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop</param>
+  /// <param name="whileBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_While".</remarks>
   abstract member BeforeVisitExpr_While:
@@ -3676,6 +4272,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.While" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spWhile">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop</param>
+  /// <param name="whileBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_While".</remarks>
   default this.BeforeVisitExpr_While
@@ -3695,6 +4295,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.While" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spWhile">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop</param>
+  /// <param name="whileBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.While".</remarks>
   abstract member VisitExpr_While:
@@ -3708,6 +4312,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.While" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spWhile">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWhileLoop</param>
+  /// <param name="whileBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.While".</remarks>
   default __.VisitExpr_While
@@ -3722,6 +4330,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.For" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="idBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">bool</param>
+  /// <param name="toBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_For".</remarks>
   abstract member BeforeVisitExpr_For:
@@ -3738,6 +4353,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.For" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="idBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">bool</param>
+  /// <param name="toBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_For".</remarks>
   default this.BeforeVisitExpr_For
@@ -3763,6 +4385,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.For" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="idBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">bool</param>
+  /// <param name="toBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.For".</remarks>
   abstract member VisitExpr_For:
@@ -3779,6 +4408,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.For" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="idBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">bool</param>
+  /// <param name="toBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="doBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.For".</remarks>
   default __.VisitExpr_For
@@ -3796,6 +4432,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ForEach" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="seqExprOnly">Microsoft.FSharp.Compiler.Ast.SeqExprOnly</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="enumExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ForEach".</remarks>
   abstract member BeforeVisitExpr_ForEach:
@@ -3812,6 +4455,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ForEach" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="seqExprOnly">Microsoft.FSharp.Compiler.Ast.SeqExprOnly</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="enumExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ForEach".</remarks>
   default this.BeforeVisitExpr_ForEach
@@ -3837,6 +4487,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ForEach" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="seqExprOnly">Microsoft.FSharp.Compiler.Ast.SeqExprOnly</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="enumExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ForEach".</remarks>
   abstract member VisitExpr_ForEach:
@@ -3853,6 +4510,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ForEach" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spFor">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForForLoop</param>
+  /// <param name="seqExprOnly">Microsoft.FSharp.Compiler.Ast.SeqExprOnly</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="enumExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ForEach".</remarks>
   default __.VisitExpr_ForEach
@@ -3870,6 +4534,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArrayOrListOfSeqExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="elements">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArrayOrListOfSeqExpr".</remarks>
   abstract member BeforeVisitExpr_ArrayOrListOfSeqExpr:
@@ -3882,6 +4549,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArrayOrListOfSeqExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="elements">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArrayOrListOfSeqExpr".</remarks>
   default this.BeforeVisitExpr_ArrayOrListOfSeqExpr
@@ -3899,6 +4569,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArrayOrListOfSeqExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="elements">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArrayOrListOfSeqExpr".</remarks>
   abstract member VisitExpr_ArrayOrListOfSeqExpr:
@@ -3911,6 +4584,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArrayOrListOfSeqExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isList">bool</param>
+  /// <param name="elements">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArrayOrListOfSeqExpr".</remarks>
   default __.VisitExpr_ArrayOrListOfSeqExpr
@@ -3924,6 +4600,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.CompExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isArrayOrList">bool</param>
+  /// <param name="isNotNakedRefCell">bool ref</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_CompExpr".</remarks>
   abstract member BeforeVisitExpr_CompExpr:
@@ -3937,6 +4617,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.CompExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isArrayOrList">bool</param>
+  /// <param name="isNotNakedRefCell">bool ref</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_CompExpr".</remarks>
   default this.BeforeVisitExpr_CompExpr
@@ -3956,6 +4640,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.CompExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isArrayOrList">bool</param>
+  /// <param name="isNotNakedRefCell">bool ref</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.CompExpr".</remarks>
   abstract member VisitExpr_CompExpr:
@@ -3969,6 +4657,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.CompExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isArrayOrList">bool</param>
+  /// <param name="isNotNakedRefCell">bool ref</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.CompExpr".</remarks>
   default __.VisitExpr_CompExpr
@@ -3983,6 +4675,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Lambda" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fromMethod">bool</param>
+  /// <param name="inLambdaSeq">bool</param>
+  /// <param name="args">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="body">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Lambda".</remarks>
   abstract member BeforeVisitExpr_Lambda:
@@ -3997,6 +4694,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Lambda" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fromMethod">bool</param>
+  /// <param name="inLambdaSeq">bool</param>
+  /// <param name="args">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="body">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Lambda".</remarks>
   default this.BeforeVisitExpr_Lambda
@@ -4018,6 +4720,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Lambda" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fromMethod">bool</param>
+  /// <param name="inLambdaSeq">bool</param>
+  /// <param name="args">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="body">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Lambda".</remarks>
   abstract member VisitExpr_Lambda:
@@ -4032,6 +4739,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Lambda" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fromMethod">bool</param>
+  /// <param name="inLambdaSeq">bool</param>
+  /// <param name="args">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="body">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Lambda".</remarks>
   default __.VisitExpr_Lambda
@@ -4047,6 +4759,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.MatchLambda" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_MatchLambda".</remarks>
   abstract member BeforeVisitExpr_MatchLambda:
@@ -4061,6 +4778,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.MatchLambda" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_MatchLambda".</remarks>
   default this.BeforeVisitExpr_MatchLambda
@@ -4082,6 +4804,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.MatchLambda" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.MatchLambda".</remarks>
   abstract member VisitExpr_MatchLambda:
@@ -4096,6 +4823,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.MatchLambda" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.MatchLambda".</remarks>
   default __.VisitExpr_MatchLambda
@@ -4111,6 +4843,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Match" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="matchExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="isCexprExceptionMatch">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Match".</remarks>
   abstract member BeforeVisitExpr_Match:
@@ -4125,6 +4862,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Match" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="matchExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="isCexprExceptionMatch">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Match".</remarks>
   default this.BeforeVisitExpr_Match
@@ -4146,6 +4888,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Match" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="matchExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="isCexprExceptionMatch">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Match".</remarks>
   abstract member VisitExpr_Match:
@@ -4160,6 +4907,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Match" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="matchExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="clauses">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="isCexprExceptionMatch">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Match".</remarks>
   default __.VisitExpr_Match
@@ -4175,6 +4927,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Do" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Do".</remarks>
   abstract member BeforeVisitExpr_Do:
@@ -4186,6 +4940,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Do" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Do".</remarks>
   default this.BeforeVisitExpr_Do
@@ -4201,6 +4957,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Do" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Do".</remarks>
   abstract member VisitExpr_Do:
@@ -4212,6 +4970,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Do" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Do".</remarks>
   default __.VisitExpr_Do
@@ -4224,6 +4984,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Assert" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Assert".</remarks>
   abstract member BeforeVisitExpr_Assert:
@@ -4235,6 +4997,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Assert" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Assert".</remarks>
   default this.BeforeVisitExpr_Assert
@@ -4250,6 +5014,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Assert" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Assert".</remarks>
   abstract member VisitExpr_Assert:
@@ -4261,6 +5027,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Assert" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Assert".</remarks>
   default __.VisitExpr_Assert
@@ -4273,6 +5041,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.App" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprAtomicFlag">Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag</param>
+  /// <param name="isInfix">bool</param>
+  /// <param name="funcExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="argExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_App".</remarks>
   abstract member BeforeVisitExpr_App:
@@ -4287,6 +5060,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.App" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprAtomicFlag">Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag</param>
+  /// <param name="isInfix">bool</param>
+  /// <param name="funcExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="argExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_App".</remarks>
   default this.BeforeVisitExpr_App
@@ -4308,6 +5086,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.App" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprAtomicFlag">Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag</param>
+  /// <param name="isInfix">bool</param>
+  /// <param name="funcExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="argExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.App".</remarks>
   abstract member VisitExpr_App:
@@ -4322,6 +5105,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.App" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprAtomicFlag">Microsoft.FSharp.Compiler.Ast.ExprAtomicFlag</param>
+  /// <param name="isInfix">bool</param>
+  /// <param name="funcExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="argExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.App".</remarks>
   default __.VisitExpr_App
@@ -4337,6 +5125,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TypeApp" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="typeNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TypeApp".</remarks>
   abstract member BeforeVisitExpr_TypeApp:
@@ -4353,6 +5148,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TypeApp" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="typeNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TypeApp".</remarks>
   default this.BeforeVisitExpr_TypeApp
@@ -4378,6 +5180,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TypeApp" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="typeNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TypeApp".</remarks>
   abstract member VisitExpr_TypeApp:
@@ -4394,6 +5203,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TypeApp" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="typeNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TypeApp".</remarks>
   default __.VisitExpr_TypeApp
@@ -4411,6 +5227,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LetOrUse" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="exprBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LetOrUse".</remarks>
   abstract member BeforeVisitExpr_LetOrUse:
@@ -4425,6 +5246,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LetOrUse" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="exprBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LetOrUse".</remarks>
   default this.BeforeVisitExpr_LetOrUse
@@ -4446,6 +5272,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LetOrUse" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="exprBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LetOrUse".</remarks>
   abstract member VisitExpr_LetOrUse:
@@ -4460,6 +5291,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LetOrUse" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="exprBody">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LetOrUse".</remarks>
   default __.VisitExpr_LetOrUse
@@ -4475,6 +5311,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TryWith" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spWith">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TryWith".</remarks>
   abstract member BeforeVisitExpr_TryWith:
@@ -4491,6 +5334,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TryWith" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spWith">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TryWith".</remarks>
   default this.BeforeVisitExpr_TryWith
@@ -4516,6 +5366,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TryWith" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spWith">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TryWith".</remarks>
   abstract member VisitExpr_TryWith:
@@ -4532,6 +5389,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TryWith" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynMatchClause list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spWith">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForWith</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TryWith".</remarks>
   default __.VisitExpr_TryWith
@@ -4549,6 +5413,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TryFinally" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="finallyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spFinally">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TryFinally".</remarks>
   abstract member BeforeVisitExpr_TryFinally:
@@ -4563,6 +5432,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TryFinally" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="finallyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spFinally">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TryFinally".</remarks>
   default this.BeforeVisitExpr_TryFinally
@@ -4584,6 +5458,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TryFinally" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="finallyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spFinally">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TryFinally".</remarks>
   abstract member VisitExpr_TryFinally:
@@ -4598,6 +5477,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TryFinally" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="tryExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="finallyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTry">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTry</param>
+  /// <param name="spFinally">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForFinally</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TryFinally".</remarks>
   default __.VisitExpr_TryFinally
@@ -4613,6 +5497,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Lazy" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Lazy".</remarks>
   abstract member BeforeVisitExpr_Lazy:
@@ -4624,6 +5510,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Lazy" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Lazy".</remarks>
   default this.BeforeVisitExpr_Lazy
@@ -4639,6 +5527,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Lazy" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Lazy".</remarks>
   abstract member VisitExpr_Lazy:
@@ -4650,6 +5540,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Lazy" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Lazy".</remarks>
   default __.VisitExpr_Lazy
@@ -4662,6 +5554,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Sequential" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spSeq">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForSeq</param>
+  /// <param name="isTrueSeq">bool</param>
+  /// <param name="expr1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="expr2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Sequential".</remarks>
   abstract member BeforeVisitExpr_Sequential:
@@ -4676,6 +5573,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Sequential" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spSeq">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForSeq</param>
+  /// <param name="isTrueSeq">bool</param>
+  /// <param name="expr1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="expr2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Sequential".</remarks>
   default this.BeforeVisitExpr_Sequential
@@ -4697,6 +5599,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Sequential" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spSeq">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForSeq</param>
+  /// <param name="isTrueSeq">bool</param>
+  /// <param name="expr1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="expr2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Sequential".</remarks>
   abstract member VisitExpr_Sequential:
@@ -4711,6 +5618,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Sequential" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spSeq">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForSeq</param>
+  /// <param name="isTrueSeq">bool</param>
+  /// <param name="expr1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="expr2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Sequential".</remarks>
   default __.VisitExpr_Sequential
@@ -4726,6 +5638,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.IfThenElse" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprGuard">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="exprThen">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="optionalExprElse">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="spIfToThen">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isFromErrorRecovery">bool</param>
+  /// <param name="ifToThen">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_IfThenElse".</remarks>
   abstract member BeforeVisitExpr_IfThenElse:
@@ -4742,6 +5661,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.IfThenElse" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprGuard">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="exprThen">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="optionalExprElse">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="spIfToThen">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isFromErrorRecovery">bool</param>
+  /// <param name="ifToThen">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_IfThenElse".</remarks>
   default this.BeforeVisitExpr_IfThenElse
@@ -4767,6 +5693,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.IfThenElse" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprGuard">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="exprThen">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="optionalExprElse">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="spIfToThen">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isFromErrorRecovery">bool</param>
+  /// <param name="ifToThen">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.IfThenElse".</remarks>
   abstract member VisitExpr_IfThenElse:
@@ -4783,6 +5716,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.IfThenElse" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exprGuard">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="exprThen">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="optionalExprElse">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="spIfToThen">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isFromErrorRecovery">bool</param>
+  /// <param name="ifToThen">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.IfThenElse".</remarks>
   default __.VisitExpr_IfThenElse
@@ -4800,6 +5740,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Ident" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Ident".</remarks>
   abstract member BeforeVisitExpr_Ident:
@@ -4810,6 +5751,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Ident" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Ident".</remarks>
   default this.BeforeVisitExpr_Ident
@@ -4823,6 +5765,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Ident" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Ident".</remarks>
   abstract member VisitExpr_Ident:
@@ -4833,6 +5776,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Ident" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Ident".</remarks>
   default __.VisitExpr_Ident
@@ -4844,6 +5788,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isOptional">bool</param>
+  /// <param name="longIdent">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LongIdent".</remarks>
   abstract member BeforeVisitExpr_LongIdent:
@@ -4857,6 +5805,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isOptional">bool</param>
+  /// <param name="longIdent">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LongIdent".</remarks>
   default this.BeforeVisitExpr_LongIdent
@@ -4877,6 +5829,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isOptional">bool</param>
+  /// <param name="longIdent">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LongIdent".</remarks>
   abstract member VisitExpr_LongIdent:
@@ -4890,6 +5846,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="isOptional">bool</param>
+  /// <param name="longIdent">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LongIdent".</remarks>
   default __.VisitExpr_LongIdent
@@ -4904,6 +5864,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LongIdentSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LongIdentSet".</remarks>
   abstract member BeforeVisitExpr_LongIdentSet:
@@ -4916,6 +5879,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LongIdentSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LongIdentSet".</remarks>
   default this.BeforeVisitExpr_LongIdentSet
@@ -4933,6 +5899,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LongIdentSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LongIdentSet".</remarks>
   abstract member VisitExpr_LongIdentSet:
@@ -4945,6 +5914,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LongIdentSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LongIdentSet".</remarks>
   default __.VisitExpr_LongIdentSet
@@ -4958,6 +5930,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotGet".</remarks>
   abstract member BeforeVisitExpr_DotGet:
@@ -4971,6 +5947,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotGet".</remarks>
   default this.BeforeVisitExpr_DotGet
@@ -4990,6 +5970,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotGet".</remarks>
   abstract member VisitExpr_DotGet:
@@ -5003,6 +5987,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotGet".</remarks>
   default __.VisitExpr_DotGet
@@ -5017,6 +6005,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="exprValue">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotSet".</remarks>
   abstract member BeforeVisitExpr_DotSet:
@@ -5030,6 +6022,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="exprValue">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotSet".</remarks>
   default this.BeforeVisitExpr_DotSet
@@ -5049,6 +6045,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="exprValue">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotSet".</remarks>
   abstract member VisitExpr_DotSet:
@@ -5062,6 +6062,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="exprValue">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotSet".</remarks>
   default __.VisitExpr_DotSet
@@ -5076,6 +6080,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotIndexedGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedGet".</remarks>
   abstract member BeforeVisitExpr_DotIndexedGet:
@@ -5089,6 +6097,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotIndexedGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedGet".</remarks>
   default this.BeforeVisitExpr_DotIndexedGet
@@ -5108,6 +6120,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotIndexedGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotIndexedGet".</remarks>
   abstract member VisitExpr_DotIndexedGet:
@@ -5121,6 +6137,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotIndexedGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotIndexedGet".</remarks>
   default __.VisitExpr_DotIndexedGet
@@ -5135,6 +6155,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotIndexedSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objectExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="valueExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfLeftOfSet">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedSet".</remarks>
   abstract member BeforeVisitExpr_DotIndexedSet:
@@ -5150,6 +6176,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotIndexedSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objectExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="valueExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfLeftOfSet">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotIndexedSet".</remarks>
   default this.BeforeVisitExpr_DotIndexedSet
@@ -5173,6 +6205,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotIndexedSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objectExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="valueExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfLeftOfSet">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotIndexedSet".</remarks>
   abstract member VisitExpr_DotIndexedSet:
@@ -5188,6 +6226,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotIndexedSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="objectExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="indexExprs">Microsoft.FSharp.Compiler.Ast.SynIndexerArg list</param>
+  /// <param name="valueExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="rangeOfLeftOfSet">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="rangeOfDot">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotIndexedSet".</remarks>
   default __.VisitExpr_DotIndexedSet
@@ -5204,6 +6248,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.NamedIndexedPropertySet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_NamedIndexedPropertySet".</remarks>
   abstract member BeforeVisitExpr_NamedIndexedPropertySet:
@@ -5217,6 +6265,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.NamedIndexedPropertySet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_NamedIndexedPropertySet".</remarks>
   default this.BeforeVisitExpr_NamedIndexedPropertySet
@@ -5236,6 +6288,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.NamedIndexedPropertySet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.NamedIndexedPropertySet".</remarks>
   abstract member VisitExpr_NamedIndexedPropertySet:
@@ -5249,6 +6305,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.NamedIndexedPropertySet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.NamedIndexedPropertySet".</remarks>
   default __.VisitExpr_NamedIndexedPropertySet
@@ -5263,6 +6323,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotNamedIndexedPropertySet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotNamedIndexedPropertySet".</remarks>
   abstract member BeforeVisitExpr_DotNamedIndexedPropertySet:
@@ -5277,6 +6342,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DotNamedIndexedPropertySet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DotNamedIndexedPropertySet".</remarks>
   default this.BeforeVisitExpr_DotNamedIndexedPropertySet
@@ -5298,6 +6368,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotNamedIndexedPropertySet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotNamedIndexedPropertySet".</remarks>
   abstract member VisitExpr_DotNamedIndexedPropertySet:
@@ -5312,6 +6387,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DotNamedIndexedPropertySet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DotNamedIndexedPropertySet".</remarks>
   default __.VisitExpr_DotNamedIndexedPropertySet
@@ -5327,6 +6407,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TypeTest" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TypeTest".</remarks>
   abstract member BeforeVisitExpr_TypeTest:
@@ -5339,6 +6422,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TypeTest" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TypeTest".</remarks>
   default this.BeforeVisitExpr_TypeTest
@@ -5356,6 +6442,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TypeTest" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TypeTest".</remarks>
   abstract member VisitExpr_TypeTest:
@@ -5368,6 +6457,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TypeTest" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TypeTest".</remarks>
   default __.VisitExpr_TypeTest
@@ -5381,6 +6473,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Upcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Upcast".</remarks>
   abstract member BeforeVisitExpr_Upcast:
@@ -5393,6 +6488,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Upcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Upcast".</remarks>
   default this.BeforeVisitExpr_Upcast
@@ -5410,6 +6508,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Upcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Upcast".</remarks>
   abstract member VisitExpr_Upcast:
@@ -5422,6 +6523,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Upcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Upcast".</remarks>
   default __.VisitExpr_Upcast
@@ -5435,6 +6539,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Downcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Downcast".</remarks>
   abstract member BeforeVisitExpr_Downcast:
@@ -5447,6 +6554,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Downcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Downcast".</remarks>
   default this.BeforeVisitExpr_Downcast
@@ -5464,6 +6574,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Downcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Downcast".</remarks>
   abstract member VisitExpr_Downcast:
@@ -5476,6 +6589,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Downcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Downcast".</remarks>
   default __.VisitExpr_Downcast
@@ -5489,6 +6605,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.InferredUpcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_InferredUpcast".</remarks>
   abstract member BeforeVisitExpr_InferredUpcast:
@@ -5500,6 +6618,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.InferredUpcast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_InferredUpcast".</remarks>
   default this.BeforeVisitExpr_InferredUpcast
@@ -5515,6 +6635,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.InferredUpcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.InferredUpcast".</remarks>
   abstract member VisitExpr_InferredUpcast:
@@ -5526,6 +6648,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.InferredUpcast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.InferredUpcast".</remarks>
   default __.VisitExpr_InferredUpcast
@@ -5538,6 +6662,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.InferredDowncast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_InferredDowncast".</remarks>
   abstract member BeforeVisitExpr_InferredDowncast:
@@ -5549,6 +6675,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.InferredDowncast" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_InferredDowncast".</remarks>
   default this.BeforeVisitExpr_InferredDowncast
@@ -5564,6 +6692,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.InferredDowncast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.InferredDowncast".</remarks>
   abstract member VisitExpr_InferredDowncast:
@@ -5575,6 +6705,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.InferredDowncast" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.InferredDowncast".</remarks>
   default __.VisitExpr_InferredDowncast
@@ -5587,6 +6719,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Null" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Null".</remarks>
   abstract member BeforeVisitExpr_Null:
@@ -5597,6 +6730,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Null" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Null".</remarks>
   default this.BeforeVisitExpr_Null
@@ -5610,6 +6744,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Null" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Null".</remarks>
   abstract member VisitExpr_Null:
@@ -5620,6 +6755,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Null" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Null".</remarks>
   default __.VisitExpr_Null
@@ -5631,6 +6767,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.AddressOf" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_AddressOf".</remarks>
   abstract member BeforeVisitExpr_AddressOf:
@@ -5644,6 +6784,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.AddressOf" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_AddressOf".</remarks>
   default this.BeforeVisitExpr_AddressOf
@@ -5663,6 +6807,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.AddressOf" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.AddressOf".</remarks>
   abstract member VisitExpr_AddressOf:
@@ -5676,6 +6824,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.AddressOf" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.AddressOf".</remarks>
   default __.VisitExpr_AddressOf
@@ -5690,6 +6842,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TraitCall" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TraitCall".</remarks>
   abstract member BeforeVisitExpr_TraitCall:
@@ -5703,6 +6859,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.TraitCall" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_TraitCall".</remarks>
   default this.BeforeVisitExpr_TraitCall
@@ -5722,6 +6882,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TraitCall" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TraitCall".</remarks>
   abstract member VisitExpr_TraitCall:
@@ -5735,6 +6899,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.TraitCall" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.TraitCall".</remarks>
   default __.VisitExpr_TraitCall
@@ -5749,6 +6917,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.JoinIn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_JoinIn".</remarks>
   abstract member BeforeVisitExpr_JoinIn:
@@ -5762,6 +6934,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.JoinIn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_JoinIn".</remarks>
   default this.BeforeVisitExpr_JoinIn
@@ -5781,6 +6957,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.JoinIn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.JoinIn".</remarks>
   abstract member VisitExpr_JoinIn:
@@ -5794,6 +6974,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.JoinIn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inPos">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.JoinIn".</remarks>
   default __.VisitExpr_JoinIn
@@ -5808,6 +6992,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ImplicitZero" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ImplicitZero".</remarks>
   abstract member BeforeVisitExpr_ImplicitZero:
@@ -5818,6 +7003,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ImplicitZero" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ImplicitZero".</remarks>
   default this.BeforeVisitExpr_ImplicitZero
@@ -5831,6 +7017,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ImplicitZero" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ImplicitZero".</remarks>
   abstract member VisitExpr_ImplicitZero:
@@ -5841,6 +7028,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ImplicitZero" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ImplicitZero".</remarks>
   default __.VisitExpr_ImplicitZero
@@ -5852,6 +7040,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.YieldOrReturn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturn".</remarks>
   abstract member BeforeVisitExpr_YieldOrReturn:
@@ -5864,6 +7055,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.YieldOrReturn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturn".</remarks>
   default this.BeforeVisitExpr_YieldOrReturn
@@ -5881,6 +7075,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.YieldOrReturn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.YieldOrReturn".</remarks>
   abstract member VisitExpr_YieldOrReturn:
@@ -5893,6 +7090,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.YieldOrReturn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.YieldOrReturn".</remarks>
   default __.VisitExpr_YieldOrReturn
@@ -5906,6 +7106,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.YieldOrReturnFrom" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturnFrom".</remarks>
   abstract member BeforeVisitExpr_YieldOrReturnFrom:
@@ -5918,6 +7121,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.YieldOrReturnFrom" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_YieldOrReturnFrom".</remarks>
   default this.BeforeVisitExpr_YieldOrReturnFrom
@@ -5935,6 +7141,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.YieldOrReturnFrom" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.YieldOrReturnFrom".</remarks>
   abstract member VisitExpr_YieldOrReturnFrom:
@@ -5947,6 +7156,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.YieldOrReturnFrom" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * bool)</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.YieldOrReturnFrom".</remarks>
   default __.VisitExpr_YieldOrReturnFrom
@@ -5960,6 +7172,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LetOrUseBang" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="rhsExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LetOrUseBang".</remarks>
   abstract member BeforeVisitExpr_LetOrUseBang:
@@ -5976,6 +7195,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LetOrUseBang" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="rhsExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LetOrUseBang".</remarks>
   default this.BeforeVisitExpr_LetOrUseBang
@@ -6001,6 +7227,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LetOrUseBang" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="rhsExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LetOrUseBang".</remarks>
   abstract member VisitExpr_LetOrUseBang:
@@ -6017,6 +7250,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LetOrUseBang" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="spBind">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="isUse">bool</param>
+  /// <param name="isFromSource">bool</param>
+  /// <param name="pattern">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="rhsExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="bodyExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LetOrUseBang".</remarks>
   default __.VisitExpr_LetOrUseBang
@@ -6034,6 +7274,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DoBang" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DoBang".</remarks>
   abstract member BeforeVisitExpr_DoBang:
@@ -6045,6 +7287,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DoBang" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DoBang".</remarks>
   default this.BeforeVisitExpr_DoBang
@@ -6060,6 +7304,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DoBang" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DoBang".</remarks>
   abstract member VisitExpr_DoBang:
@@ -6071,6 +7317,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DoBang" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DoBang".</remarks>
   default __.VisitExpr_DoBang
@@ -6083,6 +7331,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyILAssembly" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[]</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyILAssembly".</remarks>
   abstract member BeforeVisitExpr_LibraryOnlyILAssembly:
@@ -6097,6 +7350,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyILAssembly" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[]</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyILAssembly".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyILAssembly
@@ -6118,6 +7376,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyILAssembly" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[]</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyILAssembly".</remarks>
   abstract member VisitExpr_LibraryOnlyILAssembly:
@@ -6132,6 +7395,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyILAssembly" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[]</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyILAssembly".</remarks>
   default __.VisitExpr_LibraryOnlyILAssembly
@@ -6147,6 +7415,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyStaticOptimization" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyStaticOptimization".</remarks>
   abstract member BeforeVisitExpr_LibraryOnlyStaticOptimization:
@@ -6160,6 +7432,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyStaticOptimization" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyStaticOptimization".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyStaticOptimization
@@ -6179,6 +7455,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyStaticOptimization" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyStaticOptimization".</remarks>
   abstract member VisitExpr_LibraryOnlyStaticOptimization:
@@ -6192,6 +7472,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyStaticOptimization" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynStaticOptimizationConstraint list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyStaticOptimization".</remarks>
   default __.VisitExpr_LibraryOnlyStaticOptimization
@@ -6206,6 +7490,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyUnionCaseFieldGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldGet".</remarks>
   abstract member BeforeVisitExpr_LibraryOnlyUnionCaseFieldGet:
@@ -6219,6 +7507,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyUnionCaseFieldGet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldGet".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldGet
@@ -6238,6 +7530,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyUnionCaseFieldGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldGet".</remarks>
   abstract member VisitExpr_LibraryOnlyUnionCaseFieldGet:
@@ -6251,6 +7547,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyUnionCaseFieldGet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldGet".</remarks>
   default __.VisitExpr_LibraryOnlyUnionCaseFieldGet
@@ -6265,6 +7565,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyUnionCaseFieldSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldSet".</remarks>
   abstract member BeforeVisitExpr_LibraryOnlyUnionCaseFieldSet:
@@ -6279,6 +7584,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.LibraryOnlyUnionCaseFieldSet" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_LibraryOnlyUnionCaseFieldSet".</remarks>
   default this.BeforeVisitExpr_LibraryOnlyUnionCaseFieldSet
@@ -6300,6 +7610,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyUnionCaseFieldSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldSet".</remarks>
   abstract member VisitExpr_LibraryOnlyUnionCaseFieldSet:
@@ -6314,6 +7629,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.LibraryOnlyUnionCaseFieldSet" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">int</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.LibraryOnlyUnionCaseFieldSet".</remarks>
   default __.VisitExpr_LibraryOnlyUnionCaseFieldSet
@@ -6329,6 +7649,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArbitraryAfterError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="debugStr">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArbitraryAfterError".</remarks>
   abstract member BeforeVisitExpr_ArbitraryAfterError:
@@ -6340,6 +7662,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.ArbitraryAfterError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="debugStr">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_ArbitraryAfterError".</remarks>
   default this.BeforeVisitExpr_ArbitraryAfterError
@@ -6355,6 +7679,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArbitraryAfterError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="debugStr">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArbitraryAfterError".</remarks>
   abstract member VisitExpr_ArbitraryAfterError:
@@ -6366,6 +7692,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.ArbitraryAfterError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="debugStr">string</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.ArbitraryAfterError".</remarks>
   default __.VisitExpr_ArbitraryAfterError
@@ -6378,6 +7706,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.FromParseError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_FromParseError".</remarks>
   abstract member BeforeVisitExpr_FromParseError:
@@ -6389,6 +7719,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.FromParseError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_FromParseError".</remarks>
   default this.BeforeVisitExpr_FromParseError
@@ -6404,6 +7736,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.FromParseError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.FromParseError".</remarks>
   abstract member VisitExpr_FromParseError:
@@ -6415,6 +7749,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.FromParseError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.FromParseError".</remarks>
   default __.VisitExpr_FromParseError
@@ -6427,6 +7763,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DiscardAfterMissingQualificationAfterDot" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DiscardAfterMissingQualificationAfterDot".</remarks>
   abstract member BeforeVisitExpr_DiscardAfterMissingQualificationAfterDot:
@@ -6438,6 +7776,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.DiscardAfterMissingQualificationAfterDot" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_DiscardAfterMissingQualificationAfterDot".</remarks>
   default this.BeforeVisitExpr_DiscardAfterMissingQualificationAfterDot
@@ -6453,6 +7793,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DiscardAfterMissingQualificationAfterDot" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DiscardAfterMissingQualificationAfterDot".</remarks>
   abstract member VisitExpr_DiscardAfterMissingQualificationAfterDot:
@@ -6464,6 +7806,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.DiscardAfterMissingQualificationAfterDot" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.DiscardAfterMissingQualificationAfterDot".</remarks>
   default __.VisitExpr_DiscardAfterMissingQualificationAfterDot
@@ -6476,6 +7820,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Fixed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Fixed".</remarks>
   abstract member BeforeVisitExpr_Fixed:
@@ -6487,6 +7833,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynExpr.Fixed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitExpr_Fixed".</remarks>
   default this.BeforeVisitExpr_Fixed
@@ -6502,6 +7850,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Fixed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Fixed".</remarks>
   abstract member VisitExpr_Fixed:
@@ -6513,6 +7863,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynExpr.Fixed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynExpr.Fixed".</remarks>
   default __.VisitExpr_Fixed
@@ -6660,6 +8012,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynField.Field" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item5">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitField_Field".</remarks>
   abstract member BeforeVisitField_Field:
@@ -6677,6 +8037,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynField.Field" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item5">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitField_Field".</remarks>
   default this.BeforeVisitField_Field
@@ -6704,6 +8072,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynField.Field" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item5">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynField.Field".</remarks>
   abstract member VisitField_Field:
@@ -6721,6 +8097,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynField.Field" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item5">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynField.Field".</remarks>
   default __.VisitField_Field
@@ -6760,6 +8144,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynIndexerArg.Two" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitIndexerArg_Two".</remarks>
   abstract member BeforeVisitIndexerArg_Two:
@@ -6771,6 +8157,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynIndexerArg.Two" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitIndexerArg_Two".</remarks>
   default this.BeforeVisitIndexerArg_Two
@@ -6786,6 +8174,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynIndexerArg.Two" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynIndexerArg.Two".</remarks>
   abstract member VisitIndexerArg_Two:
@@ -6797,6 +8187,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynIndexerArg.Two" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynIndexerArg.Two".</remarks>
   default __.VisitIndexerArg_Two
@@ -6809,6 +8201,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynIndexerArg.One" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitIndexerArg_One".</remarks>
   abstract member BeforeVisitIndexerArg_One:
@@ -6819,6 +8212,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynIndexerArg.One" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitIndexerArg_One".</remarks>
   default this.BeforeVisitIndexerArg_One
@@ -6832,6 +8226,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynIndexerArg.One" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynIndexerArg.One".</remarks>
   abstract member VisitIndexerArg_One:
@@ -6842,6 +8237,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynIndexerArg.One" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynIndexerArg.One".</remarks>
   default __.VisitIndexerArg_One
@@ -6876,6 +8272,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynInterfaceImpl.InterfaceImpl" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInterfaceImpl_InterfaceImpl".</remarks>
   abstract member BeforeVisitInterfaceImpl_InterfaceImpl:
@@ -6888,6 +8287,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynInterfaceImpl.InterfaceImpl" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitInterfaceImpl_InterfaceImpl".</remarks>
   default this.BeforeVisitInterfaceImpl_InterfaceImpl
@@ -6905,6 +8307,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynInterfaceImpl.InterfaceImpl" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynInterfaceImpl.InterfaceImpl".</remarks>
   abstract member VisitInterfaceImpl_InterfaceImpl:
@@ -6917,6 +8322,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynInterfaceImpl.InterfaceImpl" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynInterfaceImpl.InterfaceImpl".</remarks>
   default __.VisitInterfaceImpl_InterfaceImpl
@@ -6951,6 +8359,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMatchClause.Clause" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTarget">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMatchClause_Clause".</remarks>
   abstract member BeforeVisitMatchClause_Clause:
@@ -6965,6 +8378,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMatchClause.Clause" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTarget">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMatchClause_Clause".</remarks>
   default this.BeforeVisitMatchClause_Clause
@@ -6986,6 +8404,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMatchClause.Clause" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTarget">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMatchClause.Clause".</remarks>
   abstract member VisitMatchClause_Clause:
@@ -7000,6 +8423,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMatchClause.Clause" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
+  /// <param name="spTarget">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForTarget</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMatchClause.Clause".</remarks>
   default __.VisitMatchClause_Clause
@@ -7036,6 +8464,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Named" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Named".</remarks>
   abstract member BeforeVisitMeasure_Named:
@@ -7047,6 +8477,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Named" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Named".</remarks>
   default this.BeforeVisitMeasure_Named
@@ -7062,6 +8494,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Named" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Named".</remarks>
   abstract member VisitMeasure_Named:
@@ -7073,6 +8507,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Named" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Named".</remarks>
   default __.VisitMeasure_Named
@@ -7085,6 +8521,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Product" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Product".</remarks>
   abstract member BeforeVisitMeasure_Product:
@@ -7097,6 +8536,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Product" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Product".</remarks>
   default this.BeforeVisitMeasure_Product
@@ -7114,6 +8556,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Product" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Product".</remarks>
   abstract member VisitMeasure_Product:
@@ -7126,6 +8571,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Product" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Product".</remarks>
   default __.VisitMeasure_Product
@@ -7139,6 +8587,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Seq" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Seq".</remarks>
   abstract member BeforeVisitMeasure_Seq:
@@ -7150,6 +8600,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Seq" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Seq".</remarks>
   default this.BeforeVisitMeasure_Seq
@@ -7165,6 +8617,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Seq" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Seq".</remarks>
   abstract member VisitMeasure_Seq:
@@ -7176,6 +8630,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Seq" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Seq".</remarks>
   default __.VisitMeasure_Seq
@@ -7188,6 +8644,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Divide" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Divide".</remarks>
   abstract member BeforeVisitMeasure_Divide:
@@ -7200,6 +8659,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Divide" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Divide".</remarks>
   default this.BeforeVisitMeasure_Divide
@@ -7217,6 +8679,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Divide" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Divide".</remarks>
   abstract member VisitMeasure_Divide:
@@ -7229,6 +8694,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Divide" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Divide".</remarks>
   default __.VisitMeasure_Divide
@@ -7242,6 +8710,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Power" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Power".</remarks>
   abstract member BeforeVisitMeasure_Power:
@@ -7254,6 +8725,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Power" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Power".</remarks>
   default this.BeforeVisitMeasure_Power
@@ -7271,6 +8745,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Power" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Power".</remarks>
   abstract member VisitMeasure_Power:
@@ -7283,6 +8760,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Power" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynMeasure</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Power".</remarks>
   default __.VisitMeasure_Power
@@ -7335,6 +8815,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Anon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Anon".</remarks>
   abstract member BeforeVisitMeasure_Anon:
@@ -7345,6 +8826,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Anon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Anon".</remarks>
   default this.BeforeVisitMeasure_Anon
@@ -7358,6 +8840,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Anon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Anon".</remarks>
   abstract member VisitMeasure_Anon:
@@ -7368,6 +8851,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Anon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Anon".</remarks>
   default __.VisitMeasure_Anon
@@ -7379,6 +8863,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Var" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Var".</remarks>
   abstract member BeforeVisitMeasure_Var:
@@ -7390,6 +8876,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMeasure.Var" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMeasure_Var".</remarks>
   default this.BeforeVisitMeasure_Var
@@ -7405,6 +8893,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Var" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Var".</remarks>
   abstract member VisitMeasure_Var:
@@ -7416,6 +8906,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMeasure.Var" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMeasure.Var".</remarks>
   default __.VisitMeasure_Var
@@ -7463,6 +8955,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Open".</remarks>
   abstract member BeforeVisitMemberDefn_Open:
@@ -7474,6 +8968,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Open".</remarks>
   default this.BeforeVisitMemberDefn_Open
@@ -7489,6 +8985,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Open".</remarks>
   abstract member VisitMemberDefn_Open:
@@ -7500,6 +8998,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Open".</remarks>
   default __.VisitMemberDefn_Open
@@ -7512,6 +9012,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Member" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="memberDefn">Microsoft.FSharp.Compiler.Ast.SynBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Member".</remarks>
   abstract member BeforeVisitMemberDefn_Member:
@@ -7523,6 +9025,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Member" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="memberDefn">Microsoft.FSharp.Compiler.Ast.SynBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Member".</remarks>
   default this.BeforeVisitMemberDefn_Member
@@ -7538,6 +9042,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Member" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="memberDefn">Microsoft.FSharp.Compiler.Ast.SynBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Member".</remarks>
   abstract member VisitMemberDefn_Member:
@@ -7549,6 +9055,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Member" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="memberDefn">Microsoft.FSharp.Compiler.Ast.SynBinding</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Member".</remarks>
   default __.VisitMemberDefn_Member
@@ -7561,6 +9069,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ImplicitCtor" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="ctorArgs">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="selfIdentifier">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitCtor".</remarks>
   abstract member BeforeVisitMemberDefn_ImplicitCtor:
@@ -7575,6 +9088,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ImplicitCtor" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="ctorArgs">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="selfIdentifier">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitCtor".</remarks>
   default this.BeforeVisitMemberDefn_ImplicitCtor
@@ -7596,6 +9114,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ImplicitCtor" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="ctorArgs">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="selfIdentifier">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitCtor".</remarks>
   abstract member VisitMemberDefn_ImplicitCtor:
@@ -7610,6 +9133,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ImplicitCtor" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="ctorArgs">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="selfIdentifier">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitCtor".</remarks>
   default __.VisitMemberDefn_ImplicitCtor
@@ -7625,6 +9153,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ImplicitInherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="inheritType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="inheritArgs">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inheritAlias">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitInherit".</remarks>
   abstract member BeforeVisitMemberDefn_ImplicitInherit:
@@ -7638,6 +9170,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ImplicitInherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="inheritType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="inheritArgs">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inheritAlias">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ImplicitInherit".</remarks>
   default this.BeforeVisitMemberDefn_ImplicitInherit
@@ -7657,6 +9193,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ImplicitInherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="inheritType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="inheritArgs">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inheritAlias">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitInherit".</remarks>
   abstract member VisitMemberDefn_ImplicitInherit:
@@ -7670,6 +9210,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ImplicitInherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="inheritType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="inheritArgs">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="inheritAlias">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ImplicitInherit".</remarks>
   default __.VisitMemberDefn_ImplicitInherit
@@ -7684,6 +9228,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.LetBindings" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_LetBindings".</remarks>
   abstract member BeforeVisitMemberDefn_LetBindings:
@@ -7697,6 +9245,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.LetBindings" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_LetBindings".</remarks>
   default this.BeforeVisitMemberDefn_LetBindings
@@ -7716,6 +9268,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.LetBindings" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.LetBindings".</remarks>
   abstract member VisitMemberDefn_LetBindings:
@@ -7729,6 +9285,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.LetBindings" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="bindings">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="isRecursive">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.LetBindings".</remarks>
   default __.VisitMemberDefn_LetBindings
@@ -7743,6 +9303,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.AbstractSlot" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_AbstractSlot".</remarks>
   abstract member BeforeVisitMemberDefn_AbstractSlot:
@@ -7755,6 +9318,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.AbstractSlot" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_AbstractSlot".</remarks>
   default this.BeforeVisitMemberDefn_AbstractSlot
@@ -7772,6 +9338,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.AbstractSlot" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.AbstractSlot".</remarks>
   abstract member VisitMemberDefn_AbstractSlot:
@@ -7784,6 +9353,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.AbstractSlot" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.AbstractSlot".</remarks>
   default __.VisitMemberDefn_AbstractSlot
@@ -7797,6 +9369,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Interface" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="interfaceMembers">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Interface".</remarks>
   abstract member BeforeVisitMemberDefn_Interface:
@@ -7809,6 +9384,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Interface" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="interfaceMembers">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Interface".</remarks>
   default this.BeforeVisitMemberDefn_Interface
@@ -7826,6 +9404,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Interface" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="interfaceMembers">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Interface".</remarks>
   abstract member VisitMemberDefn_Interface:
@@ -7838,6 +9419,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Interface" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="interfaceMembers">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Interface".</remarks>
   default __.VisitMemberDefn_Interface
@@ -7851,6 +9435,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Inherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Inherit".</remarks>
   abstract member BeforeVisitMemberDefn_Inherit:
@@ -7863,6 +9450,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.Inherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_Inherit".</remarks>
   default this.BeforeVisitMemberDefn_Inherit
@@ -7880,6 +9470,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Inherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Inherit".</remarks>
   abstract member VisitMemberDefn_Inherit:
@@ -7892,6 +9485,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.Inherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.Inherit".</remarks>
   default __.VisitMemberDefn_Inherit
@@ -7905,6 +9501,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ValField" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ValField".</remarks>
   abstract member BeforeVisitMemberDefn_ValField:
@@ -7916,6 +9514,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.ValField" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_ValField".</remarks>
   default this.BeforeVisitMemberDefn_ValField
@@ -7931,6 +9531,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ValField" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ValField".</remarks>
   abstract member VisitMemberDefn_ValField:
@@ -7942,6 +9544,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.ValField" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.ValField".</remarks>
   default __.VisitMemberDefn_ValField
@@ -7954,6 +9558,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.NestedType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefn">Microsoft.FSharp.Compiler.Ast.SynTypeDefn</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_NestedType".</remarks>
   abstract member BeforeVisitMemberDefn_NestedType:
@@ -7966,6 +9573,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.NestedType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefn">Microsoft.FSharp.Compiler.Ast.SynTypeDefn</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_NestedType".</remarks>
   default this.BeforeVisitMemberDefn_NestedType
@@ -7983,6 +9593,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.NestedType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefn">Microsoft.FSharp.Compiler.Ast.SynTypeDefn</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.NestedType".</remarks>
   abstract member VisitMemberDefn_NestedType:
@@ -7995,6 +9608,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.NestedType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefn">Microsoft.FSharp.Compiler.Ast.SynTypeDefn</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.NestedType".</remarks>
   default __.VisitMemberDefn_NestedType
@@ -8008,6 +9624,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.AutoProperty" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="tyOpt">Microsoft.FSharp.Compiler.Ast.SynType option</param>
+  /// <param name="propKind">Microsoft.FSharp.Compiler.Ast.MemberKind</param>
+  /// <param name="memberFlags">(Microsoft.FSharp.Compiler.Ast.MemberKind -&gt; Microsoft.FSharp.Compiler.Ast.MemberFlags)</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="getSetPos">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_AutoProperty".</remarks>
   abstract member BeforeVisitMemberDefn_AutoProperty:
@@ -8028,6 +9655,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberDefn.AutoProperty" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="tyOpt">Microsoft.FSharp.Compiler.Ast.SynType option</param>
+  /// <param name="propKind">Microsoft.FSharp.Compiler.Ast.MemberKind</param>
+  /// <param name="memberFlags">(Microsoft.FSharp.Compiler.Ast.MemberKind -&gt; Microsoft.FSharp.Compiler.Ast.MemberFlags)</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="getSetPos">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberDefn_AutoProperty".</remarks>
   default this.BeforeVisitMemberDefn_AutoProperty
@@ -8061,6 +9699,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.AutoProperty" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="tyOpt">Microsoft.FSharp.Compiler.Ast.SynType option</param>
+  /// <param name="propKind">Microsoft.FSharp.Compiler.Ast.MemberKind</param>
+  /// <param name="memberFlags">(Microsoft.FSharp.Compiler.Ast.MemberKind -&gt; Microsoft.FSharp.Compiler.Ast.MemberFlags)</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="getSetPos">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.AutoProperty".</remarks>
   abstract member VisitMemberDefn_AutoProperty:
@@ -8081,6 +9730,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberDefn.AutoProperty" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="tyOpt">Microsoft.FSharp.Compiler.Ast.SynType option</param>
+  /// <param name="propKind">Microsoft.FSharp.Compiler.Ast.MemberKind</param>
+  /// <param name="memberFlags">(Microsoft.FSharp.Compiler.Ast.MemberKind -&gt; Microsoft.FSharp.Compiler.Ast.MemberFlags)</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="getSetPos">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberDefn.AutoProperty".</remarks>
   default __.VisitMemberDefn_AutoProperty
@@ -8143,6 +9803,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Member" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Member".</remarks>
   abstract member BeforeVisitMemberSig_Member:
@@ -8155,6 +9818,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Member" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Member".</remarks>
   default this.BeforeVisitMemberSig_Member
@@ -8172,6 +9838,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Member" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Member".</remarks>
   abstract member VisitMemberSig_Member:
@@ -8184,6 +9853,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Member" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="memberFlags">Microsoft.FSharp.Compiler.Ast.MemberFlags</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Member".</remarks>
   default __.VisitMemberSig_Member
@@ -8197,6 +9869,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Interface" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Interface".</remarks>
   abstract member BeforeVisitMemberSig_Interface:
@@ -8208,6 +9882,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Interface" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Interface".</remarks>
   default this.BeforeVisitMemberSig_Interface
@@ -8223,6 +9899,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Interface" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Interface".</remarks>
   abstract member VisitMemberSig_Interface:
@@ -8234,6 +9912,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Interface" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Interface".</remarks>
   default __.VisitMemberSig_Interface
@@ -8246,6 +9926,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Inherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Inherit".</remarks>
   abstract member BeforeVisitMemberSig_Inherit:
@@ -8257,6 +9939,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.Inherit" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_Inherit".</remarks>
   default this.BeforeVisitMemberSig_Inherit
@@ -8272,6 +9956,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Inherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Inherit".</remarks>
   abstract member VisitMemberSig_Inherit:
@@ -8283,6 +9969,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.Inherit" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.Inherit".</remarks>
   default __.VisitMemberSig_Inherit
@@ -8295,6 +9983,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.ValField" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_ValField".</remarks>
   abstract member BeforeVisitMemberSig_ValField:
@@ -8306,6 +9996,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.ValField" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_ValField".</remarks>
   default this.BeforeVisitMemberSig_ValField
@@ -8321,6 +10013,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.ValField" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.ValField".</remarks>
   abstract member VisitMemberSig_ValField:
@@ -8332,6 +10026,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.ValField" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="field">Microsoft.FSharp.Compiler.Ast.SynField</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.ValField".</remarks>
   default __.VisitMemberSig_ValField
@@ -8344,6 +10040,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.NestedType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefnSig">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_NestedType".</remarks>
   abstract member BeforeVisitMemberSig_NestedType:
@@ -8355,6 +10053,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynMemberSig.NestedType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefnSig">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitMemberSig_NestedType".</remarks>
   default this.BeforeVisitMemberSig_NestedType
@@ -8370,6 +10070,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.NestedType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefnSig">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.NestedType".</remarks>
   abstract member VisitMemberSig_NestedType:
@@ -8381,6 +10083,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynMemberSig.NestedType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefnSig">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynMemberSig.NestedType".</remarks>
   default __.VisitMemberSig_NestedType
@@ -8422,6 +10126,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.ModuleAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_ModuleAbbrev".</remarks>
   abstract member BeforeVisitModuleDecl_ModuleAbbrev:
@@ -8434,6 +10141,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.ModuleAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_ModuleAbbrev".</remarks>
   default this.BeforeVisitModuleDecl_ModuleAbbrev
@@ -8451,6 +10161,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.ModuleAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.ModuleAbbrev".</remarks>
   abstract member VisitModuleDecl_ModuleAbbrev:
@@ -8463,6 +10176,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.ModuleAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.ModuleAbbrev".</remarks>
   default __.VisitModuleDecl_ModuleAbbrev
@@ -8476,6 +10192,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.NestedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="item4">bool</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_NestedModule".</remarks>
   abstract member BeforeVisitModuleDecl_NestedModule:
@@ -8490,6 +10211,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.NestedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="item4">bool</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_NestedModule".</remarks>
   default this.BeforeVisitModuleDecl_NestedModule
@@ -8511,6 +10237,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.NestedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="item4">bool</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.NestedModule".</remarks>
   abstract member VisitModuleDecl_NestedModule:
@@ -8525,6 +10256,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.NestedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="item4">bool</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.NestedModule".</remarks>
   default __.VisitModuleDecl_NestedModule
@@ -8540,6 +10276,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Let" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Let".</remarks>
   abstract member BeforeVisitModuleDecl_Let:
@@ -8552,6 +10291,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Let" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Let".</remarks>
   default this.BeforeVisitModuleDecl_Let
@@ -8569,6 +10311,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Let" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Let".</remarks>
   abstract member VisitModuleDecl_Let:
@@ -8581,6 +10326,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Let" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynBinding list</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Let".</remarks>
   default __.VisitModuleDecl_Let
@@ -8594,6 +10342,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.DoExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_DoExpr".</remarks>
   abstract member BeforeVisitModuleDecl_DoExpr:
@@ -8606,6 +10357,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.DoExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_DoExpr".</remarks>
   default this.BeforeVisitModuleDecl_DoExpr
@@ -8623,6 +10377,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.DoExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.DoExpr".</remarks>
   abstract member VisitModuleDecl_DoExpr:
@@ -8635,6 +10392,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.DoExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SequencePointInfoForBinding</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.DoExpr".</remarks>
   default __.VisitModuleDecl_DoExpr
@@ -8648,6 +10408,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Types" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefn list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Types".</remarks>
   abstract member BeforeVisitModuleDecl_Types:
@@ -8659,6 +10421,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Types" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefn list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Types".</remarks>
   default this.BeforeVisitModuleDecl_Types
@@ -8674,6 +10438,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Types" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefn list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Types".</remarks>
   abstract member VisitModuleDecl_Types:
@@ -8685,6 +10451,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Types" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefn list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Types".</remarks>
   default __.VisitModuleDecl_Types
@@ -8697,6 +10465,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExceptionDefn</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Exception".</remarks>
   abstract member BeforeVisitModuleDecl_Exception:
@@ -8708,6 +10478,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExceptionDefn</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Exception".</remarks>
   default this.BeforeVisitModuleDecl_Exception
@@ -8723,6 +10495,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExceptionDefn</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Exception".</remarks>
   abstract member VisitModuleDecl_Exception:
@@ -8734,6 +10508,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynExceptionDefn</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Exception".</remarks>
   default __.VisitModuleDecl_Exception
@@ -8746,6 +10522,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Open".</remarks>
   abstract member BeforeVisitModuleDecl_Open:
@@ -8757,6 +10535,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Open".</remarks>
   default this.BeforeVisitModuleDecl_Open
@@ -8772,6 +10552,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Open".</remarks>
   abstract member VisitModuleDecl_Open:
@@ -8783,6 +10565,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Open".</remarks>
   default __.VisitModuleDecl_Open
@@ -8795,6 +10579,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Attributes" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Attributes".</remarks>
   abstract member BeforeVisitModuleDecl_Attributes:
@@ -8806,6 +10592,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.Attributes" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_Attributes".</remarks>
   default this.BeforeVisitModuleDecl_Attributes
@@ -8821,6 +10609,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Attributes" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Attributes".</remarks>
   abstract member VisitModuleDecl_Attributes:
@@ -8832,6 +10622,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.Attributes" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.Attributes".</remarks>
   default __.VisitModuleDecl_Attributes
@@ -8844,6 +10636,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.HashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_HashDirective".</remarks>
   abstract member BeforeVisitModuleDecl_HashDirective:
@@ -8855,6 +10649,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.HashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_HashDirective".</remarks>
   default this.BeforeVisitModuleDecl_HashDirective
@@ -8870,6 +10666,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.HashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.HashDirective".</remarks>
   abstract member VisitModuleDecl_HashDirective:
@@ -8881,6 +10679,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.HashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.HashDirective".</remarks>
   default __.VisitModuleDecl_HashDirective
@@ -8893,6 +10693,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_NamespaceFragment".</remarks>
   abstract member BeforeVisitModuleDecl_NamespaceFragment:
@@ -8903,6 +10704,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleDecl.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleDecl_NamespaceFragment".</remarks>
   default this.BeforeVisitModuleDecl_NamespaceFragment
@@ -8916,6 +10718,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.NamespaceFragment".</remarks>
   abstract member VisitModuleDecl_NamespaceFragment:
@@ -8926,6 +10729,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleDecl.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespace</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleDecl.NamespaceFragment".</remarks>
   default __.VisitModuleDecl_NamespaceFragment
@@ -8976,6 +10780,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleOrNamespace.SynModuleOrNamespace" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="decls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespace_SynModuleOrNamespace".</remarks>
   abstract member BeforeVisitModuleOrNamespace_SynModuleOrNamespace:
@@ -8993,6 +10805,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleOrNamespace.SynModuleOrNamespace" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="decls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespace_SynModuleOrNamespace".</remarks>
   default this.BeforeVisitModuleOrNamespace_SynModuleOrNamespace
@@ -9020,6 +10840,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleOrNamespace.SynModuleOrNamespace" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="decls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleOrNamespace.SynModuleOrNamespace".</remarks>
   abstract member VisitModuleOrNamespace_SynModuleOrNamespace:
@@ -9037,6 +10865,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleOrNamespace.SynModuleOrNamespace" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="decls">Microsoft.FSharp.Compiler.Ast.SynModuleDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleOrNamespace.SynModuleOrNamespace".</remarks>
   default __.VisitModuleOrNamespace_SynModuleOrNamespace
@@ -9076,6 +10912,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig".</remarks>
   abstract member BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig:
@@ -9093,6 +10937,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig".</remarks>
   default this.BeforeVisitModuleOrNamespaceSig_SynModuleOrNamespaceSig
@@ -9120,6 +10972,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig".</remarks>
   abstract member VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig:
@@ -9137,6 +10997,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="isModule">bool</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleOrNamespaceSig.SynModuleOrNamespaceSig".</remarks>
   default __.VisitModuleOrNamespaceSig_SynModuleOrNamespaceSig
@@ -9176,6 +11044,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.ModuleAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_ModuleAbbrev".</remarks>
   abstract member BeforeVisitModuleSigDecl_ModuleAbbrev:
@@ -9188,6 +11059,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.ModuleAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_ModuleAbbrev".</remarks>
   default this.BeforeVisitModuleSigDecl_ModuleAbbrev
@@ -9205,6 +11079,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.ModuleAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.ModuleAbbrev".</remarks>
   abstract member VisitModuleSigDecl_ModuleAbbrev:
@@ -9217,6 +11094,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.ModuleAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.ModuleAbbrev".</remarks>
   default __.VisitModuleSigDecl_ModuleAbbrev
@@ -9230,6 +11110,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.NestedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_NestedModule".</remarks>
   abstract member BeforeVisitModuleSigDecl_NestedModule:
@@ -9243,6 +11127,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.NestedModule" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_NestedModule".</remarks>
   default this.BeforeVisitModuleSigDecl_NestedModule
@@ -9262,6 +11150,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.NestedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.NestedModule".</remarks>
   abstract member VisitModuleSigDecl_NestedModule:
@@ -9275,6 +11167,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.NestedModule" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="isRec">bool</param>
+  /// <param name="moduleSigDecls">Microsoft.FSharp.Compiler.Ast.SynModuleSigDecl list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.NestedModule".</remarks>
   default __.VisitModuleSigDecl_NestedModule
@@ -9289,6 +11185,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Val" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Val".</remarks>
   abstract member BeforeVisitModuleSigDecl_Val:
@@ -9300,6 +11198,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Val" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Val".</remarks>
   default this.BeforeVisitModuleSigDecl_Val
@@ -9315,6 +11215,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Val" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Val".</remarks>
   abstract member VisitModuleSigDecl_Val:
@@ -9326,6 +11228,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Val" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="valSig">Microsoft.FSharp.Compiler.Ast.SynValSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Val".</remarks>
   default __.VisitModuleSigDecl_Val
@@ -9338,6 +11242,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Types" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefSigs">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Types".</remarks>
   abstract member BeforeVisitModuleSigDecl_Types:
@@ -9349,6 +11255,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Types" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefSigs">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Types".</remarks>
   default this.BeforeVisitModuleSigDecl_Types
@@ -9364,6 +11272,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Types" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefSigs">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Types".</remarks>
   abstract member VisitModuleSigDecl_Types:
@@ -9375,6 +11285,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Types" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeDefSigs">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Types".</remarks>
   default __.VisitModuleSigDecl_Types
@@ -9387,6 +11299,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnSig">Microsoft.FSharp.Compiler.Ast.SynExceptionSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Exception".</remarks>
   abstract member BeforeVisitModuleSigDecl_Exception:
@@ -9398,6 +11312,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnSig">Microsoft.FSharp.Compiler.Ast.SynExceptionSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Exception".</remarks>
   default this.BeforeVisitModuleSigDecl_Exception
@@ -9413,6 +11329,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnSig">Microsoft.FSharp.Compiler.Ast.SynExceptionSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Exception".</remarks>
   abstract member VisitModuleSigDecl_Exception:
@@ -9424,6 +11342,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="exnSig">Microsoft.FSharp.Compiler.Ast.SynExceptionSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Exception".</remarks>
   default __.VisitModuleSigDecl_Exception
@@ -9436,6 +11356,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Open".</remarks>
   abstract member BeforeVisitModuleSigDecl_Open:
@@ -9447,6 +11369,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.Open" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_Open".</remarks>
   default this.BeforeVisitModuleSigDecl_Open
@@ -9462,6 +11386,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Open".</remarks>
   abstract member VisitModuleSigDecl_Open:
@@ -9473,6 +11399,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.Open" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="longId">Microsoft.FSharp.Compiler.Ast.Ident list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.Open".</remarks>
   default __.VisitModuleSigDecl_Open
@@ -9485,6 +11413,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.HashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirective">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_HashDirective".</remarks>
   abstract member BeforeVisitModuleSigDecl_HashDirective:
@@ -9496,6 +11426,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.HashDirective" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirective">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_HashDirective".</remarks>
   default this.BeforeVisitModuleSigDecl_HashDirective
@@ -9511,6 +11443,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.HashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirective">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.HashDirective".</remarks>
   abstract member VisitModuleSigDecl_HashDirective:
@@ -9522,6 +11456,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.HashDirective" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="hashDirective">Microsoft.FSharp.Compiler.Ast.ParsedHashDirective</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.HashDirective".</remarks>
   default __.VisitModuleSigDecl_HashDirective
@@ -9534,6 +11470,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_NamespaceFragment".</remarks>
   abstract member BeforeVisitModuleSigDecl_NamespaceFragment:
@@ -9544,6 +11481,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynModuleSigDecl.NamespaceFragment" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitModuleSigDecl_NamespaceFragment".</remarks>
   default this.BeforeVisitModuleSigDecl_NamespaceFragment
@@ -9557,6 +11495,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.NamespaceFragment".</remarks>
   abstract member VisitModuleSigDecl_NamespaceFragment:
@@ -9567,6 +11506,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynModuleSigDecl.NamespaceFragment" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynModuleOrNamespaceSig</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynModuleSigDecl.NamespaceFragment".</remarks>
   default __.VisitModuleSigDecl_NamespaceFragment
@@ -9613,6 +11553,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Const" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Const".</remarks>
   abstract member BeforeVisitPat_Const:
@@ -9624,6 +11566,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Const" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Const".</remarks>
   default this.BeforeVisitPat_Const
@@ -9639,6 +11583,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Const" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Const".</remarks>
   abstract member VisitPat_Const:
@@ -9650,6 +11596,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Const" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Const".</remarks>
   default __.VisitPat_Const
@@ -9662,6 +11610,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Wild" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Wild".</remarks>
   abstract member BeforeVisitPat_Wild:
@@ -9672,6 +11621,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Wild" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Wild".</remarks>
   default this.BeforeVisitPat_Wild
@@ -9685,6 +11635,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Wild" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Wild".</remarks>
   abstract member VisitPat_Wild:
@@ -9695,6 +11646,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Wild" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Wild".</remarks>
   default __.VisitPat_Wild
@@ -9706,6 +11658,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Named" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Named".</remarks>
   abstract member BeforeVisitPat_Named:
@@ -9720,6 +11677,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Named" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Named".</remarks>
   default this.BeforeVisitPat_Named
@@ -9741,6 +11703,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Named" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Named".</remarks>
   abstract member VisitPat_Named:
@@ -9755,6 +11722,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Named" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Named".</remarks>
   default __.VisitPat_Named
@@ -9770,6 +11742,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Typed".</remarks>
   abstract member BeforeVisitPat_Typed:
@@ -9782,6 +11757,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Typed".</remarks>
   default this.BeforeVisitPat_Typed
@@ -9799,6 +11777,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Typed".</remarks>
   abstract member VisitPat_Typed:
@@ -9811,6 +11792,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Typed".</remarks>
   default __.VisitPat_Typed
@@ -9824,6 +11808,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Attrib" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Attrib".</remarks>
   abstract member BeforeVisitPat_Attrib:
@@ -9836,6 +11823,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Attrib" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Attrib".</remarks>
   default this.BeforeVisitPat_Attrib
@@ -9853,6 +11843,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Attrib" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Attrib".</remarks>
   abstract member VisitPat_Attrib:
@@ -9865,6 +11858,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Attrib" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Attrib".</remarks>
   default __.VisitPat_Attrib
@@ -9878,6 +11874,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Or" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Or".</remarks>
   abstract member BeforeVisitPat_Or:
@@ -9890,6 +11889,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Or" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Or".</remarks>
   default this.BeforeVisitPat_Or
@@ -9907,6 +11909,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Or" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Or".</remarks>
   abstract member VisitPat_Or:
@@ -9919,6 +11924,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Or" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Or".</remarks>
   default __.VisitPat_Or
@@ -9932,6 +11940,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Ands" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Ands".</remarks>
   abstract member BeforeVisitPat_Ands:
@@ -9943,6 +11953,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Ands" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Ands".</remarks>
   default this.BeforeVisitPat_Ands
@@ -9958,6 +11970,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Ands" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Ands".</remarks>
   abstract member VisitPat_Ands:
@@ -9969,6 +11983,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Ands" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Ands".</remarks>
   default __.VisitPat_Ands
@@ -9981,6 +11997,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynConstructorArgs</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_LongIdent".</remarks>
   abstract member BeforeVisitPat_LongIdent:
@@ -9996,6 +12018,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynConstructorArgs</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_LongIdent".</remarks>
   default this.BeforeVisitPat_LongIdent
@@ -10019,6 +12047,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynConstructorArgs</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.LongIdent".</remarks>
   abstract member VisitPat_LongIdent:
@@ -10034,6 +12068,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls option</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynConstructorArgs</param>
+  /// <param name="item5">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.LongIdent".</remarks>
   default __.VisitPat_LongIdent
@@ -10050,6 +12090,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Tuple".</remarks>
   abstract member BeforeVisitPat_Tuple:
@@ -10061,6 +12103,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Tuple".</remarks>
   default this.BeforeVisitPat_Tuple
@@ -10076,6 +12120,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Tuple".</remarks>
   abstract member VisitPat_Tuple:
@@ -10087,6 +12133,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Tuple".</remarks>
   default __.VisitPat_Tuple
@@ -10099,6 +12147,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Paren" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Paren".</remarks>
   abstract member BeforeVisitPat_Paren:
@@ -10110,6 +12160,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Paren" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Paren".</remarks>
   default this.BeforeVisitPat_Paren
@@ -10125,6 +12177,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Paren" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Paren".</remarks>
   abstract member VisitPat_Paren:
@@ -10136,6 +12190,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Paren" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Paren".</remarks>
   default __.VisitPat_Paren
@@ -10148,6 +12204,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.ArrayOrList" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_ArrayOrList".</remarks>
   abstract member BeforeVisitPat_ArrayOrList:
@@ -10160,6 +12219,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.ArrayOrList" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_ArrayOrList".</remarks>
   default this.BeforeVisitPat_ArrayOrList
@@ -10177,6 +12239,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.ArrayOrList" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.ArrayOrList".</remarks>
   abstract member VisitPat_ArrayOrList:
@@ -10189,6 +12254,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.ArrayOrList" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">bool</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynPat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.ArrayOrList".</remarks>
   default __.VisitPat_ArrayOrList
@@ -10202,6 +12270,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fields">((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Record".</remarks>
   abstract member BeforeVisitPat_Record:
@@ -10213,6 +12283,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fields">((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Record".</remarks>
   default this.BeforeVisitPat_Record
@@ -10228,6 +12300,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fields">((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Record".</remarks>
   abstract member VisitPat_Record:
@@ -10239,6 +12313,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="fields">((Microsoft.FSharp.Compiler.Ast.Ident list * Microsoft.FSharp.Compiler.Ast.Ident) * Microsoft.FSharp.Compiler.Ast.SynPat) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Record".</remarks>
   default __.VisitPat_Record
@@ -10251,6 +12327,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Null" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Null".</remarks>
   abstract member BeforeVisitPat_Null:
@@ -10261,6 +12338,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.Null" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_Null".</remarks>
   default this.BeforeVisitPat_Null
@@ -10274,6 +12352,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Null" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Null".</remarks>
   abstract member VisitPat_Null:
@@ -10284,6 +12363,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.Null" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.Null".</remarks>
   default __.VisitPat_Null
@@ -10295,6 +12375,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.OptionalVal" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_OptionalVal".</remarks>
   abstract member BeforeVisitPat_OptionalVal:
@@ -10306,6 +12388,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.OptionalVal" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_OptionalVal".</remarks>
   default this.BeforeVisitPat_OptionalVal
@@ -10321,6 +12405,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.OptionalVal" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.OptionalVal".</remarks>
   abstract member VisitPat_OptionalVal:
@@ -10332,6 +12418,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.OptionalVal" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.OptionalVal".</remarks>
   default __.VisitPat_OptionalVal
@@ -10344,6 +12432,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.IsInst" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_IsInst".</remarks>
   abstract member BeforeVisitPat_IsInst:
@@ -10355,6 +12445,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.IsInst" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_IsInst".</remarks>
   default this.BeforeVisitPat_IsInst
@@ -10370,6 +12462,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.IsInst" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.IsInst".</remarks>
   abstract member VisitPat_IsInst:
@@ -10381,6 +12475,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.IsInst" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.IsInst".</remarks>
   default __.VisitPat_IsInst
@@ -10393,6 +12489,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.QuoteExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_QuoteExpr".</remarks>
   abstract member BeforeVisitPat_QuoteExpr:
@@ -10404,6 +12502,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.QuoteExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_QuoteExpr".</remarks>
   default this.BeforeVisitPat_QuoteExpr
@@ -10419,6 +12519,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.QuoteExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.QuoteExpr".</remarks>
   abstract member VisitPat_QuoteExpr:
@@ -10430,6 +12532,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.QuoteExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.QuoteExpr".</remarks>
   default __.VisitPat_QuoteExpr
@@ -10442,6 +12546,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.DeprecatedCharRange" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">char</param>
+  /// <param name="item2">char</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_DeprecatedCharRange".</remarks>
   abstract member BeforeVisitPat_DeprecatedCharRange:
@@ -10454,6 +12561,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.DeprecatedCharRange" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">char</param>
+  /// <param name="item2">char</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_DeprecatedCharRange".</remarks>
   default this.BeforeVisitPat_DeprecatedCharRange
@@ -10471,6 +12581,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.DeprecatedCharRange" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">char</param>
+  /// <param name="item2">char</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.DeprecatedCharRange".</remarks>
   abstract member VisitPat_DeprecatedCharRange:
@@ -10483,6 +12596,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.DeprecatedCharRange" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">char</param>
+  /// <param name="item2">char</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.DeprecatedCharRange".</remarks>
   default __.VisitPat_DeprecatedCharRange
@@ -10496,6 +12612,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.InstanceMember" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="accesiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_InstanceMember".</remarks>
   abstract member BeforeVisitPat_InstanceMember:
@@ -10510,6 +12631,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.InstanceMember" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="accesiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_InstanceMember".</remarks>
   default this.BeforeVisitPat_InstanceMember
@@ -10531,6 +12657,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.InstanceMember" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="accesiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.InstanceMember".</remarks>
   abstract member VisitPat_InstanceMember:
@@ -10545,6 +12676,11 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.InstanceMember" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="accesiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.InstanceMember".</remarks>
   default __.VisitPat_InstanceMember
@@ -10560,6 +12696,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.FromParseError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_FromParseError".</remarks>
   abstract member BeforeVisitPat_FromParseError:
@@ -10571,6 +12709,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynPat.FromParseError" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitPat_FromParseError".</remarks>
   default this.BeforeVisitPat_FromParseError
@@ -10586,6 +12726,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.FromParseError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.FromParseError".</remarks>
   abstract member VisitPat_FromParseError:
@@ -10597,6 +12739,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynPat.FromParseError" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynPat</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynPat.FromParseError".</remarks>
   default __.VisitPat_FromParseError
@@ -10666,6 +12810,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Integer" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Integer".</remarks>
   abstract member BeforeVisitRationalConst_Integer:
@@ -10676,6 +12821,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Integer" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Integer".</remarks>
   default this.BeforeVisitRationalConst_Integer
@@ -10689,6 +12835,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Integer" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Integer".</remarks>
   abstract member VisitRationalConst_Integer:
@@ -10699,6 +12846,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Integer" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">int</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Integer".</remarks>
   default __.VisitRationalConst_Integer
@@ -10710,6 +12858,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Rational" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="item2">int</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Rational".</remarks>
   abstract member BeforeVisitRationalConst_Rational:
@@ -10722,6 +12873,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Rational" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="item2">int</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Rational".</remarks>
   default this.BeforeVisitRationalConst_Rational
@@ -10739,6 +12893,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Rational" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="item2">int</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Rational".</remarks>
   abstract member VisitRationalConst_Rational:
@@ -10751,6 +12908,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Rational" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="item2">int</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Rational".</remarks>
   default __.VisitRationalConst_Rational
@@ -10764,6 +12924,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Negate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Negate".</remarks>
   abstract member BeforeVisitRationalConst_Negate:
@@ -10774,6 +12935,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynRationalConst.Negate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitRationalConst_Negate".</remarks>
   default this.BeforeVisitRationalConst_Negate
@@ -10787,6 +12949,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Negate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Negate".</remarks>
   abstract member VisitRationalConst_Negate:
@@ -10797,6 +12960,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynRationalConst.Negate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynRationalConst.Negate".</remarks>
   default __.VisitRationalConst_Negate
@@ -10833,6 +12997,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynReturnInfo.SynReturnInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo)</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitReturnInfo_SynReturnInfo".</remarks>
   abstract member BeforeVisitReturnInfo_SynReturnInfo:
@@ -10844,6 +13010,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynReturnInfo.SynReturnInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo)</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitReturnInfo_SynReturnInfo".</remarks>
   default this.BeforeVisitReturnInfo_SynReturnInfo
@@ -10859,6 +13027,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynReturnInfo.SynReturnInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo)</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynReturnInfo.SynReturnInfo".</remarks>
   abstract member VisitReturnInfo_SynReturnInfo:
@@ -10870,6 +13040,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynReturnInfo.SynReturnInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynArgInfo)</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynReturnInfo.SynReturnInfo".</remarks>
   default __.VisitReturnInfo_SynReturnInfo
@@ -10903,6 +13075,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Id" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="ident">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="isCompilerGenerated">bool</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="isOptArg">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Id".</remarks>
   abstract member BeforeVisitSimplePat_Id:
@@ -10918,6 +13096,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Id" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="ident">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="isCompilerGenerated">bool</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="isOptArg">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Id".</remarks>
   default this.BeforeVisitSimplePat_Id
@@ -10942,6 +13126,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Id" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="ident">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="isCompilerGenerated">bool</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="isOptArg">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Id".</remarks>
   abstract member VisitSimplePat_Id:
@@ -10957,6 +13147,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Id" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="ident">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="altNameRefCell">Microsoft.FSharp.Compiler.Ast.SynSimplePatAlternativeIdInfo ref option</param>
+  /// <param name="isCompilerGenerated">bool</param>
+  /// <param name="isThisVar">bool</param>
+  /// <param name="isOptArg">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Id".</remarks>
   default __.VisitSimplePat_Id
@@ -10973,6 +13169,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Typed".</remarks>
   abstract member BeforeVisitSimplePat_Typed:
@@ -10985,6 +13184,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Typed".</remarks>
   default this.BeforeVisitSimplePat_Typed
@@ -11002,6 +13204,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Typed".</remarks>
   abstract member VisitSimplePat_Typed:
@@ -11014,6 +13219,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Typed".</remarks>
   default __.VisitSimplePat_Typed
@@ -11027,6 +13235,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Attrib" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Attrib".</remarks>
   abstract member BeforeVisitSimplePat_Attrib:
@@ -11039,6 +13250,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePat.Attrib" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePat_Attrib".</remarks>
   default this.BeforeVisitSimplePat_Attrib
@@ -11056,6 +13270,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Attrib" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Attrib".</remarks>
   abstract member VisitSimplePat_Attrib:
@@ -11068,6 +13285,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePat.Attrib" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePat.Attrib".</remarks>
   default __.VisitSimplePat_Attrib
@@ -11106,6 +13326,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePatAlternativeIdInfo.Undecided" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Undecided".</remarks>
   abstract member BeforeVisitSimplePatAlternativeIdInfo_Undecided:
@@ -11116,6 +13337,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePatAlternativeIdInfo.Undecided" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Undecided".</remarks>
   default this.BeforeVisitSimplePatAlternativeIdInfo_Undecided
@@ -11129,6 +13351,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePatAlternativeIdInfo.Undecided" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Undecided".</remarks>
   abstract member VisitSimplePatAlternativeIdInfo_Undecided:
@@ -11139,6 +13362,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePatAlternativeIdInfo.Undecided" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Undecided".</remarks>
   default __.VisitSimplePatAlternativeIdInfo_Undecided
@@ -11150,6 +13374,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePatAlternativeIdInfo.Decided" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Decided".</remarks>
   abstract member BeforeVisitSimplePatAlternativeIdInfo_Decided:
@@ -11160,6 +13385,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePatAlternativeIdInfo.Decided" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePatAlternativeIdInfo_Decided".</remarks>
   default this.BeforeVisitSimplePatAlternativeIdInfo_Decided
@@ -11173,6 +13399,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePatAlternativeIdInfo.Decided" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Decided".</remarks>
   abstract member VisitSimplePatAlternativeIdInfo_Decided:
@@ -11183,6 +13410,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePatAlternativeIdInfo.Decided" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.Ident</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePatAlternativeIdInfo.Decided".</remarks>
   default __.VisitSimplePatAlternativeIdInfo_Decided
@@ -11217,6 +13445,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePats.SimplePats" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePats_SimplePats".</remarks>
   abstract member BeforeVisitSimplePats_SimplePats:
@@ -11228,6 +13458,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePats.SimplePats" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePats_SimplePats".</remarks>
   default this.BeforeVisitSimplePats_SimplePats
@@ -11243,6 +13475,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePats.SimplePats" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePats.SimplePats".</remarks>
   abstract member VisitSimplePats_SimplePats:
@@ -11254,6 +13488,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePats.SimplePats" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePat list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePats.SimplePats".</remarks>
   default __.VisitSimplePats_SimplePats
@@ -11266,6 +13502,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePats.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePats_Typed".</remarks>
   abstract member BeforeVisitSimplePats_Typed:
@@ -11278,6 +13517,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynSimplePats.Typed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitSimplePats_Typed".</remarks>
   default this.BeforeVisitSimplePats_Typed
@@ -11295,6 +13537,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePats.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePats.Typed".</remarks>
   abstract member VisitSimplePats_Typed:
@@ -11307,6 +13552,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynSimplePats.Typed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynSimplePats</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynSimplePats.Typed".</remarks>
   default __.VisitSimplePats_Typed
@@ -11343,6 +13591,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon".</remarks>
   abstract member BeforeVisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon:
@@ -11355,6 +13606,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon".</remarks>
   default this.BeforeVisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon
@@ -11372,6 +13626,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon".</remarks>
   abstract member VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon:
@@ -11384,6 +13641,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparTyconEqualsTycon".</remarks>
   default __.VisitStaticOptimizationConstraint_WhenTyparTyconEqualsTycon
@@ -11397,6 +13657,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynStaticOptimizationConstraint.WhenTyparIsStruct" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparIsStruct".</remarks>
   abstract member BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct:
@@ -11408,6 +13670,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynStaticOptimizationConstraint.WhenTyparIsStruct" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitStaticOptimizationConstraint_WhenTyparIsStruct".</remarks>
   default this.BeforeVisitStaticOptimizationConstraint_WhenTyparIsStruct
@@ -11423,6 +13687,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynStaticOptimizationConstraint.WhenTyparIsStruct" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparIsStruct".</remarks>
   abstract member VisitStaticOptimizationConstraint_WhenTyparIsStruct:
@@ -11434,6 +13700,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynStaticOptimizationConstraint.WhenTyparIsStruct" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynStaticOptimizationConstraint.WhenTyparIsStruct".</remarks>
   default __.VisitStaticOptimizationConstraint_WhenTyparIsStruct
@@ -11469,6 +13737,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypar.Typar" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="staticReq">Microsoft.FSharp.Compiler.Ast.TyparStaticReq</param>
+  /// <param name="isCompGen">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypar_Typar".</remarks>
   abstract member BeforeVisitTypar_Typar:
@@ -11481,6 +13752,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypar.Typar" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="staticReq">Microsoft.FSharp.Compiler.Ast.TyparStaticReq</param>
+  /// <param name="isCompGen">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypar_Typar".</remarks>
   default this.BeforeVisitTypar_Typar
@@ -11498,6 +13772,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypar.Typar" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="staticReq">Microsoft.FSharp.Compiler.Ast.TyparStaticReq</param>
+  /// <param name="isCompGen">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypar.Typar".</remarks>
   abstract member VisitTypar_Typar:
@@ -11510,6 +13787,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypar.Typar" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="staticReq">Microsoft.FSharp.Compiler.Ast.TyparStaticReq</param>
+  /// <param name="isCompGen">bool</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypar.Typar".</remarks>
   default __.VisitTypar_Typar
@@ -11544,6 +13824,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTyparDecl.TyparDecl" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTyparDecl_TyparDecl".</remarks>
   abstract member BeforeVisitTyparDecl_TyparDecl:
@@ -11555,6 +13837,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTyparDecl.TyparDecl" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTyparDecl_TyparDecl".</remarks>
   default this.BeforeVisitTyparDecl_TyparDecl
@@ -11570,6 +13854,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTyparDecl.TyparDecl" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTyparDecl.TyparDecl".</remarks>
   abstract member VisitTyparDecl_TyparDecl:
@@ -11581,6 +13867,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTyparDecl.TyparDecl" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTyparDecl.TyparDecl".</remarks>
   default __.VisitTyparDecl_TyparDecl
@@ -11614,6 +13902,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_LongIdent".</remarks>
   abstract member BeforeVisitType_LongIdent:
@@ -11624,6 +13913,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.LongIdent" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_LongIdent".</remarks>
   default this.BeforeVisitType_LongIdent
@@ -11637,6 +13927,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.LongIdent".</remarks>
   abstract member VisitType_LongIdent:
@@ -11647,6 +13938,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.LongIdent" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.LongIdent".</remarks>
   default __.VisitType_LongIdent
@@ -11658,6 +13950,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.App" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="isPostfix">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_App".</remarks>
   abstract member BeforeVisitType_App:
@@ -11674,6 +13973,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.App" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="isPostfix">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_App".</remarks>
   default this.BeforeVisitType_App
@@ -11699,6 +14005,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.App" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="isPostfix">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.App".</remarks>
   abstract member VisitType_App:
@@ -11715,6 +14028,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.App" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="typeArgs">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="isPostfix">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.App".</remarks>
   default __.VisitType_App
@@ -11732,6 +14052,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.LongIdentApp" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_LongIdentApp".</remarks>
   abstract member BeforeVisitType_LongIdentApp:
@@ -11748,6 +14075,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.LongIdentApp" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_LongIdentApp".</remarks>
   default this.BeforeVisitType_LongIdentApp
@@ -11773,6 +14107,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.LongIdentApp" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.LongIdentApp".</remarks>
   abstract member VisitType_LongIdentApp:
@@ -11789,6 +14130,13 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.LongIdentApp" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="dotId">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="leftAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="commaRanges">Microsoft.FSharp.Compiler.Range.range list</param>
+  /// <param name="rightAngleRange">Microsoft.FSharp.Compiler.Range.range option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.LongIdentApp".</remarks>
   default __.VisitType_LongIdentApp
@@ -11806,6 +14154,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * Microsoft.FSharp.Compiler.Ast.SynType) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Tuple".</remarks>
   abstract member BeforeVisitType_Tuple:
@@ -11817,6 +14167,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Tuple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * Microsoft.FSharp.Compiler.Ast.SynType) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Tuple".</remarks>
   default this.BeforeVisitType_Tuple
@@ -11832,6 +14184,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * Microsoft.FSharp.Compiler.Ast.SynType) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Tuple".</remarks>
   abstract member VisitType_Tuple:
@@ -11843,6 +14197,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Tuple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">(bool * Microsoft.FSharp.Compiler.Ast.SynType) list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Tuple".</remarks>
   default __.VisitType_Tuple
@@ -11855,6 +14211,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Array" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="elementType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Array".</remarks>
   abstract member BeforeVisitType_Array:
@@ -11867,6 +14226,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Array" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="elementType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Array".</remarks>
   default this.BeforeVisitType_Array
@@ -11884,6 +14246,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Array" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="elementType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Array".</remarks>
   abstract member VisitType_Array:
@@ -11896,6 +14261,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Array" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">int</param>
+  /// <param name="elementType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Array".</remarks>
   default __.VisitType_Array
@@ -11909,6 +14277,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Fun" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="argType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="returnType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Fun".</remarks>
   abstract member BeforeVisitType_Fun:
@@ -11921,6 +14292,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Fun" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="argType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="returnType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Fun".</remarks>
   default this.BeforeVisitType_Fun
@@ -11938,6 +14312,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Fun" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="argType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="returnType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Fun".</remarks>
   abstract member VisitType_Fun:
@@ -11950,6 +14327,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Fun" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="argType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="returnType">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Fun".</remarks>
   default __.VisitType_Fun
@@ -11963,6 +14343,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Var" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Var".</remarks>
   abstract member BeforeVisitType_Var:
@@ -11974,6 +14356,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Var" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Var".</remarks>
   default this.BeforeVisitType_Var
@@ -11989,6 +14373,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Var" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Var".</remarks>
   abstract member VisitType_Var:
@@ -12000,6 +14386,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Var" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Var".</remarks>
   default __.VisitType_Var
@@ -12012,6 +14400,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Anon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Anon".</remarks>
   abstract member BeforeVisitType_Anon:
@@ -12022,6 +14411,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.Anon" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_Anon".</remarks>
   default this.BeforeVisitType_Anon
@@ -12035,6 +14425,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Anon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Anon".</remarks>
   abstract member VisitType_Anon:
@@ -12045,6 +14436,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.Anon" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.Anon".</remarks>
   default __.VisitType_Anon
@@ -12056,6 +14448,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.WithGlobalConstraints" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_WithGlobalConstraints".</remarks>
   abstract member BeforeVisitType_WithGlobalConstraints:
@@ -12068,6 +14463,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.WithGlobalConstraints" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_WithGlobalConstraints".</remarks>
   default this.BeforeVisitType_WithGlobalConstraints
@@ -12085,6 +14483,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.WithGlobalConstraints" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.WithGlobalConstraints".</remarks>
   abstract member VisitType_WithGlobalConstraints:
@@ -12097,6 +14498,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.WithGlobalConstraints" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.WithGlobalConstraints".</remarks>
   default __.VisitType_WithGlobalConstraints
@@ -12110,6 +14514,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.HashConstraint" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_HashConstraint".</remarks>
   abstract member BeforeVisitType_HashConstraint:
@@ -12121,6 +14527,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.HashConstraint" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_HashConstraint".</remarks>
   default this.BeforeVisitType_HashConstraint
@@ -12136,6 +14544,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.HashConstraint" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.HashConstraint".</remarks>
   abstract member VisitType_HashConstraint:
@@ -12147,6 +14557,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.HashConstraint" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.HashConstraint".</remarks>
   default __.VisitType_HashConstraint
@@ -12159,6 +14571,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.MeasureDivide" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_MeasureDivide".</remarks>
   abstract member BeforeVisitType_MeasureDivide:
@@ -12171,6 +14586,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.MeasureDivide" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_MeasureDivide".</remarks>
   default this.BeforeVisitType_MeasureDivide
@@ -12188,6 +14606,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.MeasureDivide" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.MeasureDivide".</remarks>
   abstract member VisitType_MeasureDivide:
@@ -12200,6 +14621,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.MeasureDivide" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.MeasureDivide".</remarks>
   default __.VisitType_MeasureDivide
@@ -12213,6 +14637,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.MeasurePower" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_MeasurePower".</remarks>
   abstract member BeforeVisitType_MeasurePower:
@@ -12225,6 +14652,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.MeasurePower" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_MeasurePower".</remarks>
   default this.BeforeVisitType_MeasurePower
@@ -12242,6 +14672,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.MeasurePower" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.MeasurePower".</remarks>
   abstract member VisitType_MeasurePower:
@@ -12254,6 +14687,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.MeasurePower" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynRationalConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.MeasurePower".</remarks>
   default __.VisitType_MeasurePower
@@ -12267,6 +14703,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstant" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstant".</remarks>
   abstract member BeforeVisitType_StaticConstant:
@@ -12278,6 +14716,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstant" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstant".</remarks>
   default this.BeforeVisitType_StaticConstant
@@ -12293,6 +14733,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstant" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstant".</remarks>
   abstract member VisitType_StaticConstant:
@@ -12304,6 +14746,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstant" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="constant">Microsoft.FSharp.Compiler.Ast.SynConst</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstant".</remarks>
   default __.VisitType_StaticConstant
@@ -12316,6 +14760,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstantExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstantExpr".</remarks>
   abstract member BeforeVisitType_StaticConstantExpr:
@@ -12327,6 +14773,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstantExpr" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstantExpr".</remarks>
   default this.BeforeVisitType_StaticConstantExpr
@@ -12342,6 +14790,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstantExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstantExpr".</remarks>
   abstract member VisitType_StaticConstantExpr:
@@ -12353,6 +14803,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstantExpr" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstantExpr".</remarks>
   default __.VisitType_StaticConstantExpr
@@ -12365,6 +14817,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstantNamed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstantNamed".</remarks>
   abstract member BeforeVisitType_StaticConstantNamed:
@@ -12377,6 +14832,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynType.StaticConstantNamed" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitType_StaticConstantNamed".</remarks>
   default this.BeforeVisitType_StaticConstantNamed
@@ -12394,6 +14852,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstantNamed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstantNamed".</remarks>
   abstract member VisitType_StaticConstantNamed:
@@ -12406,6 +14867,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynType.StaticConstantNamed" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynType.StaticConstantNamed".</remarks>
   default __.VisitType_StaticConstantNamed
@@ -12468,6 +14932,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsValueType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsValueType".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsValueType:
@@ -12479,6 +14945,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsValueType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsValueType".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsValueType
@@ -12494,6 +14962,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsValueType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsValueType".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsValueType:
@@ -12505,6 +14975,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsValueType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsValueType".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsValueType
@@ -12517,6 +14989,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsReferenceType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsReferenceType".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsReferenceType:
@@ -12528,6 +15002,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsReferenceType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsReferenceType".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsReferenceType
@@ -12543,6 +15019,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsReferenceType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsReferenceType".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsReferenceType:
@@ -12554,6 +15032,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsReferenceType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsReferenceType".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsReferenceType
@@ -12566,6 +15046,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsUnmanaged" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsUnmanaged".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsUnmanaged:
@@ -12577,6 +15059,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsUnmanaged" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsUnmanaged".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsUnmanaged
@@ -12592,6 +15076,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsUnmanaged" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsUnmanaged".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsUnmanaged:
@@ -12603,6 +15089,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsUnmanaged" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsUnmanaged".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsUnmanaged
@@ -12615,6 +15103,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSupportsNull" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsNull".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparSupportsNull:
@@ -12626,6 +15116,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSupportsNull" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsNull".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparSupportsNull
@@ -12641,6 +15133,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSupportsNull" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsNull".</remarks>
   abstract member VisitTypeConstraint_WhereTyparSupportsNull:
@@ -12652,6 +15146,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSupportsNull" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsNull".</remarks>
   default __.VisitTypeConstraint_WhereTyparSupportsNull
@@ -12664,6 +15160,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsComparable" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsComparable".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsComparable:
@@ -12675,6 +15173,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsComparable" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsComparable".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsComparable
@@ -12690,6 +15190,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsComparable" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsComparable".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsComparable:
@@ -12701,6 +15203,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsComparable" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsComparable".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsComparable
@@ -12713,6 +15217,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsEquatable" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEquatable".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsEquatable:
@@ -12724,6 +15230,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsEquatable" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEquatable".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsEquatable
@@ -12739,6 +15247,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsEquatable" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEquatable".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsEquatable:
@@ -12750,6 +15260,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsEquatable" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEquatable".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsEquatable
@@ -12762,6 +15274,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparDefaultsToType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparDefaultsToType".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparDefaultsToType:
@@ -12774,6 +15289,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparDefaultsToType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparDefaultsToType".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparDefaultsToType
@@ -12791,6 +15309,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparDefaultsToType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparDefaultsToType".</remarks>
   abstract member VisitTypeConstraint_WhereTyparDefaultsToType:
@@ -12803,6 +15324,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparDefaultsToType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparDefaultsToType".</remarks>
   default __.VisitTypeConstraint_WhereTyparDefaultsToType
@@ -12816,6 +15340,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSubtypeOfType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSubtypeOfType".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparSubtypeOfType:
@@ -12828,6 +15355,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSubtypeOfType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSubtypeOfType".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparSubtypeOfType
@@ -12845,6 +15375,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSubtypeOfType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSubtypeOfType".</remarks>
   abstract member VisitTypeConstraint_WhereTyparSubtypeOfType:
@@ -12857,6 +15390,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSubtypeOfType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="typeSig">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSubtypeOfType".</remarks>
   default __.VisitTypeConstraint_WhereTyparSubtypeOfType
@@ -12870,6 +15406,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSupportsMember" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="memberSig">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsMember".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparSupportsMember:
@@ -12882,6 +15421,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparSupportsMember" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="memberSig">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparSupportsMember".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparSupportsMember
@@ -12899,6 +15441,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSupportsMember" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="memberSig">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsMember".</remarks>
   abstract member VisitTypeConstraint_WhereTyparSupportsMember:
@@ -12911,6 +15456,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparSupportsMember" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericNames">Microsoft.FSharp.Compiler.Ast.SynTypar list</param>
+  /// <param name="memberSig">Microsoft.FSharp.Compiler.Ast.SynMemberSig</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparSupportsMember".</remarks>
   default __.VisitTypeConstraint_WhereTyparSupportsMember
@@ -12924,6 +15472,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsEnum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="enumTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEnum".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsEnum:
@@ -12936,6 +15487,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsEnum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="enumTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsEnum".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsEnum
@@ -12953,6 +15507,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsEnum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="enumTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEnum".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsEnum:
@@ -12965,6 +15522,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsEnum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="enumTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsEnum".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsEnum
@@ -12978,6 +15538,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsDelegate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="delegateTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsDelegate".</remarks>
   abstract member BeforeVisitTypeConstraint_WhereTyparIsDelegate:
@@ -12990,6 +15553,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeConstraint.WhereTyparIsDelegate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="delegateTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeConstraint_WhereTyparIsDelegate".</remarks>
   default this.BeforeVisitTypeConstraint_WhereTyparIsDelegate
@@ -13007,6 +15573,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsDelegate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="delegateTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsDelegate".</remarks>
   abstract member VisitTypeConstraint_WhereTyparIsDelegate:
@@ -13019,6 +15588,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeConstraint.WhereTyparIsDelegate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="genericName">Microsoft.FSharp.Compiler.Ast.SynTypar</param>
+  /// <param name="delegateTypes">Microsoft.FSharp.Compiler.Ast.SynType list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeConstraint.WhereTyparIsDelegate".</remarks>
   default __.VisitTypeConstraint_WhereTyparIsDelegate
@@ -13073,6 +15645,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefn.TypeDefn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefn_TypeDefn".</remarks>
   abstract member BeforeVisitTypeDefn_TypeDefn:
@@ -13086,6 +15662,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefn.TypeDefn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefn_TypeDefn".</remarks>
   default this.BeforeVisitTypeDefn_TypeDefn
@@ -13105,6 +15685,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefn.TypeDefn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefn.TypeDefn".</remarks>
   abstract member VisitTypeDefn_TypeDefn:
@@ -13118,6 +15702,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefn.TypeDefn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnRepr</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefn.TypeDefn".</remarks>
   default __.VisitTypeDefn_TypeDefn
@@ -13543,6 +16131,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnKind.TyconDelegate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconDelegate".</remarks>
   abstract member BeforeVisitTypeDefnKind_TyconDelegate:
@@ -13554,6 +16144,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnKind.TyconDelegate" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnKind_TyconDelegate".</remarks>
   default this.BeforeVisitTypeDefnKind_TyconDelegate
@@ -13569,6 +16161,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnKind.TyconDelegate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconDelegate".</remarks>
   abstract member VisitTypeDefnKind_TyconDelegate:
@@ -13580,6 +16174,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnKind.TyconDelegate" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnKind.TyconDelegate".</remarks>
   default __.VisitTypeDefnKind_TyconDelegate
@@ -13633,6 +16229,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.ObjectModel" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_ObjectModel".</remarks>
   abstract member BeforeVisitTypeDefnRepr_ObjectModel:
@@ -13645,6 +16244,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.ObjectModel" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_ObjectModel".</remarks>
   default this.BeforeVisitTypeDefnRepr_ObjectModel
@@ -13662,6 +16264,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.ObjectModel" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.ObjectModel".</remarks>
   abstract member VisitTypeDefnRepr_ObjectModel:
@@ -13674,6 +16279,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.ObjectModel" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="members">Microsoft.FSharp.Compiler.Ast.SynMemberDefn list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.ObjectModel".</remarks>
   default __.VisitTypeDefnRepr_ObjectModel
@@ -13687,6 +16295,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.Simple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Simple".</remarks>
   abstract member BeforeVisitTypeDefnRepr_Simple:
@@ -13698,6 +16308,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.Simple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Simple".</remarks>
   default this.BeforeVisitTypeDefnRepr_Simple
@@ -13713,6 +16325,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.Simple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.Simple".</remarks>
   abstract member VisitTypeDefnRepr_Simple:
@@ -13724,6 +16338,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.Simple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.Simple".</remarks>
   default __.VisitTypeDefnRepr_Simple
@@ -13736,6 +16352,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Exception".</remarks>
   abstract member BeforeVisitTypeDefnRepr_Exception:
@@ -13746,6 +16363,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnRepr_Exception".</remarks>
   default this.BeforeVisitTypeDefnRepr_Exception
@@ -13759,6 +16377,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.Exception".</remarks>
   abstract member VisitTypeDefnRepr_Exception:
@@ -13769,6 +16388,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnRepr.Exception".</remarks>
   default __.VisitTypeDefnRepr_Exception
@@ -13805,6 +16425,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSig.TypeDefnSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSig_TypeDefnSig".</remarks>
   abstract member BeforeVisitTypeDefnSig_TypeDefnSig:
@@ -13818,6 +16442,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSig.TypeDefnSig" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSig_TypeDefnSig".</remarks>
   default this.BeforeVisitTypeDefnSig_TypeDefnSig
@@ -13837,6 +16465,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSig.TypeDefnSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSig.TypeDefnSig".</remarks>
   abstract member VisitTypeDefnSig_TypeDefnSig:
@@ -13850,6 +16482,10 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSig.TypeDefnSig" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynComponentInfo</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSigRepr</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSig.TypeDefnSig".</remarks>
   default __.VisitTypeDefnSig_TypeDefnSig
@@ -13885,6 +16521,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.ObjectModel" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_ObjectModel".</remarks>
   abstract member BeforeVisitTypeDefnSigRepr_ObjectModel:
@@ -13897,6 +16536,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.ObjectModel" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_ObjectModel".</remarks>
   default this.BeforeVisitTypeDefnSigRepr_ObjectModel
@@ -13914,6 +16556,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.ObjectModel" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.ObjectModel".</remarks>
   abstract member VisitTypeDefnSigRepr_ObjectModel:
@@ -13926,6 +16571,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.ObjectModel" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="memberSigs">Microsoft.FSharp.Compiler.Ast.SynMemberSig list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.ObjectModel".</remarks>
   default __.VisitTypeDefnSigRepr_ObjectModel
@@ -13939,6 +16587,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.Simple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Simple".</remarks>
   abstract member BeforeVisitTypeDefnSigRepr_Simple:
@@ -13950,6 +16600,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.Simple" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Simple".</remarks>
   default this.BeforeVisitTypeDefnSigRepr_Simple
@@ -13965,6 +16617,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.Simple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Simple".</remarks>
   abstract member VisitTypeDefnSigRepr_Simple:
@@ -13976,6 +16630,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.Simple" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnSimpleRepr</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Simple".</remarks>
   default __.VisitTypeDefnSigRepr_Simple
@@ -13988,6 +16644,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Exception".</remarks>
   abstract member BeforeVisitTypeDefnSigRepr_Exception:
@@ -13998,6 +16655,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSigRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSigRepr_Exception".</remarks>
   default this.BeforeVisitTypeDefnSigRepr_Exception
@@ -14011,6 +16669,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Exception".</remarks>
   abstract member VisitTypeDefnSigRepr_Exception:
@@ -14021,6 +16680,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSigRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSigRepr.Exception".</remarks>
   default __.VisitTypeDefnSigRepr_Exception
@@ -14057,6 +16717,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Union" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynUnionCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Union".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_Union:
@@ -14069,6 +16732,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Union" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynUnionCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Union".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Union
@@ -14086,6 +16752,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Union" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynUnionCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Union".</remarks>
   abstract member VisitTypeDefnSimpleRepr_Union:
@@ -14098,6 +16767,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Union" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynUnionCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Union".</remarks>
   default __.VisitTypeDefnSimpleRepr_Union
@@ -14111,6 +16783,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Enum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynEnumCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Enum".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_Enum:
@@ -14122,6 +16796,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Enum" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynEnumCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Enum".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Enum
@@ -14137,6 +16813,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Enum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynEnumCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Enum".</remarks>
   abstract member VisitTypeDefnSimpleRepr_Enum:
@@ -14148,6 +16826,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Enum" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynEnumCase list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Enum".</remarks>
   default __.VisitTypeDefnSimpleRepr_Enum
@@ -14160,6 +16840,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="fields">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Record".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_Record:
@@ -14172,6 +16855,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Record" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="fields">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Record".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Record
@@ -14189,6 +16875,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="fields">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Record".</remarks>
   abstract member VisitTypeDefnSimpleRepr_Record:
@@ -14201,6 +16890,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Record" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="fields">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Record".</remarks>
   default __.VisitTypeDefnSimpleRepr_Record
@@ -14214,6 +16906,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.General" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="item2">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Ast.Ident option) list</param>
+  /// <param name="item3">(Microsoft.FSharp.Compiler.Ast.SynValSig * Microsoft.FSharp.Compiler.Ast.MemberFlags) list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="item5">bool</param>
+  /// <param name="item6">bool</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynSimplePat list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_General".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_General:
@@ -14231,6 +16931,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.General" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="item2">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Ast.Ident option) list</param>
+  /// <param name="item3">(Microsoft.FSharp.Compiler.Ast.SynValSig * Microsoft.FSharp.Compiler.Ast.MemberFlags) list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="item5">bool</param>
+  /// <param name="item6">bool</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynSimplePat list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_General".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_General
@@ -14258,6 +16966,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.General" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="item2">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Ast.Ident option) list</param>
+  /// <param name="item3">(Microsoft.FSharp.Compiler.Ast.SynValSig * Microsoft.FSharp.Compiler.Ast.MemberFlags) list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="item5">bool</param>
+  /// <param name="item6">bool</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynSimplePat list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.General".</remarks>
   abstract member VisitTypeDefnSimpleRepr_General:
@@ -14275,6 +16991,14 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.General" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTypeDefnKind</param>
+  /// <param name="item2">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Range.range * Microsoft.FSharp.Compiler.Ast.Ident option) list</param>
+  /// <param name="item3">(Microsoft.FSharp.Compiler.Ast.SynValSig * Microsoft.FSharp.Compiler.Ast.MemberFlags) list</param>
+  /// <param name="item4">Microsoft.FSharp.Compiler.Ast.SynField list</param>
+  /// <param name="item5">bool</param>
+  /// <param name="item6">bool</param>
+  /// <param name="item7">Microsoft.FSharp.Compiler.Ast.SynSimplePat list option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.General".</remarks>
   default __.VisitTypeDefnSimpleRepr_General
@@ -14293,6 +17017,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_LibraryOnlyILAssembly:
@@ -14304,6 +17030,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_LibraryOnlyILAssembly
@@ -14319,6 +17047,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly".</remarks>
   abstract member VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly:
@@ -14330,6 +17060,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.LibraryOnlyILAssembly".</remarks>
   default __.VisitTypeDefnSimpleRepr_LibraryOnlyILAssembly
@@ -14342,6 +17074,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.TypeAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParserDetail</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_TypeAbbrev".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_TypeAbbrev:
@@ -14354,6 +17089,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.TypeAbbrev" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParserDetail</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_TypeAbbrev".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_TypeAbbrev
@@ -14371,6 +17109,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.TypeAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParserDetail</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.TypeAbbrev".</remarks>
   abstract member VisitTypeDefnSimpleRepr_TypeAbbrev:
@@ -14383,6 +17124,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.TypeAbbrev" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.ParserDetail</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.TypeAbbrev".</remarks>
   default __.VisitTypeDefnSimpleRepr_TypeAbbrev
@@ -14396,6 +17140,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.None" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_None".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_None:
@@ -14406,6 +17151,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.None" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_None".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_None
@@ -14419,6 +17165,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.None" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.None".</remarks>
   abstract member VisitTypeDefnSimpleRepr_None:
@@ -14429,6 +17176,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.None" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.None".</remarks>
   default __.VisitTypeDefnSimpleRepr_None
@@ -14440,6 +17188,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Exception".</remarks>
   abstract member BeforeVisitTypeDefnSimpleRepr_Exception:
@@ -14450,6 +17199,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynTypeDefnSimpleRepr.Exception" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitTypeDefnSimpleRepr_Exception".</remarks>
   default this.BeforeVisitTypeDefnSimpleRepr_Exception
@@ -14463,6 +17213,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Exception".</remarks>
   abstract member VisitTypeDefnSimpleRepr_Exception:
@@ -14473,6 +17224,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynTypeDefnSimpleRepr.Exception" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">Microsoft.FSharp.Compiler.Ast.SynExceptionDefnRepr</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynTypeDefnSimpleRepr.Exception".</remarks>
   default __.VisitTypeDefnSimpleRepr_Exception
@@ -14519,6 +17271,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCase.UnionCase" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="caseType">Microsoft.FSharp.Compiler.Ast.SynUnionCaseType</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCase_UnionCase".</remarks>
   abstract member BeforeVisitUnionCase_UnionCase:
@@ -14534,6 +17292,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCase.UnionCase" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="caseType">Microsoft.FSharp.Compiler.Ast.SynUnionCaseType</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCase_UnionCase".</remarks>
   default this.BeforeVisitUnionCase_UnionCase
@@ -14557,6 +17321,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCase.UnionCase" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="caseType">Microsoft.FSharp.Compiler.Ast.SynUnionCaseType</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCase.UnionCase".</remarks>
   abstract member VisitUnionCase_UnionCase:
@@ -14572,6 +17342,12 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCase.UnionCase" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="caseType">Microsoft.FSharp.Compiler.Ast.SynUnionCaseType</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessibility">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCase.UnionCase".</remarks>
   default __.VisitUnionCase_UnionCase
@@ -14609,6 +17385,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCaseType.UnionCaseFields" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynField list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFields".</remarks>
   abstract member BeforeVisitUnionCaseType_UnionCaseFields:
@@ -14619,6 +17396,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCaseType.UnionCaseFields" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynField list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFields".</remarks>
   default this.BeforeVisitUnionCaseType_UnionCaseFields
@@ -14632,6 +17410,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCaseType.UnionCaseFields" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynField list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFields".</remarks>
   abstract member VisitUnionCaseType_UnionCaseFields:
@@ -14642,6 +17421,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCaseType.UnionCaseFields" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="cases">Microsoft.FSharp.Compiler.Ast.SynField list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFields".</remarks>
   default __.VisitUnionCaseType_UnionCaseFields
@@ -14653,6 +17433,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCaseType.UnionCaseFullType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFullType".</remarks>
   abstract member BeforeVisitUnionCaseType_UnionCaseFullType:
@@ -14663,6 +17444,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynUnionCaseType.UnionCaseFullType" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitUnionCaseType_UnionCaseFullType".</remarks>
   default this.BeforeVisitUnionCaseType_UnionCaseFullType
@@ -14676,6 +17458,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCaseType.UnionCaseFullType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFullType".</remarks>
   abstract member VisitUnionCaseType_UnionCaseFullType:
@@ -14686,6 +17469,7 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynUnionCaseType.UnionCaseFullType" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item">(Microsoft.FSharp.Compiler.Ast.SynType * Microsoft.FSharp.Compiler.Ast.SynValInfo)</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynUnionCaseType.UnionCaseFullType".</remarks>
   default __.VisitUnionCaseType_UnionCaseFullType
@@ -14720,6 +17504,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValData.SynValData" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.MemberFlags option</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValData_SynValData".</remarks>
   abstract member BeforeVisitValData_SynValData:
@@ -14732,6 +17519,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValData.SynValData" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.MemberFlags option</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValData_SynValData".</remarks>
   default this.BeforeVisitValData_SynValData
@@ -14749,6 +17539,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValData.SynValData" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.MemberFlags option</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValData.SynValData".</remarks>
   abstract member VisitValData_SynValData:
@@ -14761,6 +17554,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValData.SynValData" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.MemberFlags option</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item3">Microsoft.FSharp.Compiler.Ast.Ident option</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValData.SynValData".</remarks>
   default __.VisitValData_SynValData
@@ -14795,6 +17591,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValInfo.SynValInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynArgInfo list list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynArgInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValInfo_SynValInfo".</remarks>
   abstract member BeforeVisitValInfo_SynValInfo:
@@ -14806,6 +17604,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValInfo.SynValInfo" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynArgInfo list list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynArgInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValInfo_SynValInfo".</remarks>
   default this.BeforeVisitValInfo_SynValInfo
@@ -14821,6 +17621,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValInfo.SynValInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynArgInfo list list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynArgInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValInfo.SynValInfo".</remarks>
   abstract member VisitValInfo_SynValInfo:
@@ -14832,6 +17634,8 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValInfo.SynValInfo" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynArgInfo list list</param>
+  /// <param name="item2">Microsoft.FSharp.Compiler.Ast.SynArgInfo</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValInfo.SynValInfo".</remarks>
   default __.VisitValInfo_SynValInfo
@@ -14865,6 +17669,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValSig.ValSpfn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="valInfo">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item6">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValSig_ValSpfn".</remarks>
   abstract member BeforeVisitValSig_ValSpfn:
@@ -14885,6 +17700,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValSig.ValSpfn" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="valInfo">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item6">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValSig_ValSpfn".</remarks>
   default this.BeforeVisitValSig_ValSpfn
@@ -14918,6 +17744,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValSig.ValSpfn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="valInfo">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item6">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValSig.ValSpfn".</remarks>
   abstract member VisitValSig_ValSpfn:
@@ -14938,6 +17775,17 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValSig.ValSpfn" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="attributes">Microsoft.FSharp.Compiler.Ast.SynAttribute list</param>
+  /// <param name="id">Microsoft.FSharp.Compiler.Ast.Ident</param>
+  /// <param name="typeParams">Microsoft.FSharp.Compiler.Ast.SynValTyparDecls</param>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.SynType</param>
+  /// <param name="valInfo">Microsoft.FSharp.Compiler.Ast.SynValInfo</param>
+  /// <param name="item6">bool</param>
+  /// <param name="isMutable">bool</param>
+  /// <param name="xmlDoc">Microsoft.FSharp.Compiler.Ast.PreXmlDoc</param>
+  /// <param name="accessiblity">Microsoft.FSharp.Compiler.Ast.SynAccess option</param>
+  /// <param name="expr">Microsoft.FSharp.Compiler.Ast.SynExpr option</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValSig.ValSpfn".</remarks>
   default __.VisitValSig_ValSpfn
@@ -14980,6 +17828,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValTyparDecls.SynValTyparDecls" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValTyparDecls_SynValTyparDecls".</remarks>
   abstract member BeforeVisitValTyparDecls_SynValTyparDecls:
@@ -14992,6 +17843,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Before visit "SynValTyparDecls.SynValTyparDecls" arguments.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "VisitValTyparDecls_SynValTyparDecls".</remarks>
   default this.BeforeVisitValTyparDecls_SynValTyparDecls
@@ -15009,6 +17863,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValTyparDecls.SynValTyparDecls" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValTyparDecls.SynValTyparDecls".</remarks>
   abstract member VisitValTyparDecls_SynValTyparDecls:
@@ -15021,6 +17878,9 @@ type AstInheritableVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>()
   /// Visit "SynValTyparDecls.SynValTyparDecls" expression.
   /// </summary>
   /// <param name="context">Context object.</param>
+  /// <param name="item1">Microsoft.FSharp.Compiler.Ast.SynTyparDecl list</param>
+  /// <param name="item2">bool</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.Ast.SynTypeConstraint list</param>
   /// <returns>Constructed (or target) expression.</returns>
   /// <remarks>Default implementation invoked "SynValTyparDecls.SynValTyparDecls".</remarks>
   default __.VisitValTyparDecls_SynValTyparDecls

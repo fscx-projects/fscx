@@ -35,10 +35,15 @@ type internal AstUnionConsGenerator() =
   let generateByCase (t: Type) (c: UnionCaseInfo) =
     let typeName = Utilities.formatTypeName t
     let fields = c.GetFields()
+    let paramLists =
+      fields
+      |> Seq.map (fun field -> String.Format("/// <param name=\"{0}\">{1}</param>", Utilities.formatFieldName field, SecurityElement.Escape (Utilities.formatFieldTypeFullName field)))
+      |> Seq.toArray
     String.Format(
       "  /// <summary>\r\n" +
       "  /// Construct \"{0}\".\r\n" +
       "  /// </summary>\r\n" +
+      "  {5}\r\n" +
       "  /// <returns>Constructed instance.</returns>\r\n" +
       "  let gen{2}({3}) =\r\n" +
       "    {1}\r\n" +
@@ -48,13 +53,14 @@ type internal AstUnionConsGenerator() =
       VisitorUtilities.formatUnionCaseName t c,
       (if VisitorUtilities.requireQualifiedCaseName t then (typeName + "_" + c.Name) else c.Name),
       String.Join(", ", fields |> Seq.map Utilities.formatFieldName),
-      (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))))
+      (if fields.Length = 0 then "" else String.Format("      ({0})\r\n", String.Join(",\r\n       ", fields |> Seq.map Utilities.formatFieldName))),
+      String.Join("\r\n  ", paramLists))
 
   let generateByType (t: Type) =
     let cases = FSharpType.GetUnionCases t
     seq {
       yield "  ////////////////////////////////////////////////////\r\n" + "\r\n"
-      yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 2) |> Seq.map (generateByCase t)
+      yield! cases |> Seq.filter (fun c -> c.GetFields().Length >= 0) |> Seq.map (generateByCase t)
     }
 
   let isTargetDUType (t: Type) =

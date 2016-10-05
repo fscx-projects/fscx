@@ -44,14 +44,15 @@ let isIdent = function
 
 ////////////////////////////////////////////////
 
-let input (context: FSharpCheckFileResults) (expr: SynExpr) =
+let input(visitor, symbolInformation, context, expr) =
   match expr with
   | SynExpr.Quote(operator, _, _, _, _) ->
     // DEBUG
     printfn "%A" operator
     None
   | SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
-    Some (visitExpr context funcExpr (fun context funcExpr ->
+
+    Some (visitExpr(symbolInformation, context, funcExpr, (fun context funcExpr ->
       match funcExpr with
       | SynExpr.Ident _
       | SynExpr.LongIdent _ -> 
@@ -183,4 +184,4 @@ let input (context: FSharpCheckFileResults) (expr: SynExpr) =
     None
 
 type InsertLoggingVisitor() =
-  inherit DeclareAstFunctionalVisitor<FSharpCheckFileResults>(input)
+  inherit DeclareAstFunctionalVisitor(input)

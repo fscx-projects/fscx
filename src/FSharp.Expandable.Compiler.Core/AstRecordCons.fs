@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////////
 // This is auto-generated codes by FSharp.Expandable.Compiler.Generator. Do not edit.
-// Generated: Tue, 04 Oct 2016 09:08:35 GMT
+// Generated: Wed, 05 Oct 2016 01:38:49 GMT
 //////////////////////////////////////////////////////////////////////////////////////
 
 namespace Microsoft.FSharp.Compiler.Ast.Visitor
@@ -14,6 +14,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationTopLevelDeclaration".
   /// </summary>
+  /// <param name="declaration">Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationDeclarationItem</param>
+  /// <param name="nested">Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationDeclarationItem[]</param>
   /// <returns>Constructed record.</returns>
   let genFSharpNavigationTopLevelDeclaration
      (declaration: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpNavigationDeclarationItem,
@@ -24,6 +26,14 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpProjectOptions".
   /// </summary>
+  /// <param name="projectFileName">string</param>
+  /// <param name="projectFileNames">string[]</param>
+  /// <param name="otherOptions">string[]</param>
+  /// <param name="referencedProjects">(string * Microsoft.FSharp.Compiler.SourceCodeServices.FSharpProjectOptions)[]</param>
+  /// <param name="isIncompleteTypeCheckEnvironment">bool</param>
+  /// <param name="useScriptResolutionRules">bool</param>
+  /// <param name="loadTime">System.DateTime</param>
+  /// <param name="unresolvedReferences">Microsoft.FSharp.Compiler.SourceCodeServices.UnresolvedReferencesSet option</param>
   /// <returns>Constructed record.</returns>
   let genFSharpProjectOptions
      (projectFileName: string,
@@ -46,6 +56,14 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenInfo".
   /// </summary>
+  /// <param name="leftColumn">int</param>
+  /// <param name="rightColumn">int</param>
+  /// <param name="colorClass">Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenColorKind</param>
+  /// <param name="charClass">Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenCharKind</param>
+  /// <param name="fSharpTokenTriggerClass">Microsoft.FSharp.Compiler.SourceCodeServices.FSharpTokenTriggerClass</param>
+  /// <param name="tag">int</param>
+  /// <param name="tokenName">string</param>
+  /// <param name="fullMatchedLength">int</param>
   /// <returns>Constructed record.</returns>
   let genFSharpTokenInfo
      (leftColumn: int,
@@ -68,6 +86,19 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyManifest".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="auxModuleHashAlgorithm">int</param>
+  /// <param name="securityDecls">Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermissions</param>
+  /// <param name="publicKey">byte[] option</param>
+  /// <param name="version">(System.UInt16 * System.UInt16 * System.UInt16 * System.UInt16) option</param>
+  /// <param name="locale">string option</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
+  /// <param name="assemblyLongevity">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyLongevity</param>
+  /// <param name="disableJitOptimizations">bool</param>
+  /// <param name="jitTracking">bool</param>
+  /// <param name="retargetable">bool</param>
+  /// <param name="exportedTypes">Microsoft.FSharp.Compiler.AbstractIL.IL.ILExportedTypesAndForwarders</param>
+  /// <param name="entrypointElsewhere">Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef option</param>
   /// <returns>Constructed record.</returns>
   let genILAssemblyManifest
      (name: string,
@@ -100,6 +131,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute".
   /// </summary>
+  /// <param name="_method">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodSpec</param>
+  /// <param name="data">byte[]</param>
   /// <returns>Constructed record.</returns>
   let genILAttribute
      (_method: Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodSpec,
@@ -110,6 +143,9 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingSignature".
   /// </summary>
+  /// <param name="callingConv">Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv</param>
+  /// <param name="argTypes">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list</param>
+  /// <param name="returnType">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
   /// <returns>Constructed record.</returns>
   let genILCallingSignature
      (callingConv: Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv,
@@ -122,6 +158,10 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILCode".
   /// </summary>
+  /// <param name="labels">System.Collections.Generic.Dictionary&lt;int, int&gt;</param>
+  /// <param name="instrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILInstr[]</param>
+  /// <param name="exceptions">Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionSpec list</param>
+  /// <param name="locals">Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugInfo list</param>
   /// <returns>Constructed record.</returns>
   let genILCode
      (labels: System.Collections.Generic.Dictionary<int, int>,
@@ -136,6 +176,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILEnumInfo".
   /// </summary>
+  /// <param name="enumValues">(string * Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit) list</param>
+  /// <param name="enumType">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
   /// <returns>Constructed record.</returns>
   let genILEnumInfo
      (enumValues: (string * Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit) list,
@@ -146,6 +188,15 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILEventDef".
   /// </summary>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option</param>
+  /// <param name="name">string</param>
+  /// <param name="isRTSpecialName">bool</param>
+  /// <param name="isSpecialName">bool</param>
+  /// <param name="addMethod">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef</param>
+  /// <param name="removeMethod">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef</param>
+  /// <param name="fireMethod">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef option</param>
+  /// <param name="otherMethods">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef list</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILEventDef
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option,
@@ -170,6 +221,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionSpec".
   /// </summary>
+  /// <param name="range">(int * int)</param>
+  /// <param name="clause">Microsoft.FSharp.Compiler.AbstractIL.IL.ILExceptionClause</param>
   /// <returns>Constructed record.</returns>
   let genILExceptionSpec
      (range: (int * int),
@@ -180,6 +233,12 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILExportedTypeOrForwarder".
   /// </summary>
+  /// <param name="scopeRef">Microsoft.FSharp.Compiler.AbstractIL.IL.ILScopeRef</param>
+  /// <param name="name">string</param>
+  /// <param name="isForwarder">bool</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefAccess</param>
+  /// <param name="nested">Microsoft.FSharp.Compiler.AbstractIL.IL.ILNestedExportedTypes</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILExportedTypeOrForwarder
      (scopeRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILScopeRef,
@@ -198,6 +257,19 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldDef".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="isStatic">bool</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMemberAccess</param>
+  /// <param name="data">byte[] option</param>
+  /// <param name="literalValue">Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit option</param>
+  /// <param name="offset">int option</param>
+  /// <param name="isSpecialName">bool</param>
+  /// <param name="marshal">Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType option</param>
+  /// <param name="notSerialized">bool</param>
+  /// <param name="isLiteral">bool</param>
+  /// <param name="isInitOnly">bool</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILFieldDef
      (name: string,
@@ -230,6 +302,9 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldRef".
   /// </summary>
+  /// <param name="enclosingTypeRef">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef</param>
+  /// <param name="name">string</param>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
   /// <returns>Constructed record.</returns>
   let genILFieldRef
      (enclosingTypeRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef,
@@ -242,6 +317,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldSpec".
   /// </summary>
+  /// <param name="fieldRef">Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldRef</param>
+  /// <param name="enclosingType">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
   /// <returns>Constructed record.</returns>
   let genILFieldSpec
      (fieldRef: Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldRef,
@@ -252,6 +329,13 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericParameterDef".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="constraints">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list</param>
+  /// <param name="variance">Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericVariance</param>
+  /// <param name="hasReferenceTypeConstraint">bool</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
+  /// <param name="hasNotNullableValueTypeConstraint">bool</param>
+  /// <param name="hasDefaultConstructorConstraint">bool</param>
   /// <returns>Constructed record.</returns>
   let genILGenericParameterDef
      (name: string,
@@ -272,6 +356,81 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILGlobals".
   /// </summary>
+  /// <param name="traits">Microsoft.FSharp.Compiler.AbstractIL.IL.IPrimaryAssemblyTraits</param>
+  /// <param name="primaryAssemblyName">string</param>
+  /// <param name="noDebugData">bool</param>
+  /// <param name="tref_Object">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef</param>
+  /// <param name="tspec_Object">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="typ_Object">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="tref_String">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef</param>
+  /// <param name="typ_String">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_StringBuilder">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_AsyncCallback">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_IAsyncResult">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_IComparable">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="tref_Type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef</param>
+  /// <param name="typ_Type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Missing">System.Lazy&lt;Microsoft.FSharp.Compiler.AbstractIL.IL.ILType&gt;</param>
+  /// <param name="typ_Activator">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Delegate">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_ValueType">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Enum">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="tspec_TypedReference">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec option</param>
+  /// <param name="typ_TypedReference">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option</param>
+  /// <param name="typ_MulticastDelegate">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Array">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="tspec_Int64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_UInt64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Int32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_UInt32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Int16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_UInt16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_SByte">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Byte">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Single">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Double">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_IntPtr">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_UIntPtr">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Char">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="tspec_Bool">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="typ_int8">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_int16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_int32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_int64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_uint8">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_uint16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_uint32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_uint64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_float32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_float64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_bool">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_char">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_IntPtr">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_UIntPtr">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_RuntimeArgumentHandle">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option</param>
+  /// <param name="typ_RuntimeTypeHandle">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_RuntimeMethodHandle">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_RuntimeFieldHandle">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Byte">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Int16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Int32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Int64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_SByte">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_UInt16">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_UInt32">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_UInt64">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Single">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Double">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Bool">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_Char">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="typ_SerializationInfo">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option</param>
+  /// <param name="typ_StreamingContext">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="tref_SecurityPermissionAttribute">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeRef option</param>
+  /// <param name="tspec_Exception">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeSpec</param>
+  /// <param name="typ_Exception">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="generatedAttribsCache">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute list</param>
+  /// <param name="debuggerBrowsableNeverAttributeCache">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute option</param>
+  /// <param name="debuggerTypeProxyAttributeCache">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttribute option</param>
   /// <returns>Constructed record.</returns>
   let genILGlobals
      (traits: Microsoft.FSharp.Compiler.AbstractIL.IL.IPrimaryAssemblyTraits,
@@ -428,6 +587,9 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocal".
   /// </summary>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="isPinned">bool</param>
+  /// <param name="debugInfo">(string * int * int) option</param>
   /// <returns>Constructed record.</returns>
   let genILLocal
      (_type: Microsoft.FSharp.Compiler.AbstractIL.IL.ILType,
@@ -440,6 +602,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugInfo".
   /// </summary>
+  /// <param name="range">(int * int)</param>
+  /// <param name="debugMappings">Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugMapping list</param>
   /// <returns>Constructed record.</returns>
   let genILLocalDebugInfo
      (range: (int * int),
@@ -450,6 +614,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocalDebugMapping".
   /// </summary>
+  /// <param name="localIndex">int</param>
+  /// <param name="localName">string</param>
   /// <returns>Constructed record.</returns>
   let genILLocalDebugMapping
      (localIndex: int,
@@ -460,6 +626,12 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodBody".
   /// </summary>
+  /// <param name="isZeroInit">bool</param>
+  /// <param name="maxStack">int</param>
+  /// <param name="noInlining">bool</param>
+  /// <param name="locals">Microsoft.FSharp.Compiler.AbstractIL.IL.ILLocal list</param>
+  /// <param name="code">Microsoft.FSharp.Compiler.AbstractIL.IL.ILCode</param>
+  /// <param name="sourceMarker">Microsoft.FSharp.Compiler.AbstractIL.IL.ILSourceMarker option</param>
   /// <returns>Constructed record.</returns>
   let genILMethodBody
      (isZeroInit: bool,
@@ -478,6 +650,30 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodDef".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="mdKind">Microsoft.FSharp.Compiler.AbstractIL.IL.MethodKind</param>
+  /// <param name="callingConv">Microsoft.FSharp.Compiler.AbstractIL.IL.ILCallingConv</param>
+  /// <param name="parameters">Microsoft.FSharp.Compiler.AbstractIL.IL.ILParameter list</param>
+  /// <param name="_return">Microsoft.FSharp.Compiler.AbstractIL.IL.ILReturn</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMemberAccess</param>
+  /// <param name="mdBody">Microsoft.FSharp.Compiler.AbstractIL.IL.ILLazyMethodBody</param>
+  /// <param name="mdCodeKind">Microsoft.FSharp.Compiler.AbstractIL.IL.MethodCodeKind</param>
+  /// <param name="isInternalCall">bool</param>
+  /// <param name="isManaged">bool</param>
+  /// <param name="isForwardRef">bool</param>
+  /// <param name="securityDecls">Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermissions</param>
+  /// <param name="hasSecurity">bool</param>
+  /// <param name="isEntryPoint">bool</param>
+  /// <param name="isReqSecObj">bool</param>
+  /// <param name="isHideBySig">bool</param>
+  /// <param name="isSpecialName">bool</param>
+  /// <param name="isUnmanagedExport">bool</param>
+  /// <param name="isSynchronized">bool</param>
+  /// <param name="isPreserveSig">bool</param>
+  /// <param name="isMustRun">bool</param>
+  /// <param name="isNoInline">bool</param>
+  /// <param name="genericParams">Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericParameterDef list</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILMethodDef
      (name: string,
@@ -532,6 +728,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodImplDef".
   /// </summary>
+  /// <param name="overrides">Microsoft.FSharp.Compiler.AbstractIL.IL.ILOverridesSpec</param>
+  /// <param name="overrideBy">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodSpec</param>
   /// <returns>Constructed record.</returns>
   let genILMethodImplDef
      (overrides: Microsoft.FSharp.Compiler.AbstractIL.IL.ILOverridesSpec,
@@ -542,6 +740,10 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodVirtualInfo".
   /// </summary>
+  /// <param name="isFinal">bool</param>
+  /// <param name="isNewSlot">bool</param>
+  /// <param name="isCheckAccessOnOverride">bool</param>
+  /// <param name="isAbstract">bool</param>
   /// <returns>Constructed record.</returns>
   let genILMethodVirtualInfo
      (isFinal: bool,
@@ -556,6 +758,26 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleDef".
   /// </summary>
+  /// <param name="manifest">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyManifest option</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
+  /// <param name="name">string</param>
+  /// <param name="typeDefs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefs</param>
+  /// <param name="subsystemVersion">(int * int)</param>
+  /// <param name="useHighEntropyVA">bool</param>
+  /// <param name="subSystemFlags">int</param>
+  /// <param name="isDLL">bool</param>
+  /// <param name="isILOnly">bool</param>
+  /// <param name="platform">Microsoft.FSharp.Compiler.AbstractIL.IL.ILPlatform option</param>
+  /// <param name="stackReserveSize">int option</param>
+  /// <param name="is32Bit">bool</param>
+  /// <param name="is32BitPreferred">bool</param>
+  /// <param name="is64Bit">bool</param>
+  /// <param name="virtualAlignment">int</param>
+  /// <param name="physicalAlignment">int</param>
+  /// <param name="imageBase">int</param>
+  /// <param name="metadataVersion">string</param>
+  /// <param name="resources">Microsoft.FSharp.Compiler.AbstractIL.IL.ILResources</param>
+  /// <param name="nativeResources">System.Lazy&lt;byte[]&gt; list</param>
   /// <returns>Constructed record.</returns>
   let genILModuleDef
      (manifest: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyManifest option,
@@ -602,6 +824,10 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILNestedExportedType".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMemberAccess</param>
+  /// <param name="nested">Microsoft.FSharp.Compiler.AbstractIL.IL.ILNestedExportedTypes</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILNestedExportedType
      (name: string,
@@ -616,6 +842,14 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILParameter".
   /// </summary>
+  /// <param name="name">string option</param>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="_default">Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit option</param>
+  /// <param name="marshal">Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType option</param>
+  /// <param name="isIn">bool</param>
+  /// <param name="isOut">bool</param>
+  /// <param name="isOptional">bool</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILParameter
      (name: string option,
@@ -638,6 +872,16 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILPropertyDef".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="isRTSpecialName">bool</param>
+  /// <param name="isSpecialName">bool</param>
+  /// <param name="setMethod">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef option</param>
+  /// <param name="getMethod">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodRef option</param>
+  /// <param name="callingConv">Microsoft.FSharp.Compiler.AbstractIL.IL.ILThisConvention</param>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="init">Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldInit option</param>
+  /// <param name="args">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILPropertyDef
      (name: string,
@@ -664,6 +908,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILReferences".
   /// </summary>
+  /// <param name="assemblyReferences">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyRef list</param>
+  /// <param name="moduleReferences">Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef list</param>
   /// <returns>Constructed record.</returns>
   let genILReferences
      (assemblyReferences: Microsoft.FSharp.Compiler.AbstractIL.IL.ILAssemblyRef list,
@@ -674,6 +920,10 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILResource".
   /// </summary>
+  /// <param name="name">string</param>
+  /// <param name="location">Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceLocation</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILResourceAccess</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILResource
      (name: string,
@@ -688,6 +938,9 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILReturn".
   /// </summary>
+  /// <param name="marshal">Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType option</param>
+  /// <param name="_type">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILReturn
      (marshal: Microsoft.FSharp.Compiler.AbstractIL.IL.ILNativeType option,
@@ -700,6 +953,29 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDef".
   /// </summary>
+  /// <param name="tdKind">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefKind</param>
+  /// <param name="name">string</param>
+  /// <param name="genericParams">Microsoft.FSharp.Compiler.AbstractIL.IL.ILGenericParameterDef list</param>
+  /// <param name="access">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefAccess</param>
+  /// <param name="isAbstract">bool</param>
+  /// <param name="isSealed">bool</param>
+  /// <param name="isSerializable">bool</param>
+  /// <param name="isComInterop">bool</param>
+  /// <param name="layout">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefLayout</param>
+  /// <param name="isSpecialName">bool</param>
+  /// <param name="encoding">Microsoft.FSharp.Compiler.AbstractIL.IL.ILDefaultPInvokeEncoding</param>
+  /// <param name="nestedTypes">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefs</param>
+  /// <param name="implements">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType list</param>
+  /// <param name="extends">Microsoft.FSharp.Compiler.AbstractIL.IL.ILType option</param>
+  /// <param name="methods">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodDefs</param>
+  /// <param name="securityDecls">Microsoft.FSharp.Compiler.AbstractIL.IL.ILPermissions</param>
+  /// <param name="hasSecurity">bool</param>
+  /// <param name="fields">Microsoft.FSharp.Compiler.AbstractIL.IL.ILFieldDefs</param>
+  /// <param name="methodImpls">Microsoft.FSharp.Compiler.AbstractIL.IL.ILMethodImplDefs</param>
+  /// <param name="initSemantics">Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeInit</param>
+  /// <param name="events">Microsoft.FSharp.Compiler.AbstractIL.IL.ILEventDefs</param>
+  /// <param name="properties">Microsoft.FSharp.Compiler.AbstractIL.IL.ILPropertyDefs</param>
+  /// <param name="customAttrs">Microsoft.FSharp.Compiler.AbstractIL.IL.ILAttributes</param>
   /// <returns>Constructed record.</returns>
   let genILTypeDef
      (tdKind: Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefKind,
@@ -752,6 +1028,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.ILTypeDefLayoutInfo".
   /// </summary>
+  /// <param name="size">int option</param>
+  /// <param name="pack">System.UInt16 option</param>
   /// <returns>Constructed record.</returns>
   let genILTypeDefLayoutInfo
      (size: int option,
@@ -762,6 +1040,11 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.MemberFlags".
   /// </summary>
+  /// <param name="isInstance">bool</param>
+  /// <param name="isDispatchSlot">bool</param>
+  /// <param name="isOverrideOrExplicitImpl">bool</param>
+  /// <param name="isFinal">bool</param>
+  /// <param name="memberKind">Microsoft.FSharp.Compiler.Ast.MemberKind</param>
   /// <returns>Constructed record.</returns>
   let genMemberFlags
      (isInstance: bool,
@@ -778,6 +1061,14 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeMethod".
   /// </summary>
+  /// <param name="where">Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef</param>
+  /// <param name="name">string</param>
+  /// <param name="callingConv">Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeCallingConvention</param>
+  /// <param name="charEncoding">Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeCharEncoding</param>
+  /// <param name="noMangle">bool</param>
+  /// <param name="lastError">bool</param>
+  /// <param name="throwOnUnmappableChar">Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeThrowOnUnmappableChar</param>
+  /// <param name="charBestFit">Microsoft.FSharp.Compiler.AbstractIL.IL.PInvokeCharBestFit</param>
   /// <returns>Constructed record.</returns>
   let genPInvokeMethod
      (where: Microsoft.FSharp.Compiler.AbstractIL.IL.ILModuleRef,
@@ -800,6 +1091,8 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.ErrorLogger.PhasedError".
   /// </summary>
+  /// <param name="_exception">System.Exception</param>
+  /// <param name="phase">Microsoft.FSharp.Compiler.ErrorLogger.BuildPhase</param>
   /// <returns>Constructed record.</returns>
   let genPhasedError
      (_exception: System.Exception,
@@ -810,6 +1103,11 @@ module AstRecordCons =
   /// <summary>
   /// Construct "Microsoft.FSharp.Compiler.Ast.SynAttribute".
   /// </summary>
+  /// <param name="typeName">Microsoft.FSharp.Compiler.Ast.LongIdentWithDots</param>
+  /// <param name="argExpr">Microsoft.FSharp.Compiler.Ast.SynExpr</param>
+  /// <param name="target">Microsoft.FSharp.Compiler.Ast.Ident option</param>
+  /// <param name="appliesToGetterAndSetter">bool</param>
+  /// <param name="range">Microsoft.FSharp.Compiler.Range.range</param>
   /// <returns>Constructed record.</returns>
   let genSynAttribute
      (typeName: Microsoft.FSharp.Compiler.Ast.LongIdentWithDots,

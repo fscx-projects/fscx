@@ -1,3 +1,7 @@
+#### 0.6.2 - 2016.10.05
+* Change visitor signatures.
+* Add comments.
+
 #### 0.6.1 - 2016.10.04
 * Remove DelegatableVisitor.
 * Remove IAstVisitor generic parameter.
