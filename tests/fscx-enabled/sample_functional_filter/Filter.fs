@@ -44,16 +44,20 @@ let isIdent = function
 
 ////////////////////////////////////////////////
 
-let input(visitor, symbolInformation, context, expr) =
+let outerVisitor
+   (defaultVisitor: (FSharpCheckFileResults * NoContext * SynExpr -> SynExpr),
+    symbolInformation: FSharpCheckFileResults,
+    context: NoContext,
+    expr: SynExpr) : SynExpr option =
+
   match expr with
   | SynExpr.Quote(operator, _, _, _, _) ->
     // DEBUG
     printfn "%A" operator
     None
-  | SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
 
-    Some (visitExpr(symbolInformation, context, funcExpr, (fun context funcExpr ->
-      match funcExpr with
+  | SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, range) ->
+    match funcExpr with
       | SynExpr.Ident _
       | SynExpr.LongIdent _ -> 
         let results =
@@ -65,7 +69,7 @@ let input(visitor, symbolInformation, context, expr) =
           | _ -> failwith "Unknown"
         let funcNameElems, funcIdentRange = results
         let opt =
-          context.GetSymbolUseAtLocation(
+          symbolInformation.GetSymbolUseAtLocation(
             funcIdentRange.Start.Line,
             funcIdentRange.End.Column,
             "",
@@ -81,9 +85,11 @@ let input(visitor, symbolInformation, context, expr) =
               asm.SimpleName
           | None -> "unknown"
 
-        let funcName = (funcNameElems |> String.concat ".") + (sprintf " [%d行,%d列目]" funcIdentRange.Start.Line funcIdentRange.Start.Column)
+        let funcName =
+          (funcNameElems |> String.concat ".") +
+          (sprintf " [%d行,%d列目]" funcIdentRange.Start.Line funcIdentRange.Start.Column)
 
-        // from
+          // from
           //   f(expr1, expr2, ..., exprN)
           // to
           //   try
@@ -103,7 +109,7 @@ let input(visitor, symbolInformation, context, expr) =
 
         match argExpr with
         // f () の考慮   => Const(Unit)
-          // f (()) の考慮 => Paren(Const(Unit))
+        // f (()) の考慮 => Paren(Const(Unit))
         | SynExpr.Const(SynConst.Unit, x)
         | SynExpr.Paren(SynExpr.Const(SynConst.Unit, x), _, _, _) ->
           let tryExpr =
@@ -116,11 +122,10 @@ let input(visitor, symbolInformation, context, expr) =
                     SynExpr.App(exprAtomicFlag, isInfix, funcExpr, argExpr, zeroRange),
                     logFinishCallMethod funcName "res"
                     +> genIdent "res")))
-          Some
-            (genTryExpr
-              (tryExpr,
-               [ genClause ("e", logExn funcName "e" +> (genReraise ())) ],
-               range))
+          Some (genTryExpr
+            (tryExpr,
+             [ genClause ("e", logExn funcName "e" +> (genReraise ())) ],
+             range))
 
         // f (x, y, ...) の考慮 => Paren(Tuple(exprs))
         | SynExpr.Paren(SynExpr.Tuple(exprs, commaRange, trange), x, y, z) ->
@@ -148,14 +153,14 @@ let input(visitor, symbolInformation, context, expr) =
                     let name = "arg" + string n
                     genLetExpr (name, expr, acc))
             x
-          Some
-            (genTryExpr
-              (tryExpr,
-               [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
-               range))
+
+          Some (genTryExpr
+            (tryExpr,
+             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
+             range))
 
         // f (x) の考慮 => Paren(expr)
-          // f x の考慮 =>  expr
+        // f x の考慮   => expr
         | SynExpr.Paren(expr, _, _, _)
         | expr ->
           let tryExpr =
@@ -173,15 +178,18 @@ let input(visitor, symbolInformation, context, expr) =
                         zeroRange),
                       logFinishCallMethod funcName "res"
                       +> genIdent "res")))
-          Some 
-            (genTryExpr
-              (tryExpr,
-               [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
-               range))
+          Some (genTryExpr
+            (tryExpr,
+             [ genClause ("e", logExn funcName "e" +> genReraise ()) ],
+             range))
+
+      // その他のSynExpr --> Noneを返す (デフォルトvisit処理）
       | _ ->
-        None))
+        None
+
+  // その他のSynExpr --> Noneを返す (デフォルトvisit処理)
   | _ ->
     None
 
 type InsertLoggingVisitor() =
-  inherit DeclareAstFunctionalVisitor(input)
+  inherit DeclareAstFunctionalVisitor(outerVisitor)

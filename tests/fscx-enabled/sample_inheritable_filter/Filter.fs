@@ -45,7 +45,7 @@ let isIdent = function
 ////////////////////////////////////////////////
 
 type InsertLoggingVisitor() =
-  inherit AstInheritableVisitor<FSharpCheckFileResults>()
+  inherit AstInheritableVisitor()
 
   //////////////////////////////////
   // Quote
@@ -58,7 +58,7 @@ type InsertLoggingVisitor() =
   //////////////////////////////////
   // App
 
-  override __.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
+  override this.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, range) =
     match funcExpr with
     | SynExpr.Ident _
     | SynExpr.LongIdent _ -> 
@@ -71,7 +71,7 @@ type InsertLoggingVisitor() =
         | _ -> failwith "Unknown"
       let funcNameElems, funcIdentRange = results
       let opt =
-        context.GetSymbolUseAtLocation(
+        this.SymbolInformation.GetSymbolUseAtLocation(
           funcIdentRange.Start.Line,
           funcIdentRange.End.Column,
           "",
