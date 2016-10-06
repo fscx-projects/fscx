@@ -37,40 +37,9 @@ Building architechture overall illustrated:
 
 ![Overall](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide3.png)
 
-## Filter project sample nuspec (For filter developer)
+## Sample filter projects (For filter developer)
 
-Pack to the filter package, using NuGet with following sample nuspec definitions:
-
-```xml
-<?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-  <metadata>
-    <id>fscx-sample-filter</id>
-    <version>0.5.1-pre</version>
-    <title>fscx-sample-filter</title>
-    <authors>Kouji Matsui</authors>
-    <owners>Kouji Matsui</owners>
-    <summary>Expandable F# compiler's sample custom filter package.</summary>
-    <description>Expandable F# compiler's sample custom filter package.</description>
-    <copyright>Author: Kouji Matsui, bleis-tift</copyright>
-    <projectUrl>http://github.com/fscx-projects/fscx</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Expandable F# compiler's sample custom filter package.</releaseNotes>
-    <tags>fscx</tags>
-    <dependencies>
-      <!-- Including fscx dependency is highly recommended. -->
-      <dependency id="FSharp.Expandable.Compiler.Build" version="0.5.1" />
-    </dependencies>
-  </metadata>
-  <files>
-    <!-- Add filter binaries (and pdb files if needed) into "build" package folder. -->
-    <!-- Note that it's not "lib" folder because we should avoid to get these assemblies referenced automatically. -->
-    <file src="bin/Debug/sample_filter.dll" target="build" />
-    <file src="bin/Debug/sample_filter.pdb" target="build" />
-  </files>
-</package>
-```
+See also [fscx-sample-filters](https://github.com/fscx-projects/fscx-sample-filters/).
 
 ## Maintainer(s)
 
