@@ -19,14 +19,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast.Visitor
+namespace Microsoft.FSharp.Compiler.Ast.Visitors
 
 open System
 open Microsoft.FSharp.Compiler.Ast
-open Microsoft.FSharp.Compiler.Ast.Visitor
+open Microsoft.FSharp.Compiler.Ast.Visitors
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
 #nowarn "44"
+
+// TODO: Move to FSharp.Compiler.Service.Visitors
 
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST inheritable visitor.
@@ -34,6 +36,68 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type AstInheritableVisitor() =
   inherit AstInheritableVisitor<NoContext>()
+
+//////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// Target interface for fscx filter.
+/// </summary>
+type IDeclareAstVisitor =
+
+  /// <summary>
+  /// Visit the parsed input (Entry point).
+  /// </summary>
+  /// <param name="symbolInformation">Symbol information.</param>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  /// <returns>Visited instance.</returns>
+  abstract Visit :
+    symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
+    Microsoft.FSharp.Compiler.Ast.ParsedInput
+    
+//////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
+/// <typeparam name="'TVisitor">Custom visitor type.</typeparam>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareAstInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> AstInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+
+  /// <summary>
+  /// Visit the parsed input (Entry point).
+  /// </summary>
+  /// <param name="symbolInformation">Symbol information.</param>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  /// <returns>Visited instance.</returns>
+  member __.Visit(symbolInformation, parsedInput) = 
+    let visitor = new 'TVisitor()
+    visitor.Visit(symbolInformation, parsedInput)
+
+  interface IDeclareAstVisitor with
+    /// <summary>
+    /// Visit the parsed input (Entry point).
+    /// </summary>
+    /// <param name="symbolInformation">Symbol information.</param>
+    /// <param name="parsedInput">Target for ParsedInput instance.</param>
+    /// <returns>Visited instance.</returns>
+    member this.Visit(symbolInformation, parsedInput) = 
+      this.Visit(symbolInformation, parsedInput)
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareAstInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> AstInheritableVisitor<NoContext>>() =
+  inherit DeclareAstInheritableVisitor<'TVisitor, NoContext>()
+  
+//////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Basic functional visitor base type.
@@ -55,7 +119,7 @@ type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TConte
   member __.Visit(symbolInformation, parsedInput) = 
     AstFunctionalVisitor.visitInput(visitor, symbolInformation, new 'TContext(), parsedInput)
 
-  interface IAstVisitor with
+  interface IDeclareAstVisitor with
     /// <summary>
     /// Visit the parsed input (Entry point).
     /// </summary>

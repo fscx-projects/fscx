@@ -19,15 +19,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast.Visitor
+namespace Microsoft.FSharp.Compiler.Ast.Visitors
 
 open System
 open System.Reflection
 open Microsoft.FSharp.Quotations
 open Microsoft.FSharp.Quotations.Patterns
-open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
-open Microsoft.FSharp.Compiler.Ast.Visitor
+open Microsoft.FSharp.Compiler.Ast.Visitors
 
 //////////////////////////////////////////////////////////////////////////////
 

@@ -70,13 +70,7 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="AstCommon.fs" />
-    <Compile Include="AstRecordCons.fs" />
-    <Compile Include="AstUnionCons.fs" />
-    <Compile Include="AstElement.fs" />
     <Compile Include="AstUtilities.fs" />
-    <Compile Include="AstInheritableVisitor.fs" />
-    <Compile Include="AstFunctionalVisitor.fs" />
     <Compile Include="DeclareAstVisitor.fs" />
     <Compile Include="CompilerArguments.fs" />
     <Compile Include="CompilerImpl.fs" />
@@ -101,6 +95,17 @@
       <ItemGroup>
         <Reference Include="FSharp.Compiler.Service">
           <HintPath>..\..\packages\FSharp.Compiler.Service\lib\net45\FSharp.Compiler.Service.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="FSharp.Compiler.Service.Visitors">
+          <HintPath>..\..\packages\FSharp.Compiler.Service.Visitors\lib\net45\FSharp.Compiler.Service.Visitors.dll</HintPath>
           <Private>True</Private>
           <Paket>True</Paket>
         </Reference>
@@ -210,6 +215,26 @@
       <ItemGroup>
         <Reference Include="System.IO">
           <HintPath>..\..\packages\System.IO\ref\netstandard1.5\System.IO.dll</HintPath>
+          <Private>False</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.1' Or $(TargetFrameworkVersion) == 'v1.2')">
+      <ItemGroup>
+        <Reference Include="System.IO.Compression">
+          <HintPath>..\..\packages\System.IO.Compression\ref\netstandard1.1\System.IO.Compression.dll</HintPath>
+          <Private>False</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6')">
+      <ItemGroup>
+        <Reference Include="System.IO.Compression">
+          <HintPath>..\..\packages\System.IO.Compression\ref\netstandard1.3\System.IO.Compression.dll</HintPath>
           <Private>False</Private>
           <Paket>True</Paket>
         </Reference>
@@ -386,7 +411,7 @@
     </When>
   </Choose>
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6')">
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETStandard' And ($(TargetFrameworkVersion) == 'v1.3' Or $(TargetFrameworkVersion) == 'v1.4' Or $(TargetFrameworkVersion) == 'v1.5' Or $(TargetFrameworkVersion) == 'v1.6')">
       <ItemGroup>
         <Reference Include="System.Runtime.Handles">
           <HintPath>..\..\packages\System.Runtime.Handles\ref\netstandard1.3\System.Runtime.Handles.dll</HintPath>

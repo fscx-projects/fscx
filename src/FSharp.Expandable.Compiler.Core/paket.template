@@ -26,6 +26,7 @@ excludedependencies
     FSharp.Core
 dependencies
     FSharp.Compiler.Service >= LOCKEDVERSION
+    FSharp.Compiler.Service.Visitors >= LOCKEDVERSION
 files
     bin/Release/FSharp.Expandable.Compiler.Core.dll ==> lib/net45
     bin/Release/FSharp.Expandable.Compiler.Core.pdb ==> lib/net45

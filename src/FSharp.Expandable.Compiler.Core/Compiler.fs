@@ -24,12 +24,10 @@ namespace FSharp.Expandable
 open System
 open System.Diagnostics
 open System.IO
-open System.Reflection
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast.Visitor
-open Microsoft.FSharp.Compiler.SourceCodeServices
+open Microsoft.FSharp.Compiler.Ast.Visitors
 
 /// <summary>
 /// Compiler logging information.
@@ -136,7 +134,7 @@ type Compiler =
       |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
       |> Seq.collect (fun a -> a.GetTypes())
       |> Seq.filter AssemblyLoader.isVisitorType
-      |> Seq.map (fun t -> Activator.CreateInstance t :?> IAstVisitor)
+      |> Seq.map (fun t -> Activator.CreateInstance t :?> IDeclareAstVisitor)
       |> Seq.toArray
     let internalWriter = Compiler.WrappedBridgedWriter writer
     return! CompilerImpl.asyncCompile internalWriter arguments visitors

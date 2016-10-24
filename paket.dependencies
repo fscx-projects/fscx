@@ -1,7 +1,8 @@
 source https://nuget.org/api/v2
 
 nuget FSharp.Core
-nuget FSharp.Compiler.Service
+nuget FSharp.Compiler.Service 6.0.2
+nuget FSharp.Compiler.Service.Visitors
 nuget CenterCLR.RelaxVersioner
 
 group Build

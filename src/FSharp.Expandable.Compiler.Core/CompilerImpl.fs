@@ -28,9 +28,9 @@ open System.Runtime.InteropServices
       
 open Microsoft.FSharp.Compiler
 open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Ast.Visitors
 open Microsoft.FSharp.Compiler.SimpleSourceCodeServices
 open Microsoft.FSharp.Compiler.SourceCodeServices
-open Microsoft.FSharp.Compiler.Ast.Visitor
 
 type internal WriteInfo =
 | Message of typ: EventLogEntryType * path: string * message: string
@@ -128,15 +128,15 @@ module internal CompilerImpl =
  
   /// Apply filter with visitors
   let astFilter
-     (visitors: IAstVisitor seq)
+     (decls: IDeclareAstVisitor seq)
      (symbolInformation: FSharpCheckFileResults)
      (ast: ParsedInput) =
-    visitors |> Seq.fold (fun partialAst visitor -> visitor.Visit(symbolInformation, partialAst)) ast
+    decls |> Seq.fold (fun partialAst decl -> decl.Visit(symbolInformation, partialAst)) ast
  
   ///////////////////////////////////////////////////////
 
-  let private simpleTypeName (visitor: IAstVisitor) =
-    let t = visitor.GetType()
+  let private simpleTypeName (decl: IDeclareAstVisitor) =
+    let t = decl.GetType()
     let name = t.FullName
     let index = name.IndexOf '`'
     System.String.Format
@@ -144,8 +144,8 @@ module internal CompilerImpl =
        (if index >= 0 then name.Substring(0, index) else name),
        t.Assembly.GetName().Name)
 
-  let private printVisitor (visitor: IAstVisitor) =
-    System.String.Format("Apply visitor: {0}", simpleTypeName visitor)
+  let private printVisitor (decl: IDeclareAstVisitor) =
+    System.String.Format("Apply visitor: {0}", simpleTypeName decl)
 
   /// Read text file and iterate.
   let private readText path = seq {
@@ -173,12 +173,12 @@ module internal CompilerImpl =
   /// </summary>
   /// <param name="writer">Message sink</param>
   /// <param name="arguments">Compiler arguments</param>
-  /// <param name="visitors">AST visitors</param>
+  /// <param name="decls">AST visitor declarations</param>
   /// <returns>Compile result value</returns>
   let asyncCompile
      (writer: WriteInfo -> unit)
      (arguments: CompilerArguments)
-     (visitors: IAstVisitor seq) = async {
+     (decls: IDeclareAstVisitor seq) = async {
     try
       // Debugger hook point
       if arguments.FscxDebug then
@@ -204,17 +204,17 @@ module internal CompilerImpl =
       let sourceCodes = createSourceCodeDescriptions sourcePaths
 
       // Print visitors
-      if Seq.isEmpty visitors then
+      if Seq.isEmpty decls then
         writer (WriteInfo.Message(EventLogEntryType.Warning, arguments.ProjectPath, "No applicable visitors."))
       else
-        visitors
+        decls
         |> Seq.map printVisitor
         |> Seq.iter (fun message -> writer (WriteInfo.Message(EventLogEntryType.Information, arguments.ProjectPath, message)))
 
       // Parse source codes and apply (Async)
       let! appliedResults =
         sourceCodes
-        |> Seq.map (parseSourceCodeAndApplyByAsync options (astFilter visitors))
+        |> Seq.map (parseSourceCodeAndApplyByAsync options (astFilter decls))
         |> Async.Parallel
 
       // Aggregate aborted results
