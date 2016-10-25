@@ -24,6 +24,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace FSharp.Expandable
 {
@@ -154,60 +155,70 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-            // STRATEGY:
-            //   Completely late bound for another package placed FSharp.Expandable.Compiler.Core.dll.
-            //   Because Visual Studio loaded and locked FSharp.Expandable.Compiler.Tasks.dll,
-            //   fscx infrastructure and filters FRUSTRATED debugging many recycled and recycled VS process...
+            Trace.Assert(false);
 
-            ///////////////////////////////////////////////////////////////////////
-            // Search FSharp.Expandable.Compiler.Core.dll
+            try
+            {
+                // STRATEGY:
+                //   Completely late bound for another package placed FSharp.Expandable.Compiler.Core.dll.
+                //   Because Visual Studio loaded and locked FSharp.Expandable.Compiler.Tasks.dll,
+                //   fscx infrastructure and filters FRUSTRATED debugging many recycled and recycled VS process...
 
-            // NuGet package structure:
-            //   packages --+-- FSharp.Expandable.Compiler.Build --+-- build --+-- FSharp.Expandable.Compiler.Tasks.dll (1: from MSBuild)
-            //              |                                                  +-- fscx.exe (2: invoke from FscTask)
-            //              |                                                  +-- FSharp.Core.dll (3: implicitly load from assembly loader)
-            //              |
-            //              +-- FSharp.Expandable.Compiler.Core --+-- lib --+-- net45 --+-- FSharp.Expandable.Compiler.Core.dll (3: DefaultDriver() function)
-            //              |
-            //              +-- FSharp.Compiler.Service --+-- lib --+-- net45 --+-- FSharp.Compiler.Service.dll (3: implicitly load from assembly loader)
+                ///////////////////////////////////////////////////////////////////////
+                // Search FSharp.Expandable.Compiler.Core.dll
 
-            var exeLocation = new Uri(typeof(Program).Assembly.CodeBase).LocalPath;
-            var packagesPath =
-                Path.GetFullPath(Path.Combine(Path.GetDirectoryName(exeLocation), "..", ".."));
+                // NuGet package structure:
+                //   packages --+-- FSharp.Expandable.Compiler.Build --+-- build --+-- FSharp.Expandable.Compiler.Tasks.dll (1: from MSBuild)
+                //              |                                                  +-- fscx.exe (2: invoke from FscTask)
+                //              |                                                  +-- FSharp.Core.dll (3: implicitly load from assembly loader)
+                //              |
+                //              +-- FSharp.Expandable.Compiler.Core --+-- lib --+-- net45 --+-- FSharp.Expandable.Compiler.Core.dll (3: DefaultDriver() function)
+                //              |
+                //              +-- FSharp.Compiler.Service --+-- lib --+-- net45 --+-- FSharp.Compiler.Service.dll (3: implicitly load from assembly loader)
 
-            // Manually preload FSharp.Core.
-            LoadAssembly(
-                packagesPath,
-                "FSharp.Core.dll",
-                "FSharp.Core",
-                "net*",
-                TryLoad);
+                var exeLocation = new Uri(typeof(Program).Assembly.CodeBase).LocalPath;
+                var packagesPath =
+                    Path.GetFullPath(Path.Combine(Path.GetDirectoryName(exeLocation), "..", ".."));
 
-            // Manually preload FCS.
-            LoadAssembly(
-                packagesPath,
-                "FSharp.Compiler.Service.dll",
-                "FSharp.Compiler.Service",
-                "net*",
-                TryLoad);
+                // Manually preload FSharp.Core.
+                LoadAssembly(
+                    packagesPath,
+                    "FSharp.Core.dll",
+                    "FSharp.Core",
+                    "net*",
+                    TryLoad);
 
-            // Manually preload visitor.
-            LoadAssembly(
-                packagesPath,
-                "FSharp.Compiler.Service.Visitors.dll",
-                "FSharp.Compiler.Service.Visitors",
-                "net*",
-                TryLoad);
+                // Manually preload FCS.
+                LoadAssembly(
+                    packagesPath,
+                    "FSharp.Compiler.Service.dll",
+                    "FSharp.Compiler.Service",
+                    "net*",
+                    TryLoad);
 
-            // Load and execute fscx core.
-            var result = LoadAssembly(
-                packagesPath,
-                "*.dll",
-                "FSharp.Expandable.Compiler.Core",
-                "net*",
-                path => TryLoadAndRun(path, args));
+                // Manually preload visitor.
+                LoadAssembly(
+                    packagesPath,
+                    "FSharp.Compiler.Service.Visitors.dll",
+                    "FSharp.Compiler.Service.Visitors",
+                    "net*",
+                    TryLoad);
 
-            return result.Value;
+                // Load and execute fscx core.
+                var result = LoadAssembly(
+                    packagesPath,
+                    "*.dll",
+                    "FSharp.Expandable.Compiler.Core",
+                    "net*",
+                    path => TryLoadAndRun(path, args));
+
+                return result.Value;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return Marshal.GetHRForException(ex);
+            }
         }
     }
 }
