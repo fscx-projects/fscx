@@ -26,6 +26,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+using Microsoft.Win32;
+
 namespace FSharp.Expandable
 {
     /// <summary>
@@ -58,17 +60,17 @@ namespace FSharp.Expandable
             }
         }
 
-        private sealed class Int
+        private sealed class RunResult
         {
             public readonly int Value;
 
-            public Int(int value)
+            public RunResult(int value)
             {
                 this.Value = value;
             }
         }
 
-        private static Int TryLoadAndRun(string corePath, string[] args)
+        private static RunResult TryLoadAndRun(string corePath, string[] args)
         {
             MethodInfo mi = null;
 
@@ -88,7 +90,7 @@ namespace FSharp.Expandable
                 return null;
             }
 
-            return new Int((int)mi.Invoke(null, new object[] {args}));
+            return new RunResult((int)mi.Invoke(null, new object[] {args}));
         }
 
         private static string[] GetCandidateBaseFolderPath(
@@ -148,6 +150,9 @@ namespace FSharp.Expandable
             throw new FileNotFoundException($"{assemblyName}, {moniker}");
         }
 
+        [DllImport("user32", SetLastError = true, CharSet = CharSet.Unicode)]
+        private static extern int MessageBoxW(IntPtr hWnd, string text, string caption, int options);
+
         /// <summary>
         /// Main entry point.
         /// </summary>
@@ -155,7 +160,25 @@ namespace FSharp.Expandable
         /// <returns>Return value</returns>
         public static int Main(string[] args)
         {
-            Trace.Assert(false);
+            try
+            {
+                using (var subKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\VisualStudio", false))
+                {
+                    bool fscxLoaderDebug;
+                    bool.TryParse((string)subKey.GetValue("fscxLoaderDebug", "false"), out fscxLoaderDebug);
+                    if (fscxLoaderDebug == true)
+                    {
+                        MessageBoxW(
+                            IntPtr.Zero,
+                            "Fscx loader: Waiting for attach debugger...",
+                            $"Fscx loader: {Process.GetCurrentProcess().Id}",
+                            0x30);
+                    }
+                }
+            }
+            catch
+            {
+            }
 
             try
             {
@@ -216,7 +239,7 @@ namespace FSharp.Expandable
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine("error: " + ex.ToString());
                 return Marshal.GetHRForException(ex);
             }
         }
