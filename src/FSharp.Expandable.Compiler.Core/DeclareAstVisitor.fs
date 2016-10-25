@@ -28,15 +28,6 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 
 #nowarn "44"
 
-// TODO: Move to FSharp.Compiler.Service.Visitors
-
-/// <summary>
-/// FSharp.Compiler.Service's untyped AST inheritable visitor.
-/// </summary>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type AstInheritableVisitor() =
-  inherit AstInheritableVisitor<NoContext>()
-
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
