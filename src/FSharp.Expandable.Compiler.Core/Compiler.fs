@@ -134,7 +134,7 @@ type Compiler =
       |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
       |> Seq.collect (fun a -> a.GetTypes())
       |> Seq.filter AssemblyLoader.isVisitorType
-      |> Seq.map (fun t -> Activator.CreateInstance t :?> IDeclareAstVisitor)
+      |> Seq.map (fun t -> Activator.CreateInstance t :?> IDeclareFscxVisitor)
       |> Seq.toArray
     let internalWriter = Compiler.WrappedBridgedWriter writer
     return! CompilerImpl.asyncCompile internalWriter arguments visitors

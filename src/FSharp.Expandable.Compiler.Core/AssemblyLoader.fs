@@ -36,7 +36,7 @@ module internal AssemblyLoader =
     |> Seq.exists (fun a -> a.FullName.StartsWith "FSharp.Expandable.Compiler.Core")
 
   /// Include only visitor type.
-  let private declType = typeof<IDeclareAstVisitor>
+  let private declType = typeof<IDeclareFscxVisitor>
   let isVisitorType (t: Type) =
     (not t.IsAbstract) && declType.IsAssignableFrom t && (t.GetConstructor(Type.EmptyTypes) <> null)
 

@@ -31,9 +31,42 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
+/// </summary>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>() =
+  inherit AstInheritableVisitor<'TContext>()
+
+  let mutable symInf: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults option = None
+
+  /// <summary>
+  /// Symbol information.
+  /// </summary>
+  member __.SymbolInformation =
+    match symInf with
+    | Some(si) -> si
+    | None -> failwith "Not given symbol information for current state."
+        
+  /// <summary>
+  /// Visit the parsed input (Entry point).
+  /// </summary>
+  /// <param name="symbolInformation">Symbol information.</param>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  /// <returns>Visited instance.</returns>
+  member this.Visit(symbolInformation, parsedInput) = 
+    symInf <- Some symbolInformation
+    try
+      this.VisitInput (new 'TContext()) parsedInput
+    finally
+      symInf <- None
+
+//////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
 /// Target interface for fscx filter.
 /// </summary>
-type IDeclareAstVisitor =
+type IDeclareFscxVisitor =
 
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -56,7 +89,7 @@ type IDeclareAstVisitor =
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> AstInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
 
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -68,7 +101,7 @@ type DeclareAstInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: uni
     let visitor = new 'TVisitor()
     visitor.Visit(symbolInformation, parsedInput)
 
-  interface IDeclareAstVisitor with
+  interface IDeclareFscxVisitor with
     /// <summary>
     /// Visit the parsed input (Entry point).
     /// </summary>
@@ -85,8 +118,8 @@ type DeclareAstInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: uni
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> AstInheritableVisitor<NoContext>>() =
-  inherit DeclareAstInheritableVisitor<'TVisitor, NoContext>()
+type DeclareFscxInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<NoContext>>() =
+  inherit DeclareFscxInheritableVisitor<'TVisitor, NoContext>()
   
 //////////////////////////////////////////////////////////////////////////////
 
@@ -98,7 +131,7 @@ type DeclareAstInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVis
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
+type DeclareFscxFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
     (visitor: ( (* default: *) FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) 'TContext * (* target: *) SynExpr -> SynExpr option) =
 
   /// <summary>
@@ -110,7 +143,7 @@ type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TConte
   member __.Visit(symbolInformation, parsedInput) = 
     AstFunctionalVisitor.visitInput(visitor, symbolInformation, new 'TContext(), parsedInput)
 
-  interface IDeclareAstVisitor with
+  interface IDeclareFscxVisitor with
     /// <summary>
     /// Visit the parsed input (Entry point).
     /// </summary>
@@ -127,6 +160,6 @@ type DeclareAstFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TConte
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareAstFunctionalVisitor
+type DeclareFscxFunctionalVisitor
     (visitor: ( (* default: *) FSharpCheckFileResults * NoContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) NoContext * (* target: *) SynExpr -> SynExpr option) =
-  inherit DeclareAstFunctionalVisitor<NoContext>(visitor)
+  inherit DeclareFscxFunctionalVisitor<NoContext>(visitor)

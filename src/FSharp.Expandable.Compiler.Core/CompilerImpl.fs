@@ -128,14 +128,14 @@ module internal CompilerImpl =
  
   /// Apply filter with visitors
   let astFilter
-     (decls: IDeclareAstVisitor seq)
+     (decls: IDeclareFscxVisitor seq)
      (symbolInformation: FSharpCheckFileResults)
      (ast: ParsedInput) =
     decls |> Seq.fold (fun partialAst decl -> decl.Visit(symbolInformation, partialAst)) ast
  
   ///////////////////////////////////////////////////////
 
-  let private simpleTypeName (decl: IDeclareAstVisitor) =
+  let private simpleTypeName (decl: IDeclareFscxVisitor) =
     let t = decl.GetType()
     let name = t.FullName
     let index = name.IndexOf '`'
@@ -144,7 +144,7 @@ module internal CompilerImpl =
        (if index >= 0 then name.Substring(0, index) else name),
        t.Assembly.GetName().Name)
 
-  let private printVisitor (decl: IDeclareAstVisitor) =
+  let private printVisitor (decl: IDeclareFscxVisitor) =
     System.String.Format("Apply visitor: {0}", simpleTypeName decl)
 
   /// Read text file and iterate.
@@ -178,7 +178,7 @@ module internal CompilerImpl =
   let asyncCompile
      (writer: WriteInfo -> unit)
      (arguments: CompilerArguments)
-     (decls: IDeclareAstVisitor seq) = async {
+     (decls: IDeclareFscxVisitor seq) = async {
     try
       // Debugger hook point
       if arguments.FscxDebug then
