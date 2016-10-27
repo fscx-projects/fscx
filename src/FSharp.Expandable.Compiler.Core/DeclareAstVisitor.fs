@@ -61,6 +61,13 @@ type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>
     finally
       symInf <- None
 
+/// <summary>
+/// FSharp.Compiler.Service's untyped AST inheritable visitor.
+/// </summary>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type FscxInheritableVisitor() =
+  inherit FscxInheritableVisitor<NoContext>()
+
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
