@@ -40,9 +40,15 @@ type internal SafeResolver =
     appDomain.GetAssemblies() |> Seq.filter isTargetAssembly
 
   member private __.loadBySide (baseAssembly: Assembly) partialName =
-    let basePath = Path.GetDirectoryName((new Uri(baseAssembly.CodeBase)).LocalPath)
-    let path = Path.Combine(basePath, partialName + ".dll")
-    if File.Exists path then
+    let basePath =
+      match baseAssembly with
+      | null -> "."
+      | _ -> Path.GetDirectoryName((new Uri(baseAssembly.CodeBase)).LocalPath)
+    let path =
+      Directory.EnumerateFiles(basePath, partialName + ".dll", SearchOption.AllDirectories)
+      |> Seq.tryHead
+    match path with
+    | Some path ->
       try
         let assembly = Assembly.LoadFrom path
         Debug.WriteLine(System.String.Format("SafeResolver: cannot resolved, load from base : {0} [{1}]", partialName, assembly.Location))
@@ -51,7 +57,7 @@ type internal SafeResolver =
       | exn ->
         Debug.WriteLine(System.String.Format("SafeResolver: cannot load : {0} [{1}] [{2}]", partialName, path, exn.Message))
         None
-    else
+    | _ ->
       Debug.WriteLine(System.String.Format("SafeResolver: assembly not found : {0} [{1}]", partialName, path))
       None
 
