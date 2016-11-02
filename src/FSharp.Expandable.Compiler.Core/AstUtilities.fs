@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast.Visitors
+namespace FSharp.Expandable
 
 open System
 open System.Reflection

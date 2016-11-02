@@ -27,7 +27,6 @@ open System.IO
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
-open Microsoft.FSharp.Compiler.Ast.Visitors
 
 /// <summary>
 /// Compiler logging information.
@@ -42,7 +41,10 @@ type CompilerLogEntry = {
   Description: string
 }
 
-/// <summary>
+type TargetRuntimes =
+| FS4NET45 = 4450
+
+ /// <summary>
 /// Execute F# compiler.
 /// </summary>
 [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false); Extension>]
@@ -185,8 +187,16 @@ type Compiler =
 
   /////////////////////////////////////////////////////////////////////////////////////
 
+  /// <summary>
   /// Default compiler driver.
-  static member DefaultDriver (args: string[]) =
+  /// </summary>
+  /// <param name="packagesPath">NuGet packages folder base path.</param>
+  /// <param name="args">Command line arguments.</param>
+  /// <remarks>Easy way for using fscx.
+  /// This method using for meaning nearly execution fscx.exe with command line arguments.
+  /// Output messages are writing on console.
+  /// Visitor assembly auto crawling by NuGet package folder structures from the packagesPath argument.</remarks>
+  static member RunDefaultDriver packagesPath (args: string[]) =
 
     // Extract arguments.
     let arguments = CompilerArguments.extract args
@@ -208,12 +218,6 @@ type Compiler =
       //              |
       //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll   (Filter must place into "build" folder)
       //              +-- HagaFilter-1.0 --+-- build --+-- HagaFilter.dll
-
-      // (3)
-      let assemblyLocation = (new Uri(typeof<Compiler>.Assembly.CodeBase)).LocalPath
-
-      // the "packages" path.
-      let packagesPath = Path.Combine(Path.GetDirectoryName(assemblyLocation), "..", "..", "..")
 
       let searchFolderBases =
         if Directory.Exists(packagesPath) then
@@ -246,6 +250,45 @@ type Compiler =
         (if String.IsNullOrWhiteSpace(logEntry.Code) then "" else (" " + logEntry.Code)),
         logEntry.Message)
     Compiler.asyncCompile logWriter arguments |> Async.RunSynchronously
+
+  /////////////////////////////////////////////////////////////////////////////////////
+
+  /// For use testing only.
+  static member UnsafeGetPreDefinedDefaultArguments targetRuntime sourceCodePaths =
+    let sourceCodePath = sourceCodePaths |> Seq.head
+    let fileName = Path.GetFileNameWithoutExtension sourceCodePath
+    let filePath = Path.Combine(Path.GetDirectoryName sourceCodePath, fileName)
+    match targetRuntime with
+    | TargetRuntimes.FS4NET45 ->
+      Seq.append
+        [ "-o:" + filePath + ".dll";
+         "-g";
+         "--debug:full";
+         "--noframework";
+         "--define:DEBUG";
+         "--define:TRACE";
+         "--optimize-";
+         "--tailcalls-";
+         "--platform:anycpu32bitpreferred";
+         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.4.0.0\FSharp.Core.dll";
+         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll";
+         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll";
+         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll";
+         @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll";
+         "--target:library";
+         "--warn:3";
+         "--warnaserror:76";
+         "--vserrors";
+         "--LCID:1041";
+         "--utf8output";
+         "--fullpaths";
+         "--flaterrors";
+         "--subsystemversion:6.00";
+         "--highentropyva+" ]
+        sourceCodePaths
+      |> Seq.toArray
+    | _ ->
+      failwith "Unknown targetRuntime"
 
 ////////////////////////////////////////////////
 

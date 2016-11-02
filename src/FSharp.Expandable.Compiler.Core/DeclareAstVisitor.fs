@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace Microsoft.FSharp.Compiler.Ast.Visitors
+namespace FSharp.Expandable
 
 open System
 open Microsoft.FSharp.Compiler.Ast
@@ -38,7 +38,7 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>() =
   inherit AstInheritableVisitor<'TContext>()
 
-  let mutable symInf: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults option = None
+  let mutable symInf: FSharpCheckFileResults option = None
 
   /// <summary>
   /// Symbol information.

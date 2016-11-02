@@ -70,7 +70,7 @@ namespace FSharp.Expandable
             }
         }
 
-        private static RunResult TryLoadAndRun(string corePath, string[] args)
+        private static RunResult TryLoadAndRun(string corePath, string packagesPath, string[] args)
         {
             MethodInfo mi = null;
 
@@ -78,7 +78,7 @@ namespace FSharp.Expandable
             {
                 var assembly = Assembly.LoadFrom(corePath);
                 var type = assembly.GetType("FSharp.Expandable.Compiler");
-                mi = type.GetMethod("DefaultDriver");
+                mi = type.GetMethod("RunDefaultDriver");
             }
             catch
             {
@@ -90,7 +90,7 @@ namespace FSharp.Expandable
                 return null;
             }
 
-            return new RunResult((int)mi.Invoke(null, new object[] {args}));
+            return new RunResult((int)mi.Invoke(null, new object[] {packagesPath, args}));
         }
 
         private static string[] GetCandidateBaseFolderPath(
@@ -233,7 +233,7 @@ namespace FSharp.Expandable
                     "*.dll",
                     "FSharp.Expandable.Compiler.Core",
                     "net*",
-                    path => TryLoadAndRun(path, args));
+                    path => TryLoadAndRun(path, packagesPath, args));
 
                 return result.Value;
             }
