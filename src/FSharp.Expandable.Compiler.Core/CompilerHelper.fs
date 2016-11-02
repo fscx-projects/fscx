@@ -150,7 +150,12 @@ type CompilerHelper =
          filePath + ".dll",
          fileName,
          filePath + ".pdb",
-         AppDomain.CurrentDomain.GetAssemblies() |> Array.map (fun assembly -> (new Uri(assembly.CodeBase)).LocalPath),
+         AppDomain.CurrentDomain.GetAssemblies()
+         |> Array.choose
+           (fun assembly ->
+             match assembly.EntryPoint with
+             | null -> Some (new Uri(assembly.CodeBase)).LocalPath
+             | _ -> None),
          sourceCodePaths,
          CompilerHelper.optionArgs,
          visitorPaths,

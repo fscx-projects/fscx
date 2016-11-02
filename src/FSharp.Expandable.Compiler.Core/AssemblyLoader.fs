@@ -30,10 +30,14 @@ open Microsoft.FSharp.Compiler.Ast.Visitors
 
 module internal AssemblyLoader =
 
-  /// Include only referenced fscx.
+  /// <summary>
+  /// Include only referenced FSharp.Core.
+  /// </summary>
+  /// <remarks>Old implementation was "FSharp.Expandable.Compiler.Core" (fscx core),
+  /// changed because assembly referenced maybe indirectly to fscx core.</remarks>
   let isTargetAssembly (assembly: Assembly) =
     assembly.GetReferencedAssemblies()
-    |> Seq.exists (fun a -> a.FullName.StartsWith "FSharp.Expandable.Compiler.Core")
+    |> Seq.exists (fun assembly -> assembly.FullName.StartsWith "FSharp.Core")
 
   /// Include only visitor type.
   let private declType = typeof<IDeclareFscxVisitor>
