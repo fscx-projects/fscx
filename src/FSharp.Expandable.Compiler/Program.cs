@@ -77,7 +77,7 @@ namespace FSharp.Expandable
             try
             {
                 var assembly = Assembly.LoadFrom(corePath);
-                var type = assembly.GetType("FSharp.Expandable.Compiler");
+                var type = assembly.GetType("FSharp.Expandable.CompilerHelper");
                 mi = type.GetMethod("RunDefaultDriver");
             }
             catch

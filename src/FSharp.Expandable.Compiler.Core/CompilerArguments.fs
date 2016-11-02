@@ -94,7 +94,9 @@ module internal CompilerArguments =
     let projectPath =
       match extractOptionPath "--projectPath:" sanitized with
       | Some path -> path
-      | None -> failwith "Require \"projectPath\" argument."
+      | None ->
+        let firstSourcePath = sourcePaths |> Seq.head
+        Path.Combine(Path.GetDirectoryName firstSourcePath, Path.GetFileNameWithoutExtension firstSourcePath) + ".fsproj"
     let outputPath =
       match extractOptionPath "-o:" sanitized with
       | Some path -> path
