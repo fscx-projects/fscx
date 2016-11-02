@@ -29,6 +29,7 @@ open System.IO
 
 type TargetRuntimes =
 | FS4NET461 = 4461
+| Loaded = 0
 
 [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type CompilerHelper =
@@ -139,6 +140,17 @@ type CompilerHelper =
          fileName,
          filePath + ".pdb",
          CompilerHelper.fs4net461Refs,
+         sourceCodePaths,
+         CompilerHelper.optionArgs,
+         visitorPaths,
+         false)
+    | TargetRuntimes.Loaded ->
+      new CompilerArguments
+        (filePath + ".fsproj",
+         filePath + ".dll",
+         fileName,
+         filePath + ".pdb",
+         AppDomain.CurrentDomain.GetAssemblies() |> Array.map (fun assembly -> (new Uri(assembly.CodeBase)).LocalPath),
          sourceCodePaths,
          CompilerHelper.optionArgs,
          visitorPaths,
