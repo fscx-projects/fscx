@@ -1,0 +1,32 @@
+type file
+id FSharp.Expandable.Compiler.Aspect
+title
+    Enable AOP on F# at compile time (Part of fscx)
+owners
+    Kouji Matsui, bleis-tift
+authors 
+    Kouji Matsui
+projectUrl
+    http://github.com/fscx-projects/fscx
+iconUrl
+    https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png
+licenseUrl
+    https://creativecommons.org/publicdomain/zero/1.0/legalcode
+requireLicenseAcceptance
+    false
+copyright
+    Author: Kouji Matsui, bleis-tift
+tags
+    F# fsharp compiler fsc fscx expand compile build ast aspect aop
+summary
+    Easy infrastructure can replace F#'s AST at compile time.
+description
+    Easy infrastructure can replace F#'s AST at compile time.
+excludedependencies
+    FSharp.Core
+dependencies
+    FSharp.Expandable.Compiler.Core >= LOCKEDVERSION
+files
+    bin/Release/FSharp.Expandable.Compiler.Aspect.dll ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Aspect.pdb ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Aspect.xml ==> lib/net45

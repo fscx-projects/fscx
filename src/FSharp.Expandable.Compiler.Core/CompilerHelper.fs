@@ -24,6 +24,7 @@ namespace FSharp.Expandable
 open System
 open System.Diagnostics
 open System.IO
+open System.Reflection
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -33,6 +34,11 @@ type TargetRuntimes =
 
 [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type CompilerHelper =
+
+  // "writer" is Action<T> because reduce all implicitly F#'s references publicity (ex: FSharpFunc<'T>).
+  static member RawCompileWithArguments writer arguments visitors =
+    let internalWriter = Compiler.WrappedBridgedWriter (Compiler.fromAction writer)
+    CompilerImpl.asyncCompile internalWriter arguments visitors |> Async.RunSynchronously
 
   /// <summary>
   /// Default compiler driver.
@@ -145,6 +151,8 @@ type CompilerHelper =
          visitorPaths,
          false)
     | TargetRuntimes.Loaded ->
+      let entryAssembly = Assembly.GetEntryAssembly()
+      let basePath = Path.GetDirectoryName (new Uri(entryAssembly)).LocalPath
       new CompilerArguments
         (filePath + ".fsproj",
          filePath + ".dll",
@@ -154,7 +162,13 @@ type CompilerHelper =
          |> Array.choose
            (fun assembly ->
              match assembly.EntryPoint with
-             | null -> Some (new Uri(assembly.CodeBase)).LocalPath
+             | null ->
+               if assembly.IsGlobalAssemblyCache then
+                 basePath
+               else
+                 let codeBase = new Uri(assembly.CodeBase)).LocalPath
+
+               Some codeBase
              | _ -> None),
          sourceCodePaths,
          CompilerHelper.optionArgs,

@@ -23,6 +23,7 @@ namespace FSharp.Expandable
 
 open System
 open System.Diagnostics
+open System.IO
 open System.Runtime.CompilerServices
 
 open Microsoft.FSharp.Compiler
@@ -39,6 +40,17 @@ type CompilerLogEntry = {
   Message: string
   Description: string
 }
+  with
+    override this.ToString() =
+      sprintf
+        "%s(%d,%d): %s : %s : %s : %s"
+        (Path.GetFileName this.FileName)
+        this.Line
+        this.Column
+        (this.Type.ToString().ToLower())
+        this.Code
+        this.Message
+        this.Description
 
  /// <summary>
 /// Execute F# compiler.
@@ -77,7 +89,7 @@ type Compiler =
   /////////////////////////////////////////////////////////////////////////////////////
 
   /// WriteInfo ==> CompilerLogEntry bridge function.
-  static member private WrappedBridgedWriter
+  static member internal WrappedBridgedWriter
      (writer : CompilerLogEntry -> unit) : (WriteInfo -> unit) =
     function
     | WriteInfo.Message(typ, path, message) ->
@@ -138,11 +150,11 @@ type Compiler =
     return! CompilerImpl.asyncCompile internalWriter arguments visitors
   }
 
-  static member private fromAction (writer: Action<CompilerLogEntry>) =
+  static member internal fromAction (writer: Action<CompilerLogEntry>) =
     fun (logEntry: CompilerLogEntry) -> writer.Invoke(logEntry)
 
   /////////////////////////////////////////////////////////////////////////////////////
- 
+
   /// <summary>
   /// Execute F# compiler with standard arguments.
   /// </summary>
