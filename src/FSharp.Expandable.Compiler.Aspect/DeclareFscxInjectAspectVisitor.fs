@@ -32,3 +32,14 @@ open FSharp.Expandable
 [<NoEquality; NoComparison; AutoSerializable(false)>]
 type DeclareFscxInjectAspectVisitor<'TAspect>() =
   inherit DeclareFscxInheritableVisitor<FscxInjectAspectVisitor<'TAspect>>()
+  
+/// <summary>
+/// Declare aspect visitor.
+/// </summary>
+/// <remarks>This class provide IDeclareFscxVisitor implementation.
+/// Can decl aspect visitor for using this inherited public class.</remarks>
+[<NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInjectAspectVisitor(aspectTypeName) =
+  inherit DeclareFscxInheritableVisitorBase<FscxInjectAspectVisitor>()
+
+  override __.CreateVisitor() = new FscxInjectAspectVisitor(aspectTypeName)

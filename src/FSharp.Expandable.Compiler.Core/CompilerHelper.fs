@@ -151,8 +151,6 @@ type CompilerHelper =
          visitorPaths,
          false)
     | TargetRuntimes.Loaded ->
-      let entryAssembly = Assembly.GetEntryAssembly()
-      let basePath = Path.GetDirectoryName (new Uri(entryAssembly)).LocalPath
       new CompilerArguments
         (filePath + ".fsproj",
          filePath + ".dll",
@@ -161,15 +159,22 @@ type CompilerHelper =
          AppDomain.CurrentDomain.GetAssemblies()
          |> Array.choose
            (fun assembly ->
+             let codeBase = (new Uri(assembly.CodeBase)).LocalPath
+             let name = assembly.GetName()
              match assembly.EntryPoint with
              | null ->
-               if assembly.IsGlobalAssemblyCache then
-                 basePath
+               if assembly.GlobalAssemblyCache then
+                 let entryAssembly = Assembly.GetEntryAssembly()
+                 let basePath = Path.GetDirectoryName (new Uri(entryAssembly.CodeBase)).LocalPath
+                 let tryPath = Path.Combine(basePath, name.Name + ".dll")
+                 if File.Exists tryPath then
+                   Some tryPath
+                 else
+                   Some codeBase
                else
-                 let codeBase = new Uri(assembly.CodeBase)).LocalPath
-
-               Some codeBase
-             | _ -> None),
+                Some codeBase
+             | _ ->
+                None),
          sourceCodePaths,
          CompilerHelper.optionArgs,
          visitorPaths,

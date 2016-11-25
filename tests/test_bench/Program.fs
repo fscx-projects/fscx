@@ -31,6 +31,6 @@ let dump entry =
 
 [<EntryPoint>]
 let main argv = 
-    let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] [Path.GetFullPath "SampleCode.fs"]
-    let declAspectVisitor = DeclareFscxInjectAspectVisitor<SampleAspect>()
+    let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] (["SampleAspectLogger.fs";"SampleCode.fs"] |> List.map Path.GetFullPath)
+    let declAspectVisitor = DeclareFscxInjectAspectVisitor("SampleAspectLogger.SampleAspect")
     CompilerHelper.RawCompileWithArguments (new Action<_>(dump)) args ([declAspectVisitor] |> Seq.cast<_>)

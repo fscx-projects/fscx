@@ -232,6 +232,7 @@ module internal CompilerImpl =
           |> Seq.choose (function
             | Succeeded(_, appliedAst) -> Some appliedAst
             | _ -> None)
+          |> Seq.toArray
 
         // Compile
         let errors, returnValue =

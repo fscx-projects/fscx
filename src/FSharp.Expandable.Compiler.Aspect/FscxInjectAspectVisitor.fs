@@ -26,6 +26,39 @@ open System.Reflection
 open Microsoft.FSharp.Compiler.Ast
 open FSharp.Expandable
 
+[<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type internal FscxInjectAspectVisitorImpl<'TAspect> private () =
+
+  static let typeName = typeof<'TAspect>.FullName
+
+  static let assertLookup f name =
+    let mi = f name
+    if mi = null then
+      raise (InvalidOperationException name)
+    else
+      mi
+
+  static let enterMethod =
+    assertLookup (fun name ->
+      typeof<'TAspect>.GetMethod(
+        name,
+        BindingFlags.Public ||| BindingFlags.Static ||| BindingFlags.DeclaredOnly))
+      "Enter"
+  static let leaveMethod =
+    assertLookup (fun name ->
+      enterMethod.ReturnType.GetMethod(
+        name,
+        BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly))
+      "Leave"
+  static let caughtMethod =
+    assertLookup (fun name ->
+      enterMethod.ReturnType.GetMethod(
+        name,
+        BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly))
+      "Caught"
+
+  static member TypeName = typeName
+
 ////////////////////////////////////////////////////////////////
 //
 // Can use aspect implementation duck-typed class...
@@ -41,21 +74,8 @@ open FSharp.Expandable
 // TODO: Async/Task methods may be handling async computation...
 
 [<NoEquality; NoComparison; AutoSerializable(false)>]
-type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() = 
+type FscxInjectAspectVisitor private (aspectEnter: string list) = 
   inherit FscxInheritableVisitor()
-
-  static let enterMethod =
-    typeof<'TAspect>.GetMethod(
-      "Enter",
-      BindingFlags.Public ||| BindingFlags.Static ||| BindingFlags.DeclaredOnly)
-  static let leaveMethod =
-    enterMethod.ReturnType.GetMethod(
-      "Leave",
-      BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
-  static let caughtMethod =
-    enterMethod.ReturnType.GetMethod(
-      "Caught",
-      BindingFlags.Public ||| BindingFlags.Instance ||| BindingFlags.DeclaredOnly)
 
   static let constUnit =
     SynExpr.Const(SynConst.Unit, zeroRange)
@@ -145,6 +165,8 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
 
   //////////////////////
 
+  static let getArgName (index: int) = "__arg_" + index.ToString()
+
   static let createLetBoundWithArgsApp
     (exprAtomicFlag,
      isInfix,
@@ -156,7 +178,7 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
      rightParenRange,
      parenRange,
      appRange) =
-    let newTupleExprs = tupleExprs |> List.mapi (fun index (expr: SynExpr) -> createIdent ["arg" + index.ToString()] zeroRange)
+    let newTupleExprs = tupleExprs |> List.mapi (fun index (expr: SynExpr) -> createIdent [getArgName index] zeroRange)
     let newTuple = SynExpr.Tuple(newTupleExprs, tupleCommaRanges, tupleRange)
     let newParen = SynExpr.Paren(newTuple, leftParenRange, rightParenRange, parenRange)
     SynExpr.App(exprAtomicFlag, isInfix, funcExpr, newParen, appRange)
@@ -167,7 +189,7 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
        SynExpr.CompExpr
          (true,
           ref true,
-          createSequence (exprs |> List.mapi (fun index (expr: SynExpr) -> createIdent ["arg" + index.ToString()] zeroRange)),
+          createSequence (exprs |> List.mapi (fun index (expr: SynExpr) -> createIdent [getArgName index] zeroRange)),
           zeroRange),
        zeroRange)
 
@@ -182,16 +204,16 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
     let index = name.IndexOf('`')
     if index >= 0 then name.Substring(0, index) else name
 
-  static let getMethodIdent (mi: MethodBase) =
-    let typeIdent = getTypeIdent mi.DeclaringType
-    let name = getMethodName mi
-    List.append typeIdent [name]
-
   static let getFuncSignature memberExpr tupleExprs =
     match memberExpr with
     | SynExpr.LongIdent(_, LongIdentWithDots(ids, _), _, _) ->
-      System.String.Join(".", ids) + "()"   // TODO:
+      System.String.Join(".", ids)
     | _ -> failwith ""
+    
+  //////////////////////
+
+  new (aspectTypeName: string) =
+    FscxInjectAspectVisitor([ yield! aspectTypeName.Split('.'); yield "Enter"])
 
   //////////////////////
 
@@ -201,19 +223,19 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
     // System.String.Format("ABC", 123, 456)
     | SynExpr.Paren(SynExpr.Tuple(tupleExprs, tupleCommaRanges, tupleRange), leftParenRange, rightParenRange, parenRange) ->
 
-      // let arg0 = "ABC"
-      // let arg1 = 123
-      // let arg2 = 456
-      // let arg3 = 789
-      // let context = Aspect.Enter("Sample.fs", 12, 34, [|arg0;arg1;arg2;arg3|])
+      // let __arg_0 = "ABC"
+      // let __arg_1 = 123
+      // let __arg_2 = 456
+      // let __arg_3 = 789
+      // let __context = Aspect.Enter("Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
       // try
-      //   context.Leave(System.String.Format(arg0, arg1, arg2, arg3))
+      //   __context.Leave(System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3))
       // with
       // | ex ->
-      //   context.Caught(ex)
+      //   __context.Caught(ex)
       //   reraise()
 
-      // 1. "System.String.Format(arg0, arg1, arg2, arg3)"
+      // 1. "System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3)"
       //   * All arguments retargeting to let-bound references.
       let innerBodyApp =
         createLetBoundWithArgsApp
@@ -230,11 +252,11 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
 
       // 2. "context.Leave(newApp)"
       let leaveApp =
-        createApp ["context"; leaveMethod.Name] innerBodyApp
+        createApp ["__context"; "Leave" ] innerBodyApp
 
       // 3. "context.Caught(ex)"
       let caughtApp =
-        createApp ["context"; caughtMethod.Name] (createIdent ["ex"] zeroRange)
+        createApp ["__context"; "Caught" ] (createIdent ["ex"] zeroRange)
 
       // 4. "reraise()"
       let reraiseApp =
@@ -259,7 +281,7 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
            SequencePointInfoForTry.NoSequencePointAtTry,
            SequencePointInfoForWith.NoSequencePointAtWith)
        
-      // 8. [|arg0;arg1;arg2;arg3|]
+      // 8. [|__arg_0;__arg_1;__arg_2;__arg_3|]
       let argsExpr =
         createArrayWithArgsApp tupleExprs
 
@@ -267,26 +289,32 @@ type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() =
       let funcSignature =
         getFuncSignature funcExpr tupleExprs
 
-      // 10. Aspect.Enter("System.String.Format()", "Sample.fs", 12, 34, [|arg0;arg1;arg2;arg3|])
+      // 10. Aspect.Enter("System.String.Format()", "Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
       let enterApp =
         createApp
-          (getMethodIdent enterMethod)
+          aspectEnter
           (createTuple [constString funcSignature; constString appRange.FileName; constInt32 appRange.StartLine; constInt32 appRange.StartColumn; argsExpr])
 
-      // 11. let context = Aspect.Enter(...) in try...
+      // 11. let __context = Aspect.Enter(...) in try...
       let contextBound =
         createLetBinding
-          "context"
+          "__context"
           enterApp
           tryWith
 
-      // 12. let arg0 = expr0 in let arg1 = expr1 in ... in let context = ...
+      // 12. let arg0 = expr0 in let arg1 = expr1 in ... in let __context = ...
       let totalExpr =
         List.foldBack
           (fun (name, expr) lastExpr -> createLetBinding name expr lastExpr)
-          (tupleExprs |> List.mapi (fun index expr -> ("arg" + index.ToString()), expr))
+          (tupleExprs |> List.mapi (fun index expr -> getArgName index, expr))
            contextBound
+
+      let total = sprintf "%A" totalExpr
 
       totalExpr
 
     | _ -> base.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
+
+[<NoEquality; NoComparison; AutoSerializable(false)>]
+type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() = 
+  inherit FscxInjectAspectVisitor(FscxInjectAspectVisitorImpl<'TAspect>.TypeName)

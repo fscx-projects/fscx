@@ -96,7 +96,9 @@ type IDeclareFscxVisitor =
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+type DeclareFscxInheritableVisitorBase<'TVisitor,'TContext when 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+
+  abstract CreateVisitor : unit -> 'TVisitor
 
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -104,8 +106,8 @@ type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: un
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  member __.Visit(symbolInformation, parsedInput) = 
-    let visitor = new 'TVisitor()
+  member this.Visit(symbolInformation, parsedInput) = 
+    let visitor = this.CreateVisitor()
     visitor.Visit(symbolInformation, parsedInput)
 
   interface IDeclareFscxVisitor with
@@ -121,13 +123,37 @@ type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: un
 /// <summary>
 /// Basic functional visitor base type.
 /// </summary>
+/// <typeparam name="'TVisitor">Custom visitor type.</typeparam>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+  inherit DeclareFscxInheritableVisitorBase<'TVisitor, 'TContext>()
+
+  override __.CreateVisitor() = new 'TVisitor()
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
+/// <remarks>
+/// Inherit this class if use AstFunctionalVisitor.
+/// </remarks>
+[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInheritableVisitorBase<'TVisitor when 'TVisitor :> FscxInheritableVisitor<NoContext>>() =
+  inherit DeclareFscxInheritableVisitorBase<'TVisitor, NoContext>()
+
+/// <summary>
+/// Basic functional visitor base type.
+/// </summary>
 /// <remarks>
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type DeclareFscxInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<NoContext>>() =
   inherit DeclareFscxInheritableVisitor<'TVisitor, NoContext>()
-  
+
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>

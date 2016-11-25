@@ -22,7 +22,6 @@
 namespace SampleAspectLogger
 
 open System
-open FSharp.Expandable
 
 /////////////////////////////////////////////////
 // This sample code are minimum illustrated code for how to implementation aspects using fscx.
@@ -45,7 +44,7 @@ type SampleAspectContext internal (body: string) =
     Console.WriteLine("Caught: " + body + ": " + ex.ToString())
 
 // The aspect class (mainly beginning aspect before entering method)
-[<Sealed; NoEquality; NoComparison; AutoSerializable(false)>]
+[<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type SampleAspect() =
   // Start aspect (trigger are entered method)
   static member Enter(methodName: string, fileName: string, line: int, column: int, args: obj[]) =
