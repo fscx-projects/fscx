@@ -19,19 +19,19 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-module FscxOutputSample1 =
-
-  let f1 (a: int, b: string, c: int) =
-    let __arg_0 = a
-    let __arg_1 = b
-    let __arg_2 = c
-    let __context = SampleAspectLogger.SampleAspect.Enter("FscxOutputSample1.f1", "SampleCode.fs", 27, 2, [|__arg_0;__arg_1;__arg_2|])
-    try
-      __context.Leave(System.Console.WriteLine("Sample1: {0}:{1}", __arg_0, __arg_1))
-    with
-    | ex ->
-        __context.Caught(ex)
-        reraise()
+//module FscxOutputSample1 =
+//
+//  let f1 (a: int, b: string, c: int) =
+//    let __arg_0 = a
+//    let __arg_1 = b
+//    let __arg_2 = c
+//    let __context = SampleAspectLogger.SampleAspect.Enter("FscxOutputSample1.f1", "SampleCode.fs", 27, 2, [|__arg_0;__arg_1;__arg_2|])
+//    try
+//      __context.Leave(System.Console.WriteLine("Sample1: {0}:{1}", __arg_0, __arg_1))
+//    with
+//    | ex ->
+//        __context.Caught(ex)
+//        reraise()
 
 module Program =
 
