@@ -22,6 +22,7 @@
 namespace FSharp.Expandable
 
 open System
+open System.Linq
 open System.Reflection
 open Microsoft.FSharp.Compiler.Ast
 open FSharp.Expandable
@@ -309,7 +310,8 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
           (tupleExprs |> List.mapi (fun index expr -> getArgName index, expr))
            contextBound
 
-      let total = sprintf "%A" totalExpr
+      let orig = this.Parents |> Enumerable.Last |> sprintf "%A"
+      let translated = sprintf "%A" totalExpr
 
       totalExpr
 

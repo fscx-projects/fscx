@@ -1,0 +1,158 @@
+LetOrUse
+  (false,false,
+   [Binding
+      (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+       SynValData (null,SynValInfo ([],SynArgInfo ([],false,null)),null),
+       Named
+         (Wild unknown (0,0--0,0) IsSynthetic=false,__arg_0,false,null,
+          unknown (0,0--0,0) IsSynthetic=false),null,
+       Const
+         (String
+            ("Sample1: {0}:{1}",
+             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,29--25,47) IsSynthetic=false),
+          D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,29--25,47) IsSynthetic=false),
+       unknown (0,0--0,0) IsSynthetic=false,NoSequencePointAtLetBinding)],
+   LetOrUse
+     (false,false,
+      [Binding
+         (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+          SynValData (null,SynValInfo ([],SynArgInfo ([],false,null)),null),
+          Named
+            (Wild unknown (0,0--0,0) IsSynthetic=false,__arg_1,false,null,
+             unknown (0,0--0,0) IsSynthetic=false),null,Ident a,
+          unknown (0,0--0,0) IsSynthetic=false,NoSequencePointAtLetBinding)],
+      LetOrUse
+        (false,false,
+         [Binding
+            (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+             SynValData (null,SynValInfo ([],SynArgInfo ([],false,null)),null),
+             Named
+               (Wild unknown (0,0--0,0) IsSynthetic=false,__arg_2,false,null,
+                unknown (0,0--0,0) IsSynthetic=false),null,Ident b,
+             unknown (0,0--0,0) IsSynthetic=false,NoSequencePointAtLetBinding)],
+         LetOrUse
+           (false,false,
+            [Binding
+               (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+                SynValData
+                  (null,SynValInfo ([],SynArgInfo ([],false,null)),null),
+                Named
+                  (Wild unknown (0,0--0,0) IsSynthetic=false,__context,false,
+                   null,unknown (0,0--0,0) IsSynthetic=false),null,
+                App
+                  (Atomic,false,
+                   LongIdent
+                     (false,
+                      LongIdentWithDots
+                        ([SampleAspectLogger; SampleAspect; Enter],
+                         [unknown (0,0--0,0) IsSynthetic=false;
+                          unknown (0,0--0,0) IsSynthetic=false;
+                          unknown (0,0--0,0) IsSynthetic=false]),null,
+                      unknown (0,0--0,0) IsSynthetic=false),
+                   Paren
+                     (Tuple
+                        ([Const
+                            (String
+                               ("System.Console.WriteLine",
+                                unknown (0,0--0,0) IsSynthetic=false),
+                             unknown (0,0--0,0) IsSynthetic=false);
+                          Const
+                            (String
+                               ("D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs",
+                                unknown (0,0--0,0) IsSynthetic=false),
+                             unknown (0,0--0,0) IsSynthetic=false);
+                          Const (Int32 25,unknown (0,0--0,0) IsSynthetic=false);
+                          Const (Int32 4,unknown (0,0--0,0) IsSynthetic=false);
+                          ArrayOrListOfSeqExpr
+                            (true,
+                             CompExpr
+                               (true,{contents = true;},
+                                Sequential
+                                  (SuppressSequencePointOnExprOfSequential,true,
+                                   Sequential
+                                     (SuppressSequencePointOnExprOfSequential,
+                                      true,Ident __arg_0,Ident __arg_1,
+                                      unknown (0,0--0,0) IsSynthetic=false),
+                                   Ident __arg_2,
+                                   unknown (0,0--0,0) IsSynthetic=false),
+                                unknown (0,0--0,0) IsSynthetic=false),
+                             unknown (0,0--0,0) IsSynthetic=false)],
+                         [unknown (0,0--0,0) IsSynthetic=false;
+                          unknown (0,0--0,0) IsSynthetic=false;
+                          unknown (0,0--0,0) IsSynthetic=false;
+                          unknown (0,0--0,0) IsSynthetic=false],
+                         unknown (0,0--0,0) IsSynthetic=false),
+                      unknown (0,0--0,0) IsSynthetic=false,null,
+                      unknown (0,0--0,0) IsSynthetic=false),
+                   unknown (0,0--0,0) IsSynthetic=false),
+                unknown (0,0--0,0) IsSynthetic=false,NoSequencePointAtLetBinding)],
+            TryWith
+              (App
+                 (Atomic,false,
+                  LongIdent
+                    (false,
+                     LongIdentWithDots
+                       ([__context; Leave],
+                        [unknown (0,0--0,0) IsSynthetic=false;
+                         unknown (0,0--0,0) IsSynthetic=false]),null,
+                     unknown (0,0--0,0) IsSynthetic=false),
+                  Paren
+                    (App
+                       (Atomic,false,
+                        LongIdent
+                          (false,
+                           LongIdentWithDots
+                             ([System; Console; WriteLine],
+                              [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,10--25,11) IsSynthetic=false;
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,18--25,19) IsSynthetic=false]),
+                           null,
+                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,4--25,28) IsSynthetic=false),
+                        Paren
+                          (Tuple
+                             ([Ident __arg_0; Ident __arg_1; Ident __arg_2],
+                              [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,47--25,48) IsSynthetic=false;
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,50--25,51) IsSynthetic=false],
+                              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,29--25,53) IsSynthetic=false),
+                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,28--25,29) IsSynthetic=false,
+                           Some
+                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,53--25,54) IsSynthetic=false,
+                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,28--25,54) IsSynthetic=false),
+                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (25,4--25,54) IsSynthetic=false),
+                     unknown (0,0--0,0) IsSynthetic=false,null,
+                     unknown (0,0--0,0) IsSynthetic=false),
+                  unknown (0,0--0,0) IsSynthetic=false),
+               unknown (0,0--0,0) IsSynthetic=false,
+               [Clause
+                  (Named
+                     (Wild unknown (0,0--0,0) IsSynthetic=false,ex,false,null,
+                      unknown (0,0--0,0) IsSynthetic=false),null,
+                   Sequential
+                     (SuppressSequencePointOnExprOfSequential,true,
+                      App
+                        (Atomic,false,
+                         LongIdent
+                           (false,
+                            LongIdentWithDots
+                              ([__context; Caught],
+                               [unknown (0,0--0,0) IsSynthetic=false;
+                                unknown (0,0--0,0) IsSynthetic=false]),null,
+                            unknown (0,0--0,0) IsSynthetic=false),
+                         Paren
+                           (Ident ex,unknown (0,0--0,0) IsSynthetic=false,null,
+                            unknown (0,0--0,0) IsSynthetic=false),
+                         unknown (0,0--0,0) IsSynthetic=false),
+                      App
+                        (Atomic,false,Ident reraise,
+                         Paren
+                           (Const (Unit,unknown (0,0--0,0) IsSynthetic=false),
+                            unknown (0,0--0,0) IsSynthetic=false,null,
+                            unknown (0,0--0,0) IsSynthetic=false),
+                         unknown (0,0--0,0) IsSynthetic=false),
+                      unknown (0,0--0,0) IsSynthetic=false),
+                   unknown (0,0--0,0) IsSynthetic=false,
+                   SuppressSequencePointAtTarget)],
+               unknown (0,0--0,0) IsSynthetic=false,
+               unknown (0,0--0,0) IsSynthetic=false,NoSequencePointAtTry,
+               NoSequencePointAtWith),unknown (0,0--0,0) IsSynthetic=false),
+         unknown (0,0--0,0) IsSynthetic=false),
+      unknown (0,0--0,0) IsSynthetic=false),unknown (0,0--0,0) IsSynthetic=false)
