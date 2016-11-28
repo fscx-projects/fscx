@@ -152,8 +152,8 @@ NUGET
 GROUP Build
 NUGET
   remote: http://api.nuget.org/v3/index.json
-    FAKE (4.45.2)
-    FAKE.Lib (4.45.2)
+    FAKE (4.45.3)
+    FAKE.Lib (4.45.3)
     FAKE.Persimmon (1.0.4)
       FAKE.Lib (>= 4.1)
       Persimmon.Console (>= 1.0.2)
@@ -175,7 +175,7 @@ NUGET
     SourceLink.Fake (1.1)
 GITHUB
   remote: fsharp/FAKE
-    modules/Octokit/Octokit.fsx (eaf899a7be2e2c0cb5c00a022f19f67c2d2c337e)
+    modules/Octokit/Octokit.fsx (3121e610f04d4c9839f44326ab4ca02e28eb15a2)
       Octokit (>= 0.20)
 GROUP Test
 NUGET

@@ -25,7 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile />
+    <DocumentationFile>bin\Debug\FSharp.Expandable.Compiler.Tasks.XML</DocumentationFile>
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files %28x86%29\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe</StartProgram>
     <StartArguments>D:\PROJECT\fscx\tests\fscx-enabled\fscx-enabled.sln</StartArguments>

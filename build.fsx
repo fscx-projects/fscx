@@ -48,8 +48,12 @@ let tags = "F# fsharp compiler fsc fscx expand compile build ast"
 // File system information
 let solutionFile  = "fscx.sln"
 
+// Default target configuration
+let configuration = "Debug"
+//let configuration = "Release"
+
 // Pattern specifying assemblies to be tested using NUnit
-let testAssemblies = "tests/**/bin/Release/*Tests*.dll"
+let testAssemblies = "tests/**/bin" </> configuration </> "*Tests*.dll"
 
 // Git configuration (used for publishing documentation in gh-pages branch)
 // The profile where the project is posted
@@ -83,7 +87,8 @@ Target "AssemblyInfo" (fun _ ->
     let getAssemblyInfoAttributes projectName =
         [ Attribute.Product summary
           Attribute.Copyright ("Author: " + System.String.Join(", ", authors))
-          Attribute.Company gitHome ]
+          Attribute.Company gitHome
+          Attribute.Configuration configuration ]
 
     let getProjectDetails projectPath =
         let projectName = System.IO.Path.GetFileNameWithoutExtension(projectPath)
@@ -110,15 +115,23 @@ Target "AssemblyInfo" (fun _ ->
 Target "CopyBinaries" (fun _ ->
     !! "src/**/*.??proj"
     -- "src/**/*.shproj"
-    |>  Seq.map (fun f -> ((System.IO.Path.GetDirectoryName f) </> "bin/Release", "bin" </> (System.IO.Path.GetFileNameWithoutExtension f)))
+    |>  Seq.map (fun f -> ((System.IO.Path.GetDirectoryName f) </> "bin" </> configuration, "bin" </> (System.IO.Path.GetFileNameWithoutExtension f)))
     |>  Seq.iter (fun (fromDir, toDir) -> CopyDir toDir fromDir (fun _ -> true))
 )
 
 // --------------------------------------------------------------------------------------
 // Clean build results
 
+let vsProjProps = 
+#if MONO
+    [ ("DefineConstants","MONO"); ("Configuration", configuration) ]
+#else
+    [ ("Configuration", configuration); ("Platform", "Any CPU") ]
+#endif
+
 Target "Clean" (fun _ ->
-    CleanDirs ["bin"; "temp"]
+    !! solutionFile |> MSBuildReleaseExt "" vsProjProps "Clean" |> ignore
+    CleanDirs ["bin"; "temp"; "docs/output"]
 )
 
 Target "CleanDocs" (fun _ ->
@@ -130,11 +143,7 @@ Target "CleanDocs" (fun _ ->
 
 Target "Build" (fun _ ->
     !! solutionFile
-#if MONO
-    |> MSBuildReleaseExt "" [ ("DefineConstants","MONO") ] "Rebuild"
-#else
-    |> MSBuildReleaseExt "" [ "Platform", "Any CPU" ] "Rebuild"
-#endif
+    |> MSBuildReleaseExt "" vsProjProps "Rebuild"
     |> ignore
 )
 
@@ -171,7 +180,7 @@ Target "SourceLink" (fun _ ->
     !! "src/**/*.??proj"
     -- "src/**/*.shproj"
     |> Seq.iter (fun projFile ->
-        let proj = VsProj.LoadRelease projFile
+        let proj = VsProj.Load projFile vsProjProps
         SourceLink.Index proj.CompilesNotLinked proj.OutputFilePdb __SOURCE_DIRECTORY__ baseUrl
     )
 )
@@ -238,7 +247,7 @@ Target "GenerateReferenceDocs" (fun _ ->
 let generateHelp' fail debug =
     let args =
         if debug then "--define:HELP"
-        else "--define:RELEASE --define:HELP"
+        else sprintf "--define:RELEASE --define:HELP" 
     try
         buildDocumentationTarget args "Default"
         traceImportant "Help generated"

@@ -31,8 +31,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <StartArguments>
     </StartArguments>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>.\bin\Debug\FSharp.Expandable.Compiler.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
