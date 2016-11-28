@@ -27,6 +27,8 @@ open System.Reflection
 open Microsoft.FSharp.Compiler.Ast
 open FSharp.Expandable
 
+////////////////////////////////////////////////////////////////
+
 [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type internal FscxInjectAspectVisitorImpl<'TAspect> private () =
 
@@ -218,104 +220,198 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   //////////////////////
 
-  override this.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange) =
-  
-    match argExpr with
-    // System.String.Format("ABC", 123, 456)
-    | SynExpr.Paren(SynExpr.Tuple(tupleExprs, tupleCommaRanges, tupleRange), leftParenRange, rightParenRange, parenRange) ->
+  // Hook "SynBinding"
+  override this.VisitBinding_Binding
+    (context,
+     access,
+     bindingKind,
+     mustInline,
+     isMutable,
+     attributes,
+     xmlDoc,
+     synValData,
+     headPat,
+     synBindingReturnInfo,
+     expr,
+     lhsRange,
+     spBind) =
 
-      // let __arg_0 = "ABC"
-      // let __arg_1 = 123
-      // let __arg_2 = 456
-      // let __arg_3 = 789
-      // let __context = Aspect.Enter("Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
-      // try
-      //   __context.Leave(System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3))
-      // with
-      // | ex ->
-      //   __context.Caught(ex)
-      //   reraise()
+    let (|NamedPat|_|) args =
+      let mapped =
+        args |> List.map
+          (function
+           | SynPat.Paren(SynPat.Typed(SynPat.Named _ as arg, _, _), _)
+           | SynPat.Paren(SynPat.Named _ as arg, _)
+           | SynPat.Typed(SynPat.Named _ as arg, _, _)
+           | (SynPat.Named _ as arg)
+           | SynPat.Paren(SynPat.Const(SynConst.Unit, _) as arg, _) -> Some arg
+           | _ -> None)
+      match mapped with
+      | [Some(SynPat.Const(SynConst.Unit, _))] -> Some []
+      | _ ->
+        if mapped |> List.forall
+          (fun arg ->
+            match arg with
+            | Some _ -> true
+            | _ -> false) then
+          Some (mapped |> List.choose (fun arg ->
+            match arg with
+            | Some(SynPat.Const(SynConst.Unit, _)) -> None
+            | Some arg -> Some arg
+            | _ -> None))
+        else
+          None
 
-      // 1. "System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3)"
-      //   * All arguments retargeting to let-bound references.
-      let innerBodyApp =
-        createLetBoundWithArgsApp
-          (exprAtomicFlag,
-           isInfix,
-           funcExpr,
-           tupleExprs,
-           tupleCommaRanges,
-           tupleRange,
-           leftParenRange,
-           rightParenRange,
-           parenRange,
-           appRange)
+    let (|IsIdentPat|_|) pat =
+      match pat with
+      // for only one paren tuple: f1 (a: int, b: string, c: int)
+      | SynPat.LongIdent(LongIdentWithDots(ids, _), _, _, SynConstructorArgs.Pats([SynPat.Paren(SynPat.Tuple(NamedPat(args), _), _)]), _, _) ->
+        Some
+          (ids |> List.map (fun id -> id.idText),
+           args)
+      // for multiple curryable args: f1 (a: int) (b: string) (c: int)
+      // for unit arg: f1 ()
+      | SynPat.LongIdent(LongIdentWithDots(ids, _), _, _, SynConstructorArgs.Pats(NamedPat(args)), _, _) ->
+        Some
+          (ids |> List.map (fun id -> id.idText),
+           args)
+      | _ -> None
 
-      // 2. "context.Leave(newApp)"
-      let leaveApp =
-        createApp ["__context"; "Leave" ] innerBodyApp
+    // Binding body is App:
+    // P1. let f1 (a: int, b: string, c: int) =
+    //       System.Console.WriteLine("Sample1: {0}:{1}", a, b)
+    // P2. let f1 (a: int) (b: string) (c: int) =
+    //       System.Console.WriteLine("Sample1: {0}:{1}", a, b)
+    // P3. let f1 () =
+    //       System.Console.WriteLine("Sample1: hogehoge")
+    match headPat with
+    | IsIdentPat(ids, args) ->
 
-      // 3. "context.Caught(ex)"
-      let caughtApp =
-        createApp ["__context"; "Caught" ] (createIdent ["ex"] zeroRange)
+      // funcExpr = Ident | LongIdent && argExpr = Paren (P1)
+      match expr with
+      // System.String.Format("ABC", 123, 456)
+      | SynExpr.Paren(SynExpr.Tuple(tupleExprs, tupleCommaRanges, tupleRange), leftParenRange, rightParenRange, parenRange) ->
+#if false
+        // let __arg_0 = "ABC"
+        // let __arg_1 = 123
+        // let __arg_2 = 456
+        // let __arg_3 = 789
+        // let __context = Aspect.Enter("Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
+        // try
+        //   __context.Leave(System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3))
+        // with
+        // | ex ->
+        //   __context.Caught(ex)
+        //   reraise()
 
-      // 4. "reraise()"
-      let reraiseApp =
-        createApp ["reraise"] constUnit
+        // 1. "System.String.Format(__arg_0, __arg_1, __arg_2, __arg_3)"
+        //   * All arguments retargeting to let-bound references.
+        let innerBodyApp =
+          createLetBoundWithArgsApp
+            (exprAtomicFlag,
+              isInfix,
+              funcExpr,
+              tupleExprs,
+              tupleCommaRanges,
+              tupleRange,
+              leftParenRange,
+              rightParenRange,
+              parenRange,
+              appRange)
 
-      // 5. Combined with-block exprs
-      let withSequence =
-        createSequence [caughtApp; reraiseApp]
+        // 2. "context.Leave(newApp)"
+        let leaveApp =
+          createApp ["__context"; "Leave" ] innerBodyApp
 
-      // 6. Construct with clause
-      let withClause =
-        createMatchClause (createNamedPattern "ex") withSequence
+        // 3. "context.Caught(ex)"
+        let caughtApp =
+          createApp ["__context"; "Caught" ] (createIdent ["ex"] zeroRange)
+
+        // 4. "reraise()"
+        let reraiseApp =
+          createApp ["reraise"] constUnit
+
+        // 5. Combined with-block exprs
+        let withSequence =
+          createSequence [caughtApp; reraiseApp]
+
+        // 6. Construct with clause
+        let withClause =
+          createMatchClause (createNamedPattern "ex") withSequence
            
-      // 7. Construct try-with
-      let tryWith =
-        SynExpr.TryWith
-          (leaveApp,
-           zeroRange,
-           [withClause],
-           zeroRange,
-           zeroRange,
-           SequencePointInfoForTry.NoSequencePointAtTry,
-           SequencePointInfoForWith.NoSequencePointAtWith)
+        // 7. Construct try-with
+        let tryWith =
+          SynExpr.TryWith
+            (leaveApp,
+              zeroRange,
+              [withClause],
+              zeroRange,
+              zeroRange,
+              SequencePointInfoForTry.NoSequencePointAtTry,
+              SequencePointInfoForWith.NoSequencePointAtWith)
        
-      // 8. [|__arg_0;__arg_1;__arg_2;__arg_3|]
-      let argsExpr =
-        createArrayWithArgsApp tupleExprs
+        // 8. [|__arg_0;__arg_1;__arg_2;__arg_3|]
+        let argsExpr =
+          createArrayWithArgsApp tupleExprs
 
-      // 9. "System.String.Format()"
-      let funcSignature =
-        getFuncSignature funcExpr tupleExprs
+        // 9. "System.String.Format()"
+        let funcSignature =
+          getFuncSignature funcExpr tupleExprs
 
-      // 10. Aspect.Enter("System.String.Format()", "Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
-      let enterApp =
-        createApp
-          aspectEnter
-          (createTuple [constString funcSignature; constString appRange.FileName; constInt32 appRange.StartLine; constInt32 appRange.StartColumn; argsExpr])
+        // 10. Aspect.Enter("System.String.Format()", "Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2;__arg_3|])
+        let enterApp =
+          createApp
+            aspectEnter
+            (createTuple [constString funcSignature; constString appRange.FileName; constInt32 appRange.StartLine; constInt32 appRange.StartColumn; argsExpr])
 
-      // 11. let __context = Aspect.Enter(...) in try...
-      let contextBound =
-        createLetBinding
-          "__context"
-          enterApp
-          tryWith
+        // 11. let __context = Aspect.Enter(...) in try...
+        let contextBound =
+          createLetBinding
+            "__context"
+            enterApp
+            tryWith
 
-      // 12. let arg0 = expr0 in let arg1 = expr1 in ... in let __context = ...
-      let totalExpr =
-        List.foldBack
-          (fun (name, expr) lastExpr -> createLetBinding name expr lastExpr)
-          (tupleExprs |> List.mapi (fun index expr -> getArgName index, expr))
-           contextBound
+        // 12. let arg0 = expr0 in let arg1 = expr1 in ... in let __context = ...
+        let generatedArgExpr =
+          List.foldBack
+            (fun (name, expr) lastExpr -> createLetBinding name expr lastExpr)
+            (tupleExprs |> List.mapi (fun index expr -> getArgName index, expr))
+              contextBound
 
-      let orig = this.Parents |> Enumerable.Last |> sprintf "%A"
-      let translated = sprintf "%A" totalExpr
+        let orig = this.Parents |> Enumerable.Last |> sprintf "%A"
+        let translated = sprintf "%A" generatedArgExpr
 
-      totalExpr
+        let totalApp =
+          SynExpr.App
+            (exprAtomicFlag,
+             isInfix,
+             funcExpr,
+             generatedArgExpr,
+             appRange)
 
-    | _ -> base.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
+        SynBinding.Binding
+          (access,
+           bindingKind,
+           mustInline,
+           isMutable,
+           attributes,
+           xmlDoc,
+           synValData,
+           headPat,
+           synBindingReturnInfo,
+           totalApp,
+           lhsRange,
+           spBind)
+#endif
+
+        base.VisitBinding_Binding
+          (context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, synValData, headPat, synBindingReturnInfo, expr, lhsRange, spBind)
+      | _ ->
+        base.VisitBinding_Binding
+          (context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, synValData, headPat, synBindingReturnInfo, expr, lhsRange, spBind)
+    | _ ->
+      base.VisitBinding_Binding
+        (context, access, bindingKind, mustInline, isMutable, attributes, xmlDoc, synValData, headPat, synBindingReturnInfo, expr, lhsRange, spBind)
 
 [<NoEquality; NoComparison; AutoSerializable(false)>]
 type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() = 
