@@ -132,6 +132,11 @@ module internal CompilerImpl =
      (ast: ParsedInput) =
     decls |> Seq.fold (fun partialAst decl -> decl.Visit(symbolInformation, partialAst)) ast
  
+  let dummyAstFilter
+     (symbolInformation: FSharpCheckFileResults)
+     (ast: ParsedInput) =
+    ast
+
   ///////////////////////////////////////////////////////
 
   let private simpleTypeName (decl: IDeclareFscxVisitor) =
@@ -213,7 +218,14 @@ module internal CompilerImpl =
       // Parse source codes and apply (Async)
       let! appliedResults =
         sourceCodes
-        |> Seq.map (parseSourceCodeAndApplyByAsync options (astFilter decls))
+        |> Seq.mapi (fun index sourceCode ->
+          (parseSourceCodeAndApplyByAsync
+             options
+             (if index = 0 then
+                dummyAstFilter
+              else
+                (astFilter decls))
+             sourceCode))
         |> Async.Parallel
 
       // Aggregate aborted results

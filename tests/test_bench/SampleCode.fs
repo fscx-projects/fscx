@@ -19,28 +19,52 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-module FscxOutputSample1
+module TestFunctions =
 
-  let f1 (a: int, b: string, c: int) =
-    System.Console.WriteLine("Sample1: {0}:{1}", a, b)
+  let output1 (a: int, b: string, c: double) =
+    System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
 
-  let f2 (a: int) (b: string) (c: int) =
-    System.Console.WriteLine("Sample2: {0}:{1}", a, b)
+  let output2 (a: int) (b: string) (c: double) =
+    System.Console.WriteLine("output2: {0}:{1}:{2}", a, b, c)
 
-  let f3 a b c =
-    System.Console.WriteLine("Sample3: {0}:{1}", a, b)
+  let output3 a b c =
+    System.Console.WriteLine("output3: {0}:{1}:{2}", a, b, c)
 
-  let f4 () =
-    System.Console.WriteLine("Sample4:")
+  let output4 () =
+    System.Console.WriteLine("output4: ()")
 
-//  let f2 (a: int, b: string, c: int) =
-//    let __arg_0 = a
-//    let __arg_1 = b
-//    let __arg_2 = c
-//    let __context = SampleAspectLogger.SampleAspect.Enter("FscxOutputSample1.f2", "SampleCode.fs", 27, 2, [|__arg_0;__arg_1;__arg_2|])
-//    try
-//      __context.Leave(System.Console.WriteLine("Sample1: {0}:{1}", __arg_0, __arg_1))
-//    with
-//    | ex ->
-//        __context.Caught(ex)
-//        reraise()
+module AspectTargets =
+
+  let f11 (a: int, b: string, c: int) =
+    TestFunctions.output1(a + c, b, 123.456)
+
+  let f12 (a: int, b: string, c: int) =
+    TestFunctions.output2 (a + c) b 123.456
+
+  let f13 (a: int, b: string, c: int) =
+    TestFunctions.output3 (a + c) b 123.456
+
+  let f14 () =
+    TestFunctions.output4 ()
+
+  //////////////
+
+  let f21 (a: int) (b: string) (c: int) =
+    TestFunctions.output1(a + c, b, 123.456)
+
+  let f22 (a: int) (b: string) (c: int) =
+    TestFunctions.output2 (a + c) b 123.456
+
+  let f23 (a: int) (b: string) (c: int) =
+    TestFunctions.output3 (a + c) b 123.456
+
+  //////////////
+
+  let f31 a b c =
+    TestFunctions.output1(a + c, b, 123.456)
+
+  let f32 a b c =
+    TestFunctions.output2 (a + c) b 123.456
+
+  let f33 a b c =
+    TestFunctions.output3 (a + c) b 123.456
