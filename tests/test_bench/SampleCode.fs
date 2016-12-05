@@ -21,53 +21,53 @@
 
 module TestFunctions =
 
-  let test () =
-    System.Console.WriteLine("output0: [||]", [||])
+//  let test () =
+//    System.Console.WriteLine("output0: [||]", [||])
 
-  let output1 (a: int, b: string, c: double) =
-    System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
-
-  let output2 (a: int) (b: string) (c: double) =
-    System.Console.WriteLine("output2: {0}:{1}:{2}", a, b, c)
+//  let output1 (a: int, b: string, c: double) =
+//    System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
+//
+//  let output2 (a: int) (b: string) (c: double) =
+//    System.Console.WriteLine("output2: {0}:{1}:{2}", a, b, c)
 
   let output3 a b c =
     System.Console.WriteLine("output3: {0}:{1}:{2}", a, b, c)
 
-  let output4 () =
-    System.Console.WriteLine("output4: ()")
+//  let output4 () =
+//    System.Console.WriteLine("output4: ()")
 
 module AspectTargets =
 
-  let f11 (a: int, b: string, c: int) =
-    TestFunctions.output1(a + c, b, 123.456)
-
-  let f12 (a: int, b: string, c: int) =
-    TestFunctions.output2 (a + c) b 123.456
+//  let f11 (a: int, b: string, c: int) =
+//    TestFunctions.output1(a + c, b, 123.456)
+//
+//  let f12 (a: int, b: string, c: int) =
+//    TestFunctions.output2 (a + c) b 123.456
 
   let f13 (a: int, b: string, c: int) =
     TestFunctions.output3 (a + c) b 123.456
 
-  let f14 () =
-    TestFunctions.output4 ()
+//  let f14 () =
+//    TestFunctions.output4 ()
 
   //////////////
-
-  let f21 (a: int) (b: string) (c: int) =
-    TestFunctions.output1(a + c, b, 123.456)
-
-  let f22 (a: int) (b: string) (c: int) =
-    TestFunctions.output2 (a + c) b 123.456
-
-  let f23 (a: int) (b: string) (c: int) =
-    TestFunctions.output3 (a + c) b 123.456
-
-  //////////////
-
-  let f31 a b c =
-    TestFunctions.output1(a + c, b, 123.456)
-
-  let f32 a b c =
-    TestFunctions.output2 (a + c) b 123.456
-
-  let f33 a b c =
-    TestFunctions.output3 (a + c) b 123.456
+//
+//  let f21 (a: int) (b: string) (c: int) =
+//    TestFunctions.output1(a + c, b, 123.456)
+//
+//  let f22 (a: int) (b: string) (c: int) =
+//    TestFunctions.output2 (a + c) b 123.456
+//
+//  let f23 (a: int) (b: string) (c: int) =
+//    TestFunctions.output3 (a + c) b 123.456
+//
+//  //////////////
+//
+//  let f31 a b c =
+//    TestFunctions.output1(a + c, b, 123.456)
+//
+//  let f32 a b c =
+//    TestFunctions.output2 (a + c) b 123.456
+//
+//  let f33 a b c =
+//    TestFunctions.output3 (a + c) b 123.456

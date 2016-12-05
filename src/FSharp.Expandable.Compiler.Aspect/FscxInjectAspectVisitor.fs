@@ -185,7 +185,8 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       Some [expr]
     | SynExpr.Const(SynConst.Unit, _) ->
       Some []
-    | _ -> None
+    | _ ->
+      Some [expr]
 
   static let getArgName (index: int) =
     "__arg_" + index.ToString()
@@ -198,7 +199,10 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       SynExpr.Paren(expr, zeroRange, None, zeroRange)
     | SynExpr.Const(SynConst.Unit, _), _ ->
       SynExpr.Const(SynConst.Unit, zeroRange)
-    | _ -> failwith ""
+    | _, [expr] ->
+      expr
+    | _ ->
+      failwith ""
     
   static let createArrayWithArgs exprs =
     SynExpr.ArrayOrList
@@ -328,7 +332,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
              else
                SequencePointInfoForBinding.NoSequencePointAtLetBinding))
         (deconstructedExprs |> List.mapi (fun index expr -> index, expr))
-          contextBound
+        contextBound
 
     ////////////////////////////////////////////////////////////////////
     // DEBUG:
