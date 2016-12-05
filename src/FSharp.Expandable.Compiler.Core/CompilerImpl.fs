@@ -133,7 +133,7 @@ module internal CompilerImpl =
     decls |> Seq.fold (fun partialAst decl -> decl.Visit(symbolInformation, partialAst)) ast
  
   let dummyAstFilter
-     (symbolInformation: FSharpCheckFileResults)
+     (_: FSharpCheckFileResults)
      (ast: ParsedInput) =
     ast
 

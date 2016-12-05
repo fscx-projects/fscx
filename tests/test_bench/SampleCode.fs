@@ -21,6 +21,9 @@
 
 module TestFunctions =
 
+  let test () =
+    System.Console.WriteLine("output0: [||]", [||])
+
   let output1 (a: int, b: string, c: double) =
     System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
 

@@ -120,7 +120,6 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
           zeroRange),
        zeroRange)
 
-  // TODO: Maybe invalid operation...
   static let createSequence exprs =
     exprs |> Seq.reduceBack (fun expr0 expr1 ->
       SynExpr.Sequential
@@ -184,8 +183,8 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       Some exprs
     | SynExpr.Paren(expr, _, _, _) ->
       Some [expr]
-    | SynExpr.Const(SynConst.Unit, _) as u ->
-      Some [u]
+    | SynExpr.Const(SynConst.Unit, _) ->
+      Some []
     | _ -> None
 
   static let getArgName (index: int) =
@@ -202,13 +201,9 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
     | _ -> failwith ""
     
   static let createArrayWithArgs exprs =
-    SynExpr.ArrayOrListOfSeqExpr
+    SynExpr.ArrayOrList
       (true,
-       SynExpr.CompExpr
-         (true,
-          ref true,
-          createSequence (exprs |> List.mapi (fun index (expr: SynExpr) -> createIdent [getArgName index] zeroRange)),
-          zeroRange),
+       exprs |> List.mapi (fun index (expr: SynExpr) -> createIdent [getArgName index] zeroRange),
        zeroRange)
 
   //////////////////////
