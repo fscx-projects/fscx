@@ -222,7 +222,8 @@ module internal CompilerImpl =
           (parseSourceCodeAndApplyByAsync
              options
              (if index = 0 then
-                dummyAstFilter
+                //dummyAstFilter
+                (astFilter decls)
               else
                 (astFilter decls))
              sourceCode))

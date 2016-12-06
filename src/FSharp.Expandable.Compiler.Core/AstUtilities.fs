@@ -19,21 +19,30 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
+namespace Microsoft.FSharp.Compiler.Ast
+  type SynValData =
+    static member Empty =
+      Microsoft.FSharp.Compiler.Ast.SynValData
+        (None,
+         SynValInfo([], SynArgInfo(SynAttributes.Empty, false, None)),
+         None)
+
+//////////////////////////////////////////////////////////////////////////////
+
 namespace FSharp.Expandable
 
-open System
 open System.Reflection
 open Microsoft.FSharp.Quotations
 open Microsoft.FSharp.Quotations.Patterns
 open Microsoft.FSharp.Compiler.Ast
-open Microsoft.FSharp.Compiler.Ast.Visitors
 
 //////////////////////////////////////////////////////////////////////////////
 
 [<AutoOpen>]
 module AstUtilities =
 
-  let zeroRange = Microsoft.FSharp.Compiler.Range.range.Zero
+  let zeroRange =
+    Microsoft.FSharp.Compiler.Range.range.Zero.MakeSynthetic()
 
   module MethodInfo =
 
@@ -95,11 +104,8 @@ module AstUtilities =
         false,
         false,
         [],
-        PreXmlDocEmpty,
-        SynValData
-         (None,
-          SynValInfo([], SynArgInfo([], false, None)),
-          None),
+        PreXmlDoc.Empty,
+        SynValData.Empty,
         SynPat.Named(SynPat.Wild(zeroRange), Ident(name, zeroRange),
           false,
           None,

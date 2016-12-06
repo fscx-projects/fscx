@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="SampleAspectLogger.fs">
+    <None Include="SampleAspectLogger.fs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    </None>
     <Compile Include="Program.fs" />
     <None Include="App.config" />
     <None Include="paket.references" />

@@ -123,7 +123,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   static let createSequence exprs =
     exprs |> Seq.reduceBack (fun expr0 expr1 ->
       SynExpr.Sequential
-        (SequencePointInfoForSeq.SuppressSequencePointOnExprOfSequential,
+        (SequencePointInfoForSeq.SuppressSequencePointOnStmtOfSequential,
          true,
          expr0,
          expr1,
@@ -156,7 +156,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
           false,
           [],
           PreXmlDoc.Empty,
-          SynValData.SynValData(None, SynValInfo.SynValInfo([], SynArgInfo.SynArgInfo(SynAttributes.Empty, false, None)), None),
+          SynValData.Empty,
           createNamedPattern name,
           None,
           bindExpr,
@@ -225,7 +225,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   //   let __arg_0 = 123
   //   let __arg_1 = a + b
   //   let __arg_2 = "ABC"
-  //   let __context = Aspect.Enter("f1", "Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2|])
+  //   let __context = Aspect.Enter("System.String.Format", "Sample.fs", 12, 34, [|__arg_0;__arg_1;__arg_2|])
   //   try
   //     __context.Leave(System.String.Format(__arg_0, __arg_1, __arg_2))
   //   with
@@ -334,11 +334,13 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
         (deconstructedExprs |> List.mapi (fun index expr -> index, expr))
         contextBound
 
+#if DEBUG
     ////////////////////////////////////////////////////////////////////
     // DEBUG:
     let orig = this.Parents |> Enumerable.Last |> sprintf "%A"
     let generated = sprintf "%A" generatedExpr
     ////////////////////////////////////////////////////////////////////
+#endif
 
     generatedExpr
 
