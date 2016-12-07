@@ -110,7 +110,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   static let createApp idents appExpr =
     SynExpr.App
-      (ExprAtomicFlag.Atomic,
+      (ExprAtomicFlag.NonAtomic,
        false,
        createIdent idents zeroRange,
        SynExpr.Paren
@@ -167,26 +167,59 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   //////////////////////
 
-  // Extract idented args from three variations:
-  static let (|IdentForSymbol|_|) expr =
+  // Extract symbol name from three variations
+  static let rec identForSymbol expr =
     match expr with
+    // Traverse currying apply
+    | SynExpr.App (_, _, funcExpr, _, _) ->
+      identForSymbol funcExpr
+    // Single symbol
     | SynExpr.Ident ident ->
-      Some ident.idText
+      if ident.idText.StartsWith "op_" then
+        None
+      else
+        Some ident.idText
+    // Multiple structuring symbols
     | SynExpr.LongIdent (_, longIdent, _, range) ->
       let elements = longIdent.Lid |> List.map (fun i -> i.idText)
       Some (String.Join(".", elements))
-    | _ -> None
-
-  static let (|Arguments|_|) expr =
-    match expr with
-    | SynExpr.Paren(SynExpr.Tuple(exprs, _, _), _, _, _) ->
-      Some exprs
-    | SynExpr.Paren(expr, _, _, _) ->
-      Some [expr]
-    | SynExpr.Const(SynConst.Unit, _) ->
-      Some []
+    // Other, do not apply custom visitor.
     | _ ->
-      Some [expr]
+      None
+
+  // Active pattern: Extract symbol name from three variations
+  static let (|IdentForSymbol|_|) expr =
+    identForSymbol expr
+
+  //////////////////////
+
+  static let rec argumentsByCurrying funcExpr argExpr argExprs =
+    let argExprs = argExpr :: argExprs
+    match funcExpr, argExpr with
+    // Curryable arguments
+    | SynExpr.App (_, _, funcExpr, argExpr, _), _ ->
+      argumentsByCurrying funcExpr argExpr argExprs
+    // Other
+    | _ ->
+      argExprs
+
+  // Active pattern: Extract args
+  static let (|Arguments|) (funcExpr, argExpr) =
+    match funcExpr, argExpr with
+    // Curryable arguments
+    | SynExpr.App _, _ ->
+      (argumentsByCurrying funcExpr argExpr []), true  // currying
+    // Tuple arguments
+    | _, SynExpr.Paren(SynExpr.Tuple(exprs, _, _), _, _, _) ->
+      exprs, false
+    // Argument nothing (Paren only)
+    | _, SynExpr.Const(SynConst.Unit, _) ->
+      [], false
+    // Other
+    | _ ->
+      [argExpr], false
+
+  //////////////////////
 
   static let getArgName (index: int) =
     "__arg_" + index.ToString()
@@ -254,7 +287,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
     //   "System.String.Format(__arg_0, __arg_1, __arg_2)"
     let innerBodyApp =
       SynExpr.App(
-        ExprAtomicFlag.Atomic,
+        ExprAtomicFlag.NonAtomic,
         false,
         funcExpr,
         newArgExpr, // Step1
@@ -347,7 +380,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   //////////////////////
 
   // Hook "SynExpr.App"
-  override this.VisitExpr_App
+  override this.BeforeVisitExpr_App
      (context,
       exprAtomicFlag,
       isInfix,
@@ -355,11 +388,11 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       argExpr,
       appRange) =
 
-    match funcExpr, argExpr with
-    | IdentForSymbol symbolName, Arguments deconstructedExprs ->
+    match funcExpr, (funcExpr, argExpr) with
+    | IdentForSymbol symbolName, Arguments(deconstructedExprs, currying) ->
       this.InsertAspectToAppExpr(funcExpr, symbolName, argExpr, deconstructedExprs, appRange)
     | _ ->
-      base.VisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
+      base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
 
 [<NoEquality; NoComparison; AutoSerializable(false)>]
 type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() = 

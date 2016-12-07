@@ -1,0 +1,278 @@
+           NestedModule
+             (ComponentInfo
+                ([],[],[],[AspectTargets],
+                 PreXmlDoc
+                   (Microsoft.FSharp.Compiler.Range+pos,
+                    Microsoft.FSharp.Compiler.Ast+XmlDocCollector),false,null,
+                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (39,0--39,20) IsSynthetic=false),
+              false,
+              [Let
+                 (false,
+                  [Binding
+                     (null,NormalBinding,false,false,[],
+                      PreXmlDoc
+                        (Microsoft.FSharp.Compiler.Range+pos,
+                         Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                      SynValData
+                        (null,
+                         SynValInfo
+                           ([[SynArgInfo ([],false,Some a);
+                              SynArgInfo ([],false,Some b);
+                              SynArgInfo ([],false,Some c)]],
+                            SynArgInfo ([],false,null)),null),
+                      LongIdent
+                        (LongIdentWithDots ([f13],[]),null,null,
+                         Pats
+                           [Paren
+                              (Tuple
+                                 ([Typed
+                                     (Named
+                                        (Wild
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,11--47,12) IsSynthetic=false,
+                                         a,false,null,
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,11--47,12) IsSynthetic=false),
+                                      LongIdent (LongIdentWithDots ([int],[])),
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,11--47,17) IsSynthetic=false);
+                                   Typed
+                                     (Named
+                                        (Wild
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,19--47,20) IsSynthetic=false,
+                                         b,false,null,
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,19--47,20) IsSynthetic=false),
+                                      LongIdent
+                                        (LongIdentWithDots ([string],[])),
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,19--47,28) IsSynthetic=false);
+                                   Typed
+                                     (Named
+                                        (Wild
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,30--47,31) IsSynthetic=false,
+                                         c,false,null,
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,30--47,31) IsSynthetic=false),
+                                      LongIdent (LongIdentWithDots ([int],[])),
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,30--47,36) IsSynthetic=false)],
+                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,11--47,36) IsSynthetic=false),
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,10--47,37) IsSynthetic=false)],
+                         null,
+                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,6--47,37) IsSynthetic=false),
+                      null,
+                      LetOrUse
+                        (false,false,
+                         [Binding
+                            (null,NormalBinding,false,false,[],
+                             PreXmlDoc
+                               (Microsoft.FSharp.Compiler.Range+pos,
+                                Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                             SynValData
+                               (null,SynValInfo ([],SynArgInfo ([],false,null)),
+                                null),
+                             Named
+                               (Wild
+                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,8--48,15) IsSynthetic=false,
+                                __arg_0,false,null,
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,8--48,15) IsSynthetic=false),
+                             null,
+                             App
+                               (NonAtomic,false,
+                                App
+                                  (NonAtomic,true,Ident op_Addition,Ident a,
+                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,18--48,21) IsSynthetic=false),
+                                Ident c,
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,18--48,23) IsSynthetic=false),
+                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,8--48,15) IsSynthetic=false,
+                             SequencePointAtBinding
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--48,23) IsSynthetic=false)],
+                         LetOrUse
+                           (false,false,
+                            [Binding
+                               (null,NormalBinding,false,false,[],
+                                PreXmlDoc
+                                  (Microsoft.FSharp.Compiler.Range+pos,
+                                   Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                                SynValData
+                                  (null,
+                                   SynValInfo ([],SynArgInfo ([],false,null)),
+                                   null),
+                                Named
+                                  (Wild
+                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (49,8--49,15) IsSynthetic=false,
+                                   __arg_1,false,null,
+                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (49,8--49,15) IsSynthetic=false),
+                                null,Ident b,
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (49,8--49,15) IsSynthetic=false,
+                                SequencePointAtBinding
+                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (49,4--49,19) IsSynthetic=false)],
+                            LetOrUse
+                              (false,false,
+                               [Binding
+                                  (null,NormalBinding,false,false,[],
+                                   PreXmlDoc
+                                     (Microsoft.FSharp.Compiler.Range+pos,
+                                      Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                                   SynValData
+                                     (null,
+                                      SynValInfo ([],SynArgInfo ([],false,null)),
+                                      null),
+                                   Named
+                                     (Wild
+                                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,8--50,15) IsSynthetic=false,
+                                      __arg_2,false,null,
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,8--50,15) IsSynthetic=false),
+                                   null,
+                                   Const
+                                     (Double 123.456,
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,18--50,25) IsSynthetic=false),
+                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,8--50,15) IsSynthetic=false,
+                                   SequencePointAtBinding
+                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,4--50,25) IsSynthetic=false)],
+                               LetOrUse
+                                 (false,false,
+                                  [Binding
+                                     (null,NormalBinding,false,false,[],
+                                      PreXmlDoc
+                                        (Microsoft.FSharp.Compiler.Range+pos,
+                                         Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                                      SynValData
+                                        (null,
+                                         SynValInfo
+                                           ([],SynArgInfo ([],false,null)),null),
+                                      Named
+                                        (Wild
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,8--51,17) IsSynthetic=false,
+                                         __context,false,null,
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,8--51,17) IsSynthetic=false),
+                                      null,
+                                      App
+                                        (Atomic,false,
+                                         LongIdent
+                                           (false,
+                                            LongIdentWithDots
+                                              ([SampleAspectLogger; SampleAspect;
+                                                Enter],
+                                               [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,38--51,39) IsSynthetic=false;
+                                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,51--51,52) IsSynthetic=false]),
+                                            null,
+                                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,20--51,57) IsSynthetic=false),
+                                         Paren
+                                           (Tuple
+                                              ([Const
+                                                  (String
+                                                     ("TestFunctions.output3",
+                                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,58--51,81) IsSynthetic=false),
+                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,58--51,81) IsSynthetic=false);
+                                                Const
+                                                  (String
+                                                     ("D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs",
+                                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,83--51,142) IsSynthetic=false),
+                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,83--51,142) IsSynthetic=false);
+                                                Const
+                                                  (Int32 58,
+                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,144--51,146) IsSynthetic=false);
+                                                Const
+                                                  (Int32 4,
+                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,148--51,149) IsSynthetic=false);
+                                                ArrayOrListOfSeqExpr
+                                                  (true,
+                                                   CompExpr
+                                                     (true,{contents = true;},
+                                                      Ident __arg_0,
+                                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,153--51,160) IsSynthetic=false),
+                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,151--51,162) IsSynthetic=false)],
+                                               [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,81--51,82) IsSynthetic=false;
+                                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,142--51,143) IsSynthetic=false;
+                                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,146--51,147) IsSynthetic=false;
+                                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,149--51,150) IsSynthetic=false],
+                                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,58--51,162) IsSynthetic=false),
+                                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,57--51,58) IsSynthetic=false,
+                                            Some
+                                              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,162--51,163) IsSynthetic=false,
+                                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,57--51,163) IsSynthetic=false),
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,20--51,163) IsSynthetic=false),
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,8--51,17) IsSynthetic=false,
+                                      SequencePointAtBinding
+                                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,4--51,163) IsSynthetic=false)],
+                                  TryWith
+                                    (App
+                                       (Atomic,false,
+                                        LongIdent
+                                          (false,
+                                           LongIdentWithDots
+                                             ([__context; Leave],
+                                              [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,15--53,16) IsSynthetic=false]),
+                                           null,
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,6--53,21) IsSynthetic=false),
+                                        Paren
+                                          (App
+                                             (NonAtomic,false,
+                                              App
+                                                (NonAtomic,false,
+                                                 App
+                                                   (NonAtomic,false,
+                                                    LongIdent
+                                                      (false,
+                                                       LongIdentWithDots
+                                                         ([TestFunctions;
+                                                           output3],
+                                                          [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,35--53,36) IsSynthetic=false]),
+                                                       null,
+                                                       D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,22--53,43) IsSynthetic=false),
+                                                    Ident __arg_0,
+                                                    D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,22--53,51) IsSynthetic=false),
+                                                 Ident __arg_1,
+                                                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,22--53,59) IsSynthetic=false),
+                                              Ident __arg_2,
+                                              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,22--53,67) IsSynthetic=false),
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,21--53,22) IsSynthetic=false,
+                                           Some
+                                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,67--53,68) IsSynthetic=false,
+                                           D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,21--53,68) IsSynthetic=false),
+                                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (53,6--53,68) IsSynthetic=false),
+                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (52,4--54,8) IsSynthetic=false,
+                                     [Clause
+                                        (Named
+                                           (Wild
+                                              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (55,6--55,8) IsSynthetic=false,
+                                            ex,false,null,
+                                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (55,6--55,8) IsSynthetic=false),
+                                         null,
+                                         Sequential
+                                           (SequencePointsAtSeq,true,
+                                            App
+                                              (Atomic,false,
+                                               LongIdent
+                                                 (false,
+                                                  LongIdentWithDots
+                                                    ([__context; Caught],
+                                                     [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,15--56,16) IsSynthetic=false]),
+                                                  null,
+                                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,6--56,22) IsSynthetic=false),
+                                               Paren
+                                                 (Ident ex,
+                                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,22--56,23) IsSynthetic=false,
+                                                  Some
+                                                    D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,25--56,26) IsSynthetic=false,
+                                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,22--56,26) IsSynthetic=false),
+                                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,6--56,26) IsSynthetic=false),
+                                            App
+                                              (Atomic,false,Ident reraise,
+                                               Const
+                                                 (Unit,
+                                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (57,13--57,15) IsSynthetic=false),
+                                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (57,6--57,15) IsSynthetic=false),
+                                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (56,6--57,15) IsSynthetic=false),
+                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (55,6--55,8) IsSynthetic=false,
+                                         SequencePointAtTarget)],
+                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (54,4--57,15) IsSynthetic=false,
+                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (52,4--57,15) IsSynthetic=false,
+                                     SequencePointAtTry
+                                       D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (52,4--52,7) IsSynthetic=false,
+                                     SequencePointAtWith
+                                       D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (54,4--54,8) IsSynthetic=false),
+                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (51,4--57,15) IsSynthetic=false),
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (50,4--57,15) IsSynthetic=false),
+                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (49,4--57,15) IsSynthetic=false),
+                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--57,15) IsSynthetic=false),
+                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,6--47,37) IsSynthetic=false,
+                      NoSequencePointAtLetBinding)],
+                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,2--57,15) IsSynthetic=false)],
+              false,
+              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (39,0--57,15) IsSynthetic=false)],
