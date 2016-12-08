@@ -178,11 +178,11 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       if ident.idText.StartsWith "op_" then
         None
       else
-        Some ident.idText
+        Some (expr, ident.idText)
     // Multiple structuring symbols
-    | SynExpr.LongIdent (_, longIdent, _, range) ->
+    | SynExpr.LongIdent (_, longIdent, _, _) ->
       let elements = longIdent.Lid |> List.map (fun i -> i.idText)
-      Some (String.Join(".", elements))
+      Some (expr, String.Join(".", elements))
     // Other, do not apply custom visitor.
     | _ ->
       None
@@ -269,29 +269,46 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   // Insert aspect core code:
   member private this.InsertAspectToAppExpr
     (funcExpr,
+     identExpr,
      symbolName,
      argExpr,
      deconstructedExprs,
+     currying,
      appRange: Microsoft.FSharp.Compiler.Range.range) =
 
-    // Step1:
-    //   Construct bound arguments.
-    //   Bound arguments named with "__arg_n".
-    let newArgExpr =
-      deconstructedExprs
-      |> List.mapi (fun index _ -> createIdent [getArgName index] zeroRange)
-      |> createArgumentExpr argExpr
-    
     // Step2:
     //   Construct new inner App expr.
     //   "System.String.Format(__arg_0, __arg_1, __arg_2)"
     let innerBodyApp =
-      SynExpr.App(
-        ExprAtomicFlag.NonAtomic,
-        false,
-        funcExpr,
-        newArgExpr, // Step1
-        zeroRange)
+      // Construct bound arguments.
+      // Bound arguments named with "__arg_n".
+      let argExprs =
+        deconstructedExprs
+        |> List.mapi (fun index _ -> createIdent [getArgName index] zeroRange)
+      if currying then
+        // Step1-1:
+        //   Construct bound arguments.
+        //   Bound arguments named with "__arg_n".
+        List.foldBack
+          (fun expr lastExpr ->
+            SynExpr.App(
+              ExprAtomicFlag.NonAtomic,
+              false,
+              lastExpr,
+              expr,
+              zeroRange))
+          (argExprs |> List.rev)
+          identExpr
+      else
+        // Step1-2:
+        //   Construct bound arguments.
+        //   Bound arguments named with "__arg_n".
+        SynExpr.App(
+          ExprAtomicFlag.NonAtomic,
+          false,
+          identExpr,
+          argExprs |> createArgumentExpr argExpr,
+          zeroRange)
 
     // Step3:
     //  Invoke __context.Leave.
@@ -389,8 +406,8 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       appRange) =
 
     match funcExpr, (funcExpr, argExpr) with
-    | IdentForSymbol symbolName, Arguments(deconstructedExprs, currying) ->
-      this.InsertAspectToAppExpr(funcExpr, symbolName, argExpr, deconstructedExprs, appRange)
+    | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying) ->
+      this.InsertAspectToAppExpr(funcExpr, identExpr, symbolName, argExpr, deconstructedExprs, currying, appRange)
     | _ ->
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
 

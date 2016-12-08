@@ -1,3 +1,274 @@
+ImplFile
+  (ParsedImplFileInput
+     ("D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs",false,
+      QualifiedNameOfFile SampleCode,[],[],
+      [SynModuleOrNamespace
+         ([SampleCode],false,true,
+          [NestedModule
+             (ComponentInfo
+                ([],[],[],[TestFunctions],
+                 PreXmlDoc
+                   (Microsoft.FSharp.Compiler.Range+pos,
+                    Microsoft.FSharp.Compiler.Ast+XmlDocCollector),false,null,
+                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (22,0--22,20) IsSynthetic=false),
+              false,
+              [Let
+                 (false,
+                  [Binding
+                     (null,NormalBinding,false,false,[],
+                      PreXmlDoc
+                        (Microsoft.FSharp.Compiler.Range+pos,
+                         Microsoft.FSharp.Compiler.Ast+XmlDocCollector),
+                      SynValData
+                        (null,
+                         SynValInfo
+                           ([[SynArgInfo ([],false,Some a)];
+                             [SynArgInfo ([],false,Some b)];
+                             [SynArgInfo ([],false,Some c)]],
+                            SynArgInfo ([],false,null)),null),
+                      LongIdent
+                        (LongIdentWithDots ([output3],[]),null,null,
+                         Pats
+                           [Named
+                              (Wild
+                                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,14--33,15) IsSynthetic=false,
+                               a,false,null,
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,14--33,15) IsSynthetic=false);
+                            Named
+                              (Wild
+                                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,16--33,17) IsSynthetic=false,
+                               b,false,null,
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,16--33,17) IsSynthetic=false);
+                            Named
+                              (Wild
+                                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,18--33,19) IsSynthetic=false,
+                               c,false,null,
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,18--33,19) IsSynthetic=false)],
+                         null,
+                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,6--33,19) IsSynthetic=false),
+                      null,
+                      LetOrUse
+                        (false,false,
+                         [Binding
+                            (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+                             SynValData
+                               (null,SynValInfo ([],SynArgInfo ([],false,null)),
+                                null),
+                             Named
+                               (Wild unknown (0,0--0,0) IsSynthetic=true,__arg_0,
+                                false,null,unknown (0,0--0,0) IsSynthetic=true),
+                             null,
+                             Const
+                               (String
+                                  ("output3: {0}:{1}:{2}",
+                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,29--34,51) IsSynthetic=false),
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,29--34,51) IsSynthetic=false),
+                             unknown (0,0--0,0) IsSynthetic=true,
+                             SequencePointAtBinding
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,4--34,61) IsSynthetic=false)],
+                         LetOrUse
+                           (false,false,
+                            [Binding
+                               (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+                                SynValData
+                                  (null,
+                                   SynValInfo ([],SynArgInfo ([],false,null)),
+                                   null),
+                                Named
+                                  (Wild unknown (0,0--0,0) IsSynthetic=true,
+                                   __arg_1,false,null,
+                                   unknown (0,0--0,0) IsSynthetic=true),null,
+                                Ident a,unknown (0,0--0,0) IsSynthetic=true,
+                                NoSequencePointAtLetBinding)],
+                            LetOrUse
+                              (false,false,
+                               [Binding
+                                  (null,NormalBinding,false,false,[],
+                                   PreXmlDocEmpty,
+                                   SynValData
+                                     (null,
+                                      SynValInfo ([],SynArgInfo ([],false,null)),
+                                      null),
+                                   Named
+                                     (Wild unknown (0,0--0,0) IsSynthetic=true,
+                                      __arg_2,false,null,
+                                      unknown (0,0--0,0) IsSynthetic=true),null,
+                                   Ident b,unknown (0,0--0,0) IsSynthetic=true,
+                                   NoSequencePointAtLetBinding)],
+                               LetOrUse
+                                 (false,false,
+                                  [Binding
+                                     (null,NormalBinding,false,false,[],
+                                      PreXmlDocEmpty,
+                                      SynValData
+                                        (null,
+                                         SynValInfo
+                                           ([],SynArgInfo ([],false,null)),null),
+                                      Named
+                                        (Wild
+                                           unknown (0,0--0,0) IsSynthetic=true,
+                                         __arg_3,false,null,
+                                         unknown (0,0--0,0) IsSynthetic=true),
+                                      null,Ident c,
+                                      unknown (0,0--0,0) IsSynthetic=true,
+                                      NoSequencePointAtLetBinding)],
+                                  LetOrUse
+                                    (false,false,
+                                     [Binding
+                                        (null,NormalBinding,false,false,[],
+                                         PreXmlDocEmpty,
+                                         SynValData
+                                           (null,
+                                            SynValInfo
+                                              ([],SynArgInfo ([],false,null)),
+                                            null),
+                                         Named
+                                           (Wild
+                                              unknown (0,0--0,0) IsSynthetic=true,
+                                            __context,false,null,
+                                            unknown (0,0--0,0) IsSynthetic=true),
+                                         null,
+                                         App
+                                           (NonAtomic,false,
+                                            LongIdent
+                                              (false,
+                                               LongIdentWithDots
+                                                 ([SampleAspectLogger;
+                                                   SampleAspect; Enter],
+                                                  [unknown (0,0--0,0) IsSynthetic=true;
+                                                   unknown (0,0--0,0) IsSynthetic=true;
+                                                   unknown (0,0--0,0) IsSynthetic=true]),
+                                               null,
+                                               unknown (0,0--0,0) IsSynthetic=true),
+                                            Paren
+                                              (Tuple
+                                                 ([Const
+                                                     (String
+                                                        ("System.Console.WriteLine",
+                                                         unknown (0,0--0,0) IsSynthetic=true),
+                                                      unknown (0,0--0,0) IsSynthetic=true);
+                                                   Const
+                                                     (String
+                                                        ("D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs",
+                                                         unknown (0,0--0,0) IsSynthetic=true),
+                                                      unknown (0,0--0,0) IsSynthetic=true);
+                                                   Const
+                                                     (Int32 34,
+                                                      unknown (0,0--0,0) IsSynthetic=true);
+                                                   Const
+                                                     (Int32 4,
+                                                      unknown (0,0--0,0) IsSynthetic=true);
+                                                   ArrayOrList
+                                                     (true,
+                                                      [Ident __arg_0;
+                                                       Ident __arg_1;
+                                                       Ident __arg_2;
+                                                       Ident __arg_3],
+                                                      unknown (0,0--0,0) IsSynthetic=true)],
+                                                  [unknown (0,0--0,0) IsSynthetic=true;
+                                                   unknown (0,0--0,0) IsSynthetic=true;
+                                                   unknown (0,0--0,0) IsSynthetic=true;
+                                                   unknown (0,0--0,0) IsSynthetic=true],
+                                                  unknown (0,0--0,0) IsSynthetic=true),
+                                               unknown (0,0--0,0) IsSynthetic=true,
+                                               null,
+                                               unknown (0,0--0,0) IsSynthetic=true),
+                                            unknown (0,0--0,0) IsSynthetic=true),
+                                         unknown (0,0--0,0) IsSynthetic=true,
+                                         NoSequencePointAtLetBinding)],
+                                     TryWith
+                                       (App
+                                          (NonAtomic,false,
+                                           LongIdent
+                                             (false,
+                                              LongIdentWithDots
+                                                ([__context; Leave],
+                                                 [unknown (0,0--0,0) IsSynthetic=true;
+                                                  unknown (0,0--0,0) IsSynthetic=true]),
+                                              null,
+                                              unknown (0,0--0,0) IsSynthetic=true),
+                                           Paren
+                                             (App
+                                                (NonAtomic,false,
+                                                 LongIdent
+                                                   (false,
+                                                    LongIdentWithDots
+                                                      ([System; Console;
+                                                        WriteLine],
+                                                       [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,10--34,11) IsSynthetic=false;
+                                                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,18--34,19) IsSynthetic=false]),
+                                                    null,
+                                                    D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (34,4--34,28) IsSynthetic=false),
+                                                 Paren
+                                                   (Tuple
+                                                      ([Ident __arg_0;
+                                                        Ident __arg_1;
+                                                        Ident __arg_2;
+                                                        Ident __arg_3],[],
+                                                       unknown (0,0--0,0) IsSynthetic=true),
+                                                    unknown (0,0--0,0) IsSynthetic=true,
+                                                    null,
+                                                    unknown (0,0--0,0) IsSynthetic=true),
+                                                 unknown (0,0--0,0) IsSynthetic=true),
+                                              unknown (0,0--0,0) IsSynthetic=true,
+                                              null,
+                                              unknown (0,0--0,0) IsSynthetic=true),
+                                           unknown (0,0--0,0) IsSynthetic=true),
+                                        unknown (0,0--0,0) IsSynthetic=true,
+                                        [Clause
+                                           (Named
+                                              (Wild
+                                                 unknown (0,0--0,0) IsSynthetic=true,
+                                               ex,false,null,
+                                               unknown (0,0--0,0) IsSynthetic=true),
+                                            null,
+                                            Sequential
+                                              (SuppressSequencePointOnStmtOfSequential,
+                                               true,
+                                               App
+                                                 (NonAtomic,false,
+                                                  LongIdent
+                                                    (false,
+                                                     LongIdentWithDots
+                                                       ([__context; Caught],
+                                                        [unknown (0,0--0,0) IsSynthetic=true;
+                                                         unknown (0,0--0,0) IsSynthetic=true]),
+                                                     null,
+                                                     unknown (0,0--0,0) IsSynthetic=true),
+                                                  Paren
+                                                    (Ident ex,
+                                                     unknown (0,0--0,0) IsSynthetic=true,
+                                                     null,
+                                                     unknown (0,0--0,0) IsSynthetic=true),
+                                                  unknown (0,0--0,0) IsSynthetic=true),
+                                               App
+                                                 (NonAtomic,false,Ident reraise,
+                                                  Paren
+                                                    (Const
+                                                       (Unit,
+                                                        unknown (0,0--0,0) IsSynthetic=true),
+                                                     unknown (0,0--0,0) IsSynthetic=true,
+                                                     null,
+                                                     unknown (0,0--0,0) IsSynthetic=true),
+                                                  unknown (0,0--0,0) IsSynthetic=true),
+                                               unknown (0,0--0,0) IsSynthetic=true),
+                                            unknown (0,0--0,0) IsSynthetic=true,
+                                            SuppressSequencePointAtTarget)],
+                                        unknown (0,0--0,0) IsSynthetic=true,
+                                        unknown (0,0--0,0) IsSynthetic=true,
+                                        NoSequencePointAtTry,
+                                        NoSequencePointAtWith),
+                                     unknown (0,0--0,0) IsSynthetic=true),
+                                  unknown (0,0--0,0) IsSynthetic=true),
+                               unknown (0,0--0,0) IsSynthetic=true),
+                            unknown (0,0--0,0) IsSynthetic=true),
+                         unknown (0,0--0,0) IsSynthetic=true),
+                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,6--33,19) IsSynthetic=false,
+                      SequencePointAtBinding
+                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,2--34,61) IsSynthetic=false)],
+                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (33,2--34,61) IsSynthetic=false)],
+              false,
+              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (22,0--34,61) IsSynthetic=false);
            NestedModule
              (ComponentInfo
                 ([],[],[],[AspectTargets],
@@ -55,10 +326,46 @@
                          null,
                          D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,6--47,37) IsSynthetic=false),
                       null,
-                      App
-                        (NonAtomic,false,
-                         App
-                           (NonAtomic,false,
+                      LetOrUse
+                        (false,false,
+                         [Binding
+                            (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+                             SynValData
+                               (null,SynValInfo ([],SynArgInfo ([],false,null)),
+                                null),
+                             Named
+                               (Wild unknown (0,0--0,0) IsSynthetic=true,__arg_0,
+                                false,null,unknown (0,0--0,0) IsSynthetic=true),
+                             null,
+                             Paren
+                               (App
+                                  (NonAtomic,false,
+                                   App
+                                     (NonAtomic,true,Ident op_Addition,Ident a,
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,27--48,30) IsSynthetic=false),
+                                   Ident c,
+                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,27--48,32) IsSynthetic=false),
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,26--48,27) IsSynthetic=false,
+                                Some
+                                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,32--48,33) IsSynthetic=false,
+                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,26--48,33) IsSynthetic=false),
+                             unknown (0,0--0,0) IsSynthetic=true,
+                             SequencePointAtBinding
+                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--48,43) IsSynthetic=false)],
+                         LetOrUse
+                           (false,false,
+                            [Binding
+                               (null,NormalBinding,false,false,[],PreXmlDocEmpty,
+                                SynValData
+                                  (null,
+                                   SynValInfo ([],SynArgInfo ([],false,null)),
+                                   null),
+                                Named
+                                  (Wild unknown (0,0--0,0) IsSynthetic=true,
+                                   __arg_1,false,null,
+                                   unknown (0,0--0,0) IsSynthetic=true),null,
+                                Ident b,unknown (0,0--0,0) IsSynthetic=true,
+                                NoSequencePointAtLetBinding)],
                             LetOrUse
                               (false,false,
                                [Binding
@@ -70,19 +377,13 @@
                                       null),
                                    Named
                                      (Wild unknown (0,0--0,0) IsSynthetic=true,
-                                      __arg_0,false,null,
+                                      __arg_2,false,null,
                                       unknown (0,0--0,0) IsSynthetic=true),null,
-                                   App
-                                     (NonAtomic,false,
-                                      App
-                                        (NonAtomic,true,Ident op_Addition,
-                                         Ident a,
-                                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,27--58,30) IsSynthetic=false),
-                                      Ident c,
-                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,27--58,32) IsSynthetic=false),
+                                   Const
+                                     (Double 123.456,
+                                      D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,36--48,43) IsSynthetic=false),
                                    unknown (0,0--0,0) IsSynthetic=true,
-                                   SequencePointAtBinding
-                                     D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,4--58,33) IsSynthetic=false)],
+                                   NoSequencePointAtLetBinding)],
                                LetOrUse
                                  (false,false,
                                   [Binding
@@ -123,13 +424,15 @@
                                                       unknown (0,0--0,0) IsSynthetic=true),
                                                    unknown (0,0--0,0) IsSynthetic=true);
                                                 Const
-                                                  (Int32 58,
+                                                  (Int32 48,
                                                    unknown (0,0--0,0) IsSynthetic=true);
                                                 Const
                                                   (Int32 4,
                                                    unknown (0,0--0,0) IsSynthetic=true);
                                                 ArrayOrList
-                                                  (true,[Ident __arg_0],
+                                                  (true,
+                                                   [Ident __arg_0; Ident __arg_1;
+                                                    Ident __arg_2],
                                                    unknown (0,0--0,0) IsSynthetic=true)],
                                                [unknown (0,0--0,0) IsSynthetic=true;
                                                 unknown (0,0--0,0) IsSynthetic=true;
@@ -156,18 +459,46 @@
                                         Paren
                                           (App
                                              (NonAtomic,false,
-                                              LongIdent
-                                                (false,
-                                                 LongIdentWithDots
-                                                   ([TestFunctions; output3],
-                                                    [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,17--58,18) IsSynthetic=false]),
-                                                 null,
-                                                 D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,4--58,25) IsSynthetic=false),
-                                              Paren
-                                                (Ident __arg_0,
-                                                 unknown (0,0--0,0) IsSynthetic=true,
-                                                 null,
+                                              App
+                                                (NonAtomic,false,
+                                                 App
+                                                   (NonAtomic,false,
+                                                    App
+                                                      (NonAtomic,false,
+                                                       App
+                                                         (NonAtomic,false,
+                                                          LongIdent
+                                                            (false,
+                                                             LongIdentWithDots
+                                                               ([TestFunctions;
+                                                                 output3],
+                                                                [D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,17--48,18) IsSynthetic=false]),
+                                                             null,
+                                                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--48,25) IsSynthetic=false),
+                                                          Paren
+                                                            (App
+                                                               (NonAtomic,false,
+                                                                App
+                                                                  (NonAtomic,
+                                                                   true,
+                                                                   Ident
+                                                                     op_Addition,
+                                                                   Ident a,
+                                                                   D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,27--48,30) IsSynthetic=false),
+                                                                Ident c,
+                                                                D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,27--48,32) IsSynthetic=false),
+                                                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,26--48,27) IsSynthetic=false,
+                                                             Some
+                                                               D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,32--48,33) IsSynthetic=false,
+                                                             D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,26--48,33) IsSynthetic=false),
+                                                          D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--48,33) IsSynthetic=false),
+                                                       Ident b,
+                                                       D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (48,4--48,35) IsSynthetic=false),
+                                                    Ident __arg_2,
+                                                    unknown (0,0--0,0) IsSynthetic=true),
+                                                 Ident __arg_1,
                                                  unknown (0,0--0,0) IsSynthetic=true),
+                                              Ident __arg_0,
                                               unknown (0,0--0,0) IsSynthetic=true),
                                            unknown (0,0--0,0) IsSynthetic=true,
                                            null,
@@ -217,13 +548,15 @@
                                      unknown (0,0--0,0) IsSynthetic=true,
                                      NoSequencePointAtTry,NoSequencePointAtWith),
                                   unknown (0,0--0,0) IsSynthetic=true),
-                               unknown (0,0--0,0) IsSynthetic=true),Ident b,
-                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,4--58,35) IsSynthetic=false),
-                         Const
-                           (Double 123.456,
-                            D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,36--58,43) IsSynthetic=false),
-                         D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (58,4--58,43) IsSynthetic=false),
+                               unknown (0,0--0,0) IsSynthetic=true),
+                            unknown (0,0--0,0) IsSynthetic=true),
+                         unknown (0,0--0,0) IsSynthetic=true),
                       D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,6--47,37) IsSynthetic=false,
                       SequencePointAtBinding
-                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,2--58,43) IsSynthetic=false)],
-                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,2--58,43) IsSynthetic=false)],
+                        D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,2--48,43) IsSynthetic=false)],
+                  D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (47,2--48,43) IsSynthetic=false)],
+              false,
+              D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (39,0--48,43) IsSynthetic=false)],
+          PreXmlDocEmpty,[],null,
+          D:\PROJECT\fscx\tests\test_bench\bin\Debug\SampleCode.fs (22,0--74,0) IsSynthetic=false)],
+      (true, false)))
