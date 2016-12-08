@@ -19,30 +19,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-//module FscxOutputSample1 =
-//
-//  let f1 (a: int, b: string, c: int) =
-//    let __arg_0 = a + c
-//    let __arg_1 = b
-//    let __context = SampleAspectLogger.SampleAspect.Enter("System.Console.WriteLine", "SampleCode.fs", 27, 2, [|__arg_0;__arg_1|])
-//    try
-//      __context.Leave(System.Console.WriteLine("Sample1: {0}:{1}", __arg_0, __arg_1))
-//    with
-//    | ex ->
-//        __context.Caught(ex)
-//        reraise()
+open System
+open System.IO
+open FSharp.Expandable
 
 module Program =
 
-    open System
-    open System.IO
-    open FSharp.Expandable
+  let dump entry =
+    Console.WriteLine(entry.ToString())
 
-    let dump entry =
-        Console.WriteLine(entry.ToString())
-
-    [<EntryPoint>]
-    let main argv = 
-        let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] (["SampleCode.fs"] |> List.map Path.GetFullPath)
-        let declAspectVisitor = DeclareFscxInjectAspectVisitor("SampleAspectLogger.SampleAspect")
-        CompilerHelper.RawCompileWithArguments (new Action<_>(dump)) args ([declAspectVisitor] |> Seq.cast<_>)
+  [<EntryPoint>]
+  let main argv = 
+    let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] (["SampleCode.fs"] |> List.map Path.GetFullPath)
+    let declAspectVisitor = DeclareFscxInjectAspectVisitor("SampleAspectLogger.SampleAspect")
+    CompilerHelper.RawCompileWithArguments (new Action<_>(dump)) args ([declAspectVisitor] |> Seq.cast<_>)

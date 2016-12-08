@@ -246,9 +246,9 @@ module internal CompilerImpl =
             | Succeeded(_, appliedAst) -> Some appliedAst
             | _ -> None)
           |> Seq.toArray
-
+#if DEBUG
         let rs = appliedAsts |> Array.map (sprintf "%A")
-
+#endif
         // Compile
         let errors, returnValue =
           compileByFcs

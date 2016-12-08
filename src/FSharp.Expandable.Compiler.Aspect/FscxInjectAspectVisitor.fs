@@ -384,19 +384,11 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
         (deconstructedExprs |> List.mapi (fun index expr -> index, expr))
         contextBound
 
-#if DEBUG
-    ////////////////////////////////////////////////////////////////////
-    // DEBUG:
-    let orig = this.Parents |> Enumerable.Last |> sprintf "%A"
-    let generated = sprintf "%A" generatedExpr
-    ////////////////////////////////////////////////////////////////////
-#endif
-
     generatedExpr
 
   //////////////////////
 
-  // Hook "SynExpr.App"
+  // Hook "SynExpr.App" (Before visit)
   override this.BeforeVisitExpr_App
      (context,
       exprAtomicFlag,
@@ -407,8 +399,13 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
     match funcExpr, (funcExpr, argExpr) with
     | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying) ->
-      this.InsertAspectToAppExpr(funcExpr, identExpr, symbolName, argExpr, deconstructedExprs, currying, appRange)
+      // Deconstructed exprs visit manually.
+      // (funcExpr not visit, because IdentForSymbol was traversal on original structure and decomposed identity.)
+      let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
+      // Insert aspect
+      this.InsertAspectToAppExpr(funcExpr, identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
     | _ ->
+      // Continue visit
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
 
 [<NoEquality; NoComparison; AutoSerializable(false)>]
