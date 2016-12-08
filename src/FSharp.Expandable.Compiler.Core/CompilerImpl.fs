@@ -128,14 +128,10 @@ module internal CompilerImpl =
   /// Apply filter with visitors
   let astFilter
      (decls: IDeclareFscxVisitor seq)
+     (filterArguments: Map<string, string>)
      (symbolInformation: FSharpCheckFileResults)
      (ast: ParsedInput) =
-    decls |> Seq.fold (fun partialAst decl -> decl.Visit(symbolInformation, partialAst)) ast
- 
-  let dummyAstFilter
-     (_: FSharpCheckFileResults)
-     (ast: ParsedInput) =
-    ast
+    decls |> Seq.fold (fun partialAst decl -> decl.Visit(filterArguments, symbolInformation, partialAst)) ast
 
   ///////////////////////////////////////////////////////
 
@@ -218,14 +214,10 @@ module internal CompilerImpl =
       // Parse source codes and apply (Async)
       let! appliedResults =
         sourceCodes
-        |> Seq.mapi (fun index sourceCode ->
+        |> Seq.map (fun sourceCode ->
           (parseSourceCodeAndApplyByAsync
              options
-             (if index = 0 then
-                //dummyAstFilter
-                (astFilter decls)
-              else
-                (astFilter decls))
+             (astFilter decls arguments.FilterArguments)
              sourceCode))
         |> Async.Parallel
 

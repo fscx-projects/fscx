@@ -21,7 +21,6 @@
 
 namespace FSharp.Expandable
 
-open System
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.Ast.Visitors
 open Microsoft.FSharp.Compiler.SourceCodeServices
@@ -38,7 +37,16 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>() =
   inherit AstInheritableVisitor<'TContext>()
 
+  let mutable filterArgs: Map<string, string> option = None
   let mutable symInf: FSharpCheckFileResults option = None
+
+  /// <summary>
+  /// Filter arguments.
+  /// </summary>
+  member __.FilterArguments =
+    match filterArgs with
+    | Some(args) -> args
+    | None -> failwith "Not given filter arguments for current state."
 
   /// <summary>
   /// Symbol information.
@@ -51,14 +59,17 @@ type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>
   /// <summary>
   /// Visit the parsed input (Entry point).
   /// </summary>
+  /// <param name="filterArguments">Filter arguments.</param>
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  member this.Visit(symbolInformation, parsedInput) = 
+  member this.Visit(filterArguments: Map<string, string>, symbolInformation, parsedInput) =
+    filterArgs <- Some filterArguments
     symInf <- Some symbolInformation
     try
       this.VisitInput (new 'TContext()) parsedInput
     finally
+      filterArgs <- None
       symInf <- None
 
 /// <summary>
@@ -78,11 +89,12 @@ type IDeclareFscxVisitor =
   /// <summary>
   /// Visit the parsed input (Entry point).
   /// </summary>
+  /// <param name="filterArguments">Filter arguments.</param>
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
   abstract Visit :
-    symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
+    filterArguments: Map<string, string> * symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
     Microsoft.FSharp.Compiler.Ast.ParsedInput
     
 //////////////////////////////////////////////////////////////////////////////
@@ -103,22 +115,24 @@ type DeclareFscxInheritableVisitorBase<'TVisitor,'TContext when 'TVisitor :> Fsc
   /// <summary>
   /// Visit the parsed input (Entry point).
   /// </summary>
+  /// <param name="filterArguments">Filter arguments.</param>
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  member this.Visit(symbolInformation, parsedInput) = 
+  member this.Visit(filterArguments, symbolInformation, parsedInput) = 
     let visitor = this.CreateVisitor()
-    visitor.Visit(symbolInformation, parsedInput)
+    visitor.Visit(filterArguments, symbolInformation, parsedInput)
 
   interface IDeclareFscxVisitor with
     /// <summary>
     /// Visit the parsed input (Entry point).
     /// </summary>
+    /// <param name="filterArguments">Filter arguments.</param>
     /// <param name="symbolInformation">Symbol information.</param>
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
-    member this.Visit(symbolInformation, parsedInput) = 
-      this.Visit(symbolInformation, parsedInput)
+    member this.Visit(filterArguments, symbolInformation, parsedInput) = 
+      this.Visit(filterArguments, symbolInformation, parsedInput)
 
 /// <summary>
 /// Basic functional visitor base type.
@@ -170,21 +184,24 @@ type DeclareFscxFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TCont
   /// <summary>
   /// Visit the parsed input (Entry point).
   /// </summary>
+  /// <param name="filterArguments">Filter arguments.</param>
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  member __.Visit(symbolInformation, parsedInput) = 
+  member __.Visit(filterArguments, symbolInformation, parsedInput) =
+    // TODO: How to delive arguments into functional visitor?
     AstFunctionalVisitor.visitInput(visitor, symbolInformation, new 'TContext(), parsedInput)
 
   interface IDeclareFscxVisitor with
     /// <summary>
     /// Visit the parsed input (Entry point).
     /// </summary>
+    /// <param name="filterArguments">Filter arguments.</param>
     /// <param name="symbolInformation">Symbol information.</param>
     /// <param name="parsedInput">Target for ParsedInput instance.</param>
     /// <returns>Visited instance.</returns>
-    member this.Visit(symbolInformation, parsedInput) = 
-      this.Visit(symbolInformation, parsedInput)
+    member this.Visit(filterArguments, symbolInformation, parsedInput) = 
+      this.Visit(filterArguments, symbolInformation, parsedInput)
 
 /// <summary>
 /// Basic functional visitor base type.

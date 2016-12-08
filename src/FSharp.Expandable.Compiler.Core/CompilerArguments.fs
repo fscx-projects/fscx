@@ -35,7 +35,8 @@ type CompilerArguments
    sourcePaths,
    optionArguments,
    visitorPaths,
-   fscxDebug) =
+   fscxDebug,
+   filterArguments) =
   member val ProjectPath : string = projectPath with get, set
   member val OutputPath : string = outputPath with get, set
   member val AssemblyName : string = assemblyName with get, set
@@ -45,6 +46,7 @@ type CompilerArguments
   member val OptionArguments : string seq = optionArguments with get, set
   member val VisitorPaths : string seq = visitorPaths with get, set
   member val FscxDebug : bool = fscxDebug with get, set
+  member val FilterArguments : Map<string, string> = filterArguments with get, set
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module internal CompilerArguments =
@@ -63,6 +65,13 @@ module internal CompilerArguments =
     args
     |> extractOptionValue switch
     |> Option.map Path.GetFullPath
+
+  let private splitOption (arg: string) =
+    let index = arg.IndexOf('=')
+    if index >= 0 then
+      arg.Substring(0, index).Trim(), arg.Substring(index + 1).Trim()
+    else
+      arg.Trim(), ""
 
   /// <summary>
   /// Extract compiler arguments.
@@ -88,7 +97,8 @@ module internal CompilerArguments =
         (arg.StartsWith "-") &&
          not (arg.StartsWith "--projectPath:") &&
          not (arg.StartsWith "--visitorPath:") &&
-         not (arg.StartsWith "--fscxDebug:"))
+         not (arg.StartsWith "--fscxDebug:") &&
+         not (arg.StartsWith "--filterArguments:"))
       |> Seq.toArray
 
     let projectPath =
@@ -116,6 +126,11 @@ module internal CompilerArguments =
       match extractOptionValue "--fscxDebug:" sanitized with
       | Some path -> bool.TryParse path
       | None -> false, false
+      
+    let filterArguments =
+      extractOptionValues "--filterArguments:" sanitized
+      |> Seq.map splitOption
+      |> Map.ofSeq
 
     new CompilerArguments
       (projectPath,
@@ -126,4 +141,5 @@ module internal CompilerArguments =
        sourcePaths,
        optionArguments,
        visitorPaths,
-       fscxDebug)
+       fscxDebug,
+       filterArguments)

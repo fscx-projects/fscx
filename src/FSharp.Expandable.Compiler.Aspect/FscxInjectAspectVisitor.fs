@@ -22,7 +22,6 @@
 namespace FSharp.Expandable
 
 open System
-open System.Linq
 open System.Reflection
 open Microsoft.FSharp.Compiler.Ast
 open FSharp.Expandable
@@ -175,10 +174,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       identForSymbol funcExpr
     // Single symbol
     | SynExpr.Ident ident ->
-      if ident.idText.StartsWith "op_" then
-        None
-      else
-        Some (expr, ident.idText)
+      Some (expr, ident.idText)
     // Multiple structuring symbols
     | SynExpr.LongIdent (_, longIdent, _, _) ->
       let elements = longIdent.Lid |> List.map (fun i -> i.idText)
@@ -240,7 +236,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   static let createArrayWithArgs exprs =
     SynExpr.ArrayOrList
       (true,
-       exprs |> List.mapi (fun index (expr: SynExpr) -> createIdent [getArgName index] zeroRange),
+       exprs |> List.mapi (fun index _ -> createIdent [getArgName index] zeroRange),
        zeroRange)
 
   //////////////////////
@@ -267,9 +263,8 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   //     reraise()
 
   // Insert aspect core code:
-  member private this.InsertAspectToAppExpr
-    (funcExpr,
-     identExpr,
+  member private __.InsertAspectToAppExpr
+    (identExpr,
      symbolName,
      argExpr,
      deconstructedExprs,
@@ -400,10 +395,10 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
     match funcExpr, (funcExpr, argExpr) with
     | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying) ->
       // Deconstructed exprs visit manually.
-      // (funcExpr not visit, because IdentForSymbol was traversal on original structure and decomposed identity.)
+      // (funcExpr not visit, because IdentForSymbol traversed on original AST structures and decomposed identity.)
       let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
       // Insert aspect
-      this.InsertAspectToAppExpr(funcExpr, identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
+      this.InsertAspectToAppExpr(identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
     | _ ->
       // Continue visit
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)

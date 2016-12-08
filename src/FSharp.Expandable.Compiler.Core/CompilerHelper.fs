@@ -149,7 +149,8 @@ type CompilerHelper =
          sourceCodePaths,
          CompilerHelper.optionArgs,
          visitorPaths,
-         false)
+         false,
+         [] |> Map.ofSeq)
     | TargetRuntimes.Loaded ->
       new CompilerArguments
         (filePath + ".fsproj",
@@ -178,6 +179,7 @@ type CompilerHelper =
          sourceCodePaths,
          CompilerHelper.optionArgs,
          visitorPaths,
-         false)
+         false,
+         [] |> Map.ofSeq)
     | _ ->
       failwith "Unknown targetRuntime"
