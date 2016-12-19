@@ -128,7 +128,7 @@ module internal CompilerImpl =
   /// Apply filter with visitors
   let astFilter
      (decls: IDeclareFscxVisitor seq)
-     (filterArguments: Map<string, string>)
+     (filterArguments: Map<string, string[]>)
      (symbolInformation: FSharpCheckFileResults)
      (ast: ParsedInput) =
     decls |> Seq.fold (fun partialAst decl -> decl.Visit(filterArguments, symbolInformation, partialAst)) ast

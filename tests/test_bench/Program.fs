@@ -31,5 +31,8 @@ module Program =
   [<EntryPoint>]
   let main argv = 
     let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] (["SampleAspectLogger.fs"; "SampleCode.fs"] |> List.map Path.GetFullPath)
+    args.FilterArguments <-
+        [("FSharp.Expandable.Compiler.Aspect","SampleCode.fs:SampleCode\.AspectTargets?\.f[0-9][0-9]")]
+        |> Map.ofList
     let declAspectVisitor = DeclareFscxInjectAspectVisitor("SampleAspectLogger.SampleAspect")
     CompilerHelper.RawCompileWithArguments (new Action<_>(dump)) args ([declAspectVisitor] |> Seq.cast<_>)

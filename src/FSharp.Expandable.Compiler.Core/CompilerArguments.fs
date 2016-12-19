@@ -46,7 +46,7 @@ type CompilerArguments
   member val OptionArguments : string seq = optionArguments with get, set
   member val VisitorPaths : string seq = visitorPaths with get, set
   member val FscxDebug : bool = fscxDebug with get, set
-  member val FilterArguments : Map<string, string> = filterArguments with get, set
+  member val FilterArguments : Map<string, string[]> = filterArguments with get, set
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 module internal CompilerArguments =
@@ -130,6 +130,8 @@ module internal CompilerArguments =
     let filterArguments =
       extractOptionValues "--filterArgument:" sanitized
       |> Seq.map splitOption
+      |> Seq.groupBy (fun (key, _) -> key)
+      |> Seq.map (fun (key, e) -> key, e |> Seq.map (fun (_, v) -> v) |> Seq.toArray)
       |> Map.ofSeq
 
     new CompilerArguments

@@ -37,7 +37,7 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>() =
   inherit AstInheritableVisitor<'TContext>()
 
-  let mutable filterArgs: Map<string, string> option = None
+  let mutable filterArgs: Map<string, string[]> option = None
   let mutable symInf: FSharpCheckFileResults option = None
 
   /// <summary>
@@ -55,7 +55,32 @@ type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>
     match symInf with
     | Some(si) -> si
     | None -> failwith "Not given symbol information for current state."
-        
+
+  /// <summary>
+  /// Hook point for before visit the parsed input.
+  /// </summary>
+  /// <param name="parsedInput">Target for ParsedInput instance.</param>
+  abstract member BeforeVisit:
+    parsedInput: ParsedInput -> unit
+
+  /// <summary>
+  /// Hook point for before visit the parsed input.
+  /// </summary>
+  /// <remarks>Default implementation is nothing.</remarks>
+  default __.BeforeVisit _ = ()
+
+  /// <summary>
+  /// Hook point for after visit the parsed input.
+  /// </summary>
+  abstract member AfterVisit:
+    unit -> unit
+
+  /// <summary>
+  /// Hook point for after visit the parsed input.
+  /// </summary>
+  /// <remarks>Default implementation is nothing.</remarks>
+  default __.AfterVisit() = ()
+          
   /// <summary>
   /// Visit the parsed input (Entry point).
   /// </summary>
@@ -63,12 +88,14 @@ type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>
   /// <param name="symbolInformation">Symbol information.</param>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
-  member this.Visit(filterArguments: Map<string, string>, symbolInformation, parsedInput) =
+  member this.Visit(filterArguments: Map<string, string[]>, symbolInformation, parsedInput) =
     filterArgs <- Some filterArguments
     symInf <- Some symbolInformation
     try
+      this.BeforeVisit parsedInput
       this.VisitInput (new 'TContext()) parsedInput
     finally
+      this.AfterVisit()
       filterArgs <- None
       symInf <- None
 
@@ -94,7 +121,7 @@ type IDeclareFscxVisitor =
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
   abstract Visit :
-    filterArguments: Map<string, string> * symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
+    filterArguments: Map<string, string[]> * symbolInformation: Microsoft.FSharp.Compiler.SourceCodeServices.FSharpCheckFileResults * parsedInput: Microsoft.FSharp.Compiler.Ast.ParsedInput ->
     Microsoft.FSharp.Compiler.Ast.ParsedInput
     
 //////////////////////////////////////////////////////////////////////////////

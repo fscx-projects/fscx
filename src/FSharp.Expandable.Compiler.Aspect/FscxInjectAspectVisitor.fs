@@ -22,9 +22,12 @@
 namespace FSharp.Expandable
 
 open System
+open System.IO
 open System.Reflection
-open Microsoft.FSharp.Compiler.Ast
+open System.Text.RegularExpressions
 open FSharp.Expandable
+open Microsoft.FSharp.Compiler.Ast
+open Microsoft.FSharp.Compiler.Ast.Visitors
 
 ////////////////////////////////////////////////////////////////
 
@@ -241,6 +244,11 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   //////////////////////
 
+  // Target regexs.
+  let mutable cachedTargets: (Regex * Regex) seq option = None
+
+  //////////////////////
+
   // Public constructor
   new (aspectTypeName: string) =
     FscxInjectAspectVisitor([ yield! aspectTypeName.Split('.'); yield "Enter"])
@@ -383,7 +391,39 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   //////////////////////
 
-  // Hook "SynExpr.App" (Before visit)
+  /// <summary>
+  /// Hook point for before visit the parsed input.
+  /// </summary>
+  override __.BeforeVisit _ =
+    let targets =
+      match base.FilterArguments.TryFind "FSharp.Expandable.Compiler.Aspect" with
+      | Some args ->
+        args
+        |> Seq.map (fun value ->
+          value.Split([|':'|], StringSplitOptions.RemoveEmptyEntries)
+          |> Array.map (fun arg -> arg.Trim()))
+        |> Seq.choose (fun args ->
+          match args with
+          | [|fileName; functionName|] -> Some (fileName, functionName)
+          | _ -> None)
+      | None ->
+        [ (".*", ".*") ] |> seq   // Targetting for all source file and functions.
+    let targets =
+      targets
+      |> Seq.map (fun (fileName, functionName) -> new Regex(fileName, RegexOptions.Compiled), new Regex(functionName, RegexOptions.Compiled))
+      |> Seq.toArray
+      |> seq
+    cachedTargets <- Some targets
+
+  /// <summary>
+  /// Hook point for after visit the parsed input.
+  /// </summary>
+  override __.AfterVisit() =
+    cachedTargets <- None
+
+  /// <summary>
+  /// Hook "SynExpr.App" (Before visit)
+  /// </summary>
   override this.BeforeVisitExpr_App
      (context,
       exprAtomicFlag,
@@ -392,13 +432,30 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       argExpr,
       appRange) =
 
-    match funcExpr, (funcExpr, argExpr) with
-    | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying) ->
-      // Deconstructed exprs visit manually.
-      // (funcExpr not visit, because IdentForSymbol traversed on original AST structures and decomposed identity.)
-      let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
-      // Insert aspect
-      this.InsertAspectToAppExpr(identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
+    let inputFileName =
+      match base.Parents |> Seq.head with
+      | AstElement.Input(ParsedInput.ImplFile(ParsedImplFileInput(inputPath, _, _, _, _, _, _))) ->
+        Path.GetFileName inputPath
+      | _ ->
+        failwith ""
+
+    let functionNameRegex =
+      cachedTargets.Value
+      |> Seq.choose (fun (fileNameRegex, functionNameRegex) ->
+        if fileNameRegex.IsMatch(inputFileName) then Some functionNameRegex else None)
+      |> Seq.tryHead
+
+    match funcExpr, (funcExpr, argExpr), functionNameRegex with
+    | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying), Some functionNameRegex ->
+      if functionNameRegex.IsMatch(symbolName) then
+        // Deconstructed exprs visit manually.
+        // (funcExpr not visit, because IdentForSymbol traversed on original AST structures and decomposed identity.)
+        let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
+        // Insert aspect
+        this.InsertAspectToAppExpr(identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
+      else
+        // Continue visit
+        base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
     | _ ->
       // Continue visit
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
