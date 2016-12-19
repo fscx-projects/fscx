@@ -98,7 +98,7 @@ module internal CompilerArguments =
          not (arg.StartsWith "--projectPath:") &&
          not (arg.StartsWith "--visitorPath:") &&
          not (arg.StartsWith "--fscxDebug:") &&
-         not (arg.StartsWith "--filterArguments:"))
+         not (arg.StartsWith "--filterArgument:"))
       |> Seq.toArray
 
     let projectPath =
@@ -128,7 +128,7 @@ module internal CompilerArguments =
       | None -> false, false
       
     let filterArguments =
-      extractOptionValues "--filterArguments:" sanitized
+      extractOptionValues "--filterArgument:" sanitized
       |> Seq.map splitOption
       |> Map.ofSeq
 
