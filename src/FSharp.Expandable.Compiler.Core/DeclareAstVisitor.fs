@@ -34,52 +34,29 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 /// </summary>
 /// <typeparam name="'TContext">Custom context type.</typeparam>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>() =
+type FscxInheritableVisitor<'TContext>() =
   inherit AstInheritableVisitor<'TContext>()
 
-  let mutable filterArgs: Map<string, string[]> option = None
-  let mutable symInf: FSharpCheckFileResults option = None
-
   /// <summary>
-  /// Filter arguments.
+  /// Create context.
   /// </summary>
-  member __.FilterArguments =
-    match filterArgs with
-    | Some(args) -> args
-    | None -> failwith "Not given filter arguments for current state."
-
-  /// <summary>
-  /// Symbol information.
-  /// </summary>
-  member __.SymbolInformation =
-    match symInf with
-    | Some(si) -> si
-    | None -> failwith "Not given symbol information for current state."
-
-  /// <summary>
-  /// Hook point for before visit the parsed input.
-  /// </summary>
-  /// <param name="parsedInput">Target for ParsedInput instance.</param>
-  abstract member BeforeVisit:
-    parsedInput: ParsedInput -> unit
-
-  /// <summary>
-  /// Hook point for before visit the parsed input.
-  /// </summary>
-  /// <remarks>Default implementation is nothing.</remarks>
-  default __.BeforeVisit _ = ()
+  /// <param name="filterArguments">Filter arguments.</param>
+  /// <param name="symbolInformation">Symbol information.</param>
+  /// <returns>Context instance</returns>
+  abstract member CreateContext:
+     filterArguments: Map<string, string[]> * symbolInformation: FSharpCheckFileResults -> 'TContext
 
   /// <summary>
   /// Hook point for after visit the parsed input.
   /// </summary>
-  abstract member AfterVisit:
-    unit -> unit
+  abstract member Finish:
+    context: 'TContext -> unit
 
   /// <summary>
   /// Hook point for after visit the parsed input.
   /// </summary>
   /// <remarks>Default implementation is nothing.</remarks>
-  default __.AfterVisit() = ()
+  default __.Finish _ = ()
           
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -89,15 +66,11 @@ type FscxInheritableVisitor<'TContext when 'TContext : (new: unit -> 'TContext)>
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
   member this.Visit(filterArguments: Map<string, string[]>, symbolInformation, parsedInput) =
-    filterArgs <- Some filterArguments
-    symInf <- Some symbolInformation
+    let context = this.CreateContext(filterArguments, symbolInformation)
     try
-      this.BeforeVisit parsedInput
-      this.VisitInput (new 'TContext()) parsedInput
+      this.VisitInput context parsedInput
     finally
-      this.AfterVisit()
-      filterArgs <- None
-      symInf <- None
+      this.Finish context
 
 /// <summary>
 /// FSharp.Compiler.Service's untyped AST inheritable visitor.
@@ -135,7 +108,7 @@ type IDeclareFscxVisitor =
 /// Inherit this class if use AstFunctionalVisitor.
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInheritableVisitorBase<'TVisitor,'TContext when 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
+type DeclareFscxInheritableVisitorBase<'TVisitor, 'TContext when 'TVisitor :> FscxInheritableVisitor<'TContext>>() =
 
   abstract CreateVisitor : unit -> 'TVisitor
 
@@ -161,41 +134,19 @@ type DeclareFscxInheritableVisitorBase<'TVisitor,'TContext when 'TVisitor :> Fsc
     member this.Visit(filterArguments, symbolInformation, parsedInput) = 
       this.Visit(filterArguments, symbolInformation, parsedInput)
 
-/// <summary>
-/// Basic functional visitor base type.
-/// </summary>
-/// <typeparam name="'TVisitor">Custom visitor type.</typeparam>
-/// <typeparam name="'TContext">Custom context type.</typeparam>
-/// <remarks>
-/// Inherit this class if use AstFunctionalVisitor.
-/// </remarks>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInheritableVisitor<'TVisitor,'TContext when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<'TContext> and 'TContext : (new: unit -> 'TContext)>() =
-  inherit DeclareFscxInheritableVisitorBase<'TVisitor, 'TContext>()
-
-  override __.CreateVisitor() = new 'TVisitor()
-
-/// <summary>
-/// Basic functional visitor base type.
-/// </summary>
-/// <remarks>
-/// Inherit this class if use AstFunctionalVisitor.
-/// </remarks>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInheritableVisitorBase<'TVisitor when 'TVisitor :> FscxInheritableVisitor<NoContext>>() =
-  inherit DeclareFscxInheritableVisitorBase<'TVisitor, NoContext>()
-
-/// <summary>
-/// Basic functional visitor base type.
-/// </summary>
-/// <remarks>
-/// Inherit this class if use AstFunctionalVisitor.
-/// </remarks>
-[<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVisitor) and 'TVisitor :> FscxInheritableVisitor<NoContext>>() =
-  inherit DeclareFscxInheritableVisitor<'TVisitor, NoContext>()
-
 //////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
+/// Visitor raw context record. Contains context, FCS's check file results and filter arguments.
+/// </summary>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
+type FscxVisitorContext<'TContext> = {
+  Context: 'TContext;
+  SymbolInformation: FSharpCheckFileResults
+  FilterArguments: Map<string, string[]>
+}
+
+//////////////////////////////////////
 
 /// <summary>
 /// Basic functional visitor base type.
@@ -206,7 +157,7 @@ type DeclareFscxInheritableVisitor<'TVisitor when 'TVisitor : (new: unit -> 'TVi
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type DeclareFscxFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
-    (visitor: ( (* default: *) FSharpCheckFileResults * 'TContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) 'TContext * (* target: *) SynExpr -> SynExpr option) =
+    (visitor: ( (* default: *) FscxVisitorContext<'TContext> * SynExpr -> SynExpr) * (* context: *) FscxVisitorContext<'TContext> * (* target: *) SynExpr -> SynExpr option) =
 
   /// <summary>
   /// Visit the parsed input (Entry point).
@@ -216,8 +167,8 @@ type DeclareFscxFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TCont
   /// <param name="parsedInput">Target for ParsedInput instance.</param>
   /// <returns>Visited instance.</returns>
   member __.Visit(filterArguments, symbolInformation, parsedInput) =
-    // TODO: How to delive arguments into functional visitor?
-    AstFunctionalVisitor.visitInput(visitor, symbolInformation, new 'TContext(), parsedInput)
+    let context = { Context = new 'TContext(); SymbolInformation = symbolInformation; FilterArguments = filterArguments }
+    AstFunctionalVisitor.visitInput(visitor, context, parsedInput)
 
   interface IDeclareFscxVisitor with
     /// <summary>
@@ -238,5 +189,5 @@ type DeclareFscxFunctionalVisitor<'TContext when 'TContext: (new: unit -> 'TCont
 /// </remarks>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type DeclareFscxFunctionalVisitor
-    (visitor: ( (* default: *) FSharpCheckFileResults * NoContext * SynExpr -> SynExpr) * (* symbolInformation: *) FSharpCheckFileResults * (* context: *) NoContext * (* target: *) SynExpr -> SynExpr option) =
+    (visitor: ( (* default: *) FscxVisitorContext<NoContext> * SynExpr -> SynExpr) * (* context: *) FscxVisitorContext<NoContext> * (* target: *) SynExpr -> SynExpr option) =
   inherit DeclareFscxFunctionalVisitor<NoContext>(visitor)

@@ -19,6 +19,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
+namespace FSharp.Expandable.Compiler
+
+open System
+
+[<AttributeUsage(AttributeTargets.Method)>]
+type AspectTargetAttribute() =
+  inherit Attribute()
+
+namespace SampleCode
+
 module TestFunctions =
 
 //  let test () =

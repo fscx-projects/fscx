@@ -22,6 +22,43 @@
 namespace FSharp.Expandable
 
 open FSharp.Expandable
+open Microsoft.FSharp.Compiler.Ast.Visitors
+
+/// <summary>
+/// Declare aspect visitor.
+/// </summary>
+/// <typeparam name="'TAspect">Duck-typed aspect class.</typeparam>
+/// <typeparam name="'TContext">Context class.</typeparam>
+/// <remarks>This class provide IDeclareFscxVisitor implementation.
+/// Can decl aspect visitor for using this inherited public class.</remarks>
+[<NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInjectAspectVisitorWithContext<'TContext when 'TContext: (new: unit -> 'TContext)>(aspectTypeName) =
+  inherit DeclareFscxInheritableVisitorBase<FscxInjectAspectVisitor<'TContext>, FscxInjectAspectVisitorContext<'TContext>>()
+
+  override __.CreateVisitor() = new FscxInjectAspectVisitor<'TContext>(aspectTypeName)
+
+/// <summary>
+/// Declare aspect visitor.
+/// </summary>
+/// <typeparam name="'TAspect">Duck-typed aspect class.</typeparam>
+/// <typeparam name="'TContext">Context class.</typeparam>
+/// <remarks>This class provide IDeclareFscxVisitor implementation.
+/// Can decl aspect visitor for using this inherited public class.</remarks>
+[<NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInjectAspectVisitorWithContext<'TAspect, 'TContext when 'TContext: (new: unit -> 'TContext)>() =
+  inherit DeclareFscxInheritableVisitorBase<FscxInjectAspectVisitor<'TAspect, 'TContext>, FscxInjectAspectVisitorContext<'TContext>>()
+
+  override __.CreateVisitor() = new FscxInjectAspectVisitor<'TAspect, 'TContext>()
+  
+/// <summary>
+/// Declare aspect visitor.
+/// </summary>
+/// <typeparam name="'TAspect">Duck-typed aspect class.</typeparam>
+/// <remarks>This class provide IDeclareFscxVisitor implementation.
+/// Can decl aspect visitor for using this inherited public class.</remarks>
+[<NoEquality; NoComparison; AutoSerializable(false)>]
+type DeclareFscxInjectAspectVisitor(aspectTypeName) =
+  inherit DeclareFscxInjectAspectVisitorWithContext<NoContext>(aspectTypeName)
 
 /// <summary>
 /// Declare aspect visitor.
@@ -31,15 +68,4 @@ open FSharp.Expandable
 /// Can decl aspect visitor for using this inherited public class.</remarks>
 [<NoEquality; NoComparison; AutoSerializable(false)>]
 type DeclareFscxInjectAspectVisitor<'TAspect>() =
-  inherit DeclareFscxInheritableVisitor<FscxInjectAspectVisitor<'TAspect>>()
-  
-/// <summary>
-/// Declare aspect visitor.
-/// </summary>
-/// <remarks>This class provide IDeclareFscxVisitor implementation.
-/// Can decl aspect visitor for using this inherited public class.</remarks>
-[<NoEquality; NoComparison; AutoSerializable(false)>]
-type DeclareFscxInjectAspectVisitor(aspectTypeName) =
-  inherit DeclareFscxInheritableVisitorBase<FscxInjectAspectVisitor>()
-
-  override __.CreateVisitor() = new FscxInjectAspectVisitor(aspectTypeName)
+  inherit DeclareFscxInjectAspectVisitorWithContext<'TAspect, NoContext>()

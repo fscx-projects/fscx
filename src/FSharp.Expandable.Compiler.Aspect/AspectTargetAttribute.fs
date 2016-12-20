@@ -19,21 +19,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
+namespace FSharp.Expandable
+
 open System
-open System.IO
-open FSharp.Expandable
-open Microsoft.FSharp.Compiler.Ast.Visitors
 
-module Program =
-
-  let dump entry =
-    Console.WriteLine(entry.ToString())
-
-  [<EntryPoint>]
-  let main argv = 
-    let args = CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] (["SampleAspectLogger.fs"; "SampleCode.fs"] |> List.map Path.GetFullPath)
-    args.FilterArguments <-
-        [("FSharp.Expandable.Compiler.Aspect",[|"SampleCode.fs:SampleCode\.AspectTargets?\.f[0-9][0-9]"|])]
-        |> Map.ofList
-    let declAspectVisitor = DeclareFscxInjectAspectVisitor("SampleAspectLogger.SampleAspect")
-    CompilerHelper.RawCompileWithArguments (new Action<_>(dump)) args ([declAspectVisitor] |> Seq.cast<_>)
+/// <summary>
+/// This is attribute for identicate aspect target.
+/// </summary>
+/// <remarks></remarks>
+[<AttributeUsage(AttributeTargets.Method)>]
+type AspectTargetAttribute() =
+  inherit Attribute()

@@ -28,6 +28,7 @@ open System.Text.RegularExpressions
 open FSharp.Expandable
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.Ast.Visitors
+open Microsoft.FSharp.Compiler.SourceCodeServices
 
 ////////////////////////////////////////////////////////////////
 
@@ -78,9 +79,16 @@ type internal FscxInjectAspectVisitorImpl<'TAspect> private () =
 
 // TODO: Async/Task methods may be handling async computation...
 
+type FscxInjectAspectVisitorContext<'TContext> = {
+  SymbolInformation: FSharpCheckFileResults
+  FilterArguments: Map<string, string[]>
+  CachedTargets: (Regex * Regex)[]
+  Context: 'TContext
+}
+
 [<NoEquality; NoComparison; AutoSerializable(false)>]
-type FscxInjectAspectVisitor private (aspectEnter: string list) = 
-  inherit FscxInheritableVisitor()
+type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)> private (aspectEnter: string list) = 
+  inherit FscxInheritableVisitor<FscxInjectAspectVisitorContext<'TContext>>()
 
   static let constUnit =
     SynExpr.Const(SynConst.Unit, zeroRange)
@@ -244,11 +252,6 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
 
   //////////////////////
 
-  // Target regexs.
-  let mutable cachedTargets: (Regex * Regex) seq option = None
-
-  //////////////////////
-
   // Public constructor
   new (aspectTypeName: string) =
     FscxInjectAspectVisitor([ yield! aspectTypeName.Split('.'); yield "Enter"])
@@ -394,9 +397,11 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
   /// <summary>
   /// Hook point for before visit the parsed input.
   /// </summary>
-  override __.BeforeVisit _ =
+  /// <param name="filterArguments">Filter arguments.</param>
+  /// <param name="symbolInformation">Symbol information.</param>
+  override __.CreateContext(filterArguments, symbolInformation) =
     let targets =
-      match base.FilterArguments.TryFind "FSharp.Expandable.Compiler.Aspect" with
+      match filterArguments.TryFind "FSharp.Expandable.Compiler.Aspect" with
       | Some args ->
         args
         |> Seq.map (fun value ->
@@ -408,18 +413,12 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
           | _ -> None)
       | None ->
         [ (".*", ".*") ] |> seq   // Targetting for all source file and functions.
-    let targets =
+    let cachedTargets =
       targets
       |> Seq.map (fun (fileName, functionName) -> new Regex(fileName, RegexOptions.Compiled), new Regex(functionName, RegexOptions.Compiled))
       |> Seq.toArray
-      |> seq
-    cachedTargets <- Some targets
 
-  /// <summary>
-  /// Hook point for after visit the parsed input.
-  /// </summary>
-  override __.AfterVisit() =
-    cachedTargets <- None
+    { FilterArguments = filterArguments; SymbolInformation = symbolInformation; CachedTargets = cachedTargets; Context = new 'TContext() }
 
   /// <summary>
   /// Hook "SynExpr.App" (Before visit)
@@ -440,7 +439,7 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
         failwith ""
 
     let functionNameRegex =
-      cachedTargets.Value
+      context.CachedTargets
       |> Seq.choose (fun (fileNameRegex, functionNameRegex) ->
         if fileNameRegex.IsMatch(inputFileName) then Some functionNameRegex else None)
       |> Seq.tryHead
@@ -461,5 +460,5 @@ type FscxInjectAspectVisitor private (aspectEnter: string list) =
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
 
 [<NoEquality; NoComparison; AutoSerializable(false)>]
-type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *)>() = 
-  inherit FscxInjectAspectVisitor(FscxInjectAspectVisitorImpl<'TAspect>.TypeName)
+type FscxInjectAspectVisitor<'TAspect(* when 'TAspect :> InjectAspect *), 'TContext when 'TContext: (new: unit -> 'TContext)>() = 
+  inherit FscxInjectAspectVisitor<'TContext>(FscxInjectAspectVisitorImpl<'TAspect>.TypeName)
