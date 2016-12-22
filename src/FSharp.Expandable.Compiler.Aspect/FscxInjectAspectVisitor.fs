@@ -23,6 +23,7 @@ namespace FSharp.Expandable
 
 open System
 open System.IO
+open System.Linq
 open System.Reflection
 open System.Text.RegularExpressions
 open FSharp.Expandable
@@ -33,7 +34,7 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 ////////////////////////////////////////////////////////////////
 
 [<Sealed; AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
-type internal FscxInjectAspectVisitorImpl<'TAspect> private () =
+type private FscxInjectAspectVisitorImpl<'TAspect> private () =
 
   static let typeName = typeof<'TAspect>.FullName
 
@@ -82,7 +83,8 @@ type internal FscxInjectAspectVisitorImpl<'TAspect> private () =
 type FscxInjectAspectVisitorContext<'TContext> = {
   SymbolInformation: FSharpCheckFileResults
   FilterArguments: Map<string, string[]>
-  CachedTargets: (Regex * Regex)[]
+  TargetAssemblies: Regex[]
+  AspectTargetCount: int
   Context: 'TContext
 }
 
@@ -185,11 +187,11 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
       identForSymbol funcExpr
     // Single symbol
     | SynExpr.Ident ident ->
-      Some (expr, ident.idText)
+      Some (expr, [ ident ], ident.idText)
     // Multiple structuring symbols
     | SynExpr.LongIdent (_, longIdent, _, _) ->
       let elements = longIdent.Lid |> List.map (fun i -> i.idText)
-      Some (expr, String.Join(".", elements))
+      Some (expr, longIdent.Lid, String.Join(".", elements))
     // Other, do not apply custom visitor.
     | _ ->
       None
@@ -249,6 +251,19 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
       (true,
        exprs |> List.mapi (fun index _ -> createIdent [getArgName index] zeroRange),
        zeroRange)
+
+  //////////////////////
+
+  static let getSymbolUseAtIdent (symbolInformation: FSharpCheckFileResults) (ids: Ident list) =
+    let head = ids |> Seq.map (fun id -> id.idRange) |> Seq.head
+    let last = ids |> Seq.map (fun id -> id.idRange) |> Enumerable.Last
+    let names = ids |> Seq.map (fun id -> id.idText) |> Seq.toList
+    let text = String.Join(".", names)
+    symbolInformation.GetSymbolUseAtLocation
+      (head.StartLine,
+       last.EndColumn,
+       text,
+       names)
 
   //////////////////////
 
@@ -402,23 +417,79 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
   override __.CreateContext(filterArguments, symbolInformation) =
     let targets =
       match filterArguments.TryFind "FSharp.Expandable.Compiler.Aspect" with
-      | Some args ->
-        args
-        |> Seq.map (fun value ->
-          value.Split([|':'|], StringSplitOptions.RemoveEmptyEntries)
-          |> Array.map (fun arg -> arg.Trim()))
-        |> Seq.choose (fun args ->
-          match args with
-          | [|fileName; functionName|] -> Some (fileName, functionName)
-          | _ -> None)
-      | None ->
-        [ (".*", ".*") ] |> seq   // Targetting for all source file and functions.
-    let cachedTargets =
+      | Some args -> args
+      | None -> [| ".*" |]  // Targetting for all source file and functions.
+    let targetAssemblies =
       targets
-      |> Seq.map (fun (fileName, functionName) -> new Regex(fileName, RegexOptions.Compiled), new Regex(functionName, RegexOptions.Compiled))
-      |> Seq.toArray
+      |> Array.map (fun matchExpr -> new Regex(matchExpr, RegexOptions.Compiled ||| RegexOptions.Singleline))
 
-    { FilterArguments = filterArguments; SymbolInformation = symbolInformation; CachedTargets = cachedTargets; Context = new 'TContext() }
+    { FilterArguments = filterArguments;
+      SymbolInformation = symbolInformation;
+      TargetAssemblies = targetAssemblies;
+      AspectTargetCount = 0;
+      Context = new 'TContext() }
+
+  /// <summary>
+  /// Hook "SynBinding.Binding" (Before visit)
+  /// </summary>
+  override __.BeforeVisitBinding_Binding
+     (context,
+      access,
+      bindingKind,
+      mustInline,
+      isMutable,
+      attributes,
+      xmlDoc,
+      item7,
+      headPat,
+      item9,
+      expr,
+      lhsRange,
+      spBind) =
+
+    let context =
+      // Check if applied attributes:
+      let found =
+        attributes.AsParallel().Any
+         (new Func<SynAttribute, bool>(fun attribute ->
+          // Binding expression has one or more attributes
+          let ids = attribute.TypeName.Lid
+          let result =
+            getSymbolUseAtIdent context.SymbolInformation ids
+            |> Async.RunSynchronously   // Cannot async wait
+          match result with
+          | Some symbolUse ->
+            // Duck-typed naming "AspectTargetAttribute"
+            // (Not required decision for where is assembly)
+            let name = symbolUse.Symbol.FullName
+            if name = "FSharp.Expandable.Compiler.AspectTargetAttribute" then
+              true
+            else
+              false
+          | _ -> false))
+
+      // Found AspectTargetAttribute
+      if found then
+        // Enter aspect block:
+        { context with AspectTargetCount = context.AspectTargetCount + 1 }
+      else
+        context
+
+    // Fallback default impls.
+    base.BeforeVisitBinding_Binding
+     (context,
+      access,
+      bindingKind,
+      mustInline,
+      isMutable,
+      attributes,
+      xmlDoc,
+      item7,
+      headPat,
+      item9,
+      expr,
+      lhsRange,
+      spBind)
 
   /// <summary>
   /// Hook "SynExpr.App" (Before visit)
@@ -431,31 +502,43 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
       argExpr,
       appRange) =
 
-    let inputFileName =
-      match base.Parents |> Seq.head with
-      | AstElement.Input(ParsedInput.ImplFile(ParsedImplFileInput(inputPath, _, _, _, _, _, _))) ->
-        Path.GetFileName inputPath
+    // This expr already applied "AspectTargetAttribute."
+    if context.AspectTargetCount >= 1 then
+      match funcExpr, (funcExpr, argExpr) with
+      | IdentForSymbol(identExpr, ids, symbolName), Arguments(deconstructedExprs, currying) ->
+        // Try lookup symbol to typed reference:
+        let result =
+          getSymbolUseAtIdent context.SymbolInformation ids
+          |> Async.RunSynchronously   // Cannot async wait
+        match result with
+        // Found:
+        | Some symbolUse ->
+          // Typed assembly name:
+          let qualifiedName = symbolUse.Symbol.Assembly.QualifiedName
+          let simpleName = symbolUse.Symbol.Assembly.SimpleName
+          let foundForQualified =
+            context.TargetAssemblies
+            |> Seq.exists (fun regex -> regex.IsMatch qualifiedName)
+          let found =
+            foundForQualified ||
+            (context.TargetAssemblies |> Seq.exists (fun regex -> regex.IsMatch simpleName))
+          if found then
+            // Deconstructed exprs visit manually.
+            // (funcExpr not visit, because IdentForSymbol traversed on original AST structures and decomposed identity.)
+            let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
+            // Insert aspect
+            this.InsertAspectToAppExpr(identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
+          else
+            // Continue visit
+            base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
+        | _ ->
+          // Continue visit
+          base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
       | _ ->
-        failwith ""
-
-    let functionNameRegex =
-      context.CachedTargets
-      |> Seq.choose (fun (fileNameRegex, functionNameRegex) ->
-        if fileNameRegex.IsMatch(inputFileName) then Some functionNameRegex else None)
-      |> Seq.tryHead
-
-    match funcExpr, (funcExpr, argExpr), functionNameRegex with
-    | IdentForSymbol(identExpr, symbolName), Arguments(deconstructedExprs, currying), Some functionNameRegex ->
-      if functionNameRegex.IsMatch(symbolName) then
-        // Deconstructed exprs visit manually.
-        // (funcExpr not visit, because IdentForSymbol traversed on original AST structures and decomposed identity.)
-        let visitedDeconstractedExprs = deconstructedExprs |> List.map (this.VisitExpr context)
-        // Insert aspect
-        this.InsertAspectToAppExpr(identExpr, symbolName, argExpr, visitedDeconstractedExprs, currying, appRange)
-      else
         // Continue visit
         base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
-    | _ ->
+
+    else
       // Continue visit
       base.BeforeVisitExpr_App(context, exprAtomicFlag, isInfix, funcExpr, argExpr, appRange)
 

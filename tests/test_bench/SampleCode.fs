@@ -21,13 +21,13 @@
 
 namespace FSharp.Expandable.Compiler
 
-open System
-
-[<AttributeUsage(AttributeTargets.Method)>]
+[<System.AttributeUsage(System.AttributeTargets.Method)>]
 type AspectTargetAttribute() =
-  inherit Attribute()
+  inherit System.Attribute()
 
 namespace SampleCode
+
+open FSharp.Expandable.Compiler
 
 module TestFunctions =
 
@@ -50,15 +50,19 @@ module TestFunctions =
 
 module AspectTargets1 =
 
+  [<AspectTarget>]
   let f11 (a: int, b: string, c: int) =
     TestFunctions.output1(a + c, b, 123.456)
 
+  [<AspectTarget>]
   let f12 (a: int, b: string, c: int) =
     TestFunctions.output2 (a + c) b 123.456
 
+  [<AspectTarget>]
   let f13 (a: int, b: string, c: int) =
     TestFunctions.output3 (a + c) b 123.456
 
+  [<AspectTarget>]
   let f14 () =
     TestFunctions.output4 ()
 
@@ -66,12 +70,15 @@ module AspectTargets1 =
 
 module AspectTargets2 =
 
+  [<AspectTarget>]
   let f21 (a: int) (b: string) (c: int) =
     TestFunctions.output1(a + c, b, 123.456)
 
+  [<AspectTarget>]
   let f22 (a: int) (b: string) (c: int) =
     TestFunctions.output2 (a + c) b 123.456
 
+  [<AspectTarget>]
   let f23 (a: int) (b: string) (c: int) =
     TestFunctions.output3 (a + c) b 123.456
 
@@ -79,11 +86,14 @@ module AspectTargets2 =
 
 module AspectTargets3 =
 
+  [<AspectTarget>]
   let f31 a b c =
     TestFunctions.output1(a + c, b, 123.456)
 
+  [<AspectTarget>]
   let f32 a b c =
     TestFunctions.output2 (a + c) b 123.456
 
+  [<AspectTarget>]
   let f33 a b c =
     TestFunctions.output3 (a + c) b 123.456
