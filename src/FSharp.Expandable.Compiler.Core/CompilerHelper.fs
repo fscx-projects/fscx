@@ -24,6 +24,7 @@ namespace FSharp.Expandable
 open System
 open System.Diagnostics
 open System.IO
+open System.Linq
 open System.Reflection
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -135,7 +136,7 @@ type CompilerHelper =
 
   /// For use testing only.
   static member UnsafeGetPreDefinedDefaultArguments targetRuntime visitorPaths sourceCodePaths =
-    let sourceCodePath = sourceCodePaths |> Seq.head
+    let sourceCodePath = sourceCodePaths |> Enumerable.Last
     let fileName = Path.GetFileNameWithoutExtension sourceCodePath
     let filePath = Path.Combine(Path.GetDirectoryName sourceCodePath, fileName)
     match targetRuntime with

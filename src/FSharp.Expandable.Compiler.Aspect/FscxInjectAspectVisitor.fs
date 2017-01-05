@@ -447,7 +447,7 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
       lhsRange,
       spBind) =
 
-    let context =
+    let newContext =
       // Check if applied attributes:
       let found =
         attributes.AsParallel().Any
@@ -477,7 +477,7 @@ type FscxInjectAspectVisitor<'TContext when 'TContext: (new: unit -> 'TContext)>
 
     // Fallback default impls.
     base.BeforeVisitBinding_Binding
-     (context,
+     (newContext,
       access,
       bindingKind,
       mustInline,
