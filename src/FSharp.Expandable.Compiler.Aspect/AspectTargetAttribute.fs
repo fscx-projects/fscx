@@ -24,9 +24,10 @@ namespace FSharp.Expandable
 open System
 
 /// <summary>
-/// This is attribute for identicate aspect target.
+/// This is an attribute for identicate aspect target.
 /// </summary>
-/// <remarks></remarks>
+/// <remarks>This attribute is duck-typed attribute type.
+/// So we can declare on your local code instead this type.</remarks>
 [<AttributeUsage(AttributeTargets.Method)>]
 type AspectTargetAttribute() =
   inherit Attribute()

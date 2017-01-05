@@ -19,81 +19,62 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-namespace FSharp.Expandable.Compiler
+// Sample codes senario:
+//   Insert aspection codes into "AspectTargets?" modules.
+//   NOT insert aspection any codes by "TestFunctions" module.
+//   These declarations are different for apply "AspectTargetAttribute."
 
-[<System.AttributeUsage(System.AttributeTargets.Method)>]
-type AspectTargetAttribute() =
-  inherit System.Attribute()
+//////////////////////////////////////////////////
 
 namespace SampleCode
 
 open FSharp.Expandable.Compiler
 
-module TestFunctions =
+module TestFunctions = 
 
-//  let test () =
-//    System.Console.WriteLine("output0: [||]", [||])
+    let output1 (a : int, b : string, c : double) = System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
+    let output2 (a : int) (b : string) (c : double) = System.Console.WriteLine("output2: {0}:{1}:{2}", a, b, c)
+    let output3 a b c = System.Console.WriteLine("output3: {0}:{1}:{2}", a, b, c)
+    let output4() = System.Console.WriteLine("output4: ()")
 
-  let output1 (a: int, b: string, c: double) =
-    System.Console.WriteLine("output1: {0}:{1}:{2}", a, b, c)
+//////////////
 
-  let output2 (a: int) (b: string) (c: double) =
-    System.Console.WriteLine("output2: {0}:{1}:{2}", a, b, c)
+module AspectTargets1 = 
 
-  let output3 a b c =
-    System.Console.WriteLine("output3: {0}:{1}:{2}", a, b, c)
+    [<AspectTarget>]
+    let f11 (a : int, b : string, c : int) = TestFunctions.output1 (a + c, b, 123.456)
+    
+    [<AspectTarget>]
+    let f12 (a : int, b : string, c : int) = TestFunctions.output2 (a + c) b 123.456
+    
+    [<AspectTarget>]
+    let f13 (a : int, b : string, c : int) = TestFunctions.output3 (a + c) b 123.456
+    
+    [<AspectTarget>]
+    let f14() = TestFunctions.output4()
 
-  let output4 () =
-    System.Console.WriteLine("output4: ()")
+//////////////
 
-  //////////////
+module AspectTargets2 = 
 
-module AspectTargets1 =
+    [<AspectTarget>]
+    let f21 (a : int) (b : string) (c : int) = TestFunctions.output1 (a + c, b, 123.456)
+    
+    [<AspectTarget>]
+    let f22 (a : int) (b : string) (c : int) = TestFunctions.output2 (a + c) b 123.456
+    
+    [<AspectTarget>]
+    let f23 (a : int) (b : string) (c : int) = TestFunctions.output3 (a + c) b 123.456
 
-  [<AspectTarget>]
-  let f11 (a: int, b: string, c: int) =
-    TestFunctions.output1(a + c, b, 123.456)
+//////////////
 
-  [<AspectTarget>]
-  let f12 (a: int, b: string, c: int) =
-    TestFunctions.output2 (a + c) b 123.456
+module AspectTargets3 = 
 
-  [<AspectTarget>]
-  let f13 (a: int, b: string, c: int) =
-    TestFunctions.output3 (a + c) b 123.456
-
-  [<AspectTarget>]
-  let f14 () =
-    TestFunctions.output4 ()
-
-  //////////////
-
-module AspectTargets2 =
-
-  [<AspectTarget>]
-  let f21 (a: int) (b: string) (c: int) =
-    TestFunctions.output1(a + c, b, 123.456)
-
-  [<AspectTarget>]
-  let f22 (a: int) (b: string) (c: int) =
-    TestFunctions.output2 (a + c) b 123.456
-
-  [<AspectTarget>]
-  let f23 (a: int) (b: string) (c: int) =
-    TestFunctions.output3 (a + c) b 123.456
-
-  //////////////
-
-module AspectTargets3 =
-
-  [<AspectTarget>]
-  let f31 a b c =
-    TestFunctions.output1(a + c, b, 123.456)
-
-  [<AspectTarget>]
-  let f32 a b c =
-    TestFunctions.output2 (a + c) b 123.456
-
-  [<AspectTarget>]
-  let f33 a b c =
-    TestFunctions.output3 (a + c) b 123.456
+    [<AspectTarget>]
+    let f31 a b c = TestFunctions.output1 (a + c, b, 123.456)
+    
+    [<AspectTarget>]
+    let f32 a b c = TestFunctions.output2 (a + c) b 123.456
+    
+    [<AspectTarget>]
+    let f33 a b c = TestFunctions.output3 (a + c) b 123.456

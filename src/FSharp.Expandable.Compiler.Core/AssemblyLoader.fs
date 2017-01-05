@@ -25,59 +25,48 @@ open System
 open System.IO
 open System.Reflection
 
-open Microsoft.FSharp.Compiler.SourceCodeServices
-open Microsoft.FSharp.Compiler.Ast.Visitors
-
-module internal AssemblyLoader =
-
-  /// <summary>
-  /// Include only referenced FSharp.Core.
-  /// </summary>
-  /// <remarks>Old implementation was "FSharp.Expandable.Compiler.Core" (fscx core),
-  /// changed because assembly referenced maybe indirectly to fscx core.</remarks>
-  let isTargetAssembly (assembly: Assembly) =
-    assembly.GetReferencedAssemblies()
-    |> Seq.exists (fun assembly -> assembly.FullName.StartsWith "FSharp.Core")
-
-  /// Include only visitor type.
-  let private declType = typeof<IDeclareFscxVisitor>
-  let isVisitorType (t: Type) =
-    (not t.IsAbstract) && declType.IsAssignableFrom t && (t.GetConstructor(Type.EmptyTypes) <> null)
-
-  /// Get local path from assembly.
-  let rawLocation (assembly: Assembly) =
-    let uri = new Uri(assembly.CodeBase)
-    uri.LocalPath
-
-  /// Exclude known standard assemblies (speed up)
-  let isTargetAssemblyName (path: string) =
-    let fileName = Path.GetFileNameWithoutExtension path
-    if fileName = "mscorlib" then
-      false
-    else if fileName = "System" then
-      false
-    else if fileName = "System.Core" then
-      false
-    else if fileName = "FSharp.Core" then
-      false
-    else if fileName.StartsWith "FSharp.Compiler.Service" then
-      false
-    else if fileName.StartsWith "FSharp.Expandable.Compiler" then
-      false
-    else
-      true
-
-  /// Safe load assembly into reflection only context.
-  let reflectionOnlyLoadFrom (path: string) =
-    try
-      Some (Assembly.ReflectionOnlyLoadFrom path)
-    with
-    | _ -> None
-
-  /// Safe load assembly into default context.
-  let loadFrom (path: string) =
-    try
-      Some (Assembly.LoadFrom path)
-    with
-    | _ -> None
-
+module internal AssemblyLoader = 
+    /// <summary>
+    /// Include only referenced FSharp.Core.
+    /// </summary>
+    /// <remarks>Old implementation was "FSharp.Expandable.Compiler.Core" (fscx core),
+    /// changed because assembly referenced maybe indirectly to fscx core.</remarks>
+    let isTargetAssembly (assembly : Assembly) = 
+        assembly.GetReferencedAssemblies()
+        |> Seq.exists (fun assembly -> assembly.FullName.StartsWith "FSharp.Core")
+    
+    /// Include only visitor type.
+    let private declType = typeof<IDeclareFscxVisitor>
+    
+    let isVisitorType (t : Type) = 
+        (not t.IsAbstract) &&
+        declType.IsAssignableFrom t &&
+        (t.GetConstructor(Type.EmptyTypes) <> null)
+    
+    /// Get local path from assembly.
+    let rawLocation (assembly : Assembly) = 
+        let uri = new Uri(assembly.CodeBase)
+        uri.LocalPath
+    
+    /// Exclude known standard assemblies (speed up)
+    let isTargetAssemblyName (path : string) = 
+        let fileName = Path.GetFileNameWithoutExtension path
+        if fileName = "mscorlib" then false
+        else if fileName = "System" then false
+        else if fileName = "System.Core" then false
+        else if fileName = "FSharp.Core" then false
+        else if fileName.StartsWith "FSharp.Compiler.Service" then false
+        else if fileName.StartsWith "FSharp.Expandable.Compiler" then false
+        else true
+    
+    /// Safe load assembly into reflection only context.
+    let reflectionOnlyLoadFrom (path : string) = 
+        try 
+            Some(Assembly.ReflectionOnlyLoadFrom path)
+        with _ -> None
+    
+    /// Safe load assembly into default context.
+    let loadFrom (path : string) = 
+        try 
+            Some(Assembly.LoadFrom path)
+        with _ -> None
