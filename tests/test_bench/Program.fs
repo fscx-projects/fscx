@@ -31,7 +31,7 @@ module Program =
     /// Minimal manually compile sample code for fscx.
     /// </summary>
     /// <remarks>
-    /// This code fragments are how to manually compile by using fscx for tests.
+    /// This code fragments are how to manually compile by using fscx for test usage.
     /// We are usually not using it, because fscx uses by MSBuild infrastructure normally.
     /// (fscx load for assemblies from NuGet packages (in VS solution's packages folder.)
     /// </remarks>
@@ -41,9 +41,10 @@ module Program =
         // Step1: Construct CompilerArguments by internal function.
         //   --> CompilerArguments is public class, so we can use constructor instead this function.
         let args = 
-            CompilerHelper.UnsafeGetPreDefinedDefaultArguments TargetRuntimes.Loaded [] 
-                ([ // Visitor paths is empty (not use): Apply visitors manually, see below.
-                   "SampleAspects.fs"; "SampleCode.fs" ] |> List.map Path.GetFullPath)
+            CompilerHelper.UnsafeGetPreDefinedDefaultArguments
+                TargetRuntimes.Loaded
+                []  // Visitor paths is empty (not use): In this case, apply visitors manually. see below.
+                ([ "SampleAspects.fs"; "SampleCode.fs" ] |> List.map Path.GetFullPath)
 
         // Step2: Set fscx filter arguments.
         //   --> Usually, filter arguments receives from MSBuild (in fsproj's properties.)

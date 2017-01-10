@@ -1,4 +1,4 @@
-# Expandable F# compiler (fscx)
+﻿# Expandable F# compiler (fscx)
 
 ![fscx-projects](https://raw.githubusercontent.com/fscx-projects/fscx/master/docs/files/img/fscx_128.png)
 
@@ -36,6 +36,12 @@ For developers who want to create filters, you need to install `FSharp.Expandabl
 Building architechture overall illustrated:
 
 ![Overall](https://github.com/fscx-projects/fscx/raw/master/docs/files/img/HowApplicableFscx/slide3.png)
+
+### Resources
+
+* Blog post: [About Expandable F# Compiler project - F# Advent Calendar in English 2016](http://www.kekyo.net/2016/12/23/6305)
+  * This post is 23th ["F# Advent Calendar in English 2016"](https://sergeytihon.wordpress.com/2016/10/23/f-advent-calendar-in-english-2016/)
+  * [(In japanese)](http://www.kekyo.net/2016/12/23/6263)
 
 ## Sample filter projects (For filter developer)
 
