@@ -100,7 +100,8 @@ type CompilerHelper =
                  logEntry.FileName, logEntry.Line, logEntry.Column, 
                  logEntry.Type.ToString().ToLowerInvariant(), 
                  (if String.IsNullOrWhiteSpace(logEntry.Code) then ""
-                  else (" " + logEntry.Code)), logEntry.Message)
+                  else (" " + logEntry.Code)),
+                 logEntry.Message.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " "))
 
         Compiler.asyncCompile logWriter arguments |> Async.RunSynchronously
     
