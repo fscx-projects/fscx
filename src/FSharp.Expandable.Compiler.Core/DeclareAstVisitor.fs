@@ -30,6 +30,17 @@ open Microsoft.FSharp.Compiler.SourceCodeServices
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
+/// Visitor raw context record. Contains context, FCS's check file results and filter arguments.
+/// </summary>
+/// <typeparam name="'TContext">Custom context type.</typeparam>
+type FscxVisitorContext<'TContext> = 
+    { Context : 'TContext
+      SymbolInformation : FSharpCheckFileResults
+      FilterArguments : Map<string, string []> }
+
+//////////////////////////////////////////////////////////////////////////////
+
+/// <summary>
 /// FSharp.Compiler.Service's untyped AST inheritable visitor.
 /// </summary>
 /// <typeparam name="'TContext">Custom context type.</typeparam>
@@ -76,7 +87,7 @@ type FscxInheritableVisitor<'TContext>() =
 /// </summary>
 [<AbstractClass; NoEquality; NoComparison; AutoSerializable(false)>]
 type FscxInheritableVisitor() = 
-    inherit FscxInheritableVisitor<NoContext>()
+    inherit FscxInheritableVisitor<FscxVisitorContext<NoContext>>()
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -132,17 +143,6 @@ type DeclareFscxInheritableVisitorBase<'TVisitor, 'TContext when 'TVisitor :> Fs
             this.Visit(filterArguments, symbolInformation, parsedInput)
 
 //////////////////////////////////////////////////////////////////////////////
-
-/// <summary>
-/// Visitor raw context record. Contains context, FCS's check file results and filter arguments.
-/// </summary>
-/// <typeparam name="'TContext">Custom context type.</typeparam>
-type FscxVisitorContext<'TContext> = 
-    { Context : 'TContext
-      SymbolInformation : FSharpCheckFileResults
-      FilterArguments : Map<string, string []> }
-
-//////////////////////////////////////
 
 /// <summary>
 /// Basic functional visitor base type.
