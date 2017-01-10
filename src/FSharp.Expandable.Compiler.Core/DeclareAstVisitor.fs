@@ -89,6 +89,17 @@ type FscxInheritableVisitor<'TContext>() =
 type FscxInheritableVisitor() = 
     inherit FscxInheritableVisitor<FscxVisitorContext<NoContext>>()
 
+    /// <summary>
+    /// Create context.
+    /// </summary>
+    /// <param name="filterArguments">Filter arguments.</param>
+    /// <param name="symbolInformation">Symbol information.</param>
+    /// <returns>Context instance</returns>
+    override __.CreateContext(filterArguments, symbolInformation) =
+        { Context = new NoContext();
+          SymbolInformation = symbolInformation;
+          FilterArguments = filterArguments }
+    
 //////////////////////////////////////////////////////////////////////////////
 
 /// <summary>
