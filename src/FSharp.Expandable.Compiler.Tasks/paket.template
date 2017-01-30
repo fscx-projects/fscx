@@ -27,7 +27,11 @@ description
 excludedependencies
     FSharp.Core
 dependencies
-    FSharp.Expandable.Compiler.Core >= 0.7.5
+    System.Reflection.Metadata >= LOCKEDVERSION
+    System.Collections.Immutable >= LOCKEDVERSION
+    FSharp.Compiler.Service >= LOCKEDVERSION
+    FSharp.Compiler.Service.Visitors >= LOCKEDVERSION
+    FSharp.Expandable.Compiler.Core >= 0.7.6
 files
     bin/Release/*.exe ==> build
     bin/Release/*.pdb ==> build

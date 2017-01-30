@@ -25,6 +25,8 @@ description
 excludedependencies
     FSharp.Core
 dependencies
+    System.Reflection.Metadata >= LOCKEDVERSION
+    System.Collections.Immutable >= LOCKEDVERSION
     FSharp.Compiler.Service >= LOCKEDVERSION
     FSharp.Compiler.Service.Visitors >= LOCKEDVERSION
 files
