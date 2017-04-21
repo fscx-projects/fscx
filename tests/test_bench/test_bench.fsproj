@@ -594,5 +594,4 @@
       </ItemGroup>
     </When>
   </Choose>
-  <Import Project="..\..\packages\CenterCLR.RelaxVersioner\build\CenterCLR.RelaxVersioner.targets" Condition="Exists('..\..\packages\CenterCLR.RelaxVersioner\build\CenterCLR.RelaxVersioner.targets')" Label="Paket" />
 </Project>

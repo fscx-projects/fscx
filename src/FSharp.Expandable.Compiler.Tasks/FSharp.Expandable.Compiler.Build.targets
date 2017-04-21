@@ -93,7 +93,8 @@
           WarningsAsErrors="$(WarningsAsErrors)"
           Win32ManifestFile="$(Win32Manifest)"
           Win32ResourceFile="$(Win32Resource)"
-          FscxDebug="$(FscxDebug)" />
+          FscxDebug="$(FscxDebug)"
+          FscxFilterArguments="@(FscxFilterArgument)"/>
 
     <ItemGroup>
       <_CoreCompileResourceInputs Remove="@(_CoreCompileResourceInputs)" />

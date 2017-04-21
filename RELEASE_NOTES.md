@@ -1,3 +1,7 @@
+#### 0.8.1 - 2017.4.21
+* Fixed bypass from MSBuild script's FscxFilterArgument properties into fscx.
+* Version bumper uses only Paket.
+
 #### 0.7.6 - 2017.1.30
 * WIP release
 

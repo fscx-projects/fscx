@@ -22,7 +22,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-
+using System.Linq;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using Microsoft.FSharp.Build;
@@ -65,6 +65,15 @@ namespace FSharp.Expandable.Compiler.Tasks
         }
 
         /// <summary>
+        /// Fscx filter arguments.
+        /// </summary>
+        public ITaskItem[] FscxFilterArguments
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Get tool name.
         /// </summary>
         /// <returns>Tool name.</returns>
@@ -82,8 +91,15 @@ namespace FSharp.Expandable.Compiler.Tasks
             var commands = base.GenerateCommandLineCommands();
 
             var builder = new CommandLineBuilder();
+
             builder.AppendSwitchIfNotNull("--projectPath:", this.ProjectPath);
             builder.AppendSwitchIfNotNull("--fscxDebug:", this.FscxDebug.ToString());
+
+            foreach (var item in this.FscxFilterArguments ?? Enumerable.Empty<ITaskItem>())
+            {
+                builder.AppendSwitchIfNotNull("--filterArgument", item);
+            }
+
             var arguments = builder.ToString() + " " + commands;
 
             Debug.WriteLine($"Fscx: arguments: {arguments}");

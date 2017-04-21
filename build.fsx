@@ -86,6 +86,8 @@ let (|Fsproj|Csproj|Vbproj|Shproj|) (projFileName:string) =
 Target "AssemblyInfo" (fun _ ->
     let getAssemblyInfoAttributes projectName =
         [ Attribute.Product summary
+          Attribute.Version release.AssemblyVersion
+          Attribute.FileVersion release.AssemblyVersion
           Attribute.Copyright ("Author: " + System.String.Join(", ", authors))
           Attribute.Company gitHome
           Attribute.Configuration configuration ]
@@ -408,7 +410,6 @@ Target "All" DoNothing
 #endif
   ==> "NuGet"
   ==> "BuildPackage"
-
 "CleanDocs"
   ==> "GenerateHelp"
   ==> "GenerateReferenceDocs"

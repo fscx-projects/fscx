@@ -4,13 +4,13 @@ source https://nuget.org/api/v2
 nuget FSharp.Core 4.0.0.1
 nuget FSharp.Compiler.Service 6.0.2
 nuget FSharp.Compiler.Service.Visitors
-nuget CenterCLR.RelaxVersioner
 
 group Build
   source https://api.nuget.org/v3/index.json
   source https://nuget.org/api/v2
   
   nuget SourceLink.Fake
+  nuget Persimmon.Console 1.2
   nuget FAKE
   nuget FAKE.Persimmon
   nuget FSharp.Formatting
@@ -21,5 +21,5 @@ group Test
   source https://api.nuget.org/v3/index.json
   source https://nuget.org/api/v2
   
-  nuget Persimmon
+  nuget Persimmon 1.2
   
