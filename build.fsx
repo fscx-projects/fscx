@@ -49,8 +49,8 @@ let tags = "F# fsharp compiler fsc fscx expand compile build ast"
 let solutionFile  = "fscx.sln"
 
 // Default target configuration
-let configuration = "Debug"
-//let configuration = "Release"
+//let configuration = "Debug"
+let configuration = "Release"
 
 // Pattern specifying assemblies to be tested using NUnit
 let testAssemblies = "tests/**/bin" </> configuration </> "*Tests*.dll"
