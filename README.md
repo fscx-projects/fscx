@@ -11,6 +11,7 @@ Expandable F# compiler (fscx) is an alternative F# compiler which enables to rep
 | NuGet (build) | [![NuGet fscx build](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.build.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Build) |
 |:----|:----:|
 | NuGet (core lib) | [![NuGet fscx core](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.Core.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Core) |
+| NuGet (aspect lib) | [![NuGet aspect lib](https://img.shields.io/nuget/v/FSharp.Expandable.Compiler.Aspect.svg?style=flat)](https://www.nuget.org/packages/FSharp.Expandable.Compiler.Aspect) |
 | CI (AppVeyor) | [![AppVeyor fscx](https://img.shields.io/appveyor/ci/kekyo/fscx/master.svg)](https://ci.appveyor.com/project/kekyo/fscx) |
 | Issue status | [![Issue Stats](http://issuestats.com/github/fscx-projects/fscx/badge/issue)](http://issuestats.com/github/fscx-projects/fscx) |
 | Pull req | [![PR Stats](http://issuestats.com/github/fscx-projects/fscx/badge/pr)](http://issuestats.com/github/fscx-projects/fscx) |
