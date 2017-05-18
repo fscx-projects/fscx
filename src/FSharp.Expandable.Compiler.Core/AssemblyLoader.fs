@@ -24,8 +24,10 @@ namespace FSharp.Expandable
 open System
 open System.IO
 open System.Reflection
+open System.Runtime.InteropServices
 
 module internal AssemblyLoader = 
+
     /// <summary>
     /// Include only referenced FSharp.Core.
     /// </summary>
@@ -70,3 +72,27 @@ module internal AssemblyLoader =
         try 
             Some(Assembly.LoadFrom path)
         with _ -> None
+
+    let getTypes (a: System.Reflection.Assembly) =
+        try
+            a.GetTypes()
+        with
+        | :? ReflectionTypeLoadException as exn ->
+            Utilities.debugMessageBox
+                (Error,
+                 "fscx (AssemblyLoader)",
+                 "Assembly: {0} [{1}]\r\n{2}\r\n===========\r\n{3}",
+                 a.FullName,
+                 a.Location,
+                 exn,
+                 (String.Join("\r\n-----------\r\n", exn.LoaderExceptions |> Seq.map (fun ex -> ex.ToString()))))
+            reraise()
+        | _ as exn ->
+            Utilities.debugMessageBox
+                (Error,
+                 "fscx (AssemblyLoader)",
+                 "Assembly: {0} [{1}]\r\n{2}",
+                 a.FullName,
+                 a.Location,
+                 exn.ToString())
+            reraise()

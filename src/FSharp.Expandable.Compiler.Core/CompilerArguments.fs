@@ -28,7 +28,7 @@ open System.IO
 /// </summary>
 type CompilerArguments
     (projectPath, outputPath, assemblyName, pdbPath, dependencies,
-     sourcePaths, optionArguments, visitorPaths, fscxDebug, filterArguments) = 
+     sourcePaths, optionArguments, packageBasePath, visitorPaths, fscxDebug, filterArguments) = 
 
     member val ProjectPath : string = projectPath with get, set
     member val OutputPath : string = outputPath with get, set
@@ -37,6 +37,7 @@ type CompilerArguments
     member val Dependencies : string seq = dependencies with get, set
     member val SourcePaths : string seq = sourcePaths with get, set
     member val OptionArguments : string seq = optionArguments with get, set
+    member val PackageBasePath : string = packageBasePath with get, set
     member val VisitorPaths : string seq = visitorPaths with get, set
     member val FscxDebug : bool = fscxDebug with get, set
     member val FilterArguments : Map<string, string []> = filterArguments with get, set
@@ -86,8 +87,11 @@ module internal CompilerArguments =
             |> Seq.map (fun arg -> arg.Trim())
             |> Seq.filter 
                    (fun arg -> 
-                   (arg.StartsWith "-") && not (arg.StartsWith "--projectPath:") 
-                   && not (arg.StartsWith "--visitorPath:") && not (arg.StartsWith "--fscxDebug:") 
+                   (arg.StartsWith "-")
+                   && not (arg.StartsWith "--projectPath:") 
+                   && not (arg.StartsWith "--packageBasePath:") 
+                   && not (arg.StartsWith "--visitorPath:")
+                   && not (arg.StartsWith "--fscxDebug:") 
                    && not (arg.StartsWith "--filterArgument:"))
             |> Seq.toArray
         
@@ -103,7 +107,12 @@ module internal CompilerArguments =
             match extractOptionPath "-o:" sanitized with
             | Some path -> path
             | None -> failwith "Require output path."
-        
+
+        let packageBasePath =
+            match extractOptionPath "--packageBasePath:" sanitized with
+            | Some path -> path
+            | None -> Path.Combine(projectPath, "..", "packages")
+                    
         let assemblyName = Path.GetFileNameWithoutExtension outputPath
         let pdbPath = Path.Combine(Path.GetDirectoryName outputPath, assemblyName + ".pdb")
         let dependencies = extractOptionValues "-r:" sanitized |> Seq.toArray
@@ -130,5 +139,5 @@ module internal CompilerArguments =
             |> Map.ofSeq
         
         new CompilerArguments(
-            projectPath, outputPath, assemblyName, pdbPath, dependencies, sourcePaths, optionArguments, 
-            visitorPaths, fscxDebug, filterArguments)
+            projectPath, outputPath, assemblyName, pdbPath, dependencies, sourcePaths, optionArguments,
+            packageBasePath, visitorPaths, fscxDebug, filterArguments)

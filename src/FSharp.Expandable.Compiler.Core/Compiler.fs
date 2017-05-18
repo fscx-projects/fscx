@@ -62,16 +62,17 @@ type Compiler =
     /// <summary>
     /// Filter visitor class expression.
     /// </summary>
+    /// <param name="basePath">Assembly search base path</param>
     /// <param name="paths">Assembly paths</param>
     /// <returns>Assembly paths of contains visitors</returns>
-    static member FilterVisitors(paths : string seq) = 
-        use r = new SafeResolver()
+    static member FilterVisitors (basePath: string) (paths : string seq) = 
+        use r = new SafeResolver(basePath)
         paths
         |> Seq.filter AssemblyLoader.isTargetAssemblyName
         |> Seq.choose AssemblyLoader.reflectionOnlyLoadFrom
         |> Seq.filter AssemblyLoader.isTargetAssembly
         |> Seq.choose (fun roa -> AssemblyLoader.loadFrom (AssemblyLoader.rawLocation roa))
-        |> Seq.filter (fun a -> a.GetTypes() |> Seq.exists AssemblyLoader.isVisitorType)
+        |> Seq.filter (fun a -> AssemblyLoader.getTypes a |> Seq.exists AssemblyLoader.isVisitorType)
         |> Seq.map AssemblyLoader.rawLocation
         |> Seq.toArray
     
@@ -120,7 +121,7 @@ type Compiler =
     /// Compile with filter assemblies.
     static member internal asyncCompile writer (arguments : CompilerArguments) = 
         async { 
-            use _ = new SafeResolver()
+            use _ = new SafeResolver(arguments.PackageBasePath)
             
             let visitors = 
                 arguments.VisitorPaths

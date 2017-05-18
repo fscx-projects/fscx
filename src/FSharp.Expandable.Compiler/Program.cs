@@ -35,6 +35,15 @@ namespace FSharp.Expandable
     /// </summary>
     internal static class Program
     {
+        [DllImport("user32", SetLastError = true, CharSet = CharSet.Unicode)]
+        private static extern int MessageBoxW(IntPtr hWnd, string text, string caption, int options);
+
+        [Conditional("DEBUG")]
+        private static void ShowMessageBox(string title, string format, params object[] args)
+        {
+            MessageBoxW(IntPtr.Zero, string.Format(format, args), title, 0x30);
+        }
+
         private static double ParseVersion(string version)
         {
             double value;
@@ -54,8 +63,11 @@ namespace FSharp.Expandable
             {
                 return Assembly.LoadFrom(path);
             }
-            catch
+            catch (Exception ex)
             {
+                ShowMessageBox(
+                    $"Fscx loader: {Process.GetCurrentProcess().Id}",
+                    "TryLoad: {0}", ex);
                 return null;
             }
         }
@@ -80,8 +92,11 @@ namespace FSharp.Expandable
                 var type = assembly.GetType("FSharp.Expandable.CompilerHelper");
                 mi = type.GetMethod("RunDefaultDriver");
             }
-            catch
+            catch (Exception ex)
             {
+                ShowMessageBox(
+                    $"Fscx loader: {Process.GetCurrentProcess().Id}",
+                    "TryLoadAndRun[0]: {0}", ex);
                 return null;
             }
 
@@ -90,7 +105,18 @@ namespace FSharp.Expandable
                 return null;
             }
 
-            return new RunResult((int)mi.Invoke(null, new object[] {packagesPath, args}));
+            try
+            {
+                var result = (int)mi.Invoke(null, new object[] {packagesPath, args});
+                return new RunResult(result);
+            }
+            catch (Exception ex)
+            {
+                ShowMessageBox(
+                    $"Fscx loader: {Process.GetCurrentProcess().Id}",
+                    "TryLoadAndRun[1]: {0}", ex);
+                return null;
+            }
         }
 
         private static string[] GetCandidateBaseFolderPath(
@@ -149,9 +175,6 @@ namespace FSharp.Expandable
 
             throw new FileNotFoundException($"{assemblyName}, {moniker}");
         }
-
-        [DllImport("user32", SetLastError = true, CharSet = CharSet.Unicode)]
-        private static extern int MessageBoxW(IntPtr hWnd, string text, string caption, int options);
 
         /// <summary>
         /// Main entry point.

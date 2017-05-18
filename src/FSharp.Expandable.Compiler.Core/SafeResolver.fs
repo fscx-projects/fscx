@@ -28,9 +28,11 @@ open System.Reflection
 
 [<Sealed; AutoSerializable(false); NoEquality; NoComparison>]
 type internal SafeResolver = 
+
+    val basePath : string
     
-    new() as this = 
-        { }
+    new(basePath: string) as this =
+        { basePath = basePath }
         then 
             let appDomain = AppDomain.CurrentDomain
             appDomain.add_AssemblyResolve (new ResolveEventHandler(this.Resolve))
@@ -39,10 +41,10 @@ type internal SafeResolver =
         let appDomain = AppDomain.CurrentDomain
         appDomain.GetAssemblies() |> Seq.filter isTargetAssembly
     
-    member private __.loadBySide (baseAssembly : Assembly) partialName = 
+    member private this.loadBySide (baseAssembly : Assembly) partialName = 
         let basePath = 
             match baseAssembly with
-            | null -> "."
+            | null -> this.basePath
             | _ -> Path.GetDirectoryName((new Uri(baseAssembly.CodeBase)).LocalPath)
         
         let path =
@@ -60,9 +62,22 @@ type internal SafeResolver =
             with exn -> 
                 Debug.WriteLine
                     (System.String.Format("SafeResolver: cannot load : {0} [{1}] [{2}]", partialName, path, exn.Message))
+                Utilities.debugMessageBox
+                    (Error,
+                     "fscx (SafeResolver)",
+                     "Assembly: {0} [{1}]\r\n{2}",
+                     partialName,
+                     path,
+                     exn.ToString())
                 None
         | _ -> 
-            Debug.WriteLine(System.String.Format("SafeResolver: assembly not found : {0} [{1}]", partialName, path))
+            Debug.WriteLine(System.String.Format("SafeResolver: assembly not found : {0} [{1}]", partialName, basePath))
+            Utilities.debugMessageBox
+                (Error,
+                    "fscx (SafeResolver)",
+                    "Assembly: {0} [Not found in: {1}]",
+                    partialName,
+                    basePath)
             None
     
     member private this.safeLoadBySide (baseAssembly : Assembly) partialName = 

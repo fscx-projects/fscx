@@ -69,6 +69,7 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Utilities.fs" />
     <Compile Include="AstUtilities.fs" />
     <Compile Include="DeclareAstVisitor.fs" />
     <Compile Include="CompilerArguments.fs" />

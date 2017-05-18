@@ -44,13 +44,13 @@ type CompilerHelper =
     /// <summary>
     /// Default compiler driver.
     /// </summary>
-    /// <param name="packagesPath">NuGet packages folder base path.</param>
+    /// <param name="packagesBasePath">NuGet packages folder base path.</param>
     /// <param name="args">Command line arguments.</param>
     /// <remarks>Easy way for using fscx.
     /// This method using for meaning nearly execution fscx.exe with command line arguments.
     /// Output messages are writing on console.
-    /// Visitor assembly auto crawling by NuGet package folder structures from the packagesPath argument.</remarks>
-    static member RunDefaultDriver packagesPath (args : string []) = 
+    /// Visitor assembly auto crawling by NuGet package folder structures from the packagesBasePath argument.</remarks>
+    static member RunDefaultDriver packagesBasePath (args : string []) = 
 
         // Extract arguments.
         let arguments = CompilerArguments.extract args
@@ -71,8 +71,8 @@ type CompilerHelper =
             //              +-- HogeFilter-1.0 --+-- build --+-- HogeFilter.dll   (Filter must place into "build" folder)
             //              +-- HagaFilter-1.0 --+-- build --+-- HagaFilter.dll
             let searchFolderBases = 
-                if Directory.Exists(packagesPath) then 
-                    Directory.EnumerateDirectories(packagesPath, "*", SearchOption.TopDirectoryOnly)
+                if Directory.Exists(packagesBasePath) then 
+                    Directory.EnumerateDirectories(packagesBasePath, "*", SearchOption.TopDirectoryOnly)
                     |> Seq.collect 
                         (fun packagePath -> 
                         Directory.EnumerateDirectories(packagePath, "build", SearchOption.TopDirectoryOnly))
@@ -84,7 +84,7 @@ type CompilerHelper =
                 |> Seq.collect 
                        (fun searchFolderBase -> 
                        Directory.EnumerateFiles(searchFolderBase, "*.dll", SearchOption.AllDirectories))
-                |> Compiler.FilterVisitors
+                |> Compiler.FilterVisitors packagesBasePath
 
 #if DEBUG
             visitorPaths |> Seq.iter Debug.WriteLine
@@ -119,7 +119,7 @@ type CompilerHelper =
            @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll" |]
 
     /// For use testing only.
-    static member UnsafeGetPreDefinedDefaultArguments targetRuntime visitorPaths sourceCodePaths = 
+    static member UnsafeGetPreDefinedDefaultArguments targetRuntime visitorPaths sourceCodePaths packagesBasePath = 
         let sourceCodePath = sourceCodePaths |> Enumerable.Last
         let fileName = Path.GetFileNameWithoutExtension sourceCodePath
         let filePath = Path.Combine(Path.GetDirectoryName sourceCodePath, fileName)
@@ -127,9 +127,17 @@ type CompilerHelper =
         match targetRuntime with
         | TargetRuntimes.FS4NET461 -> 
             new CompilerArguments
-                (filePath + ".fsproj", filePath + ".dll", fileName, filePath + ".pdb", 
-                 CompilerHelper.fs4net461Refs, sourceCodePaths, CompilerHelper.optionArgs, visitorPaths, 
-                 false, [] |> Map.ofSeq)
+                (filePath + ".fsproj",
+                 filePath + ".dll", 
+                 fileName, 
+                 filePath + ".pdb", 
+                 CompilerHelper.fs4net461Refs, 
+                 sourceCodePaths, 
+                 CompilerHelper.optionArgs,
+                 packagesBasePath, 
+                 visitorPaths, 
+                 false, 
+                 [] |> Map.ofSeq)
         | TargetRuntimes.Loaded -> 
             new CompilerArguments
                 (filePath + ".fsproj", filePath + ".dll", fileName, filePath + ".pdb", 
@@ -151,7 +159,12 @@ type CompilerHelper =
                             else Some codeBase
                         else Some codeBase
                     | _ -> None),
-                    sourceCodePaths, CompilerHelper.optionArgs, visitorPaths, false, [] |> Map.ofSeq)
+                    sourceCodePaths,
+                    CompilerHelper.optionArgs,
+                    packagesBasePath,
+                    visitorPaths,
+                    false,
+                    [] |> Map.ofSeq)
         | _ -> failwith "Unknown targetRuntime"
 
 ////////////////////////////////////////////////

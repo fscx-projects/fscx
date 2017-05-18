@@ -45,6 +45,7 @@ module Program =
                 TargetRuntimes.Loaded
                 []  // Visitor paths is empty (not use): In this case, apply visitors manually. see below.
                 ([ "SampleAspects.fs"; "SampleCode.fs" ] |> List.map Path.GetFullPath)
+                (Path.GetFullPath(Path.Combine("..", "..", "..", "..", "packages")))
 
         // Step2: Set fscx filter arguments.
         //   --> Usually, filter arguments receives from MSBuild (in fsproj's properties.)
