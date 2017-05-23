@@ -26,6 +26,7 @@ open System.Linq
 open System.Reflection
 open System.Text.RegularExpressions
 open FSharp.Expandable
+open FSharp.Expandable.Compiler
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
@@ -345,7 +346,7 @@ type FscxInjectAspectVisitor<'TContext when 'TContext : (new : unit -> 'TContext
                               // Duck-typed naming "AspectTargetAttribute"
                               // (Not required decision for where is assembly)
                               let name = symbolUse.Symbol.FullName
-                              if name = "FSharp.Expandable.Compiler.AspectTargetAttribute" then true
+                              if name = typeof<AspectTargetAttribute>.FullName then true
                               else false
                           | _ -> false))
             // Found AspectTargetAttribute
