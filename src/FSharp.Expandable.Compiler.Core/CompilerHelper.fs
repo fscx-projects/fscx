@@ -37,23 +37,27 @@ type TargetRuntimes =
 type CompilerHelper = 
     
     // "writer" is Action<T> because reduce all implicitly F#'s references publicity (ex: FSharpFunc<'T>).
-    static member RawCompileWithArguments writer arguments visitors = 
+    static member RawCompileWithArguments(writer, arguments, visitors) = 
         let internalWriter = Compiler.WrappedBridgedWriter(Compiler.fromAction writer)
         CompilerImpl.asyncCompile internalWriter arguments visitors |> Async.RunSynchronously
     
     /// <summary>
     /// Default compiler driver.
     /// </summary>
-    /// <param name="packagesBasePath">NuGet packages folder base path.</param>
+    /// <param name="packagesBasePath">NuGet packages folder base path. If value is None (null), path extracts become "--packageBasePath" argument.</param>
     /// <param name="args">Command line arguments.</param>
     /// <remarks>Easy way for using fscx.
     /// This method using for meaning nearly execution fscx.exe with command line arguments.
     /// Output messages are writing on console.
     /// Visitor assembly auto crawling by NuGet package folder structures from the packagesBasePath argument.</remarks>
-    static member RunDefaultDriver packagesBasePath (args : string []) = 
+    static member RunDefaultDriver(packagesBasePath, [<ParamArray>] args : string []) = 
 
         // Extract arguments.
         let arguments = CompilerArguments.extract args
+
+        // Override package base path.
+        if String.IsNullOrWhiteSpace(packagesBasePath) = false then
+            arguments.PackageBasePath <- packagesBasePath
 
         // If not giving visitor paths:
         if Seq.isEmpty arguments.VisitorPaths then 
@@ -119,7 +123,8 @@ type CompilerHelper =
            @"-r:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll" |]
 
     /// For use testing only.
-    static member UnsafeGetPreDefinedDefaultArguments targetRuntime visitorPaths sourceCodePaths packagesBasePath = 
+    static member UnsafeGetPreDefinedDefaultArguments(targetRuntime, visitorPaths, sourceCodePaths, packagesBasePath) = 
+
         let sourceCodePath = sourceCodePaths |> Enumerable.Last
         let fileName = Path.GetFileNameWithoutExtension sourceCodePath
         let filePath = Path.Combine(Path.GetDirectoryName sourceCodePath, fileName)

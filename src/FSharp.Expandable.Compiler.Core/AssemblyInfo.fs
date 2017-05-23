@@ -3,8 +3,8 @@ namespace System
 open System.Reflection
 
 [<assembly: AssemblyProductAttribute("Expandable F# compiler")>]
-[<assembly: AssemblyVersionAttribute("0.8.3")>]
-[<assembly: AssemblyFileVersionAttribute("0.8.3")>]
+[<assembly: AssemblyVersionAttribute("0.8.4")>]
+[<assembly: AssemblyFileVersionAttribute("0.8.4")>]
 [<assembly: AssemblyCopyrightAttribute("Author: Kouji Matsui, bleis-tift")>]
 [<assembly: AssemblyCompanyAttribute("https://github.com/fscx-projects")>]
 [<assembly: AssemblyConfigurationAttribute("Release")>]
@@ -12,8 +12,8 @@ do ()
 
 module internal AssemblyVersionInformation =
     let [<Literal>] AssemblyProduct = "Expandable F# compiler"
-    let [<Literal>] AssemblyVersion = "0.8.3"
-    let [<Literal>] AssemblyFileVersion = "0.8.3"
+    let [<Literal>] AssemblyVersion = "0.8.4"
+    let [<Literal>] AssemblyFileVersion = "0.8.4"
     let [<Literal>] AssemblyCopyright = "Author: Kouji Matsui, bleis-tift"
     let [<Literal>] AssemblyCompany = "https://github.com/fscx-projects"
     let [<Literal>] AssemblyConfiguration = "Release"

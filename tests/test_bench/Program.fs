@@ -42,10 +42,10 @@ module Program =
         //   --> CompilerArguments is public class, so we can use constructor instead this function.
         let args = 
             CompilerHelper.UnsafeGetPreDefinedDefaultArguments
-                TargetRuntimes.Loaded
-                []  // Visitor paths is empty (not use): In this case, apply visitors manually. see below.
-                ([ "SampleAspects.fs"; "SampleCode.fs" ] |> List.map Path.GetFullPath)
-                (Path.GetFullPath(Path.Combine("..", "..", "..", "..", "packages")))
+                (TargetRuntimes.Loaded,
+                 [],  // Visitor paths is empty (not use): In this case, apply visitors manually. see below.
+                 [ "SampleAspects.fs"; "SampleCode.fs" ] |> List.map Path.GetFullPath,
+                 Path.GetFullPath(Path.Combine("..", "..", "..", "..", "packages")))
 
         // Step2: Set fscx filter arguments.
         //   --> Usually, filter arguments receives from MSBuild (in fsproj's properties.)
@@ -60,4 +60,4 @@ module Program =
 
         // Step4: Execute fscx compiler.
         CompilerHelper.RawCompileWithArguments
-            (new Action<_>(dump)) args ([ declAspectVisitor ] |> Seq.cast<_>)
+            (new Action<_>(dump), args, [ declAspectVisitor ] |> Seq.cast<_>)
