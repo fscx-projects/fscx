@@ -1,14 +1,16 @@
 source https://api.nuget.org/v3/index.json
 source https://nuget.org/api/v2
 
-nuget FSharp.Core 4.0.0.1
-nuget FSharp.Compiler.Service 6.0.2
-nuget FSharp.Compiler.Service.Visitors
+nuget System.Collections.Immutable 1.3.1
+nuget System.Reflection.Metadata 1.4.2
+nuget FSharp.Core 4.1.17
+nuget FSharp.Compiler.Service 12.0.8
+nuget FSharp.Compiler.Service.Visitors 0.9.1
 
 group Build
   source https://api.nuget.org/v3/index.json
   source https://nuget.org/api/v2
-  
+
   nuget SourceLink.Fake
   nuget Persimmon.Console 1.2
   nuget FAKE
@@ -20,6 +22,5 @@ group Build
 group Test
   source https://api.nuget.org/v3/index.json
   source https://nuget.org/api/v2
-  
+
   nuget Persimmon 1.2
-  
