@@ -31,7 +31,7 @@ dependencies
     System.Collections.Immutable >= LOCKEDVERSION
     FSharp.Compiler.Service >= LOCKEDVERSION
     FSharp.Compiler.Service.Visitors >= LOCKEDVERSION
-    FSharp.Expandable.Compiler.Core >= 0.8.5
+    FSharp.Expandable.Compiler.Core >= 0.9.1
 files
     bin/Release/*.exe ==> build
     bin/Release/*.pdb ==> build

@@ -1,3 +1,9 @@
+#### 0.9.1 - 2017.5.24
+* Upgrade FSharp.Core to 4.1.17
+* Upgrade FCS to 12.0.8
+* Upgrade projects to VS2017
+* Upgrade Persimmon to 2.0.1
+
 #### 0.8.5 - 2017.5.23
 * WIP release
 

@@ -29,7 +29,7 @@ dependencies
     System.Collections.Immutable >= LOCKEDVERSION
     FSharp.Compiler.Service >= LOCKEDVERSION
     FSharp.Compiler.Service.Visitors >= LOCKEDVERSION
-    FSharp.Expandable.Compiler.Core >= 0.8.5
+    FSharp.Expandable.Compiler.Core >= 0.9.1
 files
     bin/Release/FSharp.Expandable.Compiler.Aspect.dll ==> lib/net45
     bin/Release/FSharp.Expandable.Compiler.Aspect.pdb ==> lib/net45
