@@ -12,9 +12,7 @@ group Build
   source https://nuget.org/api/v2
 
   nuget SourceLink.Fake
-  nuget Persimmon.Console 1.2
   nuget FAKE
-  nuget FAKE.Persimmon
   nuget FSharp.Formatting
 
   github fsharp/FAKE modules/Octokit/Octokit.fsx
@@ -23,4 +21,4 @@ group Test
   source https://api.nuget.org/v3/index.json
   source https://nuget.org/api/v2
 
-  nuget Persimmon 1.2
+  nuget NUnit
