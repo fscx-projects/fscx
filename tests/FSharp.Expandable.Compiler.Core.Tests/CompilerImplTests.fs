@@ -24,22 +24,22 @@ namespace FSharp.Expandable
 open System
 open System.Linq
 open System.IO
+open System.Reflection
+open System.Threading.Tasks
 
 open Microsoft.FSharp.Compiler.Ast
 open Microsoft.FSharp.Compiler.SourceCodeServices
 
-open Persimmon
-open Persimmon.Assertions
-open UseTestNameByReflection
+open NUnit.Framework
 
 open FSharp.Expandable
 
 module CompilerImplTests =
-  open System.Reflection
 
   ////////////////////////////////////////////////////////
 
-  let ``can read using asyncReadTextFile`` = test {
+  [<Test>]
+  let ``can read using asyncReadTextFile``() =
     let expected =
       System.String.Join("", Enumerable.Range(0, 100) |> Seq.map (fun _ -> Guid.NewGuid().ToString("N")))
 
@@ -49,19 +49,19 @@ module CompilerImplTests =
         File.WriteAllText(tempFilePath, expected)
 
         // Execute target function
-        return! CompilerImpl.asyncReadTextFile tempFilePath
+        let! body = CompilerImpl.asyncReadTextFile tempFilePath
 
+        do Assert.AreEqual(expected, body)
       finally
         File.Delete tempFilePath
     }
 
-    let! actual = asyncRun { it asyncTest }
-    do! assertEquals expected actual
-  }
+    asyncTest |> Async.StartAsTask :> Task
 
   ////////////////////////////////////////////////////////
 
-  let ``create valid source code descriptions`` = test {
+  [<Test>]
+  let ``create valid source code descriptions``() =
     let tempFilePaths =
       Enumerable.Range(0, 10)
       |> Seq.map (fun _ -> Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N")))
@@ -72,7 +72,7 @@ module CompilerImplTests =
 
     // assert path equality
     let actualPaths = actual |> Seq.map (fun desc -> desc.Path) |> Seq.toArray
-    do! assertEquals tempFilePaths actualPaths
+    Assert.AreEqual(tempFilePaths, actualPaths)
 
     // assert valid reader
     let createContent() =
@@ -82,19 +82,19 @@ module CompilerImplTests =
       |> Seq.map (fun path -> (path, createContent()))
       |> Seq.toArray
 
-    do entries
+    entries
       |> Seq.iter (fun (path, content) -> File.WriteAllText(path, content))
+
     try
       let readBodies =
         actual
         |> Seq.map (fun desc -> desc.AsyncReadBody() |> Async.RunSynchronously)
         |> Seq.toArray
-      do! assertEquals (entries |> Seq.map (fun (_, content) -> content) |> Seq.toArray) readBodies
+      Assert.AreEqual((entries |> Seq.map (fun (_, content) -> content) |> Seq.toArray), readBodies)
 
     finally
-      do tempFilePaths
+      tempFilePaths
         |> Seq.iter (fun path -> File.Delete path)
-  }
 
   ////////////////////////////////////////////////////////
 
@@ -125,7 +125,8 @@ module CompilerImplTests =
       "--subsystemversion:6.00";
       "--highentropyva+" |]
 
-  let ``create valid options`` = test {
+  [<Test>]
+  let ``create valid options``() =
 
     let projectPath = "C:\\PROJECT\\Test\\Test.fsproj"
     let sourcePaths =
@@ -137,9 +138,8 @@ module CompilerImplTests =
     let actual = 
       CompilerImpl.createOptions projectPath optionArgs sourcePaths
         
-    do! assertEquals projectPath actual.ProjectFileName
-    do! assertEquals (Seq.append optionArgs sourcePaths |> Seq.toArray) actual.OtherOptions
-  }
+    Assert.AreEqual(projectPath, actual.ProjectFileName)
+    Assert.AreEqual(Seq.append optionArgs sourcePaths |> Seq.toArray, actual.OtherOptions)
 
   ////////////////////////////////////////////////////////
 
@@ -177,7 +177,8 @@ module CompilerImplTests =
       if mi.GetParameters().Length >= 1 then ast.ToString()
       else mi.Invoke(ast, [||]) :?> string
 
-  let ``parse and apply single source code`` = test {
+  [<Test>]
+  let ``parse and apply single source code``() =
   
     let projectPath = Path.GetTempPath() + "test.fsproj"
     let outputPath = "output.dll"
@@ -188,21 +189,24 @@ module CompilerImplTests =
 
     let filter inputAst results =
       inputAst  // TODO: verify ast
+    
+    let asyncTestBody = async {
 
-    // Execute target function
-    let result, asts =
-      invokeParseAndApply
-        projectPath
-        outputPath
-        sourceCodeBody
-        filter
-      |> Async.RunSynchronously
+      // Execute target function
+      let! result, asts =
+        invokeParseAndApply
+          projectPath
+          outputPath
+          sourceCodeBody
+          filter
 
-    match result, asts with
-    | CompilerImpl.ParseAndApplyResult.Succeeded(_, ast), [|inputAst|] ->
-      let inputAstString = astToString inputAst
-      let astString = astToString ast
-      do! assertEquals inputAstString astString
-    | _ ->
-      do! fail "actual or inputAst is not valid"
-  }
+      match result, asts with
+      | CompilerImpl.ParseAndApplyResult.Succeeded(_, ast), [|inputAst|] ->
+        let inputAstString = astToString inputAst
+        let astString = astToString ast
+        do Assert.AreEqual(inputAstString, astString)
+      | _ ->
+        do Assert.Fail("actual or inputAst is not valid")
+    }
+ 
+    asyncTestBody |> Async.StartAsTask :> Task

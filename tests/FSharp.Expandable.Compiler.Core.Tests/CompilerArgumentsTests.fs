@@ -21,14 +21,8 @@
 
 namespace FSharp.Expandable
 
-open System
-open System.Linq
 open System.IO
-
-open Persimmon
-open Persimmon.Assertions
-open UseTestNameByReflection
-
+open NUnit.Framework
 open FSharp.Expandable
 
 module CompilerArgumentsTests =
@@ -70,35 +64,35 @@ module CompilerArgumentsTests =
       |> Seq.append [| "TestFSharpSampleCode1.fs"; "TestFSharpSampleCode2.fs" |]
       |> Seq.toArray
 
-  let ``parse argument strings`` = test {
+  [<Test>]
+  let ``parse argument strings``() =
     let result = CompilerArguments.extract args
-    do! assertEquals (Path.GetFullPath "Sample.fsproj") result.ProjectPath
-    do! assertEquals (Path.GetFullPath "output.dll") result.OutputPath
-    do! assertEquals (Path.GetFullPath "output.pdb") result.PdbPath
-    do! assertEquals "output" result.AssemblyName
-    do! assertEquals dependencies (result.Dependencies |> Seq.toArray)
-    do! assertEquals false result.FscxDebug
-    do! assertEquals [||] (result.VisitorPaths |> Seq.toArray)
+    Assert.AreEqual(Path.GetFullPath("Sample.fsproj"), result.ProjectPath)
+    Assert.AreEqual(Path.GetFullPath("output.dll"), result.OutputPath)
+    Assert.AreEqual(Path.GetFullPath("output.pdb"), result.PdbPath)
+    Assert.AreEqual("output", result.AssemblyName)
+    Assert.AreEqual(dependencies, result.Dependencies |> Seq.toArray)
+    Assert.IsFalse(result.FscxDebug)
+    Assert.IsEmpty(result.VisitorPaths)
 
     let expectedSourcePaths =
       [|Path.GetFullPath "TestFSharpSampleCode1.fs"; Path.GetFullPath "TestFSharpSampleCode2.fs"|]
-    do! assertEquals expectedSourcePaths (result.SourcePaths |> Seq.toArray)
-  }
+    Assert.AreEqual(expectedSourcePaths, result.SourcePaths |> Seq.toArray)
 
-  let ``parse fscxDebug true argument`` = test {
+  [<Test>]
+  let ``parse fscxDebug true argument``() =
     let result = CompilerArguments.extract (Seq.append args [| "--fscxDebug:true" |])
-    do! assertEquals true result.FscxDebug
-  }
+    Assert.IsTrue(result.FscxDebug)
 
-  let ``parse fscxDebug false argument`` = test {
+  [<Test>]
+  let ``parse fscxDebug false argument``() =
     let result = CompilerArguments.extract (Seq.append args [| "--fscxDebug:false" |])
-    do! assertEquals false result.FscxDebug
-  }
+    Assert.IsFalse(result.FscxDebug)
 
-  let ``parse visitorPath arguments`` = test {
+  [<Test>]
+  let ``parse visitorPath arguments``() =
     let visitorPathArgs = [| "--visitorPath:visitor1.dll"; "--visitorPath:visitor2.dll" |]
     let visitorPaths = [| Path.GetFullPath "visitor1.dll"; Path.GetFullPath "visitor2.dll" |]
     let result =
       CompilerArguments.extract (Seq.append args visitorPathArgs)
-    do! assertEquals visitorPaths (result.VisitorPaths |> Seq.toArray)
-  }
+    Assert.AreEqual(visitorPaths, result.VisitorPaths |> Seq.toArray)
