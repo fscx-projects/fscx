@@ -34,3 +34,4 @@ files
     bin/Release/FSharp.Expandable.Compiler.Aspect.dll ==> lib/net45
     bin/Release/FSharp.Expandable.Compiler.Aspect.pdb ==> lib/net45
     bin/Release/FSharp.Expandable.Compiler.Aspect.xml ==> lib/net45
+    bin/Release/FSharp.Expandable.Compiler.Aspect.dll.config ==> lib/net45

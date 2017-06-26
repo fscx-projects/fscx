@@ -1,3 +1,6 @@
+#### 0.9.3 - 2017.6.26
+* Upgrade FSharp.Core to 4.2.1
+
 #### 0.9.2 - 2017.5.24
 * Fixed failure binding redirect for FSharp.Core.
 

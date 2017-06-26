@@ -105,6 +105,10 @@ namespace FSharp.Expandable
                 return null;
             }
 
+            ShowMessageBox(
+                $"Fscx loader: {Process.GetCurrentProcess().Id}",
+                "TryLoadAndRun[1]: Before");
+
             try
             {
                 var result = (int)mi.Invoke(null, new object[] {packagesPath, args});
