@@ -16,4 +16,4 @@ rem   .paket\paket.exe update
 rem   packages\build\FAKE\tools\FAKE.exe init.fsx
 rem )
 
-packages\build\FAKE\tools\FAKE.exe build.fsx %*
+packages\FAKE.4.61.3\tools\FAKE.exe build.fsx %*
