@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>test_bench_resulter</RootNamespace>
     <AssemblyName>test_bench_resulter</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <Name>test_bench_resulter</Name>

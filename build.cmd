@@ -1,18 +1,19 @@
 @echo off
 cls
 
-.paket\paket.bootstrapper.exe
-if errorlevel 1 (
-  exit /b %errorlevel%
-)
+rem .paket\paket.bootstrapper.exe
+rem if errorlevel 1 (
+rem   exit /b %errorlevel%
+rem )
 
-.paket\paket.exe restore
-if errorlevel 1 (
-  exit /b %errorlevel%
-)
+rem .paket\paket.exe restore
+rem if errorlevel 1 (
+rem   exit /b %errorlevel%
+rem )
 
-IF NOT EXIST build.fsx (
-  .paket\paket.exe update
-  packages\build\FAKE\tools\FAKE.exe init.fsx
-)
+rem IF NOT EXIST build.fsx (
+rem   .paket\paket.exe update
+rem   packages\build\FAKE\tools\FAKE.exe init.fsx
+rem )
+
 packages\build\FAKE\tools\FAKE.exe build.fsx %*
